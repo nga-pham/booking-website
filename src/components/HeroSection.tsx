@@ -7,6 +7,8 @@ import serviceIcon from '../assets/service-icon.png';
 import HeroCard from "../components/ui/HeroCard";
 import moment from 'moment'; 
 import { useNavigate } from 'react-router-dom';
+
+// interface of data to pass to result page
 interface serviceProps {
     id: string;
     title: string;
@@ -37,12 +39,12 @@ const HeroSection = () => {
       };
 
     // Choose number of babies
-    const [numOfBabies, setNumOfBabies] = useState(0);
+    const [numOfBabies, setNumOfBabies] = useState(1);
     const incrementBabies = () => setNumOfBabies(numOfBabies + 1);
     const decrementBabies = () => setNumOfBabies(num => {
-        if (num > 0) {
+        if (num > 1) {
             return num - 1;
-        } else return 0;
+        } else return 1;
     });
 
     // Pass data to results page
@@ -52,6 +54,9 @@ const HeroSection = () => {
         "date": formattedDisplayDate,
         "numOfBabies": numOfBabies
     }
+    // TODO: if one property is empty, display tooltip to remind user
+
+    // else go to result page
     const gotoResults = () => { navigate("/results", { state: resultsState }) }
 
 

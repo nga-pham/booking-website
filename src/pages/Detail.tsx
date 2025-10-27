@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import nannies from "../nannies.json";
 import { Container, Row, Carousel, Col, Card, Button, Breadcrumb } from "react-bootstrap";
 import { Star } from 'lucide-react';
+import { useState } from 'react';
+
 
 const Detail = () => {
 
@@ -51,7 +53,10 @@ const Detail = () => {
             </>
         );
 
-    
+    // Show booking criteria to book
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShowOptions = () => setShow(true);
 
     return (
         <div className="min-h-screen">
@@ -110,6 +115,7 @@ const Detail = () => {
                             </Row>
                         </Col>
                         <Col lg={4}>
+                        {/** Show options here */}
                             <Card>
                                 <Card.Body>
                                     <h1 style={{ fontWeight: 'bold' }}>{currentNanny.name}</h1>
@@ -119,9 +125,14 @@ const Detail = () => {
                                         ({currentNanny.numberOfRating}) . {openOrCloseText}
                                         . <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{currentNanny.address + ', ' + currentNanny.district}</span>
                                     </p>
-                                    <Button variant="primary" size="lg" className="d-flex align-items-center gap-2 ms-sm-auto">
+                                    <Button variant="primary" size="lg" className="d-flex align-items-center gap-2 ms-sm-auto"
+                                    onClick={handleShowOptions}>
                                     Book now
                                     </Button>
+                                    <hr />
+
+                                    {/** TODO: booking result and checkout here */}
+
                                 </Card.Body>
                             </Card>
                         </Col>
