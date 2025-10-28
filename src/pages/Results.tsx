@@ -1,13 +1,19 @@
 ﻿import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Container, Row, Col, Button, CardGroup, Card, Form, Breadcrumb } from "react-bootstrap";
+import { Container, Row, Col, Button, CardGroup, Card, Form, Breadcrumb, ListGroup } from "react-bootstrap";
 import { useState } from 'react';
 import nannies from "../nannies.json"
-import { Star } from 'lucide-react';
+import { Star, Plus, Minus } from 'lucide-react';
+import serviceIcon from '../assets/service-icon.png';
+import moment from 'moment'; 
 
-// previous search criteria
-{/*{state ? <div>{`${state.service.id} ${state.service.title} ${state.date} ${state.numOfBabies}` }</div> : "no result" }*/ }
+
+const selectedServices = [
+    { id: "conf-nanny", title: "Confinement Nanny" },
+    { id: "adhoc", title: "One Time / Ad Hoc" },
+    { id: "recurring", title: "Recurring / Long-term" },
+]
 
 // add label and handle change for choosing districts
 // Group nannies by district
@@ -17,6 +23,34 @@ const Results = () => {
     // get selected service from landing page
     const location = useLocation();
     const { state } = location as any; // Destructure the state object from location : {id: string; title: string }
+
+    // Choose services from card group
+    const [selectedService, setSelectedService] = useState({ id: "", title: "" });
+    // handle change for choosing service
+    const handleServiceChange = (id) => {
+        selectedServices.map(item => {
+            if (item.id === id) {
+                setSelectedService(item)
+            }
+        })
+        console.log(selectedService)
+    };
+
+    // Choose date range
+    const [selectedDate, setSelectedDate] = useState('');
+    const formattedDisplayDate = selectedDate ? moment(selectedDate).format('DD-MM-YYYY') : '';
+    const handleDateChange = (e) => {
+        setSelectedDate(e.target.value);
+      };
+
+    // Choose number of babies
+    const [numOfBabies, setNumOfBabies] = useState(1);
+    const incrementBabies = () => setNumOfBabies(numOfBabies + 1);
+    const decrementBabies = () => setNumOfBabies(num => {
+        if (num > 1) {
+            return num - 1;
+        } else return 1;
+    });
 
     // add label and handle change for choosing name
     const [nameValue, setNameValue] = useState<string>(""); // Initial value for the name
@@ -61,9 +95,42 @@ const Results = () => {
             <Header />
 
             {/*result here*/}
+            {/* previous search criteria */}
             <section className="py-5">
                 <Container>
-                    <Row className="align-items-center g-5">Search here (services), date, number of babies</Row>
+                    <Row className="d-flex flex-row align-items-center g-5">
+                    {/*Simplified service selection and booking form*/}
+                    <ListGroup horizontal="md">
+                       {selectedServices.map((service) => {
+                           if (service.id === state.service.id) {
+                               return <ListGroup.Item variant="light" action onClick={() => handleServiceChange(service.id)}>{service.title}</ListGroup.Item>
+                           } else {
+                               return <ListGroup.Item action onClick={() => handleServiceChange(service.id)}>{service.title}</ListGroup.Item>
+                           }
+                       })}
+                    </ListGroup>
+                                    <div className="d-flex align-items-center gap-2 bg-light px-3 py-2 rounded-3">
+                                        {/* Date/Time picker */}
+                                        <Form.Group controlId="formDate">
+                                            <Form.Label>Select Date </Form.Label>
+                                            <Form.Control
+                                                type="date"
+                                                value={selectedDate}
+                                                onChange={handleDateChange}
+                                            />
+                                        </Form.Group>
+                                        {/* Number of babies selector */ }
+                                        <Plus style={{ cursor: "pointer", marginLeft: '2rem'}} onClick={incrementBabies}>+</Plus>
+                                        {numOfBabies} Babies
+                                        <Minus style={{ cursor: "pointer", }} onClick={decrementBabies}>-</Minus>
+                                        {/*go to results page*/}
+                                <Button variant="primary" size="lg" className="ml-2"
+                                    >
+                                    Search
+                                </Button>
+                                    </div>
+
+                    </Row>
                     <Row className="align-items-center g-5 mt-2">
                         <Breadcrumb>
                             <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
@@ -131,24 +198,24 @@ const Results = () => {
                                 {nannies.map((nanny, _idx) => (
                                     <Card key={_idx} className="m-2" style={{ minWidth: '18rem' }}>
                                         <Card.Img variant="top" src={nanny.photos} />
-                                        <Card.Body>
+                                        <Card.Body style={{textAlign: 'left'}}>
                                             <Card.Title>
-                                                <p style={{ color: '#000', textAlign: 'left' }}>{nanny.name}</p>
+                                                <p style={{ color: '#000'}}>{nanny.name}</p>
                                             </Card.Title>
-                                            <Card.Text style={{ color: '#000', textAlign: 'left', fontSize: '1rem' }}>
-                                                <p style={{ fontWeight: 'bold' }}>
-                                                    {nanny.rating}
+                                            <Card.Text style={{ color: '#000', fontSize: '1rem', fontWeight: 'bold' }}>
+                                                {nanny.rating}
                                                     <Star fill="orange" strokeWidth={0} size={12} style={{ marginBottom: '0.25rem' }} />
                                                     ({nanny.numberOfRating})
-                                                </p>
-                                                <p style={{ color: 'rgba(0, 0, 0, 0.5)' }}>
-                                                    {`${nanny.address ? nanny.address : ""}${nanny.district ? `, ${nanny.district}` : ""}`}</p>
-                                                <p>{nanny.experience} years experience</p>
-                                                <p>{nanny.services.map(skill => (
-                                                    <span key={skill} style={{ marginRight: '0.5rem', padding: '0.25rem 0.5rem', border: '1px solid #ccc', borderRadius: '0.25rem', fontSize: '0.875rem' }}>{skill}</span>
-                                                ))}</p>
                                             </Card.Text>
-                                            <Button variant="info" onClick={() => goToDetail(_idx)}>Book now</Button>
+                                            <Card.Text style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{`${nanny.address ? nanny.address : ""}${nanny.district ? `, ${nanny.district}` : ""}`}</Card.Text>
+                                            <Card.Text>{nanny.experience} years experience</Card.Text>
+                                            <Card.Text>
+                                                {nanny.services.map(skill => (
+                                                    <span key={skill} style={{ marginRight: '0.5rem', padding: '0.25rem 0.5rem', border: '1px solid #ccc', borderRadius: '0.25rem', fontSize: '0.875rem' }}>{skill}</span>
+                                                ))}
+                                            </Card.Text>
+                                            <Button variant="info" onClick={() => goToDetail(_idx)}>View detail</Button>
+                                            <div className="ml-2 mt-2"><Button variant="light">Book now</Button></div>
                                         </Card.Body>
                                     </Card>
                                 ))}
