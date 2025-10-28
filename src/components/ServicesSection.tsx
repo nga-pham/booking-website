@@ -22,18 +22,16 @@ const ServiceCard = ({
                       <Card.Img variant="top" src={photos} />
                       <Card.Body>
                         <Card.Title><p style={{color: '#000', textAlign: 'left'}}>{name}</p></Card.Title>
-                        <Card.Text style={{color: '#000', textAlign: 'left', fontSize: '1rem'}}>
-                    <p style={{ fontWeight: 'bold' }}>
+                        <Card.Text style={{color: '#000', textAlign: 'left', fontSize: '1rem', fontWeight: 'bold' }}>
                         {rating}
                         <Star fill="orange" strokeWidth={0} size={12} style={{ marginBottom: '0.25rem' }} />
                         ({numberOfRating})
-                    </p>
-                            <p style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{`${address ? address : ""}${district ? `, ${district}` : ""}`}</p>
-                            <p>{experience} years experience</p>
-                            <p>{services.map(skill => (
-                                <span key={skill} style={{marginRight: '0.5rem', padding: '0.25rem 0.5rem', border: '1px solid #ccc', borderRadius: '0.25rem', fontSize: '0.875rem'}}>{skill}</span>
-                            ))}</p>
                         </Card.Text>
+                        <Card.Text style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{`${address ? address : ""}${district ? `, ${district}` : ""}`}</Card.Text>
+                        <Card.Text style={{ color: '#000'}}>{experience} years experience</Card.Text>
+                        <Card.Text style={{ color: '#000'}}>{services.map(skill => (
+                                <span key={skill} style={{marginRight: '0.5rem', padding: '0.25rem 0.5rem', border: '1px solid #ccc', borderRadius: '0.25rem', fontSize: '0.875rem'}}>{skill}</span>
+                            ))}</Card.Text>
                       </Card.Body>
                     </Card>
     )
