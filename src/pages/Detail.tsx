@@ -2,10 +2,16 @@
 import Footer from "../components/Footer";
 import { useParams } from 'react-router-dom';
 import nannies from "../nannies.json";
-import { Container, Row, Carousel, Col, Card, Button, Breadcrumb, Modal, ListGroup } from "react-bootstrap";
+import { Container, Row, Carousel, Col, Card, Button, Breadcrumb, Modal, ListGroup, Form } from "react-bootstrap";
 import { Star } from 'lucide-react';
 import { useState } from 'react';
 
+interface chosenOptionProps {
+    services: string[];
+    additionalInfo: string[];
+    startTime: "";
+    endTime: "";
+}
 
 const Detail = () => {
 
@@ -57,6 +63,16 @@ const Detail = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShowOptions = () => setShow(true);
+
+    // Options that user choose when booking
+    const [chosenOption, setChosenOption] = useState<chosenOptionProps | null>({services: [], additionalInfo: [], startTime: "", endTime: ""})
+    let choosenServicesArray = new Array()
+    const addNewService = (service) => {
+        choosenServicesArray.push(service)
+        console.log(service)
+    console.log(choosenServicesArray)
+
+    }
 
     return (
         <div className="min-h-screen">
@@ -138,7 +154,7 @@ const Detail = () => {
                                             <h3 className="mt-2">Services</h3>
                                             <ListGroup>
                                                 {currentNanny.services.map(service => (
-                                                    <ListGroup.Item action variant="light">
+                                                    <ListGroup.Item action variant="light" onClick={() => addNewService(service)}>
                                                         {service}
                                                     </ListGroup.Item>
                                                 ))}
@@ -164,7 +180,9 @@ const Detail = () => {
                                         </Modal.Footer>
                                     </Modal>
                                     {/** TODO: booking result and checkout here */}
-
+                                    <Form>
+                                        
+                                    </Form>
                                 </Card.Body>
                             </Card>
                         </Col>

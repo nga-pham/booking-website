@@ -206,7 +206,7 @@ const Results = () => {
                                                 {nanny.rating}
                                                     <Star fill="orange" strokeWidth={0} size={12} style={{ marginBottom: '0.25rem' }} />
                                                     ({nanny.numberOfRating})
-                                            </Card.Text>
+                                            </Card.Text> 
                                             <Card.Text style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{`${nanny.address ? nanny.address : ""}${nanny.district ? `, ${nanny.district}` : ""}`}</Card.Text>
                                             <Card.Text>{nanny.experience} years experience</Card.Text>
                                             <Card.Text>
