@@ -11,7 +11,9 @@
       "https://images.fresha.com/locations/location-profile-images/2617591/4752689/9978c754-73ce-460b-998f-05b8ba5aa459-LSpaHaNoi-MassageGiudngsinh-VN-HNi-HNi-Fresha.jpg?class=gallery-modal-large&dpr=2&watermark=true",
       "https://images.fresha.com/locations/location-profile-images/2617591/4752693/c7b05a42-2627-4989-9b2b-c7716b1872ff-LSpaHaNoi-MassageGiDuDngSinh-VN-HNi-HNi-Fresha.jpg?class=gallery-modal-large&dpr=2&watermark=true"
     ],
+    "categories": [ "Body", "Massage" ],
     "district": "Hoàn Kiếm",
+    "about": "Lá Spa Ha Noi offers a tranquil escape where expert therapists provide a range of rejuvenating massages tailored to your needs. From the soothing touch of Aroma Massage to the invigorating experience of Deep Tissue Massage, each service promises to melt away stress and restore balance. With convenient amenities including showers and lockers, your relaxation journey begins the moment you step through the door.",
     "rating": 4.8,
     "numberOfRating": 120,
     "startTime": "08:00",
@@ -27,6 +29,18 @@
         "comment": "Very professional and caring.",
         "rating": 4.5
       }
-    ]
+    ],
+    "additionalInfo": [
+      "Instant Confirmation",
+      "Kid-friendly",
+      "Near public transport",
+      "Showers",
+      "Lockers",
+      "Bath towels",
+      "Environmentally friendly",
+      "Woman-owned"
+    ],
+    "recommended": true,
+    "dayToJoin": "2024-10-15"
   }
 ]

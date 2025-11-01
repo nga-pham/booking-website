@@ -81,7 +81,7 @@ const HeroSection = () => {
                     <div className="mb-4">
                         <h1 className="display-3 fw-bold mb-3">Book local beauty and wellness services</h1>
                     </div>
-                            <h3 className="mb-5 fw-medium"><b>400K+</b> appointment booked today</h3>
+                            <h3 className="mb-5 fw-medium"><b>400K+</b> appointments booked today</h3>
                     <Form className="w-100">
                         <div className="d-flex w-100 align-items-center rounded-pill bg-white shadow-sm p-2">
                             {/*input group to the left*/}
