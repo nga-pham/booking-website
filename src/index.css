@@ -66,3 +66,25 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.hero {
+    background-color: lightpink;
+}
+/*make dropdown button: background transparent, no outline, no arrow, text is black and no hightlight*/
+.dropdown-toggle {
+    background-color: transparent !important; /* Use !important if needed to override default Bootstrap styles */
+    box-shadow: none; /* Remove box-shadow if desired */
+}
+
+.no-outline-dropdown,
+.no-outline-dropdown:focus,
+.no-outline-dropdown:active {
+    outline: none !important;
+    box-shadow: none !important; /* Remove any potential box shadow on focus/active */
+    color: rgba(0,0,0,0.8) !important;
+    text-decoration: none !important;
+    -webkit-text-decoration: inherit;
+}
+.dropdown-toggle::after {
+    display: none !important;
+}
