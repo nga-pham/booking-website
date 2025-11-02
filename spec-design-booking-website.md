@@ -60,7 +60,7 @@ User then can look at each shop, see if shop is a match, choose it to see detail
 When user clicks button "Book now", the system will redirect to detail page with booking section.
 ### 5. Detail page
 (booking detail page)
-### Booking and payment pages
+### 6. Booking and payment pages
 After completing it, user will click button "Continue". Their information will be saved in the system and they will be redirected to payment page.
 A payment form will appear, showing that they should fill in a detail form (first name, last name, email address, id number, etc...), and button "send request". 
 Their information will be saved in the system and they will be redirected to payment page.
