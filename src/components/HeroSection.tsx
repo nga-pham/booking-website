@@ -1,36 +1,60 @@
 ﻿import { useState } from "react";
-import { Container, Row, Col, Button, CardGroup, Form, InputGroup, Dropdown } from "react-bootstrap";
-import { ChevronRight, Plus, Minus, Search, MapPinned, Calendar, Timer } from "lucide-react";
-import serviceIcon from '../assets/service-icon.png';
-import HeroCard from "../components/ui/HeroCard";
+import { Container, Row, Button, Form, InputGroup, Dropdown } from "react-bootstrap";
+import { ChevronRight, Search, Calendar, Timer, Eye, HandHeart, Sparkles, Bath, Palette, Flame, Hand, MapPin, LucideIcon } from "lucide-react";
 import moment from 'moment'; 
 import { useNavigate } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import TimePicker from 'react-bootstrap-time-picker';
+import servicesData from "../data/services.json";
 
 // interface of data to pass to result page
 interface serviceProps {
-    id: string;
     title: string;
 }
 
 interface resultsStateProps {
-    service: serviceProps;
+    category: serviceProps;
     date: string;
-    numOfBabies: number;
 }
 
-const selectedServices = [
-    { id: "conf-nanny", title: "Confinement Nanny" },
-    { id: "adhoc", title: "One Time / Ad Hoc" },
-    { id: "recurring", title: "Recurring / Long-term" },
-]
+// interface of dropdown items
+interface DropdownItemProps {
+    icon: LucideIcon;
+    title: string;
+    onClick?: () => void;
+}
+// Map categories to lucide-react icons
+const categoryIconMap: Record<string, LucideIcon> = {
+    "Eyebrows and eyelashes": Eye,
+    "Massage": HandHeart,
+    "Nail": Hand,
+    "Body": Sparkles,
+    "Spa packages": Bath,
+    "Makeup": Palette,
+    "Waxing": Flame,
+};
 
 const HeroSection = () => {
 
-    // Choose services from card group
-    const [selectedService, setSelectedService] = useState({ id: "", title: "" });
+    // Choose services from dropdown
+    // Extract all unique categories from the services data
+    const allCategories = servicesData.flatMap(venue => venue.categories);
+    const uniqueCategories = [...new Set(allCategories)].sort();
+    // set selected category
+    const [selectedCat, setSelectedCat] = useState({ title: "All treatments and venues" });
+    const changeSelectedCategory = (category: serviceProps) => {
+        setSelectedCat(category);
+    }
+    const DropdownItem = ({ icon: Icon, title }: DropdownItemProps) => {
+        const category: serviceProps = { title: title };
+        return (
+            <Dropdown.Item onClick={() => changeSelectedCategory(category)}>
+                <Icon className="me-2" />{title}
+            </Dropdown.Item>
+        )
+    }
+    
 
     // Choose date range
     const [selectedDate, setSelectedDate] = useState('');
@@ -52,21 +76,11 @@ const HeroSection = () => {
         setEndTime(timeNumber)
     }
 
-    // Choose number of babies
-    const [numOfBabies, setNumOfBabies] = useState(1);
-    const incrementBabies = () => setNumOfBabies(numOfBabies + 1);
-    const decrementBabies = () => setNumOfBabies(num => {
-        if (num > 1) {
-            return num - 1;
-        } else return 1;
-    });
-
     // Pass data to results page
     const navigate = useNavigate();
     const resultsState: resultsStateProps = {
-        "service": selectedService,
+        "category": selectedCat,
         "date": formattedDisplayDate,
-        "numOfBabies": numOfBabies
     }
     // TODO: if one property is empty, display tooltip to remind user
 
@@ -81,7 +95,7 @@ const HeroSection = () => {
                     <div className="mb-4">
                         <h1 className="display-3 fw-bold mb-3">Book local beauty and wellness services</h1>
                     </div>
-                            <h3 className="mb-5 fw-medium"><b>400K+</b> appointments booked today</h3>
+                            <h3 className="mb-5 fw-medium"><strong>400K+</strong> appointments booked today</h3>
                     <Form className="w-100">
                         <div className="d-flex w-100 align-items-center rounded-pill bg-white shadow-sm p-2">
                             {/*input group to the left*/}
@@ -91,12 +105,27 @@ const HeroSection = () => {
                                 <InputGroup.Text className="border-0 bg-transparent">
                                     <Search />
                                 </InputGroup.Text>
-                                <Form.Control
-                                    type="text"
-                                    placeholder="All treatments and venues"
-                                    className="form-control border-0 bg-transparent"
-                                    style={{ flex: '0 0 480px', width: '480px', maxWidth: '600px' }} // ensure it does not grow
-                                />
+                                <Dropdown>
+                                    <Dropdown.Toggle variant="light" id="dropdown-basic">
+                                        {selectedCat.title}
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu
+                                        className="p-2 shadow-lg border"
+                                        style={{
+                                            zIndex: 9999,
+                                            minWidth: "320px",
+                                            backgroundColor: "white"
+                                        }}
+                                    >
+                                        {uniqueCategories.map((category, index) => {
+                                            const Icon = categoryIconMap[category] || Sparkles;
+                                            return (
+                                                <DropdownItem key={index} icon={Icon} title={category} />
+                                            )
+                                        }
+                                        )}
+                                    </Dropdown.Menu>
+                                </Dropdown>
 
                                 {/*date picker*/}
                                 <div className="vr"></div> {/* This creates the vertical line */}
@@ -151,8 +180,8 @@ const HeroSection = () => {
                                 Search <ChevronRight size={20} />
                             </Button>
                         </div>
-                        
                     </Form>
+
                 </Row>
             </Container>
         </section>
