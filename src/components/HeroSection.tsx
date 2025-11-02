@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import TimePicker from 'react-bootstrap-time-picker';
 import servicesData from "../data/services.json";
+import { toast } from 'sonner';
 
 // interface of data to pass to result page
 interface resultsStateProps {
@@ -60,11 +61,11 @@ const HeroSection = () => {
     const formattedDisplayDate = date ? moment(date).format('DD-MM-YYYY') : '';
 
     // choose time range
-    const [startTime, setStartTime] = useState('00:00')
+    const [startTime, setStartTime] = useState<string>("00:00")
     const changeStartTime = (timeNumber: any) => {
         setStartTime(timeNumber)
     }
-    const [endTime, setEndTime] = useState("23:00")
+    const [endTime, setEndTime] = useState<string>("23:00")
     const changeEndTime = (timeNumber: any) => {
         setEndTime(timeNumber)
     }
@@ -76,11 +77,23 @@ const HeroSection = () => {
         "category": selectedCat === "All treatments and venues" ? Array.from(uniqueCategories) : [selectedCat],
         "date": formattedDisplayDate,
     }
-    // TODO: if one property is empty, display tooltip to remind user
 
-    // else go to result page
-    const gotoResults = () => { navigate("/results", { state: resultsState }) }
-    console.log(resultsState);
+    const isEndTimeBeforeStartTime = (start: string, end: string): boolean => {
+        if (Number(endTime) - Number(startTime) < 0) return true;
+        else return false;
+    }
+    
+    const gotoResults = () => {
+        // if end time is before start time, show error toast
+        if (isEndTimeBeforeStartTime(startTime, endTime)) {
+            toast.error("End time cannot be before start time!", {duration: 3000});
+            console.log("End time cannot be before start time!");
+        // else go to result page
+        } else {
+            //navigate("/results", { state: resultsState })
+        }
+    }
+    console.log(resultsState, startTime, endTime);
 
     return (
         <section className="py-5 hero">
@@ -111,7 +124,8 @@ const HeroSection = () => {
                                             backgroundColor: "white"
                                         }}
                                     >
-                                        <DropdownItem icon={Rows4 } category="All treatments and venues" />
+                                        <DropdownItem icon={Rows4} category="All treatments and venues" />
+                                        <hr />
                                         {uniqueCategories.map((category, index) => {
                                             const Icon = categoryIconMap[category] || Sparkles;
                                             return (

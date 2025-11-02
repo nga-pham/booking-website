@@ -1,6 +1,5 @@
 import './App.css'
-import { Toaster } from "../src/components/ui/toaster";
-import { Toaster as Sonner } from "../src/components/ui/sooner";
+import { Toaster} from 'sonner';
 import { TooltipProvider } from "../src/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
@@ -10,8 +9,7 @@ import Detail from "../src/pages/Detail";
 
 const App = () => (
     <TooltipProvider>
-        {/*<Toaster />
-        <Sonner />*/}
+        <Toaster position="bottom-right" richColors />
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Index />} />
