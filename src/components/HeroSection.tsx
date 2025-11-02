@@ -1,6 +1,6 @@
 ﻿import { useState } from "react";
 import { Container, Row, Button, Form, InputGroup, Dropdown } from "react-bootstrap";
-import { ChevronRight, Search, Calendar, Timer, Eye, HandHeart, Sparkles, Bath, Palette, Flame, Hand, MapPin, LucideIcon } from "lucide-react";
+import { ChevronRight, Search, Calendar, Timer, Eye, HandHeart, Sparkles, Bath, Palette, Flame, Hand, Rows4 , LucideIcon } from "lucide-react";
 import moment from 'moment'; 
 import { useNavigate } from 'react-router-dom';
 import DatePicker from "react-datepicker";
@@ -9,19 +9,15 @@ import TimePicker from 'react-bootstrap-time-picker';
 import servicesData from "../data/services.json";
 
 // interface of data to pass to result page
-interface serviceProps {
-    title: string;
-}
-
 interface resultsStateProps {
-    category: serviceProps;
+    category: string[];
     date: string;
 }
 
 // interface of dropdown items
 interface DropdownItemProps {
     icon: LucideIcon;
-    title: string;
+    category: string;
     onClick?: () => void;
 }
 // Map categories to lucide-react icons
@@ -42,51 +38,49 @@ const HeroSection = () => {
     const allCategories = servicesData.flatMap(venue => venue.categories);
     const uniqueCategories = [...new Set(allCategories)].sort();
     // set selected category
-    const [selectedCat, setSelectedCat] = useState({ title: "All treatments and venues" });
-    const changeSelectedCategory = (category: serviceProps) => {
+    const [selectedCat, setSelectedCat] = useState<string>("All treatments and venues");
+    const changeSelectedCategory = (category: string) => {
         setSelectedCat(category);
     }
-    const DropdownItem = ({ icon: Icon, title }: DropdownItemProps) => {
-        const category: serviceProps = { title: title };
+    const DropdownItem = ({ icon: Icon, category }: DropdownItemProps) => {
         return (
             <Dropdown.Item onClick={() => changeSelectedCategory(category)}>
-                <Icon className="me-2" />{title}
+                <Icon className="me-2" />{category}
             </Dropdown.Item>
         )
     }
     
 
     // Choose date range
-    const [selectedDate, setSelectedDate] = useState('');
-    const formattedDisplayDate = selectedDate ? moment(selectedDate).format('DD-MM-YYYY') : '';
-    const handleDateChange = (e) => {
-        setSelectedDate(e.target.value);
-      };
-
-    const [date, setDate] = useState(new Date());
-    const changeDate = (value) => {
+    const [date, setDate] = useState<Date | null>(new Date());
+    const changeDate = (value: Date | null) => {
         setDate(value);
     };
-    const [startTime, setStartTime] = useState(0)
-    const changeStartTime = (timeNumber) => {
+    // Format date for display as "dd-mm-yyyy"
+    const formattedDisplayDate = date ? moment(date).format('DD-MM-YYYY') : '';
+
+    // choose time range
+    const [startTime, setStartTime] = useState('00:00')
+    const changeStartTime = (timeNumber: any) => {
         setStartTime(timeNumber)
     }
     const [endTime, setEndTime] = useState("23:00")
-    const changeEndTime = (timeNumber) => {
+    const changeEndTime = (timeNumber: any) => {
         setEndTime(timeNumber)
     }
 
     // Pass data to results page
     const navigate = useNavigate();
     const resultsState: resultsStateProps = {
-        "category": selectedCat,
+        // all categories or just the selected one
+        "category": selectedCat === "All treatments and venues" ? Array.from(uniqueCategories) : [selectedCat],
         "date": formattedDisplayDate,
     }
     // TODO: if one property is empty, display tooltip to remind user
 
     // else go to result page
     const gotoResults = () => { navigate("/results", { state: resultsState }) }
-
+    console.log(resultsState);
 
     return (
         <section className="py-5 hero">
@@ -107,7 +101,7 @@ const HeroSection = () => {
                                 </InputGroup.Text>
                                 <Dropdown>
                                     <Dropdown.Toggle variant="light" id="dropdown-basic">
-                                        {selectedCat.title}
+                                        {selectedCat}
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu
                                         className="p-2 shadow-lg border"
@@ -117,23 +111,29 @@ const HeroSection = () => {
                                             backgroundColor: "white"
                                         }}
                                     >
+                                        <DropdownItem icon={Rows4 } category="All treatments and venues" />
                                         {uniqueCategories.map((category, index) => {
                                             const Icon = categoryIconMap[category] || Sparkles;
                                             return (
-                                                <DropdownItem key={index} icon={Icon} title={category} />
+                                                <DropdownItem key={index} icon={Icon} category={category} />
                                             )
                                         }
                                         )}
                                     </Dropdown.Menu>
                                 </Dropdown>
 
-                                {/*date picker*/}
+                                {/*date picker*/} 
                                 <div className="vr"></div> {/* This creates the vertical line */}
                                 <InputGroup.Text className="border-0 bg-transparent">
                                     <Calendar />
                                 </InputGroup.Text>
                                 <div className="mt-1">
-                                    <DatePicker selected={date} onChange={changeDate} className="form-control border-0 bg-white" />
+                                    <DatePicker
+                                        selected={date}
+                                        onChange={changeDate}
+                                        className="form-control border-0 bg-white"
+                                        dateFormat="dd-MM-yyyy"
+                                    />
                                 </div>
 
                                 {/*time picker*/}
