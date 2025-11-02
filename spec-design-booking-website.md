@@ -1,13 +1,16 @@
 # Requirement
 We need to create a list of shops and connect them with potential users. We already have connections. The idea is similar to booking.com or Agoda page
+
 # System analysis and design for booking website
 The website consists of 6 pages, a header and a footer
+
 ## 1. Landing page
 The most important page, consists of 7 sections: header, footer and the following main sections:
-### 1.1. Hero section
+
+* ### 1.1. Hero section
 Include a place to advertise, and a booking form for customers to book services. 
-* To advertise the page: change background image, use title, subtitle...
-* To book services: booking form with: services (body, massage...), date picker, time picker, in pill styles. And button "Search".
+- To advertise the page: change background image, use title, subtitle...
+- To book services: booking form with: services (body, massage...), date picker, time picker, in pill styles. And button "Search".
 User can choose services from dropdown list. Default is "All treatments and venues". If user choose it, they will choose all services.
 User can choose date from date picker. Default is today’s date.
 User can choose time from time picker. Default start time is "00:00" and end time is "24:00".
@@ -28,14 +31,14 @@ Each cards contains the same information as above.
 ### 1.4. Testimonials
 A place to show the reviews from customers (mostly positive reviews). Should be shown as a slideshow of cards. Each card contains: image and name of customer, his review, his star rating.
 
-### 2. Header
+## 2. Header
 A logo redirect to home page
 A menu: 
 * FAQ
 * Contact / About us
 * Become a partner
 
-### 3. Footer
+## 3. Footer
 Contain 4 sections:
 * Section 1: a logo and information (phone, address…)
 * Section 2: link to social network
@@ -55,17 +58,9 @@ In main section:
 * The options are on the right, are a list of shops, each with basic information, the same as in hero section. 
 User then can look at each shop, see if shop is a match, choose it to see details (redirect to detail page). Or a button "Book now" to book directly.
 When user clicks button "Book now", the system will redirect to detail page with booking section.
-
+### 5. Detail page
 (booking detail page)
-
+### Booking and payment pages
 After completing it, user will click button "Continue". Their information will be saved in the system and they will be redirected to payment page.
-
-### If signed in needed
-
-### if we don't need authentication
-
 A payment form will appear, showing that they should fill in a detail form (first name, last name, email address, id number, etc...), and button "send request". 
 Their information will be saved in the system and they will be redirected to payment page.
-
-## 6. “Contact us” page + FAQ
-
