@@ -1,40 +1,26 @@
-﻿import { useState } from "react";
-import { Container, Row, Button, Form, InputGroup, Dropdown } from "react-bootstrap";
-import { ChevronRight, Search, Calendar, Timer, Eye, HandHeart, Sparkles, Bath, Palette, Flame, Hand, Rows4 , LucideIcon } from "lucide-react";
-import moment from 'moment'; 
-import { useNavigate } from 'react-router-dom';
+﻿import { Calendar, ChevronRight, Rows4, Search, Sparkles, Timer } from "lucide-react";
+import { useState } from "react";
+import { Button, Container, Dropdown, Form, InputGroup, Row } from "react-bootstrap";
+import TimePicker from 'react-bootstrap-time-picker';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import TimePicker from 'react-bootstrap-time-picker';
-import servicesData from "../data/services.json";
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+import DropdownItem, { categoryIconMap } from '../components/ui/SearchDropdownItem';
+import servicesData from "../data/services.json";
+
 
 // interface of data to pass to result page
 interface resultsStateProps {
     category: string[];
-    date: string;
+    date: Date | null;
+    startTime: number | 0;
+    endTime: number | 86400;    // end time at 24:00 in seconds
 }
-
-// interface of dropdown items
-interface DropdownItemProps {
-    icon: LucideIcon;
-    category: string;
-    onClick?: () => void;
-}
-// Map categories to lucide-react icons
-const categoryIconMap: Record<string, LucideIcon> = {
-    "Eyebrows and eyelashes": Eye,
-    "Massage": HandHeart,
-    "Nail": Hand,
-    "Body": Sparkles,
-    "Spa packages": Bath,
-    "Makeup": Palette,
-    "Waxing": Flame,
-};
 
 const HeroSection = () => {
 
-    // Choose services from dropdown
+    // Choose categories from dropdown
     // Extract all unique categories from the services data
     const allCategories = servicesData.flatMap(venue => venue.categories);
     const uniqueCategories = [...new Set(allCategories)].sort();
@@ -43,31 +29,21 @@ const HeroSection = () => {
     const changeSelectedCategory = (category: string) => {
         setSelectedCat(category);
     }
-    const DropdownItem = ({ icon: Icon, category }: DropdownItemProps) => {
-        return (
-            <Dropdown.Item onClick={() => changeSelectedCategory(category)}>
-                <Icon className="me-2" />{category}
-            </Dropdown.Item>
-        )
-    }
-    
 
     // Choose date range
     const [date, setDate] = useState<Date | null>(new Date());
     const changeDate = (value: Date | null) => {
         setDate(value);
     };
-    // Format date for display as "dd-mm-yyyy"
-    const formattedDisplayDate = date ? moment(date).format('DD-MM-YYYY') : '';
 
-    // choose time range
-    const [startTime, setStartTime] = useState<string>("00:00")
+    // choose time range (use seconds as numeric values)
+    const [startTime, setStartTime] = useState<number>(0); // 00:00 => 0 seconds
     const changeStartTime = (timeNumber: any) => {
-        setStartTime(timeNumber)
+        setStartTime(timeNumber);
     }
-    const [endTime, setEndTime] = useState<string>("23:00")
+    const [endTime, setEndTime] = useState<number>(86400); // 24:00 => 24*3600 = 86400 seconds
     const changeEndTime = (timeNumber: any) => {
-        setEndTime(timeNumber)
+        setEndTime(timeNumber);
     }
 
     // Pass data to results page
@@ -75,25 +51,25 @@ const HeroSection = () => {
     const resultsState: resultsStateProps = {
         // all categories or just the selected one
         "category": selectedCat === "All treatments and venues" ? Array.from(uniqueCategories) : [selectedCat],
-        "date": formattedDisplayDate,
+        // cast date to Date to satisfy interface (date state remains Date | null)
+        "date": date as Date,
+        "startTime": startTime, 
+        "endTime": endTime,
     }
 
-    const isEndTimeBeforeStartTime = (start: string, end: string): boolean => {
-        if (Number(endTime) - Number(startTime) < 0) return true;
-        else return false;
+    const isEndTimeBeforeStartTime = (start: number, end: number): boolean => {
+        return (end - start) < 0;
     }
     
     const gotoResults = () => {
         // if end time is before start time, show error toast
         if (isEndTimeBeforeStartTime(startTime, endTime)) {
             toast.error("End time cannot be before start time!", {duration: 3000});
-            console.log("End time cannot be before start time!");
         // else go to result page
         } else {
-            //navigate("/results", { state: resultsState })
+            navigate("/results", { state: resultsState })
         }
     }
-    console.log(resultsState, startTime, endTime);
 
     return (
         <section className="py-5 hero">
@@ -107,7 +83,6 @@ const HeroSection = () => {
                         <div className="d-flex w-100 align-items-center rounded-pill bg-white shadow-sm p-2">
                             {/*input group to the left*/}
                             <InputGroup className=" flex-grow-1">
-
                                 {/*list services*/}
                                 <InputGroup.Text className="border-0 bg-transparent">
                                     <Search />
@@ -129,7 +104,9 @@ const HeroSection = () => {
                                         {uniqueCategories.map((category, index) => {
                                             const Icon = categoryIconMap[category] || Sparkles;
                                             return (
-                                                <DropdownItem key={index} icon={Icon} category={category} />
+                                                <DropdownItem key={index} icon={Icon} category={category}
+                                                    onClick={() => changeSelectedCategory(category)}
+                                                />
                                             )
                                         }
                                         )}
@@ -181,8 +158,6 @@ const HeroSection = () => {
                                         </div>
                                     </Dropdown.Menu>
                                 </Dropdown>
-
-                                
                             </InputGroup>
 
                             {/*button to the right*/}

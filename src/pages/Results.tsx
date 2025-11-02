@@ -1,56 +1,47 @@
-﻿import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Container, Row, Col, Button, CardGroup, Card, Form, Breadcrumb, ListGroup } from "react-bootstrap";
+﻿import { Calendar, ChevronRight, Rows4, Search, Sparkles, Star, Timer } from 'lucide-react';
 import { useState } from 'react';
-import nannies from "../nannies.json"
-import { Star, Plus, Minus } from 'lucide-react';
-import serviceIcon from '../assets/service-icon.png';
-import moment from 'moment'; 
+import { Breadcrumb, Button, Card, CardGroup, Col, Container, Dropdown, Form, InputGroup, Row } from "react-bootstrap";
+import TimePicker from 'react-bootstrap-time-picker';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useLocation, useNavigate } from 'react-router-dom';
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import DropdownItem, { categoryIconMap } from '../components/ui/SearchDropdownItem';
+import servicesData from "../data/services.json";
+import nannies from "../nannies.json";
 
 
-const selectedServices = [
-    { id: "conf-nanny", title: "Confinement Nanny" },
-    { id: "adhoc", title: "One Time / Ad Hoc" },
-    { id: "recurring", title: "Recurring / Long-term" },
-]
 
 // add label and handle change for choosing districts
 // Group nannies by district
-const districts = Array.from(new Set(nannies.map(nanny => nanny.district)));
+const districts = Array.from(new Set(servicesData.map(service => service.district)));
 
 const Results = () => {
     // get selected service from landing page
     const location = useLocation();
-    const { state } = location as any; // Destructure the state object from location : {id: string; title: string }
+    const { state } = location as any; // Destructure the state object from location : {category : string[], date, startTime, endTime }
 
-    // Choose services from card group
-    const [selectedService, setSelectedService] = useState({ id: "", title: "" });
-    // handle change for choosing service
-    const handleServiceChange = (id) => {
-        selectedServices.map(item => {
-            if (item.id === id) {
-                setSelectedService(item)
-            }
-        })
-        console.log(selectedService)
-    };
+    // Choose categories from dropdown
+    // Extract all unique categories from the services data
+    const allCategories = servicesData.flatMap(venue => venue.categories);
+    const uniqueCategories = [...new Set(allCategories)].sort();
+    // set selected category
+    const [selectedCat, setSelectedCat] = useState<string>(() =>
+        state?.category && state.category.length === 1 ? state.category[0] : "All treatments and venues"
+    );
+    const changeSelectedCategory = (category: string) => setSelectedCat(category);
 
-    // Choose date range
-    const [selectedDate, setSelectedDate] = useState('');
-    const formattedDisplayDate = selectedDate ? moment(selectedDate).format('DD-MM-YYYY') : '';
-    const handleDateChange = (e) => {
-        setSelectedDate(e.target.value);
-      };
 
-    // Choose number of babies
-    const [numOfBabies, setNumOfBabies] = useState(1);
-    const incrementBabies = () => setNumOfBabies(numOfBabies + 1);
-    const decrementBabies = () => setNumOfBabies(num => {
-        if (num > 1) {
-            return num - 1;
-        } else return 1;
-    });
+    // Get selected date from landing page
+    const [selectedDate, setSelectedDate] = useState<Date | null>(state?.date ? new Date(state.date) : null);
+    const changeDate = (value: Date | null) => setSelectedDate(value);
+
+    // Get selected time range from landing page
+    const [selectedStartTime, setSelectedStartTime] = useState<number>(state?.startTime ?? 0);
+    const [selectedEndTime, setSelectedEndTime] = useState<number>(state?.endTime ?? 86400);
+    const changeStartTime = (timeNumber: number) => setSelectedStartTime(timeNumber);
+    const changeEndTime = (timeNumber: number) => setSelectedEndTime(timeNumber);
 
     // add label and handle change for choosing name
     const [nameValue, setNameValue] = useState<string>(""); // Initial value for the name
@@ -95,48 +86,111 @@ const Results = () => {
             <Header />
 
             {/*result here*/}
-            {/* previous search criteria */}
             <section className="py-5">
                 <Container>
-                    <Row className="d-flex flex-row align-items-center g-5">
-                    {/*Simplified service selection and booking form*/}
-                    <ListGroup horizontal="md">
-                       {selectedServices.map((service) => {
-                           if (service.id === state.service.id) {
-                               return <ListGroup.Item variant="light" action onClick={() => handleServiceChange(service.id)}>{service.title}</ListGroup.Item>
-                           } else {
-                               return <ListGroup.Item action onClick={() => handleServiceChange(service.id)}>{service.title}</ListGroup.Item>
-                           }
-                       })}
-                    </ListGroup>
-                                    <div className="d-flex align-items-center gap-2 bg-light px-3 py-2 rounded-3">
-                                        {/* Date/Time picker */}
-                                        <Form.Group controlId="formDate">
-                                            <Form.Label>Select Date </Form.Label>
-                                            <Form.Control
-                                                type="date"
-                                                value={selectedDate}
-                                                onChange={handleDateChange}
-                                            />
-                                        </Form.Group>
-                                        {/* Number of babies selector */ }
-                                        <Plus style={{ cursor: "pointer", marginLeft: '2rem'}} onClick={incrementBabies}>+</Plus>
-                                        {numOfBabies} Babies
-                                        <Minus style={{ cursor: "pointer", }} onClick={decrementBabies}>-</Minus>
-                                        {/*go to results page*/}
-                                <Button variant="primary" size="lg" className="ml-2"
-                                    >
-                                    Search
-                                </Button>
-                                    </div>
-
-                    </Row>
                     <Row className="align-items-center g-5 mt-2">
                         <Breadcrumb>
                             <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                            <Breadcrumb.Item active>Nannies</Breadcrumb.Item>
+                            <Breadcrumb.Item active>Vendors</Breadcrumb.Item>
                         </Breadcrumb>
                     </Row>
+                    
+                    {/* previous search criteria */}
+                    <Row className="mt-2 align-items-center">
+                        <Form className="w-100">
+                            <div className="d-flex w-100 align-items-center rounded-pill bg-white shadow-sm p-2">
+                                {/*input group to the left*/}
+                                <InputGroup className=" flex-grow-1">
+                                    {/*list services*/}
+                                    <InputGroup.Text className="border-0 bg-transparent">
+                                        <Search />
+                                    </InputGroup.Text>
+                                    <Dropdown>
+                                        <Dropdown.Toggle variant="light" id="dropdown-basic">
+                                            {selectedCat}
+                                        </Dropdown.Toggle>
+                                        <Dropdown.Menu
+                                            className="p-2 shadow-lg border"
+                                            style={{
+                                                zIndex: 9999,
+                                                minWidth: "320px",
+                                                backgroundColor: "white"
+                                            }}
+                                        >
+                                            <DropdownItem icon={Rows4} category="All treatments and venues" />
+                                            <hr />
+                                            {uniqueCategories.map((category, index) => {
+                                                const Icon = categoryIconMap[category] || Sparkles;
+                                                return (
+                                                    <DropdownItem key={index} icon={Icon} category={category}
+                                                        onClick={() => changeSelectedCategory(category)}
+                                                    />
+                                                )
+                                            }
+                                            )}
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+
+                                    {/*date picker*/}
+                                    <div className="vr"></div> {/* This creates the vertical line */}
+                                    <InputGroup.Text className="border-0 bg-transparent">
+                                        <Calendar />
+                                    </InputGroup.Text>
+                                    <div className="mt-1">
+                                        <DatePicker
+                                            selected={selectedDate}
+                                            onChange={changeDate}
+                                            className="form-control border-0 bg-white"
+                                            dateFormat="dd-MM-yyyy"
+                                        />
+                                    </div>
+
+                                    {/*time picker*/}
+                                    <div className="vr"></div> {/* This creates the vertical line */}
+                                    <InputGroup.Text className="border-0 bg-transparent">
+                                        <Timer />
+                                    </InputGroup.Text>
+                                    <Dropdown>
+                                        <Dropdown.Toggle variant="link" id="dropdown-basic" className="no-outline-dropdown" style={{ width: '200px' }}>
+                                            Any time
+                                        </Dropdown.Toggle>
+
+                                        <Dropdown.Menu style={{ width: '400px' }} >
+                                            <div className="p-3 d-flex flex-row">
+                                                <span className="mt-1">From</span>&nbsp;&nbsp;
+                                                <TimePicker
+                                                    start="00:00"
+                                                    end="23:00"
+                                                    step={60}
+                                                    value={selectedStartTime}
+                                                    onChange={changeStartTime}
+                                                />
+                                                &nbsp;&nbsp;<span className="mt-1">To</span>&nbsp;&nbsp;
+                                                <TimePicker
+                                                    start="01:00"
+                                                    end="24:00"
+                                                    step={60}
+                                                    value={selectedEndTime}
+                                                    onChange={changeEndTime}
+                                                />
+                                            </div>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+
+                                </InputGroup>
+
+                                {/*button to the right*/}
+                                <div className="vr"></div>
+                                &nbsp;&nbsp;
+                                <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
+                                    style={{ backgroundColor: 'black', color: "white" }}
+                                >
+                                    Search <ChevronRight size={20} />
+                                </Button>
+                            </div>
+                        </Form>
+                    </Row>
+                    
                     <Row className="g-5 mt-2">
 
                         {/*filter*/}
