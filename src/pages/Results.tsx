@@ -11,7 +11,7 @@ import DropdownItem, { categoryIconMap } from '../components/ui/SearchDropdownIt
 import servicesData from "../data/partners.json";
 import nannies from "../nannies.json";
 import { districts } from "../lib/utils";
-
+import MyBreadCrumb from '../components/ui/MyBreadCrumb';
 
 const Results = () => {
     // get selected service from landing page
@@ -85,10 +85,7 @@ const Results = () => {
             <section className="py-5">
                 <Container>
                     <Row className="align-items-center g-5 mt-2">
-                        <Breadcrumb>
-                            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                            <Breadcrumb.Item active>Vendors</Breadcrumb.Item>
-                        </Breadcrumb>
+                        <MyBreadCrumb isList={true} />
                     </Row>
                     
                     {/* previous search criteria */}

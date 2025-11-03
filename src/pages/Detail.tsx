@@ -5,7 +5,7 @@ import nannies from "../nannies.json";
 import { Container, Row, Carousel, Col, Card, Button, Breadcrumb, Modal, ListGroup, Form } from "react-bootstrap";
 import { Star } from 'lucide-react';
 import { useState } from 'react';
-
+import MyBreadCrumb from "../components/ui/MyBreadCrumb";
 interface chosenOptionProps {
     services: string[];
     additionalInfo: string[];
@@ -81,11 +81,7 @@ const Detail = () => {
             <section className="py-5">
                 <Container>
                     <Row className="align-items-center g-5">
-                        <Breadcrumb>
-                            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/results">Nannies</Breadcrumb.Item>
-                            <Breadcrumb.Item active>{currentNanny.name}</Breadcrumb.Item>
-                        </Breadcrumb>
+                        <MyBreadCrumb isList={false} name={currentNanny.name} />
                     </Row>
 
                     {/*basic information here*/}

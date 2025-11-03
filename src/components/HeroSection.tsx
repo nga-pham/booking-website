@@ -64,7 +64,9 @@ const HeroSection = () => {
     const gotoResults = () => {
         // if end time is before start time, show error toast
         if (isEndTimeBeforeStartTime(startTime, endTime)) {
-            toast.error("End time cannot be before start time!", {duration: 3000});
+            toast.error("Invalid time range", {
+                description: "End time must be after start time"
+            });
         // else go to result page
         } else {
             navigate("/results", { state: resultsState })

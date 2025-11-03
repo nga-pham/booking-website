@@ -104,14 +104,14 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 * Inside Index, we have components for each section:
 - Header: ```src/components/Header.jsx```
 - Hero section: ```src/components/HeroSection.jsx``` (contain custom dropdown item when searching for services: ```src/components/ui/SearchDropdownItem.tsx``` )
-- Service section (cover 1.2, 1.3, 1.4): ```src/components/ServiceSection.jsx```
+- Service section (cover 1.2, 1.3, 1.4): ```src/components/ServiceSection.jsx``` (contain custom card item for each shop: ```src/components/ui/ServiceCard.tsx``` )
 - Testimonials section: ```src/components/Testimonials.jsx```
 - Footer: ```src/components/Footer.jsx```
 
 ## Result page
 * Component route path 
 
-	```App -> /results ```
+	```/results ```
 
 * Code hiearchy 
 
@@ -122,7 +122,7 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 - Breadcrumb: ```src/components/Breadcrumb.jsx```
 - Search form: ```src/components/SearchForm.jsx``` (contain custom dropdown item when searching for services: ```src/components/ui/SearchDropdownItem.tsx``` )
 - Filter: ```src/components/Filter.jsx```
-- Shop list: ```src/components/ShopList.jsx```
+- Shop list: ```src/components/ShopList.jsx``` (contain custom card item for each shop: ```src/components/ui/ServiceCard.tsx``` )
 
 ## Detail page
 * Component route path for each shop detail, retrieved and rendered by id of the shop (Detail element)

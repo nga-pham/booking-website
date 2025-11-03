@@ -1,4 +1,4 @@
-﻿import { Eye, HandHeart, Sparkles, Bath, Palette, Flame, Hand, PersonStanding, SmilePlus, Syringe, BriefcaseMedical, LucideIcon } from "lucide-react";
+﻿import { Eye, HandHeart, Sparkles, Palette, Hand, PersonStanding, SmilePlus, Syringe, BriefcaseMedical, LucideIcon } from "lucide-react";
 import { Dropdown } from "react-bootstrap";
 
 // interface of dropdown items
