@@ -1,7 +1,7 @@
 # Requirement
 We need to create a list of shops and connect them with potential users. We already have connections. The idea is similar to booking.com or Agoda page
 
-# System analysis and design for booking website
+# System analysis for booking website
 The website consists of 6 pages, a header and a footer
 
 ## 1. Landing page
@@ -14,7 +14,7 @@ Include a place to advertise, and a booking form for customers to book services.
 
 User can choose services from dropdown list. Default is "All treatments and venues". If user choose it, they will choose all services.
 
-User can choose date from date picker. Default is today’s date.
+User can choose date from date picker. Default is today’s date. All previous day is disabled.
 
 User can choose time from time picker. Default start time is "00:00" and end time is "24:00".
 
@@ -60,7 +60,7 @@ In main section:
   - Star rating: range to choose minimum star rating
   - District: checkbox to choose available districts
 
-The options are on the right, are a list of shops, each with basic information, the same as in hero section. 
+* The options are on the right, are a list of shops, each with basic information, the same as in hero section. 
 
 User then can look at each shop, see if shop is a match, choose it to see details (redirect to detail page). Or a button "Book now" to book directly.
 
@@ -73,3 +73,77 @@ When user clicks button "Book now", the system will redirect to detail page with
 After completing it, user will click button "Continue". Their information will be saved in the system and they will be redirected to payment page.
 A payment form will appear, showing that they should fill in a detail form (first name, last name, email address, id number, etc...), and button "send request". 
 Their information will be saved in the system and they will be redirected to payment page.
+
+# System design
+The system will be designed in Component-Based Architecture.
+
+Application will be built with ReactJS framework. The design will be responsive, mobile-first.
+From top to bottom of root: 
+
+```tooltip provider -> toaster + routes -> route.``` 
+
+Toaster for notification, as a single component at root level.
+
+## data
+The data will be stored in JSON format, in single file ```src/data/partners.json``` file. Each shop will have the following information:
+
+## Landing page 
+* Component route path (Index element)
+
+	```App -> / ```
+
+* Code hiearchy 
+
+	```src/pages/Index.jsx```
+
+* Inside Index, we have components for each section:
+- Header: ```src/components/Header.jsx```
+- Hero section: ```src/components/HeroSection.jsx``` (contain custom dropdown item when searching for services: ```src/components/ui/SearchDropdownItem.tsx``` )
+- Service section (cover 1.2, 1.3, 1.4): ```src/components/ServiceSection.jsx```
+- Testimonials section: ```src/components/Testimonials.jsx```
+- Footer: ```src/components/Footer.jsx```
+
+## Result page
+* Component route path 
+
+	```App -> /results ```
+
+* Code hiearchy 
+
+	```src/pages/Results.jsx```
+
+* Inside Result, we have components for each section:
+- Header: ```src/components/Header.jsx```
+- Breadcrumb: ```src/components/Breadcrumb.jsx```
+- Search form: ```src/components/SearchForm.jsx``` (contain custom dropdown item when searching for services: ```src/components/ui/SearchDropdownItem.tsx``` )
+- Filter: ```src/components/Filter.jsx```
+- Shop list: ```src/components/ShopList.jsx```
+
+## Detail page
+* Component route path for each shop detail, retrieved and rendered by id of the shop (Detail element)
+
+	```App -> /results/:id```
+
+* Code hiearchy 
+
+	```src/pages/Details.jsx```
+
+## Booking page
+* Component route path for each booking detail, retrieved when clicking "book now" in each shop (Booking element)
+
+	```App -> /results/:id/booking```
+
+* Code hiearchy 
+	```src/pages/Booking.jsx```
+
+## Not found page route:
+* Component route path (NotFound element)
+
+	```App -> *```
+
+* Code hiearchy
+
+```src/pages/NotFound.jsx```
+
+# Tech stack
+* Frontend: ReactJS, Boostrap 5, react-boostrap, lucide-icons, react-router-dom, react-datepicker, react-boostrap-time-picker
