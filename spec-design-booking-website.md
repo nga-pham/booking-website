@@ -18,7 +18,7 @@ User can choose date from date picker. Default is today’s date. All previous d
 
 User can choose time from time picker. Default start time is "00:00" and end time is "24:00".
 
-When user clicks button "Search", the system will check if date is before today's date. And start time is before end time. If this is a case, throw an error. If not, redirect to result page.
+When user clicks button "Search", the system will check if start time is before end time. If this is a case, throw an error. If not, redirect to result page.
 
 ### 1.2. List of new partners
 Show the list of new shops, in slideshow of 3 cards.
@@ -29,6 +29,7 @@ Same as above, but show the list of recommended shops, in slideshow of 3 cards.
 
 ### 1.4. Browse by districts
 Show the list of districts, in tab form. Each tab contains: name of district.
+
 When user clicks on each tab, the system will show the list of shops in that district, in slideshow of 3 cards.
 Each cards contains the same information as above.
  
@@ -85,7 +86,7 @@ From top to bottom of root:
 Toaster for notification, as a single component at root level.
 
 ## data
-The data will be stored in JSON format, in single file ```src/data/partners.json``` file. Each shop will have the following information:
+The data of shops will be stored in JSON format, in single file ```src/data/partners.json``` file. Each shop will have the following information:
 
 ## Landing page 
 * Component route path (Index element)

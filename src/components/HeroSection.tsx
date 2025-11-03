@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import DropdownItem, { categoryIconMap } from '../components/ui/SearchDropdownItem';
-import servicesData from "../data/services.json";
+import servicesData from "../data/partners.json";
 
 
 // interface of data to pass to result page
@@ -58,7 +58,7 @@ const HeroSection = () => {
     }
 
     const isEndTimeBeforeStartTime = (start: number, end: number): boolean => {
-        return (end - start) < 0;
+        return (end - start) <= 0;
     }
     
     const gotoResults = () => {
@@ -124,6 +124,7 @@ const HeroSection = () => {
                                         onChange={changeDate}
                                         className="form-control border-0 bg-white"
                                         dateFormat="dd-MM-yyyy"
+                                        minDate={new Date()} // Disables all previous days
                                     />
                                 </div>
 

@@ -8,14 +8,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import DropdownItem, { categoryIconMap } from '../components/ui/SearchDropdownItem';
-import servicesData from "../data/services.json";
+import servicesData from "../data/partners.json";
 import nannies from "../nannies.json";
+import { districts } from "../lib/utils";
 
-
-
-// add label and handle change for choosing districts
-// Group nannies by district
-const districts = Array.from(new Set(servicesData.map(service => service.district)));
 
 const Results = () => {
     // get selected service from landing page
@@ -240,7 +236,7 @@ const Results = () => {
                                 )}
 
                                 <Form.Group className="w-100">
-                                    <Button variant="info">Search</Button>
+                                    <Button variant="info">Filter</Button>
                                     <Button variant="danger" className="ms-2">Reset</Button>
                                 </Form.Group>
                             </Container>

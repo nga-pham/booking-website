@@ -3,12 +3,6 @@ import { Heart } from "lucide-react";
 
 const Header = () => {
 
-    const services = [
-    { name: "Confinement Nanny", href: "#confinement" },
-    { name: "One Time / Ad Hoc", href: "#adhoc" },
-    { name: "Recurring / Long-term", href: "#recurring" },
-  ];
-
     return (
         // collapse below lg (show in one row at lg+). In production, consider change to md
         <Navbar bg="light" className="shadow-sm" expand="lg" sticky="top">
@@ -27,7 +21,7 @@ const Header = () => {
             </Nav>
           <Button variant="success" className="d-flex align-items-center gap-2">
             <Heart size={16} />
-            Become a Vendor
+                        Become a Partner
           </Button>
         </Navbar.Collapse>
 

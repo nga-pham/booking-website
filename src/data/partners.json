@@ -4,8 +4,6 @@
     "categories": [ "Body", "Massage" ],
     "rating": 5.0,
     "numberOfRating": 26,
-    "startTime": "09:00",
-    "endTime": "23:00",
     "address": "16 Lý Quốc Sư, Hoàn Kiếm, Hà Nội",
     "district": "Hoàn Kiếm",
     "photos": [
@@ -23,19 +21,19 @@
         "items": [
           {
             "name": "Nail extension + Shellac polish",
-            "duration": "1hr",
+            "duration": "1 hr",
             "cost": "608400",
             "featured": false
           },
           {
             "name": "Gel Color",
-            "duration": "1hr",
+            "duration": "1 hr",
             "cost": "421200",
             "featured": false
           },
           {
             "name": "Pedicure or Manicure",
-            "duration": "30mins",
+            "duration": "30 mins",
             "cost": "163800",
             "featured": false
           }
@@ -46,19 +44,19 @@
         "items": [
           {
             "name": "Quick Shampoo",
-            "duration": "30mins",
+            "duration": "30 mins",
             "cost": "178200",
             "featured": false
           },
           {
             "name": "Hair Shampoo & Head Massage 60 minutes",
-            "duration": "1hr",
+            "duration": "1 hr",
             "cost": "397800",
             "featured": true
           },
           {
             "name": "Hair Shampoo and Head Massage and Hair Treatment 90 minutes",
-            "duration": "1hr 30mins",
+            "duration": "1 hr 30 mins",
             "cost": "561600",
             "featured": true
           }
@@ -75,25 +73,25 @@
           },
           {
             "name": "Herbal bath / ngâm tắm lá dao đỏ",
-            "duration": "1hr",
+            "duration": "1 hr",
             "cost": "369000",
             "featured": false
           },
           {
             "name": "Shower / Tắm vòi sen",
-            "duration": "30mins",
+            "duration": "30 mins",
             "cost": "187200",
             "featured": true
           },
           {
             "name": "Facial treatment",
-            "duration": "30mins",
+            "duration": "30 mins",
             "cost": "327600",
             "featured": false
           },
           {
             "name": "Nourishing shampoo + Facial treatment / Gội đầu dưỡng sinh + chăm sóc da mặt",
-            "duration": "1hr 30mins",
+            "duration": "1 hr 30 mins",
             "cost": "655200",
             "featured": false
           },
@@ -111,13 +109,13 @@
           },
           {
             "name": "Nourishing shampoo + Massage Body 90'",
-            "duration": "2 hrs 30mins",
+            "duration": "2 hrs 30 mins",
             "cost": "1078200",
             "featured": false
           },
           {
             "name": "Nourishing shampoo + Facial treatment + Massage Body 60'",
-            "duration": "2 hrs 30mins",
+            "duration": "2 hrs 30 mins",
             "cost": "1170000",
             "featured": true
           },
@@ -140,61 +138,61 @@
         "items": [
           {
             "name": "Foot Massage / Massage chân",
-            "duration": "30mins",
+            "duration": "30 mins",
             "cost": "201600",
             "featured": false
           },
           {
             "name": "Aroma Massage 60 minutes",
-            "duration": "1h 30mins",
+            "duration": "1h 30 mins",
             "cost": "538200",
             "featured": false
           },
           {
             "name": "Deep Tissue Massage",
-            "duration": "1hr",
+            "duration": "1 hr",
             "cost": "585000",
             "featured": true
           },
           {
             "name": "Thai Massage with oil 60 minutes",
-            "duration": "1hr",
+            "duration": "1 hr",
             "cost": "655200",
             "featured": false
           },
           {
             "name": "Vietnamese Massage",
-            "duration": "1hr",
+            "duration": "1 hr",
             "cost": "608400",
             "featured": false
           },
           {
             "name": "Hot Stone Massage",
-            "duration": "1hr",
+            "duration": "1 hr",
             "cost": "631800",
             "featured": false
           },
           {
             "name": "Massage 4 Hands",
-            "duration": "1hr",
+            "duration": "1 hr",
             "cost": "1076400",
             "featured": false
           },
           {
             "name": "Use coin rubbing (or Gua Sha) to relieve colds and muscle pain / Cạo gió",
-            "duration": "30mins",
+            "duration": "30 mins",
             "cost": "327600",
             "featured": false
           },
           {
             "name": "Cupping therapy/ Giác hơi",
-            "duration": "30mins",
+            "duration": "30 mins",
             "cost": "327600",
             "featured": false
           },
           {
             "name": "Earwax removal treatment / Lấy ráy tai",
-            "duration": "30mins",
+            "duration": "30 mins",
             "cost": "234000",
             "featured": false
           }
@@ -247,6 +245,8 @@
       }
     ],
     "about": "Lá Spa Ha Noi offers a tranquil escape where expert therapists provide a range of rejuvenating massages tailored to your needs. From the soothing touch of Aroma Massage to the invigorating experience of Deep Tissue Massage, each service promises to melt away stress and restore balance. With convenient amenities including showers and lockers, your relaxation journey begins the moment you step through the door.",
+    "startTime": "09:00",
+    "endTime": "23:00",
     "openingTimes": [
       {
         "date": "Monday",
@@ -318,7 +318,7 @@
         "items": [
           {
             "name": "The Balance option 1",
-            "duration": "1hr 50mins",
+            "duration": "1 hr 50mins",
             "cost": "740000",
             "featured": false
           },
@@ -335,7 +335,7 @@
         "items": [
           {
             "name": "Signature Day Spa option 1",
-            "duration": "30mins",
+            "duration": "30 mins",
             "cost": "980000",
             "featured": true
           },
@@ -352,7 +352,7 @@
         "items": [
           {
             "name": "The Soothing option 1",
-            "duration": "1hr 50mins",
+            "duration": "1 hr 50mins",
             "cost": "700000",
             "featured": false
           },
@@ -369,13 +369,13 @@
         "items": [
           {
             "name": "Herbal Lover option 1",
-            "duration": "1hr 20mins",
+            "duration": "1 hr 20mins",
             "cost": "480000",
             "featured": false
           },
           {
             "name": "Herbal Lover option 2",
-            "duration": "1hr 50mins",
+            "duration": "1 hr 50mins",
             "cost": "600000",
             "featured": false
           }
@@ -387,7 +387,7 @@
         "items": [
           {
             "name": "Basic 1 (Herbal bath and The Dao massage 60 mins)",
-            "duration": "1hr 20mins",
+            "duration": "1 hr 20mins",
             "cost": "470000",
             "featured": false
           },
@@ -399,7 +399,7 @@
           },
           {
             "name": "Basic 1 (Herbal bath and Swedish massage 60 mins)",
-            "duration": "1hr 20mins",
+            "duration": "1 hr 20mins",
             "cost": "450000",
             "featured": false
           },
@@ -439,31 +439,31 @@
           },
           {
             "name": "Herbal masssage - Mátxa thảo dược Dao Đỏ",
-            "duration": "1hr",
+            "duration": "1 hr",
             "cost": "35000",
             "featured": true
           },
           {
             "name": "The Dao massage Non-Oil",
-            "duration": "1hr",
+            "duration": "1 hr",
             "cost": "350000",
             "featured": false
           },
           {
             "name": "The Dao Massage",
-            "duration": "1hr",
+            "duration": "1 hr",
             "cost": "330000",
             "featured": true
           },
           {
             "name": "Swedish massage/ Massage Thụy Điển",
-            "duration": "1hr",
+            "duration": "1 hr",
             "cost": "310000",
             "featured": true
           },
           {
             "name": "Prenatal massage - Massage bầu",
-            "duration": "1hr",
+            "duration": "1 hr",
             "cost": "320000",
             "featured": false
           }
@@ -475,20 +475,20 @@
         "items": [
           {
             "name": "Foot massage/ Massage chân",
-            "duration": "1hr",
+            "duration": "1 hr",
             "cost": "310000",
             "featured": false
 
           },
           {
             "name": "Foot Therapy",
-            "duration": "1h 30mins",
+            "duration": "1h 30 mins",
             "cost": "480000",
             "featured": false
           },
           {
             "name": "Foot and Back massage",
-            "duration": "1h 30mins",
+            "duration": "1h 30 mins",
             "cost": "480000",
             "featured": false
           }
@@ -611,435 +611,1186 @@
     "dayToJoin": "2025-02-08"
   },
   {
-      "name": "Tri-Angel Beauty Studio",
-      "categories": [ "Nails", "Eyebrows and eyelashes", "Makeup" ],
-      "rating": 4.9,
-      "numberOfRating": 59,
-      "startTime": "10:00",
-      "endTime": "20:00",
-      "address": "12/823 Hồng Hà, Phúc Tấn, Hà Nội",
-      "district": "Hoàn Kiếm",
-      "photos": [
-        "https://images.fresha.com/locations/location-profile-images/1072998/1210354/a08293ff-3f17-4e8c-8b1e-db747a97e640.jpg?class=gallery-modal-large&dpr=2&watermark=true",
-        "https://images.fresha.com/locations/location-profile-images/1072998/1210356/6bbb609d-5094-47eb-a6b1-0da268811661.jpg?class=gallery-modal-large&dpr=2&watermark=true",
-        "https://images.fresha.com/locations/location-profile-images/1072998/1210357/104ccf65-f8b0-495b-98a8-2fcf1d4ef399.jpg?class=gallery-modal-large&dpr=2&watermark=true",
-        "https://images.fresha.com/locations/location-profile-images/1072998/1210358/488f7dcb-41da-420e-bf7e-b1ace10e2357.jpg?class=gallery-modal-large&dpr=2&watermark=true",
-        "https://images.fresha.com/locations/location-profile-images/1072998/1210359/edbddfd6-ab8f-4792-beb3-839f029f0f9c.jpg?class=gallery-modal-large&dpr=2&watermark=true"
-      ],
-      "services": [
-        {
-          "type": "Manicure",
-          "items": [
-            {
-              "name": "Strengthening Gel Manicure",
-              "duration": "1hr 30mins",
-              "cost": "300000",
-              "featured": true
-            },
-            {
-              "name": "Gel Extensions",
-              "duration": "2 hrs 30mins",
-              "cost": "550000",
-              "featured": false
-            },
-            {
-              "name": "Manicure Care (No Gel)",
-              "duration": "1hr",
-              "cost": "150000",
-              "featured": false
-            },
-            {
-              "name": "Gel Extensions",
-              "duration": "2 hrs 30mins",
-              "cost": "550000",
-              "featured": false
-            },
-            {
-              "name": "French",
-              "duration": "15mins",
-              "cost": "100000",
-              "featured": false
-            },
-            {
-              "name": "Flash",
-              "duration": "15mins",
-              "cost": "50000",
-              "featured": false
-            },
-            {
-              "name": "Cateye",
-              "duration": "15mins",
-              "cost": "100000",
-              "featured": false
-            },
-            {
-              "name": "Chrome",
-              "duration": "15mins",
-              "cost": "100000",
-              "featured": false
-            },
-            {
-              "name": "Ombre",
-              "duration": "15mins",
-              "cost": "150000",
-              "featured": false
-            },
-            {
-              "name": "Charm / Stones",
-              "duration": "15mins",
-              "cost": "10000",
-              "featured": false
-            },
-            {
-              "name": "Other Designs",
-              "duration": "30mins",
-              "cost": "10000",
-              "featured": false
-            },
-            {
-              "name": "Dip-powder/Fake Tips Removal",
-              "duration": "15mins",
-              "cost": "50000",
-              "featured": false
-            },
-            {
-              "name": "Nail Sculpture",
-              "duration": "30mins",
-              "cost": "30000",
-              "featured": false
-            }
-          ]
-        },
-        {
-          "type": "Pedicure",
-          "items": [
-            {
-              "name": "Gel Pedicure",
-              "duration": "1h",
-              "cost": "200000",
-              "featured": false
-            },
-            {
-              "name": "Pedicure Care (No Gel)",
-              "duration": "1hr",
-              "cost": "150000",
-              "featured": false
-            },
-            {
-              "name": "Footcare",
-              "duration": "30mins",
-              "cost": "150000",
-              "featured": false
-            }
-          ]
-        },
-        {
-          "type": "Brows",
-          "items": [
-            {
-              "name": "Brow Styling",
-              "duration": "30mins",
-              "cost": "300000",
-              "featured": false
-            },
-            {
-              "name": "Brow Stying and Tint",
-              "duration": "45mins",
-              "cost": "400000",
-              "featured": true
-            },
-            {
-              "name": "Brow Lamination",
-              "duration": "1hr",
-              "cost": "600000",
-              "featured": true
-            }
-          ]
-        },
-        {
-          "type": "Lash Lift",
-          "items": [
-            {
-              "name": "Bottom Lash Lift and Tint",
-              "duration": "30mins",
-              "cost": "250000",
-              "featured": false
-            },
-            {
-              "name": "Korean Lash Lift & Tint (Standard)",
-              "duration": "1hr",
-              "cost": "400000",
-              "featured": false
-            },
-            {
-              "name": "Italian Lash Lift & Tint (Premium)",
-              "duration": "1hr",
-              "cost": "500000",
-              "featured": true
-            }
-          ]
-        },
-        {
-          "type": "Lash Extensions",
-          "items": [
-            {
-              "name": "Classic Lash",
-              "duration": "2 hrs",
-              "cost": "300000",
-              "featured": true
-            },
-            {
-              "name": "Hybrid Lash",
-              "duration": "1hr 30mins",
-              "cost": "450000",
-              "featured": false
-            },
-            {
-              "name": "Light Volumne Lash (3-4D)",
-              "duration": "2 hrs 15mins",
-              "cost": "450000",
-              "featured": false
-            },
-            {
-              "name": "Basic 2 (Herbal bath and Swedish massage 90 mins)",
-              "duration": "1hr 50mins",
-              "cost": "550000",
-              "featured": false
-            }
-          ]
-        },
-        {
-          "type": "Waxing",
-          "items": [
-            {
-              "name": "Full Face",
-              "duration": "30mins",
-              "cost": "350000",
-              "featured": false
-            },
-            {
-              "name": "Cheeks",
-              "duration": "20mins",
-              "cost": "350000",
-              "featured": false
-            },
-            {
-              "name": "Upper Lip/Chin/Hairline/Neck",
-              "duration": "15mins",
-              "cost": "100000",
-              "featured": false
-            },
-            {
-              "name": "Forehead",
-              "duration": "15mins",
-              "cost": "100000",
-              "featured": false
-            },
-            {
-              "name": "Half Arms",
-              "duration": "15mins",
-              "cost": "160000",
-              "featured": false
-            },
-            {
-              "name": "Full Arms",
-              "duration": "20mins",
-              "cost": "200000",
-              "featured": false
-            },
-            {
-              "name": "Half Legs",
-              "duration": "20mins",
-              "cost": "250000",
-              "featured": false
-            },
-            {
-              "name": "Full Legs",
-              "duration": "30mins",
-              "cost": "350000",
-              "featured": false
-            },
-            {
-              "name": "Underarms",
-              "duration": "15mins",
-              "cost": "100000",
-              "featured": false
-            },
-            {
-              "name": "Abdomen",
-              "duration": "20mins",
-              "cost": "180000",
-              "featured": false
-            },
-            {
-              "name": "Full Back",
-              "duration": "30mins",
-              "cost": "250000",
-              "featured": false
-            },
-            {
-              "name": "Chest",
-              "duration": "20mins",
-              "cost": "100000",
-              "featured": false
-            }
-          ]
-        },
-        {
-          "type": "Makeup",
-          "items": [
-            {
-              "name": "Hair Styling",
-              "duration": "45mins",
-              "cost": "400000",
-              "featured": false
-            },
-            {
-              "name": "Yearbook Photoshoot",
-              "duration": "1h 30mins",
-              "cost": "400000",
-              "featured": false
-            },
-            {
-              "name": "Prom/Graduation Ceremony",
-              "duration": "1hr 30mins",
-              "cost": "600000",
-              "featured": false
-            },
-            {
-              "name": "Party/Event",
-              "duration": "3 hrs",
-              "cost": "800000",
-              "featured": false
-            },
-            {
-              "name": "Concept",
-              "duration": "2 hrs 30mins",
-              "cost": "1000000",
-              "featured": false
-            },
-            {
-              "name": "Bridal - Engagement Party",
-              "duration": "2 hrs",
-              "cost": "2000000",
-              "featured": true
-            },
-            {
-              "name": "Bridal - Wedding",
-              "duration": "2 hrs",
-              "cost": "2500000",
-              "featured": false
-            },
-            {
-              "name": "Bridal Mother/Mother-in-law",
-              "duration": "1hr 30mins",
-              "cost": "1000000",
-              "featured": false
-            },
-            {
-              "name": "Bridal Relatives",
-              "duration": "1hr",
-              "cost": "500000",
-              "featured": false
-            }
-          ]
-        }
-      ],
-      "reviews": [
-        {
-          "reviewer": "Melis T",
-          "date": "26/9/2025",
-          "time": "21:44",
-          "comment": "she is always the best❤️❤️❤️",
-          "rating": 5
-        },
-        {
-          "reviewer": "Vibeke Holtum N",
-          "date": "7/7/2025",
-          "time": "10:14",
-          "comment": "Super cosy and good English speaking and trustworthy person",
-          "rating": 4
-        },
-        {
-          "reviewer": "Lauriane F",
-          "date": "28/6/2025",
-          "time": "19:33",
-          "comment": "Excellent service, j'ai déjà hâte de revenir ",
-          "rating": 5
-        },
-        {
-          "reviewer": "Rachel B",
-          "date": "3/6/2025",
-          "time": "17:19",
-          "comment": "Thao was very gentle and helpful. I had a brow lamination, 3D lashes and a manicure with a French polish. An extremely enjoyable experience. Thank you Thao.",
-          "rating": 5
-        },
-        {
-          "reviewer": "Mikaela G",
-          "date": "2/6/2025",
-          "time": "00:15",
-          "comment": "Absolutely incredible, best lash lift and brow lami ever. Thank you so much!",
-          "rating": 5
-        },
-        {
-          "name": "Valerie L",
-          "date": "28/11/2024",
-          "time": "20:47",
-          "comment": "C'est un super salon 👍la jeune femme est très douce et la musique extra. J'ai adoré et je recommande. J'adore mes sourcils. Un grand merci 😊🪷🌞",
-          "rating": 5
-        },
-        {
-          "name": "Ouadiaa Sofia B",
-          "date": "12/08/2025",
-          "time": "22:18",
-          "comment": "Thank you to Dao's Care Spa Staff for making my experience so special! The masseuse was professional and highly skilled. I recommend the herbal bath before the massage! I will definitely be coming back! ",
-          "rating": 5
-        },
-        {
-          "name": "Huy N",
-          "date": "09/08/2025",
-          "time": "20:36",
-          "comment": "The staff were friendly and polite, went above and beyond to provide the best service possible. The masseur knows what he's doing. Highly recommend ! ",
-          "rating": 5
-        }
-      ],
-      "about": "Tri-Angel Beauty Studio is a modern beauty salon located in Hanoi, Vietnam. We offer a wide range of services, including nails, lashes, brows, and makeup. Our private 1:1 studio provides a relaxing and intimate experience for each client.",
-      "openingTimes": [
-        {
-          "date": "Monday",
-          "startTime": "10:00",
-          "endTime": "20:00"
-        },
-        {
-          "date": "Wednesday",
-          "startTime": "10:00",
-          "endTime": "20:00"
-        },
-        {
-          "date": "Thursday",
-          "startTime": "10:00",
-          "endTime": "20:00"
-        },
-        {
-          "date": "Friday",
-          "startTime": "10:00",
-          "endTime": "20:00"
-        },
-        {
-          "date": "Saturday",
-          "startTime": "10:00",
-          "endTime": "20:00"
-        },
-        {
-          "date": "Sunday",
-          "startTime": "10:00",
-          "endTime": "20:00"
-        }
-      ],
-      "additionalInfo": [
-        "Instant Confirmation"
-      ],
-      "recommended": true,
-      "dayToJoin": "2024-07-25"
+    "name": "Tri-Angel Beauty Studio",
+    "categories": [ "Nails", "Eyebrows and eyelashes", "Makeup", "Hair and Styling" ],
+    "rating": 4.9,
+    "numberOfRating": 59,
+    "startTime": "10:00",
+    "endTime": "21:00",
+    "address": "12/823 Hồng Hà, Phúc Tấn, Hà Nội",
+    "district": "Hoàn Kiếm",
+    "photos": [
+      "https://images.fresha.com/locations/location-profile-images/1072998/1210354/a08293ff-3f17-4e8c-8b1e-db747a97e640.jpg?class=gallery-modal-large&dpr=2&watermark=true",
+      "https://images.fresha.com/locations/location-profile-images/1072998/1210356/6bbb609d-5094-47eb-a6b1-0da268811661.jpg?class=gallery-modal-large&dpr=2&watermark=true",
+      "https://images.fresha.com/locations/location-profile-images/1072998/1210357/104ccf65-f8b0-495b-98a8-2fcf1d4ef399.jpg?class=gallery-modal-large&dpr=2&watermark=true",
+      "https://images.fresha.com/locations/location-profile-images/1072998/1210358/488f7dcb-41da-420e-bf7e-b1ace10e2357.jpg?class=gallery-modal-large&dpr=2&watermark=true",
+      "https://images.fresha.com/locations/location-profile-images/1072998/1210359/edbddfd6-ab8f-4792-beb3-839f029f0f9c.jpg?class=gallery-modal-large&dpr=2&watermark=true"
+    ],
+    "services": [
+      {
+        "type": "Manicure",
+        "items": [
+          {
+            "name": "Strengthening Gel Manicure",
+            "duration": "1 hr 30 mins",
+            "cost": "300000",
+            "featured": true
+          },
+          {
+            "name": "Gel Extensions",
+            "duration": "2 hrs 30 mins",
+            "cost": "550000",
+            "featured": false
+          },
+          {
+            "name": "Manicure Care (No Gel)",
+            "duration": "1 hr",
+            "cost": "150000",
+            "featured": false
+          },
+          {
+            "name": "Gel Extensions",
+            "duration": "2 hrs 30 mins",
+            "cost": "550000",
+            "featured": false
+          },
+          {
+            "name": "French",
+            "duration": "15mins",
+            "cost": "100000",
+            "featured": false
+          },
+          {
+            "name": "Flash",
+            "duration": "15mins",
+            "cost": "50000",
+            "featured": false
+          },
+          {
+            "name": "Cateye",
+            "duration": "15mins",
+            "cost": "100000",
+            "featured": false
+          },
+          {
+            "name": "Chrome",
+            "duration": "15mins",
+            "cost": "100000",
+            "featured": false
+          },
+          {
+            "name": "Ombre",
+            "duration": "15mins",
+            "cost": "150000",
+            "featured": false
+          },
+          {
+            "name": "Charm / Stones",
+            "duration": "15mins",
+            "cost": "10000",
+            "featured": false
+          },
+          {
+            "name": "Other Designs",
+            "duration": "30 mins",
+            "cost": "10000",
+            "featured": false
+          },
+          {
+            "name": "Dip-powder/Fake Tips Removal",
+            "duration": "15mins",
+            "cost": "50000",
+            "featured": false
+          },
+          {
+            "name": "Nail Sculpture",
+            "duration": "30 mins",
+            "cost": "30000",
+            "featured": false
+          }
+        ]
+      },
+      {
+        "type": "Pedicure",
+        "items": [
+          {
+            "name": "Gel Pedicure",
+            "duration": "1h",
+            "cost": "200000",
+            "featured": false
+          },
+          {
+            "name": "Pedicure Care (No Gel)",
+            "duration": "1 hr",
+            "cost": "150000",
+            "featured": false
+          },
+          {
+            "name": "Footcare",
+            "duration": "30 mins",
+            "cost": "150000",
+            "featured": false
+          }
+        ]
+      },
+      {
+        "type": "Brows",
+        "items": [
+          {
+            "name": "Brow Styling",
+            "duration": "30 mins",
+            "cost": "300000",
+            "featured": false
+          },
+          {
+            "name": "Brow Stying and Tint",
+            "duration": "45mins",
+            "cost": "400000",
+            "featured": true
+          },
+          {
+            "name": "Brow Lamination",
+            "duration": "1 hr",
+            "cost": "600000",
+            "featured": true
+          }
+        ]
+      },
+      {
+        "type": "Lash Lift",
+        "items": [
+          {
+            "name": "Bottom Lash Lift and Tint",
+            "duration": "30 mins",
+            "cost": "250000",
+            "featured": false
+          },
+          {
+            "name": "Korean Lash Lift & Tint (Standard)",
+            "duration": "1 hr",
+            "cost": "400000",
+            "featured": false
+          },
+          {
+            "name": "Italian Lash Lift & Tint (Premium)",
+            "duration": "1 hr",
+            "cost": "500000",
+            "featured": true
+          }
+        ]
+      },
+      {
+        "type": "Lash Extensions",
+        "items": [
+          {
+            "name": "Classic Lash",
+            "duration": "2 hrs",
+            "cost": "300000",
+            "featured": true
+          },
+          {
+            "name": "Hybrid Lash",
+            "duration": "1 hr 30 mins",
+            "cost": "450000",
+            "featured": false
+          },
+          {
+            "name": "Light Volumne Lash (3-4D)",
+            "duration": "2 hrs 15mins",
+            "cost": "450000",
+            "featured": false
+          },
+          {
+            "name": "Basic 2 (Herbal bath and Swedish massage 90 mins)",
+            "duration": "1 hr 50mins",
+            "cost": "550000",
+            "featured": false
+          }
+        ]
+      },
+      {
+        "type": "Waxing",
+        "items": [
+          {
+            "name": "Full Face",
+            "duration": "30 mins",
+            "cost": "350000",
+            "featured": false
+          },
+          {
+            "name": "Cheeks",
+            "duration": "20mins",
+            "cost": "350000",
+            "featured": false
+          },
+          {
+            "name": "Upper Lip/Chin/Hairline/Neck",
+            "duration": "15mins",
+            "cost": "100000",
+            "featured": false
+          },
+          {
+            "name": "Forehead",
+            "duration": "15mins",
+            "cost": "100000",
+            "featured": false
+          },
+          {
+            "name": "Half Arms",
+            "duration": "15mins",
+            "cost": "160000",
+            "featured": false
+          },
+          {
+            "name": "Full Arms",
+            "duration": "20mins",
+            "cost": "200000",
+            "featured": false
+          },
+          {
+            "name": "Half Legs",
+            "duration": "20mins",
+            "cost": "250000",
+            "featured": false
+          },
+          {
+            "name": "Full Legs",
+            "duration": "30 mins",
+            "cost": "350000",
+            "featured": false
+          },
+          {
+            "name": "Underarms",
+            "duration": "15mins",
+            "cost": "100000",
+            "featured": false
+          },
+          {
+            "name": "Abdomen",
+            "duration": "20mins",
+            "cost": "180000",
+            "featured": false
+          },
+          {
+            "name": "Full Back",
+            "duration": "30 mins",
+            "cost": "250000",
+            "featured": false
+          },
+          {
+            "name": "Chest",
+            "duration": "20mins",
+            "cost": "100000",
+            "featured": false
+          }
+        ]
+      },
+      {
+        "type": "Makeup",
+        "items": [
+          {
+            "name": "Hair Styling",
+            "duration": "45mins",
+            "cost": "400000",
+            "featured": false
+          },
+          {
+            "name": "Yearbook Photoshoot",
+            "duration": "1h 30 mins",
+            "cost": "400000",
+            "featured": false
+          },
+          {
+            "name": "Prom/Graduation Ceremony",
+            "duration": "1 hr 30 mins",
+            "cost": "600000",
+            "featured": false
+          },
+          {
+            "name": "Party/Event",
+            "duration": "3 hrs",
+            "cost": "800000",
+            "featured": false
+          },
+          {
+            "name": "Concept",
+            "duration": "2 hrs 30 mins",
+            "cost": "1000000",
+            "featured": false
+          },
+          {
+            "name": "Bridal - Engagement Party",
+            "duration": "2 hrs",
+            "cost": "2000000",
+            "featured": true
+          },
+          {
+            "name": "Bridal - Wedding",
+            "duration": "2 hrs",
+            "cost": "2500000",
+            "featured": false
+          },
+          {
+            "name": "Bridal Mother/Mother-in-law",
+            "duration": "1 hr 30 mins",
+            "cost": "1000000",
+            "featured": false
+          },
+          {
+            "name": "Bridal Relatives",
+            "duration": "1 hr",
+            "cost": "500000",
+            "featured": false
+          }
+        ]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Melis T",
+        "date": "26/9/2025",
+        "time": "21:44",
+        "comment": "she is always the best❤️❤️❤️",
+        "rating": 5
+      },
+      {
+        "reviewer": "Vibeke Holtum N",
+        "date": "7/7/2025",
+        "time": "10:14",
+        "comment": "Super cosy and good English speaking and trustworthy person",
+        "rating": 4
+      },
+      {
+        "reviewer": "Lauriane F",
+        "date": "28/6/2025",
+        "time": "19:33",
+        "comment": "Excellent service, j'ai déjà hâte de revenir ",
+        "rating": 5
+      },
+      {
+        "reviewer": "Rachel B",
+        "date": "3/6/2025",
+        "time": "17:19",
+        "comment": "Thao was very gentle and helpful. I had a brow lamination, 3D lashes and a manicure with a French polish. An extremely enjoyable experience. Thank you Thao.",
+        "rating": 5
+      },
+      {
+        "reviewer": "Mikaela G",
+        "date": "2/6/2025",
+        "time": "00:15",
+        "comment": "Absolutely incredible, best lash lift and brow lami ever. Thank you so much!",
+        "rating": 5
+      },
+      {
+        "name": "Valerie L",
+        "date": "28/11/2024",
+        "time": "20:47",
+        "comment": "C'est un super salon 👍la jeune femme est très douce et la musique extra. J'ai adoré et je recommande. J'adore mes sourcils. Un grand merci 😊🪷🌞",
+        "rating": 5
+      },
+      {
+        "name": "Ouadiaa Sofia B",
+        "date": "12/08/2025",
+        "time": "22:18",
+        "comment": "Thank you to Dao's Care Spa Staff for making my experience so special! The masseuse was professional and highly skilled. I recommend the herbal bath before the massage! I will definitely be coming back! ",
+        "rating": 5
+      },
+      {
+        "name": "Huy N",
+        "date": "09/08/2025",
+        "time": "20:36",
+        "comment": "The staff were friendly and polite, went above and beyond to provide the best service possible. The masseur knows what he's doing. Highly recommend ! ",
+        "rating": 5
+      }
+    ],
+    "about": "Tri-Angel Beauty Studio is a modern beauty salon located in Hanoi, Vietnam. We offer a wide range of services, including nails, lashes, brows, and makeup. Our private 1:1 studio provides a relaxing and intimate experience for each client.",
+    "openingTimes": [
+      {
+        "date": "Monday",
+        "startTime": "10:00",
+        "endTime": "20:00"
+      },
+      {
+        "date": "Wednesday",
+        "startTime": "10:00",
+        "endTime": "20:00"
+      },
+      {
+        "date": "Thursday",
+        "startTime": "10:00",
+        "endTime": "20:00"
+      },
+      {
+        "date": "Friday",
+        "startTime": "10:00",
+        "endTime": "20:00"
+      },
+      {
+        "date": "Saturday",
+        "startTime": "10:00",
+        "endTime": "20:00"
+      },
+      {
+        "date": "Sunday",
+        "startTime": "10:00",
+        "endTime": "20:00"
+      }
+    ],
+    "additionalInfo": [
+      "Instant Confirmation"
+    ],
+    "recommended": false,
+    "dayToJoin": "2024-07-25"
+  },
+  {
+    "name": "HER Hà Nội",
+    "categories": [ "Facials and Skincare", "Injectables and fillers", "Body", "Medical and dental" ],
+    "rating": 4.5,
+    "numberOfRating": 32,
+    "startTime": "09:00",
+    "endTime": "21:00",
+    "address": "63 Nguyễn Hy Quang, Phường Ô Chợ Dừa, Đống Đa, Hà Nội",
+    "district": "Đống Đa",
+    "photos": [
+      "https://images.fresha.com/locations/location-profile-images/154792/2109519/6a494f00-486a-4337-84a2-08220fd5ba7c.jpg?class=gallery-modal-large&dpr=2&watermark=true",
+      "https://images.fresha.com/locations/location-profile-images/154792/2109521/d5214049-3fb9-480a-80ac-eed8d02223a9-HERHNi-VN-HNi-HNi-PhngChDa-Fresha.jpg?class=gallery-modal-large&dpr=2&watermark=true",
+      "https://images.fresha.com/locations/location-profile-images/154792/2109520/6c770831-ac2f-45e7-9325-b52f2eacf81e-HERHNi-VN-HNi-HNi-PhngChDa-Fresha.jpg?class=gallery-modal-large&dpr=2&watermark=true"
+    ],
+    "services": [
+      {
+        "type": "Body",
+        "items": [
+          {
+            "name": "Body Slimfit - Giảm mỡ cơ thể",
+            "duration": "2 hrs",
+            "cost": "4000000",
+            "featured": false
+          }
+        ]
+      },
+      {
+        "type": "Hair",
+        "items": [
+          {
+            "name": "Meso Hair - Mesotherapy giảm rụng tóc, tăng mọc tóc và giúp tóc chắc khoẻ",
+            "duration": "2 hrs 30 mins",
+            "cost": "5900000",
+            "featured": false
+          }
+        ]
+      },
+      {
+        "type": "Thẩm mỹ không phẫu thuật",
+        "items": [
+          {
+            "name": "Density Eye - Xoá nhăn mắt 600 shot",
+            "duration": "1 hr",
+            "cost": "35000000",
+            "featured": false
+          },
+          {
+            "name": "Density - Xoá nhăn kép 1000 shot",
+            "duration": "1 hr",
+            "cost": "59000000",
+            "featured": false
+          },
+          {
+            "name": "Density - Xoá nhăn kép 500 shot",
+            "duration": "1 hr",
+            "cost": "35000000",
+            "featured": false
+          },
+          {
+            "name": "Liftera 2 - Nâng cơ trẻ hoá toàn mặt",
+            "duration": "1 hr",
+            "cost": "20000000",
+            "featured": false
+          },
+          {
+            "name": "Nâng cơ trẻ hoá LinearZ 1000 Shot",
+            "duration": "1 hr",
+            "cost": "35000000",
+            "featured": false
+          },
+          {
+            "name": "Nâng cơ trẻ hoá LinearZ 500 Shot",
+            "duration": "1 hr",
+            "cost": "25000000",
+            "featured": false
+          },
+          {
+            "name": "Pro Lifiting - Thon gọn khuôn mặt, thu nhỏ lỗ chân lông",
+            "duration": "1 hr",
+            "cost": "13990000",
+            "featured": false
+          },
+          {
+            "name": "Laser Deep Fractional Pico",
+            "duration": "1 hr",
+            "cost": "3590000",
+            "featured": false
+          },
+          {
+            "name": "Young Eye - Mesotheray giảm thâm mắt",
+            "duration": "1 hr 30 mins",
+            "cost": "2990000",
+            "featured": false
+          },
+          {
+            "name": "Combo 40 buổi liệu trình Laser toning body, mặt - Không dùng chung thẻ",
+            "duration": "1 hr",
+            "cost": "10000000",
+            "featured": false
+          },
+          {
+            "name": "Combo 20 buổi liệu trình Laser toning body, mặt - Không dùng chung thẻ",
+            "duration": "1 hr",
+            "cost": "5000000",
+            "featured": false
+          },
+          {
+            "name": "Tiêm sẹo lồi Lisanalona",
+            "duration": "1 hr",
+            "cost": "1000000",
+            "featured": false
+          }
+        ]
+      },
+      {
+        "type": "Trẻ hóa làm sáng body",
+        "items": [
+          {
+            "name": "RF Lifting & DMA - Săn chắc định hình khuôn mặt",
+            "duration": "1 hr 30 mins",
+            "cost": "2990000",
+            "featured": false
+          },
+          {
+            "name": "Liệu Trình Làm Sáng Vùng Nách",
+            "duration": "1 hr",
+            "cost": "150000",
+            "featured": false
+          }
+        ]
+      },
+      {
+        "type": "Mesotherapy filler",
+        "items": [
+          {
+            "name": "Bap Lifting - Profhilo nâng cơ",
+            "duration": "2 hrs",
+            "cost": "26990000",
+            "featured": false
+          },
+          {
+            "name": "Meso Youth - Mesotherapy giảm nhăn thu nhỏ lỗ chân lông",
+            "duration": "2 hrs 30 mins",
+            "cost": "6990000",
+            "featured": false
+          },
+          {
+            "name": "Tiêm trẻ hoá, đầy sẹo Gouri",
+            "duration": "2 hrs",
+            "cost": "6990000",
+            "featured": false
+          },
+          {
+            "name": "Skin booster Pluryal",
+            "duration": "2 hrs",
+            "cost": "12000000",
+            "featured": false
+          },
+          {
+            "name": "Skin booster Restylane",
+            "duration": "2 hrs",
+            "cost": "15900000",
+            "featured": false
+          },
+          {
+            "name": "Skin booster Teoxane",
+            "duration": "2 hrs",
+            "cost": 12000000,
+            "featured": false
+          },
+          {
+            "name": "Skin Booster Bolotero",
+            "duration": "2 hrs",
+            "cost": 16900000,
+            "featured": false
+          },
+          {
+            "name": "Mesotherapy B.A.P - Nâng cơ, cải thiện cấu trúc da lão hoá",
+            "duration": "1 hr 30 mins",
+            "cost": 11990000,
+            "featured": false
+          },
+          {
+            "name": "Meso PDRN White - Mesotherapy phục hồi cấu trúc & làm sáng",
+            "duration": "2 hrs",
+            "cost": 6590000,
+            "featured": false
+          },
+          {
+            "name": "Meso PDRN - Mesotherapy phục hồi cấu trúc đa tầng",
+            "duration": "2 hrs",
+            "cost": 4990000,
+            "featured": false
+          },
+          {
+            "name": "Mesotherapy Mắt Teoxane",
+            "duration": "1 hr",
+            "cost": 8990000,
+            "featured": false
+          },
+          {
+            "name": "Mesotherapy Filler Teoxane",
+            "duration": "1 hr",
+            "cost": 11990000,
+            "featured": false
+          }
+        ]
+      },
+      {
+        "type": "DMK Enzyme",
+        "items": [
+          {
+            "name": "DMK Enzyme 2 - Tiêu sừng thanh lọc da tối màu, da mụn",
+            "duration": "1 hr",
+            "cost": 1590000,
+            "featured": false
+          },
+          {
+            "name": "DMK Enzyme 1 - Khôi phục làn da mẫn cảm",
+            "duration": "1 hr",
+            "cost": 1290000,
+            "featured": false
+          }
+        ]
+      },
+      {
+        "type": "Soi Da",
+        "items": [
+          {
+            "name": "Soi Da Bằng Máy FOCUSKIN và Phác Đồ Điều Trị",
+            "duration": "30 mins",
+            "cost": 0,
+            "featured": false
+          }
+        ]
+      },
+      {
+        "type": "Weekly Skincare",
+        "items": [
+          {
+            "name": "Nano Stemcell - Giảm thâm làm sáng",
+            "duration": "2 hrs",
+            "cost": 2590000,
+            "featured": false
+          },
+          {
+            "name": "Aqua Plus - Công nghệ Aqua giúp sạch sâu",
+            "duration": "1 hr",
+            "cost": 1490000,
+            "featured": false
+          },
+          {
+            "name": "Meso Nano - Căng bóng da không kim",
+            "duration": "1h 55mins",
+            "cost": 3590000,
+            "featured": false
+          },
+          {
+            "name": "Glow Shine - Căng bóng, trẻ hoá da",
+            "duration": "2 hrs",
+            "cost": 2690000,
+            "featured": false
+          },
+          {
+            "name": "Meso Glow - Jalupro Classic",
+            "duration": "2 hrs",
+            "cost": 6990000,
+            "featured": false
+          },
+          {
+            "name": "Whitening Extra - Làm sáng da với công nghệ Oxygen",
+            "duration": "2 hrs",
+            "cost": 1890000,
+            "featured": false
+          },
+          {
+            "name": "Detox Skin - Làm sạch sâu với CO2 Therapy",
+            "duration": "2 hrs",
+            "cost": 1090000,
+            "featured": false
+          },
+          {
+            "name": "Empower Skin - Trị liệu cho da mẫn cảm & trẻ hoá da",
+            "duration": "1 hr 30 mins",
+            "cost": 4590000,
+            "featured": false
+          },
+          {
+            "name": "Biosensitive Skin - Dưỡng ẩm tái tạo da",
+            "duration": "2 hrs",
+            "cost": 2390000,
+            "featured": false
+          },
+          {
+            "name": "Basic Cleansing - Làm sạch cơ bản",
+            "duration": "1 hr",
+            "cost": 350000,
+            "featured": false
+          },
+          {
+            "name": "Skin Balance 3 - Cân bằng lại hàng rào bảo vệ & tái thiết làn da mẫn cảm ",
+            "duration": "1 hr",
+            "cost": 1590000,
+            "featured": false
+          },
+          {
+            "name": "Skin Balance - Cân bằng lại hàng rào bảo vệ & làm dịu da mẫn cảm",
+            "duration": "1 hr",
+            "cost": 1290000,
+            "featured": false
+          },
+          {
+            "name": "Acne Treatment Level 2",
+            "duration": "1 hr",
+            "cost": 1290000,
+            "featured": false
+          },
+          {
+            "name": "Acne Treatment Level 1",
+            "duration": "1 hr",
+            "cost": "400000",
+            "featured": false
+          },
+          {
+            "name": "OXY Treatment 2 - Khôi phục những da nhiềm Corticoid, siêu mẫn cảm, tăng cường oxy nội tế bào",
+            "duration": "1 hr",
+            "cost": 1900000,
+            "featured": false
+          },
+          {
+            "name": "Làm sạch sâu, detox sợi bã nhờn vùng mũi",
+            "duration": "1 hr",
+            "cost": 100000,
+            "featured": false
+          },
+          {
+            "name": "Aquapeel - Làm Sạch Công Nghệ Sóng Nước",
+            "duration": "2 hrs",
+            "cost": 1290000,
+            "featured": false
+          },
+          {
+            "name": "Deep Cleansing - Làm Sạch Chuyên Sâu",
+            "duration": "2 hrs",
+            "cost": 550000,
+            "featured": true
+          },
+          {
+            "name": "OXY Treatment 1 - Khôi phục da mẫn cảm, thúc đẩy tăng oxy nội tế bào",
+            "duration": "45 mins",
+            "cost": 1590000,
+            "featured": false
+          }
+        ]
+      },
+      {
+        "type": "Ion Therapy",
+        "items": [
+          {
+            "name": "Ion Therapy - Điện di công nghệ Cryo Derm",
+            "duration": "1 hr 30 mins",
+            "cost": 1290000,
+            "featured": false
+          }
+        ]
+      },
+      {
+        "type": "Glass Skin",
+        "items": [
+          {
+            "name": "Shiny Glow - Thu nhỏ lỗ chân lông, trẻ hoá và căng bóng da",
+            "duration": "2 hrs",
+            "cost": 3590000,
+            "featured": false
+          },
+          {
+            "name": "Glow Skin - Căng Bóng Da",
+            "duration": "2 hrs",
+            "cost": 1590000,
+            "featured": false
+          },
+          {
+            "name": "Glass Skin - Căng Bóng Da Như Gương",
+            "duration": "3 hrs",
+            "cost": 1990000,
+            "featured": false
+          }
+        ]
+      },
+      {
+        "type": "Acne Treat",
+        "items": [
+          {
+            "name": "Chemical Peel Body",
+            "duration": "1 hr",
+            "cost": 3990000,
+            "featured": false
+          },
+          {
+            "name": "Chemical Peel - Level 2 Mụn viêm nhẹ & thâm đỏ",
+            "duration": "1 hr 10 mins",
+            "cost": 1590000,
+            "featured": false
+          },
+          {
+            "name": "Chemical Peel - Level 3 Mụn viêm nặng & Giảm sẹo mới",
+            "duration": "1 hr 30 mins",
+            "cost": 1990000,
+            "featured": false
+          }
+        ]
+      },
+      {
+        "type": "Mesotherapy Injection",
+        "items": [
+          {
+            "name": "Tiêm đầy sẹo Rejuran S",
+            "duration": "2 hrs",
+            "cost": 8690000,
+            "featured": false
+          },
+          {
+            "name": "Meso Collagen Glow - Mesotherapy căng bóng, trẻ hoá da",
+            "duration": "2 hrs",
+            "cost": 9900000,
+            "featured": false
+          },
+          {
+            "name": "Mesotherapy Melas - Mesotherapy nám điểm Hori",
+            "duration": "30 mins",
+            "cost": 1590000,
+            "featured": false
+          },
+          {
+            "name": "Lấy máu meso PRP",
+            "duration": "15 mins",
+            "cost": 5990000,
+            "featured": false
+          },
+          {
+            "name": "Mesotherapy Exocollagen - Mesotherapy exosome tăng cường collagen",
+            "duration": "1 hr 30 mins",
+            "cost": 9990000,
+            "featured": false
+          },
+          {
+            "name": "Mesoexo White - Mesotherapy tế bào gốc & sáng da",
+            "duration": "2 hrs",
+            "cost": 4990000,
+            "featured": false
+          },
+          {
+            "name": "Meso MSC - Mesotherapy tế bào gốc trung mô",
+            "duration": "2 hrs",
+            "cost": 15000000,
+            "featured": false
+          },
+          {
+            "name": "Mesotherapy Exosome - Mesoexsome tăng cường tế bào gốc",
+            "duration": "2 hrs",
+            "cost": 8690000,
+            "featured": false
+          },
+          {
+            "name": "Mesotherapy Acnes - Mesotherapy điều trị cho da mụn",
+            "duration": "1 hr",
+            "cost": 3990000,
+            "featured": false
+          },
+          {
+            "name": "Mesotherapy giảm rụng tóc",
+            "duration": "1 hr",
+            "cost": 5990000,
+            "featured": false
+          },
+          {
+            "name": "Meso Glow - Mesotherapy cấp nước căng bóng, tăng cường cấu trúc da",
+            "duration": "1 hr",
+            "cost": 5990000,
+            "featured": false
+          },
+          {
+            "name": "Meso Brightening - Mesotherapy làm sáng và điều trị nám",
+            "duration": "1 hr",
+            "cost": 3990000,
+            "featured": false
+          },
+          {
+            "name": "Meso Micro - Mesotherapy vi điểm kháng khuẩn, kháng viêm cho mụn sưng u mụn cục ( dưới 10 nốt)",
+            "duration": "1 hr",
+            "cost": 890000,
+            "featured": false
+          },
+          {
+            "name": "Meso Recovery - Mesotherapy phục hồi và nuôi dưỡng làn da mẫn cảm",
+            "duration": "2 hrs",
+            "cost": 3990000,
+            "featured": false
+          },
+          {
+            "name": "Meso PRP",
+            "duration": "3 hrs",
+            "cost": 5990000,
+            "featured": false
+          }
+        ]
+      },
+      {
+        "type": "Dịch vụ công nghệ cao",
+        "items": [
+          {
+            "name": "Nano Glow - Thu nhỏ lỗ chân lông, giảm sạm nám, trẻ hóa da",
+            "duration": "2 hrs",
+            "cost": 13989986,
+            "featured": false
+          },
+          {
+            "name": "Contoura Slim - Hủy tế bào mỡ vĩnh viễn",
+            "duration": "2 hrs",
+            "cost": 4000000,
+            "featured": false
+          },
+          {
+            "name": "Lift Face - Săn chắc định hình khuôn mặt",
+            "duration": "2 hrs",
+            "cost": 3589999,
+            "featured": false
+          },
+          {
+            "name": "MFU - Hoá lỏng mỡ với công nghệ MFU",
+            "duration": "2 hrs",
+            "cost": 9000000,
+            "featured": false
+          },
+          {
+            "name": "Glowshine - Trẻ hoá da 6D",
+            "duration": "2 hrs",
+            "cost": 19990000,
+            "featured": false
+          },
+          {
+            "name": "Glowshine - Trẻ hoá da 6D",
+            "duration": "2 hrs",
+            "cost": 19990000,
+            "featured": false
+          },
+          {
+            "name": "Black Pearl - Công nghệ độc quyền, nâng cơ, giảm nhăn",
+            "duration": "1 hr 30 mins",
+            "cost": 79000000,
+            "featured": false
+          },
+          {
+            "name": "Ultherapy Prime - Nâng cơ, trẻ hóa toàn diện",
+            "duration": "1 hr 30 mins",
+            "cost": 79000000,
+            "featured": false
+          },
+          {
+            "name": "Sofwave Superb - Trẻ hoá nâng cơ toàn mặt",
+            "duration": "2 hrs",
+            "cost": 60000000,
+            "featured": false
+          },
+          {
+            "name": "Fotona’s HaiRestart - Laser kích thích mọc tóc",
+            "duration": "Skin Recovery By Fotona Dynamis - Trẻ hoá & Phục hồi da mẫn cảm",
+            "cost": 4000000,
+            "featured": false
+          },
+          {
+            "name": "Adora Glow - Trẻ hoá đa tầng toàn diện",
+            "duration": "1 hr 30 mins",
+            "cost": 0,
+            "featured": false
+          },
+          {
+            "name": "Laser Acnes Premium - Laser điều trị mụn/ Giãn mao mạch",
+            "duration": "1 hr 30 mins",
+            "cost": 3000000,
+            "featured": false
+          },
+          {
+            "name": "Laser Melasma Signature - Điều trị nám chân sâu",
+            "duration": "2 hrs",
+            "cost": 3990000,
+            "featured": false
+          },
+          {
+            "name": "Botox Mỹ",
+            "duration": "1 hr",
+            "cost": 2000000,
+            "featured": false
+          }
+        ]
+      },
+      {
+        "type": "Triệt lông",
+        "items": [
+          {
+            "name": "Dịch vụ triệt lông toàn thân",
+            "duration": "1 hr",
+            "cost": 29000000,
+            "featured": false
+          },
+          {
+            "name": "Triệt lông vùng lưng",
+            "duration": "25 mins",
+            "cost": 99000,
+            "featured": false
+          },
+          {
+            "name": "Triệt lông vùng bụng",
+            "duration": "25 mins",
+            "cost": 99000,
+            "featured": false
+          },
+          {
+            "name": "Triệt lông vùng bikini",
+            "duration": "45 mins",
+            "cost": 99000,
+            "featured": true
+          },
+          {
+            "name": "Triệt lông vùng chân",
+            "duration": "45 mins",
+            "cost": 99000,
+            "featured": false
+          },
+          {
+            "name": "Triệt lông vùng 1/2 chân",
+            "duration": "30 mins",
+            "cost": 99000,
+            "featured": false
+          },
+          {
+            "name": "Triệt lông vùng tay",
+            "duration": "30 mins",
+            "cost": 99000,
+            "featured": false
+          },
+          {
+            "name": "Triệt lông vùng 1/2 cánh tay",
+            "duration": "30 mins",
+            "cost": 99000,
+            "featured": false
+          },
+          {
+            "name": "Triệt lông vùng gáy",
+            "duration": "30 mins",
+            "cost": 99000,
+            "featured": false
+          },
+          {
+            "name": "Triệt lông vùng mặt",
+            "duration": "30 mins",
+            "cost": 99000,
+            "featured": false
+          },
+          {
+            "name": "Triệt lông vùng nách",
+            "duration": "25 mins",
+            "cost": 99000,
+            "featured": true
+          },
+          {
+            "name": "Triệt lông vùng mép",
+            "duration": "25 mins",
+            "cost": 99000,
+            "featured": false
+          }
+        ]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Lại Thanh H",
+        "date": "11/9/2023",
+        "time": "21:44",
+        "comment": "Great",
+        "rating": 5
+      },
+      {
+        "reviewer": "Nguyễn A",
+        "date": "9/8/2023",
+        "time": "9:02",
+        "comment": "Nặn mụn về hsau vẫn còn sưng đỏ khá nhiều. 1 số mụn nặn chưa hết nhân nên bị lên lại đầu trắng.",
+        "rating": 3
+      },
+      {
+        "reviewer": "Luan D",
+        "date": "22/2/2022",
+        "time": "6:18",
+        "comment": "Mình đã làm liệu trình enzyme ở HER, hiệu quả thực sự rất ngoài mong đợi, da sáng và mịn hơn, sạch mụn và hấp thu dưỡng chất tốt hơn trước. Cảm ơn HER.",
+        "rating": 5
+      },
+      {
+        "reviewer": "Trịnh Minh H",
+        "date": "5/9/2021",
+        "time": "18:17",
+        "comment": "Tư vấn tuyệt vời!!! Da ai cũng đẹp hết trơn",
+        "rating": 5
+      },
+      {
+        "reviewer": "Nguyễn T",
+        "date": "9/8/2021",
+        "time": "13:18",
+        "comment": "Bạn ktv làm cẩn thận. Thank you.",
+        "rating": 5
+      }
+
+    ],
+    "about": "Her Hà Nội, tọa lạc tại số 63 Nguyễn Hy Quang, mang đến dịch vụ làm đẹp chuyên nghiệp với phong cách hiện đại. Tại đây, bạn sẽ được trải nghiệm các dịch vụ chăm sóc tóc và sắc đẹp chất lượng cao, từ cắt tóc đến tạo kiểu, cùng sự phục vụ tận tâm trong không gian thoải mái. Hãy đến và làm mới bản thân tại Her Hà Nội!",
+    "openingTimes": [
+      {
+        "date": "Monday",
+        "startTime": "09:00",
+        "endTime": "21:00"
+      },
+      {
+        "date": "Wednesday",
+        "startTime": "09:00",
+        "endTime": "21:00"
+      },
+      {
+        "date": "Thursday",
+        "startTime": "09:00",
+        "endTime": "21:00"
+      },
+      {
+        "date": "Friday",
+        "startTime": "09:00",
+        "endTime": "21:00"
+      },
+      {
+        "date": "Saturday",
+        "startTime": "09:00",
+        "endTime": "21:00"
+      },
+      {
+        "date": "Sunday",
+        "startTime": "09:00",
+        "endTime": "21:00"
+      }
+    ],
+    "additionalInfo": [
+      "Instant Confirmation"
+    ],
+    "recommended": true,
+    "dayToJoin": "2021-03-12"
   }
 ]
