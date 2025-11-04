@@ -1,5 +1,6 @@
 # Requirement
-We need to create a list of shops and connect them with potential users. We already have connections. The idea is similar to booking.com or Agoda page
+We need to create a list of shops and connect them with potential users. We already have connections. The idea is similar to booking.com or Agoda page.
+The website is mainly a clone of https://www.fresha.com, with different booking flow.
 
 # System analysis for booking website
 The website consists of 6 pages, a header and a footer
@@ -61,6 +62,9 @@ After searching, the system will redirect to result page to choose the options. 
 In main section:
 * First, user can see a breadcrumbs: current page’s location within a navigational hierarchy.
 * Then, user can see a search form, with search criteria passed from landing page. To refine the search, user can fill in keywords (same as in landing page) and click button "search".
+
+![Use case for refined searching here](./Use-case-refine-search.png "Use case for refined searching here")
+
 * Then, a filter on the left. The filter includes:
   - Name: text box to fill in the name of shops
   - Available time: Time picker to choose the available time
@@ -74,9 +78,30 @@ User then can look at each shop, see if shop is a match, choose it to see detail
 When user clicks button "View detail", the system will redirect to detail page with booking section.
 
 ### 5. Detail page
-(booking detail page)
+The page consists of: header, footer and main section.
+
+In main section:
+* First, user can see a breadcrumbs: current page’s location within a navigational hierarchy (Home -> Vendors -> [name of vendor])
+* Then, user can see a search form, with search criteria passed from landing page. To refine the search, user can fill in keywords (same as in landing page) and click button "search".
+* Then a section which contains basic information of current shop: name (in one row), rating, number of ratings, open or not at this moment, address (in another row below), and all photos.
+
+* The final section contains 2 parts and has similar look with this one
+![design for detail page here](./design-detail-page.png "design for detail here")
+  - Detail information: on the left, contains:
+	- All services in tab view (data: get from props "services" in partners.json). Each tab contains: type of service, all items in this service. Each item has name, duration and cost. There's an additional tab: Featured. If an item has props "featured" = true, they will also be displayed here.
+	- Below is "reviews" section (get data from props "reviews" in partners.json), with header "Reviews", overall rating, number of ratings. Then each review card is displayed as below, with information: avatar, name of reviewer, day and time of review, his/her comment and rating.
+![design for review here](./design-detail-page-reviews.png "design for review here")
+	- Below is "about" section (get data from props "about" in partners.json), with header "About" and content.
+	- Below is "opening times" and "additional information" (get data from props "openingTimes" and "additionalInfo" in partners.json), as shown in below.
+![design for opening times here](./design-detail-page-opening-times.png "design for opening times here")
+
+  - Booking place: contains basic information again (as shown in image below). When user click in "open at...", a place will appear, showing opening times in detail.
+![design for detail page here](./design-detail-page.png "design for detail here")
+
+When user click in "Book now", they will be redirected to booking and payment pages.
 
 ### 6. Booking and payment pages
+(booking process)
 After completing it, user will click button "Continue". Their information will be saved in the system and they will be redirected to payment page.
 A payment form will appear, showing that they should fill in a detail form (first name, last name, email address, id number, etc...), and button "send request". 
 Their information will be saved in the system and they will be redirected to payment page.
@@ -101,16 +126,16 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 
 * Code hiearchy 
 
-	```src/pages/Index.jsx```
+	```src/pages/Index.tsx```
 
 * Inside Index, we have components for each section:
-- Header: ```src/components/Header.jsx```
-- Hero section: ```src/components/HeroSection.jsx``` 
+- Header: ```src/components/Header.tsx```
+- Hero section: ```src/components/HeroSection.tsx``` 
 	- contain custom dropdown item when searching for services: ```src/components/ui/SearchDropdownItem.tsx``` 
 	- and custom toast when error occurs
-- Service section (cover 1.2, 1.3, 1.4): ```src/components/ServiceSection.jsx``` (contain custom card item for each shop: ```src/components/ui/ServiceCard.tsx``` )
-- Testimonials section: ```src/components/Testimonials.jsx```
-- Footer: ```src/components/Footer.jsx```
+- Service section (cover 1.2, 1.3, 1.4): ```src/components/ServiceSection.tsx``` (contain custom card item for each shop: ```src/components/ui/ServiceCard.tsx``` )
+- Testimonials section: ```src/components/Testimonials.tsx```
+- Footer: ```src/components/Footer.tsx```
 
 ## Result page
 * Component route path 
@@ -119,16 +144,16 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 
 * Code hiearchy 
 
-	```src/pages/Results.jsx```
+	```src/pages/Results.tsx```
 
 * Inside Result, we have components for each section:
-- Header: ```src/components/Header.jsx```
-- Breadcrumb: Custom Breadcrumb (used for many pages): ```src/components/MyBreadcrumb.jsx```
-- Search form: ```src/components/SearchForm.jsx``` 
+- Header: ```src/components/Header.tsx```
+- Breadcrumb: Custom Breadcrumb (used for many pages): ```src/components/MyBreadcrumb.tsx```
+- Search form: ```src/components/SearchForm.tsx``` 
 	- contain custom dropdown item when searching for services: ```src/components/ui/SearchDropdownItem.tsx``` 
 	- and custom toast when error occurs
-- Filter: ```src/components/Filter.jsx```
-- Shop list: ```src/components/ResultList.jsx``` 
+- Filter: ```src/components/Filter.tsx```
+- Shop list: ```src/components/ResultList.tsx``` 
 	- contain custom card item for each shop: ```src/components/ui/ServiceCard.tsx```
 
 ## Detail page
@@ -138,11 +163,11 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 
 * Code hiearchy 
 
-	```src/pages/Details.jsx```
+	```src/pages/Details.tsx```
 
 * Inside Detail, we have components for each section:
-- Header: ```src/components/Header.jsx```
-- Breadcrumb: same as above: ```src/components/MyBreadcrumb.jsx```
+- Header: ```src/components/Header.tsx```
+- Breadcrumb: same as above: ```src/components/MyBreadcrumb.tsx```
 - ...
 
 ## Booking page
@@ -151,7 +176,7 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 	```App -> /results/:id/booking```
 
 * Code hiearchy 
-	```src/pages/Booking.jsx```
+	```src/pages/Booking.tsx```
 
 ## Not found page route:
 * Component route path (NotFound element)
@@ -160,7 +185,7 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 
 * Code hiearchy
 
-```src/pages/NotFound.jsx```
+```src/pages/NotFound.tsx```
 
 # Tech stack
 * Frontend: ReactJS, Boostrap 5, react-boostrap, lucide-icons, react-router-dom, react-datepicker, react-boostrap-time-picker
