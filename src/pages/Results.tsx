@@ -155,11 +155,11 @@ const Results = () => {
                             <ResultList filteredData={partnerData} />
                         </Col>
                     </Row>
-                    {/*footer*/}
-                    <Footer />
                 </Container>
             </section>
 
+            {/*footer*/}
+            <Footer />
         </div>
     );
 };

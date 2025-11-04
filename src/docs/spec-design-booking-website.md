@@ -10,7 +10,7 @@ The most important page, consists of 7 sections: header, footer and the followin
 
 ### 1.1. Hero section
 Include a place to advertise, and a booking form for customers to book services. 
-* To advertise the page: change background image, use title, subtitle...
+* To advertise the page: use background image, use title, subtitle...
 * To book services: booking form with: services (body, massage...), date picker, time picker, in pill styles. And button "Search".
 
 User can choose services from dropdown list. Default is "All treatments and venues". If user choose it, they will choose all services.
