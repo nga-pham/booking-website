@@ -48,9 +48,14 @@ const HeroSection = () => {
 
     // Pass data to results page
     const navigate = useNavigate();
+    let tempCategoryArray = [selectedCat]
+    if (selectedCat === "All treatments and venues") {
+        tempCategoryArray = Array.from(uniqueCategories);
+        }
     const resultsState: resultsStateProps = {
         // all categories or just the selected one
-        "category": selectedCat === "All treatments and venues" ? Array.from(uniqueCategories) : [selectedCat],
+        "category": tempCategoryArray,
+        //"category": selectedCat === "All treatments and venues" ? Array.from(uniqueCategories) : [selectedCat],
         // cast date to Date to satisfy interface (date state remains Date | null)
         "date": date as Date,
         "startTime": startTime, 

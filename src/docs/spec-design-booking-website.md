@@ -119,7 +119,7 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 
 * Inside Result, we have components for each section:
 - Header: ```src/components/Header.jsx```
-- Breadcrumb: ```src/components/Breadcrumb.jsx```
+- Breadcrumb: Custom Breadcrumb (used for many page): ```src/components/MyBreadcrumb.jsx```
 - Search form: ```src/components/SearchForm.jsx``` (contain custom dropdown item when searching for services: ```src/components/ui/SearchDropdownItem.tsx``` )
 - Filter: ```src/components/Filter.jsx```
 - Shop list: ```src/components/ShopList.jsx``` (contain custom card item for each shop: ```src/components/ui/ServiceCard.tsx``` )
@@ -132,6 +132,11 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 * Code hiearchy 
 
 	```src/pages/Details.jsx```
+
+* Inside Detail, we have components for each section:
+- Header: ```src/components/Header.jsx```
+- Breadcrumb: same as above: ```src/components/MyBreadcrumb.jsx```
+- ...
 
 ## Booking page
 * Component route path for each booking detail, retrieved when clicking "book now" in each shop (Booking element)

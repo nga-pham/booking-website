@@ -1,17 +1,18 @@
 ﻿import { Calendar, ChevronRight, Rows4, Search, Sparkles, Star, Timer } from 'lucide-react';
 import { useState } from 'react';
-import { Breadcrumb, Button, Card, CardGroup, Col, Container, Dropdown, Form, InputGroup, Row } from "react-bootstrap";
+import { Button, Card, CardGroup, Col, Container, Dropdown, Form, InputGroup, Row } from "react-bootstrap";
 import TimePicker from 'react-bootstrap-time-picker';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useLocation, useNavigate } from 'react-router-dom';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import MyBreadCrumb from '../components/ui/MyBreadCrumb';
 import DropdownItem, { categoryIconMap } from '../components/ui/SearchDropdownItem';
 import servicesData from "../data/partners.json";
-import nannies from "../nannies.json";
 import { districts } from "../lib/utils";
-import MyBreadCrumb from '../components/ui/MyBreadCrumb';
+import nannies from "../nannies.json";
+import SearchForm from '../components/SearchForm';
 
 const Results = () => {
     // get selected service from landing page
@@ -89,12 +90,12 @@ const Results = () => {
                     </Row>
                     
                     {/* previous search criteria */}
-                    <Row className="mt-2 align-items-center">
-                        <Form className="w-100">
+                    <Row className="mt-2">
+                        {/*<Form className="w-100">
                             <div className="d-flex w-100 align-items-center rounded-pill bg-white shadow-sm p-2">
-                                {/*input group to the left*/}
+                                */}{/*input group to the left*/}{/*
                                 <InputGroup className=" flex-grow-1">
-                                    {/*list services*/}
+                                    */}{/*list services*/}{/*
                                     <InputGroup.Text className="border-0 bg-transparent">
                                         <Search />
                                     </InputGroup.Text>
@@ -124,8 +125,8 @@ const Results = () => {
                                         </Dropdown.Menu>
                                     </Dropdown>
 
-                                    {/*date picker*/}
-                                    <div className="vr"></div> {/* This creates the vertical line */}
+                                    */}{/*date picker*/}{/*
+                                    <div className="vr"></div> */}{/* This creates the vertical line */}{/*
                                     <InputGroup.Text className="border-0 bg-transparent">
                                         <Calendar />
                                     </InputGroup.Text>
@@ -138,8 +139,8 @@ const Results = () => {
                                         />
                                     </div>
 
-                                    {/*time picker*/}
-                                    <div className="vr"></div> {/* This creates the vertical line */}
+                                    */}{/*time picker*/}{/*
+                                    <div className="vr"></div> */}{/* This creates the vertical line */}{/*
                                     <InputGroup.Text className="border-0 bg-transparent">
                                         <Timer />
                                     </InputGroup.Text>
@@ -172,7 +173,7 @@ const Results = () => {
 
                                 </InputGroup>
 
-                                {/*button to the right*/}
+                                */}{/*button to the right*/}{/*
                                 <div className="vr"></div>
                                 &nbsp;&nbsp;
                                 <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
@@ -181,7 +182,8 @@ const Results = () => {
                                     Search <ChevronRight size={20} />
                                 </Button>
                             </div>
-                        </Form>
+                        </Form>*/}
+                        <SearchForm category={state.category} date={state.date} startTime={state.startTime} endTime={state.endTime } /> 
                     </Row>
                     
                     <Row className="g-5 mt-2">
