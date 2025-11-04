@@ -62,6 +62,7 @@ const ServicesSection = () => {
                                             address={partner.address}
                                             district={partner.district}
                                             categories={partner.categories}
+                                            canViewDetail={false }
                                         />
                                     ))}
                                 </Stack>
@@ -92,6 +93,7 @@ const ServicesSection = () => {
                                             address={partner.address}
                                             district={partner.district}
                                             categories={partner.categories}
+                                            canViewDetail={false }
                                         />
                                     ))}
                                 </Stack>
@@ -121,6 +123,7 @@ const ServicesSection = () => {
                                                 address={partner.address}
                                                 district={partner.district}
                                                 categories={partner.categories}
+                                                canViewDetail={false }
                                             />
                                             </Carousel.Item>
                                         )

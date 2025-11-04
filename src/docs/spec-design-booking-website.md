@@ -13,6 +13,7 @@ Include a place to advertise, and a booking form for customers to book services.
 * To book services: booking form with: services (body, massage...), date picker, time picker, in pill styles. And button "Search".
 
 User can choose services from dropdown list. Default is "All treatments and venues". If user choose it, they will choose all services.
+
 ![Use case for choosing services here](./Use-case-choose-services.png "Use case for choosing services here")
 
 User can choose date from date picker. Default is today’s date. All previous day is disabled.

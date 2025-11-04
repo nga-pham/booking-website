@@ -1,5 +1,6 @@
-﻿import { Card } from "react-bootstrap";
+﻿import { Card, Button } from "react-bootstrap";
 import { Star } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 // properties for each partners from partners.json
 interface ServiceCardProps {
@@ -11,14 +12,21 @@ interface ServiceCardProps {
     address: string | "";
     categories: string[] | [];
     district: string | "";
-
+    canViewDetail: boolean | false;
     onClick?: () => void;
 }
 
 // id is index of each partner in partners.json
 const ServiceCard = ({
-    id, photo, name, rating, numberOfRating, address, categories, district
+    id, photo, name, rating, numberOfRating, address, categories, district, canViewDetail
 }: ServiceCardProps) => {
+
+    // go to detail page to book
+    const navigate = useNavigate();
+    const goToDetail = (partnerIdx: number) => {
+        navigate(`/results/${partnerIdx}`)
+    }
+
     return (
         <Card bg="light" style={{ width: "25rem", textAlign: 'left' }} key={id }>
             <Card.Img variant="top" src={photo} />
@@ -33,6 +41,7 @@ const ServiceCard = ({
                 <Card.Text style={{ color: '#000' }}>{categories.map(category => (
                     <span key={category} style={{ marginRight: '0.5rem', padding: '0.25rem 0.5rem', border: '1px solid #ccc', borderRadius: '0.25rem', fontSize: '0.875rem' }}>{category}</span>
                 ))}</Card.Text>
+                {canViewDetail ? <Button variant="info" onClick={() => goToDetail(id)}>View detail</Button> : null}
             </Card.Body>
         </Card>
     )

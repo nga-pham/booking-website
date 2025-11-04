@@ -1,44 +1,19 @@
-﻿import { Calendar, ChevronRight, Rows4, Search, Sparkles, Star, Timer } from 'lucide-react';
-import { useState } from 'react';
-import { Button, Card, CardGroup, Col, Container, Dropdown, Form, InputGroup, Row } from "react-bootstrap";
-import TimePicker from 'react-bootstrap-time-picker';
-import DatePicker from "react-datepicker";
+﻿import { useState } from 'react';
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import { useLocation, useNavigate } from 'react-router-dom';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import SearchForm from '../components/SearchForm';
 import MyBreadCrumb from '../components/ui/MyBreadCrumb';
-import DropdownItem, { categoryIconMap } from '../components/ui/SearchDropdownItem';
+import ResultList from "../components/ui/ResultList";
 import partnerData from "../data/partners.json";
 import { districts } from "../lib/utils";
-import nannies from "../nannies.json";
-import SearchForm from '../components/SearchForm';
 
 const Results = () => {
     // get selected service from landing page
     const location = useLocation();
     const { state } = location as any; // Destructure the state object from location : {category : string[], date, startTime, endTime }
-
-    // Choose categories from dropdown
-    // Extract all unique categories from the services data
-    const allCategories = partnerData.flatMap(venue => venue.categories);
-    const uniqueCategories = [...new Set(allCategories)].sort();
-    // set selected category
-    const [selectedCat, setSelectedCat] = useState<string>(() =>
-        state?.category && state.category.length === 1 ? state.category[0] : "All treatments and venues"
-    );
-    const changeSelectedCategory = (category: string) => setSelectedCat(category);
-
-
-    // Get selected date from landing page
-    const [selectedDate, setSelectedDate] = useState<Date | null>(state?.date ? new Date(state.date) : null);
-    const changeDate = (value: Date | null) => setSelectedDate(value);
-
-    // Get selected time range from landing page
-    const [selectedStartTime, setSelectedStartTime] = useState<number>(state?.startTime ?? 0);
-    const [selectedEndTime, setSelectedEndTime] = useState<number>(state?.endTime ?? 86400);
-    const changeStartTime = (timeNumber: number) => setSelectedStartTime(timeNumber);
-    const changeEndTime = (timeNumber: number) => setSelectedEndTime(timeNumber);
 
     // add label and handle change for choosing name
     const [nameValue, setNameValue] = useState<string>(""); // Initial value for the name
@@ -151,7 +126,7 @@ const Results = () => {
 
                         {/*results from filter and search*/}
                         <Col lg={8}>
-                            <CardGroup>
+                            {/*<CardGroup>
                                 {nannies.map((nanny, _idx) => (
                                     <Card key={_idx} className="m-2" style={{ minWidth: '18rem' }}>
                                         <Card.Img variant="top" src={nanny.photos} />
@@ -176,7 +151,8 @@ const Results = () => {
                                         </Card.Body>
                                     </Card>
                                 ))}
-                            </CardGroup>
+                            </CardGroup>*/}
+                            <ResultList filteredData={partnerData} />
                         </Col>
                     </Row>
                     {/*footer*/}
