@@ -13,7 +13,18 @@ import { districts } from "../lib/utils";
 const Results = () => {
     // get selected service from landing page
     const location = useLocation();
-    const { state } = location as any; // Destructure the state object from location : {category : string[], date, startTime, endTime }
+    let { state } = location as any; // Destructure the state object from location : {category : string[], date, startTime, endTime }
+    if (!state) {
+        // Extract all unique categories from the services data
+        const allCategories = partnerData.flatMap(venue => venue.categories);
+        const uniqueCategories = [...new Set(allCategories)].sort();
+        state = {
+            category: uniqueCategories,
+            date: new Date(),
+            startTime: 0,
+            endTime: 86400
+        }
+    }
 
     // add label and handle change for choosing name
     const [nameValue, setNameValue] = useState<string>(""); // Initial value for the name
@@ -44,13 +55,6 @@ const Results = () => {
     };
 
     // add label and handle change for choosing districts
-
-
-    // go to detail page to book
-    const navigate = useNavigate();
-    const goToDetail = (nannyIdx: number) => {
-        navigate(`/results/${nannyIdx}`)
-    }
 
     return (
         <div className="min-h-screen">
