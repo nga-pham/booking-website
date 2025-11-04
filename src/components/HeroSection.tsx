@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import DropdownItem, { categoryIconMap } from '../components/ui/SearchDropdownItem';
 import servicesData from "../data/partners.json";
-
+import { isEndTimeBeforeStartTime } from "../lib/utils"
 
 // interface of data to pass to result page
 interface resultsStateProps {
@@ -60,10 +60,6 @@ const HeroSection = () => {
         "date": date as Date,
         "startTime": startTime, 
         "endTime": endTime,
-    }
-
-    const isEndTimeBeforeStartTime = (start: number, end: number): boolean => {
-        return (end - start) <= 0;
     }
     
     const gotoResults = () => {

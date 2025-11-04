@@ -8,3 +8,9 @@ export function cn(...inputs: ClassValue[]) {
 
 // Group partners by district
 export const districts = Array.from(new Set(servicesData.map(service => service.district)));
+
+// check if end time before or equal to start time, in time range
+export const isEndTimeBeforeStartTime = (start: number, end: number): boolean => {
+    return (end - start) <= 0;
+}
+

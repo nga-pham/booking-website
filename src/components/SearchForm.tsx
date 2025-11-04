@@ -5,7 +5,8 @@ import DatePicker from "react-datepicker";
 import DropdownItem, { categoryIconMap } from '../components/ui/SearchDropdownItem';
 import partnerData from "../data/partners.json";
 import { useEffect, useState } from 'react';
-
+import { isEndTimeBeforeStartTime } from "../lib/utils"
+import { toast } from 'sonner';
 
 const SearchForm = (props) => {
     // Choose categories from dropdown
@@ -21,15 +22,24 @@ const SearchForm = (props) => {
     // Get selected date from landing page and change when user selects a new date
     const [selectedDate, setSelectedDate] = useState<Date | null>(props.date ? new Date(props.date) : null);
     const changeDate = (value: Date | null) => setSelectedDate(value);
-    console.log("selected category:", selectedCat); 
-    console.log("Selected date:", selectedDate);
 
     // Get selected time range from landing page and change when user selects a new time range
     const [selectedStartTime, setSelectedStartTime] = useState<number>(props?.startTime ?? 0);
     const [selectedEndTime, setSelectedEndTime] = useState<number>(props?.endTime ?? 86400);
     const changeStartTime = (timeNumber: number) => setSelectedStartTime(timeNumber);
     const changeEndTime = (timeNumber: number) => setSelectedEndTime(timeNumber);
-    console.log(selectedStartTime, selectedEndTime)
+
+    // update list based on change
+    const updateList = () => {
+        // if end time is before start time, show error toast
+        if (isEndTimeBeforeStartTime(selectedStartTime, selectedEndTime)) {
+            toast.error("Invalid time range", {
+                description: "End time must be after start time"
+            });
+            // else update
+        } else {
+        }
+    }
 
     return (
         <Form className="w-100">
@@ -119,6 +129,7 @@ const SearchForm = (props) => {
                 &nbsp;&nbsp;
                 <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
                     style={{ backgroundColor: 'black', color: "white" }}
+                    onClick={updateList}
                 >
                     Search <ChevronRight size={20} />
                 </Button>
