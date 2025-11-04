@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import MyBreadCrumb from '../components/ui/MyBreadCrumb';
 import DropdownItem, { categoryIconMap } from '../components/ui/SearchDropdownItem';
-import servicesData from "../data/partners.json";
+import partnerData from "../data/partners.json";
 import { districts } from "../lib/utils";
 import nannies from "../nannies.json";
 import SearchForm from '../components/SearchForm';
@@ -21,7 +21,7 @@ const Results = () => {
 
     // Choose categories from dropdown
     // Extract all unique categories from the services data
-    const allCategories = servicesData.flatMap(venue => venue.categories);
+    const allCategories = partnerData.flatMap(venue => venue.categories);
     const uniqueCategories = [...new Set(allCategories)].sort();
     // set selected category
     const [selectedCat, setSelectedCat] = useState<string>(() =>

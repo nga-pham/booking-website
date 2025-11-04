@@ -8,16 +8,26 @@ import { useEffect, useState } from 'react';
 import { isEndTimeBeforeStartTime } from "../lib/utils"
 import { toast } from 'sonner';
 
+// props is state from landing page
 const SearchForm = (props) => {
     // Choose categories from dropdown
     // Extract all unique categories from the services data
     const allCategories = partnerData.flatMap(venue => venue.categories);
     const uniqueCategories = [...new Set(allCategories)].sort();
-    // set selected category
+    // set selected categories
+    // selectedCat is text from dropdown, while selectedCategories is different; it's all the categories chosen
     const [selectedCat, setSelectedCat] = useState<string>(() =>
         props.category && props.category.length === 1 ? props.category[0] : "All treatments and venues"
     );
-    const changeSelectedCategory = (category: string) => setSelectedCat(category);
+    const [selectedCategories, setSelectedCategories] = useState<string[]>(() => 
+        props.category && props.category.length === 1 ? props.category : Array.from(uniqueCategories)
+    )
+    const changeSelectedCategories = (category) => {
+        setSelectedCat(category)
+        if (selectedCat === "All treatments and venues") {
+            setSelectedCategories(Array.from(uniqueCategories))
+        } else setSelectedCategories([selectedCat])
+    };
 
     // Get selected date from landing page and change when user selects a new date
     const [selectedDate, setSelectedDate] = useState<Date | null>(props.date ? new Date(props.date) : null);
@@ -62,13 +72,15 @@ const SearchForm = (props) => {
                                 backgroundColor: "white"
                             }}
                         >
-                            <DropdownItem icon={Rows4} category="All treatments and venues" />
+                            <DropdownItem icon={Rows4} category="All treatments and venues"
+                                onClick={() => changeSelectedCategories("All treatments and venues")}
+                            />
                             <hr />
                             {uniqueCategories.map((category, index) => {
                                 const Icon = categoryIconMap[category] || Sparkles;
                                 return (
                                     <DropdownItem key={index} icon={Icon} category={category}
-                                        onClick={() => changeSelectedCategory(category)}
+                                        onClick={() => changeSelectedCategories(category)}
                                     />
                                 )
                             }
