@@ -67,11 +67,11 @@ In main section:
   - Star rating: range to choose minimum star rating
   - District: checkbox to choose available districts
 
-* The options are on the right, are a list of shops, each with basic information, the same as in hero section. 
+* The options are on the right, which are a list of shops, each with basic information, the same as in hero section. 
 
 User then can look at each shop, see if shop is a match, choose it to see details (redirect to detail page). Or a button "Book now" to book directly.
 
-When user clicks button "Book now", the system will redirect to detail page with booking section.
+When user clicks button "View detail", the system will redirect to detail page with booking section.
 
 ### 5. Detail page
 (booking detail page)
@@ -128,7 +128,7 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 	- contain custom dropdown item when searching for services: ```src/components/ui/SearchDropdownItem.tsx``` 
 	- and custom toast when error occurs
 - Filter: ```src/components/Filter.jsx```
-- Shop list: ```src/components/ShopList.jsx``` 
+- Shop list: ```src/components/ResultList.jsx``` 
 	- contain custom card item for each shop: ```src/components/ui/ServiceCard.tsx```
 
 ## Detail page

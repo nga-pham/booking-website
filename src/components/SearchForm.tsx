@@ -1,12 +1,12 @@
-﻿import { Button, Dropdown, Form, InputGroup } from "react-bootstrap";
-import { Calendar, ChevronRight, Rows4, Search, Sparkles, Star, Timer } from 'lucide-react';
+﻿import { Calendar, ChevronRight, Rows4, Search, Sparkles, Timer } from 'lucide-react';
+import { useState } from 'react';
+import { Button, Dropdown, Form, InputGroup } from "react-bootstrap";
 import TimePicker from 'react-bootstrap-time-picker';
 import DatePicker from "react-datepicker";
+import { toast } from 'sonner';
 import DropdownItem, { categoryIconMap } from '../components/ui/SearchDropdownItem';
 import partnerData from "../data/partners.json";
-import { useEffect, useState } from 'react';
-import { isEndTimeBeforeStartTime } from "../lib/utils"
-import { toast } from 'sonner';
+import { isEndTimeBeforeStartTime } from "../lib/utils";
 
 // props is state from landing page
 const SearchForm = (props) => {
