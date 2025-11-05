@@ -60,8 +60,8 @@ Contain 4 sections:
 After searching, the system will redirect to result page to choose the options. The page consists of: header, footer and main section.
 
 In main section:
-* First, user can see a breadcrumbs: current page’s location within a navigational hierarchy.
-* Then, user can see a search form, with search criteria passed from landing page. To refine the search, user can fill in keywords (same as in landing page) and click button "search".
+* First, user can see a breadcrumbs: current page location within a navigational hierarchy.
+* Then, user can see a search form, with search criteria passed from landing page. To refine the search, user can fill in or choose keywords (same as in landing page) and click button "search".
 
 ![Use case for refined searching here](./Use-case-refine-search.png "Use case for refined searching here")
 
@@ -71,14 +71,16 @@ In main section:
   - Star rating: range to choose minimum star rating
   - District: checkbox to choose available districts
 
-* The options are on the right, which are a list of shops, each with basic information, the same as in hero section. 
+* The options are on the right, which are a list of shops, filtered by "search" and "filter", each with basic information, the same as in hero section.
 
 User then can look at each shop, see if shop is a match, choose it to see details (redirect to detail page). Or a button "Book now" to book directly.
 
-When user clicks button "View detail", the system will redirect to detail page with booking section.
+When user clicks button "View detail", the system will redirect to detail page.
 
 ### 5. Detail page
-The page consists of: header, footer and main section.
+The page gets id of the shop passed from "Result page". "id" is the index of shop in partners.json. 
+If the shop is not found, show a simple message: Shop not found. And button / link to come back.
+Else: The page consists of: header, footer and main section.
 
 In main section:
 * First, user can see a breadcrumbs: current page location within a navigational hierarchy (Home -> Vendors -> [name of vendor])

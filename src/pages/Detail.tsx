@@ -1,13 +1,12 @@
 ﻿import { Star } from 'lucide-react';
 import { useState } from 'react';
-import { Carousel, Col, Container, Row, TabPane, Tabs } from "react-bootstrap";
+import { Carousel, Col, Container, Row, Card, Button } from "react-bootstrap";
 import { useParams } from 'react-router-dom';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import MyBreadCrumb from "../components/ui/MyBreadCrumb";
-import ServiceCard from "../components/ui/ServiceCard";
+import ServiceTabs from "../components/ui/ServiceTabs";
 import { partnerDataWithId } from "../lib/utils";
-import ServiceTabs from "../components/ui/ServiceTabs"
 
 interface chosenOptionProps {
     services: string[];
@@ -30,8 +29,8 @@ const Detail = () => {
                 <section className="py-5">
                     <Container>
                         <Row className="text-start g-5 mt-2">
-                            <h1 style={{ fontWeight: 'bold' }}>Vendor not found</h1>
-                            <p>The requested vendor does not exist.</p>
+                            <h1 style={{ fontWeight: 'bold' }}>Shop not found</h1>
+                            <p>The requested Shop does not exist.</p>
                         </Row>
                     </Container>
                 </section>
@@ -60,13 +59,6 @@ const Detail = () => {
             </>
         );
 
-    //For services displayed
-    let featuredServices :any[] = []
-    currentPartner.services.map(skill => {
-        skill.items.map(item => {
-            if (item.featured) featuredServices.push(item)
-        })
-    })
 
     // Show booking criteria to book
     const [show, setShow] = useState(false);
@@ -98,7 +90,7 @@ const Detail = () => {
                         <h1 style={{ fontWeight: 'bold' }}>{currentPartner.name}</h1>
                         <p>
                             <span style={{ fontWeight: 'bold' }}>{currentPartner.rating}</span>
-                            <Star fill="orange" strokeWidth={0} size={12} style={{ marginBottom: '0.25rem' }} />
+                            <Star fill="orange" strokeWidth={0} size={12} style={{ marginLeft: '0.25rem', marginBottom: '0.25rem' }} />
                             ({currentPartner.numberOfRating}) . {openOrCloseText} 
                             . <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{currentPartner.address + ', ' + currentPartner.district}</span>
                         </p>
@@ -118,9 +110,36 @@ const Detail = () => {
                     </Row>
 
                     <Row className="text-start g-5 mt-2">
-                        {/*services here*/}
+                        {/*services and other information here*/}
                         <Col lg={8}>
                             <ServiceTabs services={currentPartner.services} />
+                        </Col>
+
+                        {/*booking place here*/}
+                        <Col lg={4}>
+                            <Card className="shadow border-0 sticky-top">
+                                <Card.Body>
+                                    <Card.Title>
+                                        <h2>{currentPartner.name}</h2>
+                                    </Card.Title>
+                                    <Card.Text>
+                                        <p style={{ fontSize: '1.25rem' }}>
+                                            <strong>{currentPartner.rating}</strong>
+                                            <Star fill="orange" strokeWidth={0} size={12} style={{ marginLeft: '0.25rem', marginBottom: '0.25rem' }} />
+                                            ({currentPartner.numberOfRating})
+                                        </p>
+                                        <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
+                                            style={{ backgroundColor: 'black', color: "white" }}
+                                        >
+                                            Book now
+                                        </Button>
+                                    </Card.Text>
+                                </Card.Body>
+                                <Card.Footer style={{ backgroundColor: "white" }}>
+                                    <p>{openOrCloseText} </p>
+                                    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{currentPartner.address + ', ' + currentPartner.district}</span>
+                                </Card.Footer>
+                            </Card>
                         </Col>
                     </Row>
                 </Container>
