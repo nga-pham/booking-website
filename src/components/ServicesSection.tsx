@@ -1,7 +1,7 @@
 ﻿import { Carousel, Container, Row, Stack, Tab, Tabs } from "react-bootstrap";
 import partners from "../data/partners.json";
 import { districts } from "../lib/utils";
-import ServiceCard from "./ui/ServiceCard";
+import PartnerCard from "./ui/PartnerCard";
 
 const lengthOfCarouselItem = 3;
 
@@ -53,7 +53,7 @@ const ServicesSection = () => {
                                     gap={3}
             >
                                     {block.map(partner => (
-                                        <ServiceCard
+                                        <PartnerCard
                                             id={partner.id}
                                             photo={partner.photos[0]}
                                             name={partner.name}
@@ -84,7 +84,7 @@ const ServicesSection = () => {
                                     gap={3}
                                 >
                                     {block.map(partner => (
-                                        <ServiceCard
+                                        <PartnerCard
                                             id={partner.id}
                                             photo={partner.photos}
                                             name={partner.name}
@@ -114,7 +114,7 @@ const ServicesSection = () => {
                                     {partners.map((partner) => {
                                     if (partner.district === district) {
                                         return (
-                                            <Carousel.Item><ServiceCard
+                                            <Carousel.Item><PartnerCard
                                                 id={partner.id}
                                                 photo={partner.photos[0]}
                                                 name={partner.name}

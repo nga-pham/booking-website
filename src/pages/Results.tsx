@@ -1,7 +1,7 @@
 ﻿import { useState } from 'react';
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import SearchForm from '../components/SearchForm';

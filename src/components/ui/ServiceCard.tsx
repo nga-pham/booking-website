@@ -1,50 +1,23 @@
-﻿import { Card, Button } from "react-bootstrap";
-import { Star } from 'lucide-react';
-import { useLocation, useNavigate } from 'react-router-dom';
+﻿import { Card } from "react-bootstrap";
 
-// properties for each partners from partners.json
+// properties for each service from "services" props in partners.json
 interface ServiceCardProps {
     id: number | 0;
-    photo: string | undefined;
     name: string | "";
-    rating: number | 0;
-    numberOfRating: number | 0;
-    address: string | "";
-    categories: string[] | [];
-    district: string | "";
-    canViewDetail: boolean | false;
-    onClick?: () => void;
+    duration: string | "";
+    cost: number | 0;
 }
 
-// id is index of each partner in partners.json
-const ServiceCard = ({
-    id, photo, name, rating, numberOfRating, address, categories, district, canViewDetail
-}: ServiceCardProps) => {
-
-    // go to detail page to book
-    const navigate = useNavigate();
-    const goToDetail = (partnerIdx: number) => {
-        navigate(`/results/${partnerIdx}`)
-    }
-
+const ServiceCard = ({ id, name, duration, cost }: ServiceCardProps) => {
     return (
-        <Card bg="light" style={{ width: "25rem", textAlign: 'left' }} key={id }>
-            <Card.Img variant="top" src={photo} />
+        <Card style={{ width: "50rem", textAlign: 'left', borderRadius: '1rem' }} className="mt-3 py-0 px-2" key={id}>
             <Card.Body>
-                <Card.Title><p style={{ color: '#000'}}>{name}</p></Card.Title>
-                <Card.Text style={{ color: '#000', fontSize: '1rem', fontWeight: 'bold' }}>
-                    {rating}
-                    <Star fill="orange" strokeWidth={0} size={12} style={{ marginBottom: '0.25rem' }} />
-                    ({numberOfRating})
-                </Card.Text>
-                <Card.Text style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{`${address ? address : district}`}</Card.Text>
-                <Card.Text style={{ color: '#000' }}>{categories.map(category => (
-                    <span key={category} style={{ marginRight: '0.5rem', padding: '0.25rem 0.5rem', border: '1px solid #ccc', borderRadius: '0.25rem', fontSize: '0.875rem' }}>{category}</span>
-                ))}</Card.Text>
-                {canViewDetail ? <Button variant="info" onClick={() => goToDetail(id)}>View detail</Button> : null}
+                <Card.Title><p style={{ color: '#000', fontSize: '1.1rem' }}>{name}</p></Card.Title>
+                <Card.Text style={{ color: 'rgba(0,0,0,0.5)', fontSize: '1rem' }}>{duration}</Card.Text>
+                <Card.Text style={{ fontSize: '1rem' }}>{cost.toString()} VND</Card.Text>
             </Card.Body>
         </Card>
     )
 }
 
-export default ServiceCard;
+export default ServiceCard

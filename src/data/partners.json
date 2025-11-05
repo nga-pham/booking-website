@@ -22,19 +22,19 @@
           {
             "name": "Nail extension + Shellac polish",
             "duration": "1 hr",
-            "cost": "608400",
+            "cost": 608400,
             "featured": false
           },
           {
             "name": "Gel Color",
             "duration": "1 hr",
-            "cost": "421200",
+            "cost": 421200,
             "featured": false
           },
           {
             "name": "Pedicure or Manicure",
             "duration": "30 mins",
-            "cost": "163800",
+            "cost": 163800,
             "featured": false
           }
         ]
@@ -45,19 +45,19 @@
           {
             "name": "Quick Shampoo",
             "duration": "30 mins",
-            "cost": "178200",
+            "cost": 178200,
             "featured": false
           },
           {
             "name": "Hair Shampoo & Head Massage 60 minutes",
             "duration": "1 hr",
-            "cost": "397800",
+            "cost": 397800,
             "featured": true
           },
           {
             "name": "Hair Shampoo and Head Massage and Hair Treatment 90 minutes",
             "duration": "1 hr 30 mins",
-            "cost": "561600",
+            "cost": 561600,
             "featured": true
           }
         ]
@@ -68,67 +68,67 @@
           {
             "name": "Herbal bath + Massage Body",
             "duration": "2 hrs",
-            "cost": "795600",
+            "cost": 795600,
             "featured": false
           },
           {
             "name": "Herbal bath / ngâm tắm lá dao đỏ",
             "duration": "1 hr",
-            "cost": "369000",
+            "cost": 369000,
             "featured": false
           },
           {
             "name": "Shower / Tắm vòi sen",
             "duration": "30 mins",
-            "cost": "187200",
+            "cost": 187200,
             "featured": true
           },
           {
             "name": "Facial treatment",
             "duration": "30 mins",
-            "cost": "327600",
+            "cost": 327600,
             "featured": false
           },
           {
             "name": "Nourishing shampoo + Facial treatment / Gội đầu dưỡng sinh + chăm sóc da mặt",
             "duration": "1 hr 30 mins",
-            "cost": "655200",
+            "cost": 655200,
             "featured": false
           },
           {
             "name": "Massage & Hair Shampoo 120 minutes",
             "duration": "2 hrs",
-            "cost": "842400",
+            "cost": 842400,
             "featured": false
           },
           {
             "name": "Intensive Nourishing shampoo + Foot massage 30'",
             "duration": "2 hrs",
-            "cost": "702000",
+            "cost": 702000,
             "featured": false
           },
           {
             "name": "Nourishing shampoo + Massage Body 90'",
             "duration": "2 hrs 30 mins",
-            "cost": "1078200",
+            "cost": 1078200,
             "featured": false
           },
           {
             "name": "Nourishing shampoo + Facial treatment + Massage Body 60'",
             "duration": "2 hrs 30 mins",
-            "cost": "1170000",
+            "cost": 1170000,
             "featured": true
           },
           {
             "name": "Foot scrub",
             "duration": "1 hrs",
-            "cost": "304200",
+            "cost": 304200,
             "featured": false
           },
           {
             "name": "Body scrub",
             "duration": "1 hrs",
-            "cost": "514800",
+            "cost": 514800,
             "featured": false
           }
         ]
@@ -139,61 +139,61 @@
           {
             "name": "Foot Massage / Massage chân",
             "duration": "30 mins",
-            "cost": "201600",
+            "cost": 201600,
             "featured": false
           },
           {
             "name": "Aroma Massage 60 minutes",
             "duration": "1h 30 mins",
-            "cost": "538200",
+            "cost": 538200,
             "featured": false
           },
           {
             "name": "Deep Tissue Massage",
             "duration": "1 hr",
-            "cost": "585000",
+            "cost": 585000,
             "featured": true
           },
           {
             "name": "Thai Massage with oil 60 minutes",
             "duration": "1 hr",
-            "cost": "655200",
+            "cost": 655200,
             "featured": false
           },
           {
             "name": "Vietnamese Massage",
             "duration": "1 hr",
-            "cost": "608400",
+            "cost": 608400,
             "featured": false
           },
           {
             "name": "Hot Stone Massage",
             "duration": "1 hr",
-            "cost": "631800",
+            "cost": 631800,
             "featured": false
           },
           {
             "name": "Massage 4 Hands",
             "duration": "1 hr",
-            "cost": "1076400",
+            "cost": 1076400,
             "featured": false
           },
           {
             "name": "Use coin rubbing (or Gua Sha) to relieve colds and muscle pain / Cạo gió",
             "duration": "30 mins",
-            "cost": "327600",
+            "cost": 327600,
             "featured": false
           },
           {
             "name": "Cupping therapy/ Giác hơi",
             "duration": "30 mins",
-            "cost": "327600",
+            "cost": 327600,
             "featured": false
           },
           {
             "name": "Earwax removal treatment / Lấy ráy tai",
             "duration": "30 mins",
-            "cost": "234000",
+            "cost": 234000,
             "featured": false
           }
         ]
@@ -319,13 +319,13 @@
           {
             "name": "The Balance option 1",
             "duration": "1 hr 50mins",
-            "cost": "740000",
+            "cost": 740000,
             "featured": false
           },
           {
             "name": "The Balance option 2",
             "duration": "2 hrs 20mins",
-            "cost": "880000",
+            "cost": 880000,
             "featured": false
           }
         ]
@@ -336,13 +336,13 @@
           {
             "name": "Signature Day Spa option 1",
             "duration": "30 mins",
-            "cost": "980000",
+            "cost": 980000,
             "featured": true
           },
           {
             "name": "Signature Day Spa option 2",
             "duration": "3 hrs 5mins",
-            "cost": "1080000",
+            "cost": 1080000,
             "featured": false
           }
         ]
@@ -353,13 +353,13 @@
           {
             "name": "The Soothing option 1",
             "duration": "1 hr 50mins",
-            "cost": "700000",
+            "cost": 700000,
             "featured": false
           },
           {
             "name": "The Soothing option 2",
             "duration": "2 hrs 20mins",
-            "cost": "850000",
+            "cost": 850000,
             "featured": false
           }
         ]
@@ -370,13 +370,13 @@
           {
             "name": "Herbal Lover option 1",
             "duration": "1 hr 20mins",
-            "cost": "480000",
+            "cost": 480000,
             "featured": false
           },
           {
             "name": "Herbal Lover option 2",
             "duration": "1 hr 50mins",
-            "cost": "600000",
+            "cost": 600000,
             "featured": false
           }
 
@@ -388,25 +388,25 @@
           {
             "name": "Basic 1 (Herbal bath and The Dao massage 60 mins)",
             "duration": "1 hr 20mins",
-            "cost": "470000",
+            "cost": 470000,
             "featured": false
           },
           {
             "name": "Basic 2 (Herbal bath and The Dao masage 90 mins)",
             "duration": "1h 50mins",
-            "cost": "570000",
+            "cost": 570000,
             "featured": false
           },
           {
             "name": "Basic 1 (Herbal bath and Swedish massage 60 mins)",
             "duration": "1 hr 20mins",
-            "cost": "450000",
+            "cost": 450000,
             "featured": false
           },
           {
             "name": "Basic 2 (Herbal bath and Swedish massage 90 mins)",
             "duration": "1 hr 50mins",
-            "cost": "550000",
+            "cost": 550000,
             "featured": false
           }
         ]
@@ -417,7 +417,7 @@
           {
             "name": "Red Dao herbal bath - Tắm lá Dao Đỏ",
             "duration": "20 mins",
-            "cost": "165000",
+            "cost": 165000,
             "featured": false
           }
         ]
@@ -428,43 +428,43 @@
           {
             "name": "The Zen massage",
             "duration": "1h 15mins",
-            "cost": "520000",
+            "cost": 520000,
             "featured": false
           },
           {
             "name": "Hot stone massage/ Massage đá nóng",
             "duration": "1h 15mins",
-            "cost": "480000",
+            "cost": 480000,
             "featured": false
           },
           {
             "name": "Herbal masssage - Mátxa thảo dược Dao Đỏ",
             "duration": "1 hr",
-            "cost": "35000",
+            "cost": 35000,
             "featured": true
           },
           {
             "name": "The Dao massage Non-Oil",
             "duration": "1 hr",
-            "cost": "350000",
+            "cost": 350000,
             "featured": false
           },
           {
             "name": "The Dao Massage",
             "duration": "1 hr",
-            "cost": "330000",
+            "cost": 330000,
             "featured": true
           },
           {
             "name": "Swedish massage/ Massage Thụy Điển",
             "duration": "1 hr",
-            "cost": "310000",
+            "cost": 310000,
             "featured": true
           },
           {
             "name": "Prenatal massage - Massage bầu",
             "duration": "1 hr",
-            "cost": "320000",
+            "cost": 320000,
             "featured": false
           }
 
@@ -476,20 +476,20 @@
           {
             "name": "Foot massage/ Massage chân",
             "duration": "1 hr",
-            "cost": "310000",
+            "cost": 310000,
             "featured": false
 
           },
           {
             "name": "Foot Therapy",
             "duration": "1h 30 mins",
-            "cost": "480000",
+            "cost": 480000,
             "featured": false
           },
           {
             "name": "Foot and Back massage",
             "duration": "1h 30 mins",
-            "cost": "480000",
+            "cost": 480000,
             "featured": false
           }
         ]
@@ -500,13 +500,13 @@
           {
             "name": "Foot scrub",
             "duration": "1 hrs",
-            "cost": "304200",
+            "cost": 304200,
             "featured": false
           },
           {
             "name": "Body scrub",
             "duration": "1 hrs",
-            "cost": "514800",
+            "cost": 514800,
             "featured": false
           }
         ]
@@ -633,79 +633,79 @@
           {
             "name": "Strengthening Gel Manicure",
             "duration": "1 hr 30 mins",
-            "cost": "300000",
+            "cost": 300000,
             "featured": true
           },
           {
             "name": "Gel Extensions",
             "duration": "2 hrs 30 mins",
-            "cost": "550000",
+            "cost": 550000,
             "featured": false
           },
           {
             "name": "Manicure Care (No Gel)",
             "duration": "1 hr",
-            "cost": "150000",
+            "cost": 150000,
             "featured": false
           },
           {
             "name": "Gel Extensions",
             "duration": "2 hrs 30 mins",
-            "cost": "550000",
+            "cost": 550000,
             "featured": false
           },
           {
             "name": "French",
             "duration": "15mins",
-            "cost": "100000",
+            "cost": 100000,
             "featured": false
           },
           {
             "name": "Flash",
             "duration": "15mins",
-            "cost": "50000",
+            "cost": 50000,
             "featured": false
           },
           {
             "name": "Cateye",
             "duration": "15mins",
-            "cost": "100000",
+            "cost": 100000,
             "featured": false
           },
           {
             "name": "Chrome",
             "duration": "15mins",
-            "cost": "100000",
+            "cost": 100000,
             "featured": false
           },
           {
             "name": "Ombre",
             "duration": "15mins",
-            "cost": "150000",
+            "cost": 150000,
             "featured": false
           },
           {
             "name": "Charm / Stones",
             "duration": "15mins",
-            "cost": "10000",
+            "cost": 10000,
             "featured": false
           },
           {
             "name": "Other Designs",
             "duration": "30 mins",
-            "cost": "10000",
+            "cost": 10000,
             "featured": false
           },
           {
             "name": "Dip-powder/Fake Tips Removal",
             "duration": "15mins",
-            "cost": "50000",
+            "cost": 50000,
             "featured": false
           },
           {
             "name": "Nail Sculpture",
             "duration": "30 mins",
-            "cost": "30000",
+            "cost": 30000,
             "featured": false
           }
         ]
@@ -786,7 +786,7 @@
             "name": "Classic Lash",
             "duration": "2 hrs",
             "cost": "300000",
-            "featured": true
+            "featured": false
           },
           {
             "name": "Hybrid Lash",
@@ -1063,7 +1063,7 @@
           {
             "name": "Body Slimfit - Giảm mỡ cơ thể",
             "duration": "2 hrs",
-            "cost": "4000000",
+            "cost": 4000000,
             "featured": false
           }
         ]
@@ -1074,7 +1074,7 @@
           {
             "name": "Meso Hair - Mesotherapy giảm rụng tóc, tăng mọc tóc và giúp tóc chắc khoẻ",
             "duration": "2 hrs 30 mins",
-            "cost": "5900000",
+            "cost": 5900000,
             "featured": false
           }
         ]
@@ -1085,7 +1085,7 @@
           {
             "name": "Density Eye - Xoá nhăn mắt 600 shot",
             "duration": "1 hr",
-            "cost": "35000000",
+            "cost": 35000000,
             "featured": false
           },
           {

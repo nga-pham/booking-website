@@ -14,3 +14,4 @@ export const isEndTimeBeforeStartTime = (start: number, end: number): boolean =>
     return (end - start) <= 0;
 }
 
+export const partnerDataWithId : any[] =  partnerData.map((partner:any, _idx) => ({ ...partner, id: _idx }))

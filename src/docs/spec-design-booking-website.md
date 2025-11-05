@@ -81,8 +81,7 @@ When user clicks button "View detail", the system will redirect to detail page w
 The page consists of: header, footer and main section.
 
 In main section:
-* First, user can see a breadcrumbs: current page’s location within a navigational hierarchy (Home -> Vendors -> [name of vendor])
-* Then, user can see a search form, with search criteria passed from landing page. To refine the search, user can fill in keywords (same as in landing page) and click button "search".
+* First, user can see a breadcrumbs: current page location within a navigational hierarchy (Home -> Vendors -> [name of vendor])
 * Then a section which contains basic information of current shop: name (in one row), rating, number of ratings, open or not at this moment, address (in another row below), and all photos.
 
 * The final section contains 2 parts and has similar look with this one

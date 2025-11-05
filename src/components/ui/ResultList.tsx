@@ -1,12 +1,11 @@
-﻿import { Button, Card, CardGroup, Col, Container, Form, Row } from "react-bootstrap";
-import partnerData from "../../data/partners.json";
-import ServiceCard from "./ServiceCard";
+﻿import { Col, Row } from "react-bootstrap";
+import PartnerCard from "./PartnerCard";
 
 const ResultList = ({ filteredData }) => {
     return <Row md={1} lg={2} className="g-4">
         {filteredData.map((partner, _idx) => {
             return <Col key={_idx}>
-                <ServiceCard
+                <PartnerCard
                     id={_idx}
                     photo={partner.photos[0]}
                     name={partner.name}

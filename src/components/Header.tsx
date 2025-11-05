@@ -1,5 +1,5 @@
-import { Navbar, Nav, Container, Button, NavDropdown } from "react-bootstrap";
 import { Heart } from "lucide-react";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
 
 const Header = () => {
 
