@@ -1,7 +1,6 @@
 ﻿import { Star } from 'lucide-react';
-import { useState } from 'react';
-import { Carousel, Col, Container, Row, Card, Button } from "react-bootstrap";
-import { useParams } from 'react-router-dom';
+import { Button, Card, Carousel, Col, Container, Row } from "react-bootstrap";
+import { useNavigate, useParams } from 'react-router-dom';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import MyBreadCrumb from "../components/ui/MyBreadCrumb";
@@ -59,21 +58,11 @@ const Detail = () => {
             </>
         );
 
-
-    // Show booking criteria to book
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShowOptions = () => setShow(true);
-
-    // Options that user choose when booking
-    const [chosenOption, setChosenOption] = useState<chosenOptionProps | null>({services: [], additionalInfo: [], startTime: "", endTime: ""})
-    let choosenServicesArray = new Array()
-    const addNewService = (service) => {
-        choosenServicesArray.push(service)
-        console.log(service)
-    console.log(choosenServicesArray)
-
+    const navigate = useNavigate();
+    const goToBooking = () => {
+        navigate(`/results/${id}/booking`)
     }
+    
 
     return (
         <div className="min-h-screen">
@@ -130,6 +119,7 @@ const Detail = () => {
                                         </p>
                                         <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
                                             style={{ backgroundColor: 'black', color: "white" }}
+                                            onClick={goToBooking}
                                         >
                                             Book now
                                         </Button>
