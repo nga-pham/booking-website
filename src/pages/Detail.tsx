@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import MyBreadCrumb from "../components/ui/MyBreadCrumb";
 import ServiceCard from "../components/ui/ServiceCard";
 import { partnerDataWithId } from "../lib/utils";
+import ServiceTabs from "../components/ui/ServiceTabs"
 
 interface chosenOptionProps {
     services: string[];
@@ -66,7 +67,6 @@ const Detail = () => {
             if (item.featured) featuredServices.push(item)
         })
     })
-    console.log(featuredServices)
 
     // Show booking criteria to book
     const [show, setShow] = useState(false);
@@ -120,35 +120,7 @@ const Detail = () => {
                     <Row className="text-start g-5 mt-2">
                         {/*services here*/}
                         <Col lg={8}>
-                            <Row>
-                                <h3 style={{ fontWeight: 'bold' }}>Services</h3>
-                                <Tabs defaultActiveKey="home" fill>
-                                    {/*featured tab here*/}
-                                    <TabPane eventKey="featured" title="Featured">
-                                        {featuredServices.map((item, _idx) => (
-                                            <ServiceCard
-                                                id={_idx}
-                                                name={item.name}
-                                                duration={item.duration}
-                                                cost={item.cost}
-                                            />
-                                        ))}
-                                    </TabPane>
-                                    {currentPartner.services.map(skill => (
-                                        <TabPane eventKey={skill.type} title={skill.type}>
-                                            {skill.items.map((item, _idx) => (
-                                                <ServiceCard
-                                                    id={_idx}
-                                                    name={item.name}
-                                                    duration={item.duration}
-                                                    cost={item.cost }
-                                                />
-                                            ))}
-                                        </TabPane>
-                                    ))}
-                                </Tabs>
-
-                            </Row>
+                            <ServiceTabs services={currentPartner.services} />
                         </Col>
                     </Row>
                 </Container>
