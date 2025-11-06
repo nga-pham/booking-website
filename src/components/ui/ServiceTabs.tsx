@@ -1,7 +1,9 @@
 ﻿import { TabPane, Tabs } from "react-bootstrap";
 import ServiceCard from "./ServiceCard";
+import { useState, useEffect } from 'react'
 
-const ServiceTabs = ({ services }) => {
+
+const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }) => {
     //For services displayed
     let featuredServices: any[] = []
     services.map(skill => {
@@ -10,9 +12,19 @@ const ServiceTabs = ({ services }) => {
         })
     })
 
+    // For get chosen service from card and send to parent
+    const [chosenService, setChosenService] = useState<string>(undefined)
+    const getChosenServiceFromCard = (service) => {
+        setChosenService(service)
+    }
+
+    useEffect(() => {
+        sendDataToBookingPage(chosenService)
+    }, [chosenService])
+
     return (
-        <>
-            <h3 style={{ fontWeight: 'bold' }}>Services</h3>
+        <div className="text-start mt-5">
+            <h3 style={{ fontWeight: 'bold'}}>Services</h3>
             <Tabs defaultActiveKey="home" fill>
                 {/*featured tab here*/}
                 <TabPane eventKey="featured" title="Featured">
@@ -22,6 +34,8 @@ const ServiceTabs = ({ services }) => {
                             name={item.name}
                             duration={item.duration}
                             cost={item.cost}
+                            isBookingPage={isBookingPage}
+                            sendDataToTabs={getChosenServiceFromCard}
                         />
                     ))}
                 </TabPane>
@@ -33,13 +47,16 @@ const ServiceTabs = ({ services }) => {
                                 name={item.name}
                                 duration={item.duration}
                                 cost={item.cost}
+                                isBookingPage={isBookingPage}
+                                sendDataToTabs={getChosenServiceFromCard}
+
                             />
                         ))}
                     </TabPane>
                 ))}
             </Tabs>
 
-        </>
+        </div>
     )
 }
 

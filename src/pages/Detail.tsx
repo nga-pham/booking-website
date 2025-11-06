@@ -7,13 +7,6 @@ import MyBreadCrumb from "../components/ui/MyBreadCrumb";
 import ServiceTabs from "../components/ui/ServiceTabs";
 import { partnerDataWithId } from "../lib/utils";
 
-interface chosenOptionProps {
-    services: string[];
-    additionalInfo: string[];
-    startTime: "";
-    endTime: "";
-}
-
 const Detail = () => {
 
     // get current partner data to display
@@ -98,32 +91,31 @@ const Detail = () => {
                         </Carousel>
                     </Row>
 
-                    <Row className="text-start g-5 mt-2">
+                    <Row className="g-5">
                         {/*services and other information here*/}
                         <Col lg={8}>
-                            <ServiceTabs services={currentPartner.services} />
+                            {/*nothing to send*/}
+                            <ServiceTabs services={currentPartner.services} isBookingPage={false} sendDataToBookingPage={() => { }} />
                         </Col>
 
                         {/*booking place here*/}
                         <Col lg={4}>
-                            <Card className="shadow border-0 sticky-top">
+                            <Card className="shadow border-0 sticky-top mt-5 text-start">
                                 <Card.Body>
                                     <Card.Title>
                                         <h2>{currentPartner.name}</h2>
                                     </Card.Title>
-                                    <Card.Text>
-                                        <p style={{ fontSize: '1.25rem' }}>
+                                    <Card.Text style={{ fontSize: '1.25rem' }}>
                                             <strong>{currentPartner.rating}</strong>
                                             <Star fill="orange" strokeWidth={0} size={12} style={{ marginLeft: '0.25rem', marginBottom: '0.25rem' }} />
                                             ({currentPartner.numberOfRating})
-                                        </p>
-                                        <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
-                                            style={{ backgroundColor: 'black', color: "white" }}
-                                            onClick={goToBooking}
-                                        >
-                                            Book now
-                                        </Button>
                                     </Card.Text>
+                                    <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
+                                        style={{ backgroundColor: 'black', color: "white" }}
+                                        onClick={goToBooking}
+                                    >
+                                        Book now
+                                    </Button>
                                 </Card.Body>
                                 <Card.Footer style={{ backgroundColor: "white" }}>
                                     <p>{openOrCloseText} </p>
