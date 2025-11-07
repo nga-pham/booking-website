@@ -68,7 +68,7 @@ button:focus-visible {
 }
 
 .hero {
-    background-color: lightpink;
+    background-color: #FFE0E9;
 }
 /*make dropdown button: background transparent, no outline, no arrow, text is black and no hightlight*/
 .dropdown-toggle {
