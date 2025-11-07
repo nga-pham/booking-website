@@ -1,5 +1,5 @@
 ﻿import { TabPane, Tabs } from "react-bootstrap";
-import ServiceCard from "./ServiceCard";
+import ServiceCard from "./ui/ServiceCard";
 import { useState, useEffect } from 'react'
 
 interface ServiceTabsProps {

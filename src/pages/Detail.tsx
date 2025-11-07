@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import MyBreadCrumb from "../components/ui/MyBreadCrumb";
-import ServiceTabs from "../components/ui/ServiceTabs";
+import ServiceTabs from "../components/ServiceTabs";
 import { partnerDataWithId } from "../lib/utils";
 import StarRating from "../components/ui/StarRating"
 

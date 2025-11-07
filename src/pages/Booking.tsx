@@ -2,11 +2,11 @@ import { ArrowLeft, X, ChevronRight, Calendar } from "lucide-react";
 import { useEffect, useState } from 'react';
 import { Col, Container, Navbar, Row, Card, Button, Image } from "react-bootstrap";
 import { useNavigate, useParams } from 'react-router-dom';
-import ServiceTabs from "../components/ui/ServiceTabs";
+import ServiceTabs from "../components/ServiceTabs";
 import { partnerDataWithId } from "../lib/utils";
 import StarRating from "../components/ui/StarRating"
 import DateTimeBooking from "../components/DateTimeBooking"
-
+import InformationFormBooking from "../components/InformationForm"
 interface chosenOptionProps {
     services: string[];
     date: Date | null;
@@ -38,10 +38,13 @@ const MainContent = ({ id }) => {
     // To display
     const currentPartner = partnerDataWithId.find(partner => partner.id === Number(id))
     const [serviceChosenCompleted, setServiceChosenCompleted] = useState<boolean>(false)
+    const [dateTimeChosenCompleted, setDateTimeChosenCompleted] = useState<boolean>(false)
 
     const changeToNextSection = () => {
         // change to chosing date time page
         if (!serviceChosenCompleted) setServiceChosenCompleted(true)
+        if (serviceChosenCompleted && !dateTimeChosenCompleted) setDateTimeChosenCompleted(true)
+
     }
 
     // Save chosen service
@@ -58,6 +61,14 @@ const MainContent = ({ id }) => {
         setChosenDateTime(date)
     }
 
+    // Save chosen information
+    const [choosenInfo, setChoosenInfo] = useState<any | null>(null);
+    const handleChosenInfo = (info: any | null) => {
+        if (!info) return
+        setChoosenInfo(info)
+        console.log(info)
+    }
+
     useEffect(() => {
         console.log('chosenServices updated:', chosenServices);
     }, [chosenServices]);
@@ -67,11 +78,14 @@ const MainContent = ({ id }) => {
             <Row>
                 {/*choose options*/}
                 <Col lg={8}>
-                    {!serviceChosenCompleted ? 
+                    {!serviceChosenCompleted ?
                         <ServiceTabs services={currentPartner.services} isBookingPage={true}
                             sendDataToBookingPage={handleChosenServicesFromTabs}
                         />
-                        : <DateTimeBooking sendDataToBookingPage={handleChosenDateTime} />
+                        : (
+                            !dateTimeChosenCompleted ? <DateTimeBooking sendDataToBookingPage={handleChosenDateTime} />
+                                : <InformationFormBooking sendDataToBookingPage={handleChosenInfo} />
+                        )
                     }
                 </Col>
 
@@ -93,7 +107,7 @@ const MainContent = ({ id }) => {
                                 </Row>
                                 <Row className="text-start">
                                     {chosenDateTime ?
-                                        <p style={{ color: 'rgba(0,0,0,0.5)' }} ><Calendar size={20} style={{marginRight: '0.5rem'} } />{chosenDateTime.toString()}</p>
+                                        <p style={{ color: 'rgba(0,0,0,0.5)' }} ><Calendar size={18} style={{marginRight: '0.5rem'} } />{chosenDateTime.toString()}</p>
                                         : <p style={{ color: 'rgba(0,0,0,0.5)' }}>No date selected</p>
                                     }
                                 </Row>
