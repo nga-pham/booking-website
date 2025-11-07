@@ -1,10 +1,11 @@
-import { ArrowLeft, X, ChevronRight } from "lucide-react";
+import { ArrowLeft, X, ChevronRight, Calendar } from "lucide-react";
 import { useEffect, useState } from 'react';
 import { Col, Container, Navbar, Row, Card, Button, Image } from "react-bootstrap";
 import { useNavigate, useParams } from 'react-router-dom';
 import ServiceTabs from "../components/ui/ServiceTabs";
 import { partnerDataWithId } from "../lib/utils";
 import StarRating from "../components/ui/StarRating"
+import DateTimeBooking from "../components/DateTimeBooking"
 
 interface chosenOptionProps {
     services: string[];
@@ -25,7 +26,7 @@ const BookingHeader = ({id }) => {
                 <Container>
                     <div className="d-flex justify-content-end">
                         <ArrowLeft size={40} style={{ marginTop: '0.5rem', cursor: "pointer", border: "rgba(0,0,0,0.5)" }} onClick={goToDetail} />
-                        <X size={40} style={{ marginTop: '0.5rem', cursor: "pointer", border: "rgba(0,0,0,0.5)" }} href={`/results/${id}`} />
+                        <X size={40} style={{ marginTop: '0.5rem', cursor: "pointer", border: "rgba(0,0,0,0.5)" }} onClick={goToDetail} />
                     </div>
                 </Container>
             </Navbar>
@@ -36,12 +37,25 @@ const MainContent = ({ id }) => {
 
     // To display
     const currentPartner = partnerDataWithId.find(partner => partner.id === Number(id))
+    const [serviceChosenCompleted, setServiceChosenCompleted] = useState<boolean>(false)
+
+    const changeToNextSection = () => {
+        // change to chosing date time page
+        if (!serviceChosenCompleted) setServiceChosenCompleted(true)
+    }
 
     // Save chosen service
     const [chosenServices, setChosenServices] = useState<string[]>([])
     const handleChosenServicesFromTabs = (service: string | undefined) => {
         if (service === undefined) return; // optional guard
         setChosenServices(prev => Array.from(new Set([...prev, service])));
+    }
+
+    // Save chosen date time
+    const [chosenDateTime, setChosenDateTime] = useState<Date | null>(null);
+    const handleChosenDateTime = (date: Date | null) => {
+        if (!date) return
+        setChosenDateTime(date)
     }
 
     useEffect(() => {
@@ -51,13 +65,18 @@ const MainContent = ({ id }) => {
     return (
         <Container>
             <Row>
+                {/*choose options*/}
                 <Col lg={8}>
-                    <ServiceTabs services={currentPartner.services} isBookingPage={true}
-                        sendDataToBookingPage={handleChosenServicesFromTabs}
-                    />
+                    {!serviceChosenCompleted ? 
+                        <ServiceTabs services={currentPartner.services} isBookingPage={true}
+                            sendDataToBookingPage={handleChosenServicesFromTabs}
+                        />
+                        : <DateTimeBooking sendDataToBookingPage={handleChosenDateTime} />
+                    }
                 </Col>
+
+                {/*booking information*/}
                 <Col lg={4}>
-                    {/*booking information*/}
                     <Card className="mt-5 px-0 py-2">
                         <Card.Body>
                             <Container>
@@ -71,6 +90,12 @@ const MainContent = ({ id }) => {
                                         </p>
                                         <p style={{ color: 'rgba(0,0,0,0.5)' }}>{currentPartner.address}</p>
                                     </Col>
+                                </Row>
+                                <Row className="text-start">
+                                    {chosenDateTime ?
+                                        <p style={{ color: 'rgba(0,0,0,0.5)' }} ><Calendar size={20} style={{marginRight: '0.5rem'} } />{chosenDateTime.toString()}</p>
+                                        : <p style={{ color: 'rgba(0,0,0,0.5)' }}>No date selected</p>
+                                    }
                                 </Row>
                                 <Row className="text-start">
                                     {chosenServices.length > 0 ? (
@@ -92,6 +117,7 @@ const MainContent = ({ id }) => {
                             {chosenServices.length > 0 ? 
                                 <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
                                     style={{ backgroundColor: 'black', color: "white" }}
+                                    onClick={changeToNextSection}
                                 >
                                     Continue <ChevronRight size={20} />
                                 </Button>

@@ -24,9 +24,11 @@ const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }: Service
     }
 
     if (sendDataToBookingPage) {
-        useEffect(() => {
+        useEffect(
+            () => {
             sendDataToBookingPage(chosenService)
-        }, [chosenService])
+        }, [chosenService]
+        )
     }
 
     return (
