@@ -1,6 +1,9 @@
 # Requirement
 We need to create a list of shops and connect them with potential users. We already have connections. The idea is similar to booking.com or Agoda page.
 The website is mainly a clone of https://www.fresha.com, with different booking flow.
+
+Main use case:
+
 ![overall use case here](./Use-case-overall.png "overall use case here")
 
 # System analysis for booking website
