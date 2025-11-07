@@ -1,6 +1,7 @@
 ﻿import { Card, Container, Row, Col, Button } from "react-bootstrap";
 import { Plus, Save } from 'lucide-react';
 import { useState, useEffect } from 'react'
+import { chosenServiceProps } from "./Interfaces"
 
 // properties for each service from "services" props in partners.json
 interface ServiceCardProps {
@@ -15,7 +16,7 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ id, name, duration, cost, isBookingPage, sendDataToTabs }: ServiceCardProps) => {
     // Save service to book and send to tabs
-    const [savedService, setSavedService] = useState<string>(undefined)
+    const [savedService, setSavedService] = useState<chosenServiceProps>(undefined)
     const getChosenService = (service) => {
         setSavedService(service)
     }
@@ -37,7 +38,7 @@ const ServiceCard = ({ id, name, duration, cost, isBookingPage, sendDataToTabs }
                         {/* make the height stretch full height; right-align vertical-center the plus icon */}
                         {isBookingPage && <Col className="d-flex align-items-center justify-content-end h-100">
                             <Button variant="light" className="rounded-circle" style={{ backgroundColor: "#F5F5F5" }}
-                                onClick={() => getChosenService(name)}
+                                onClick={() => getChosenService({name, cost})}
                             >
                                 <Plus size={20} />
                             </Button>

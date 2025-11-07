@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import SearchForm from '../components/SearchForm';
 import MyBreadCrumb from '../components/ui/MyBreadCrumb';
-import ResultList from "../components/ui/ResultList";
+import ResultList from "../components/ResultList";
 import partnerData from "../data/partners.json";
 import { districts } from "../lib/utils";
 

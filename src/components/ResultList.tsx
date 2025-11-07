@@ -1,5 +1,5 @@
 ﻿import { Col, Row } from "react-bootstrap";
-import PartnerCard from "./PartnerCard";
+import PartnerCard from "./ui/PartnerCard";
 
 const ResultList = ({ filteredData }) => {
     return <Row md={1} lg={2} className="g-4">

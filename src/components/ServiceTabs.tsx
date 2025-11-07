@@ -1,15 +1,16 @@
 ﻿import { TabPane, Tabs } from "react-bootstrap";
 import ServiceCard from "./ui/ServiceCard";
 import { useState, useEffect } from 'react'
+import { chosenServiceProps } from "./ui/Interfaces"
 
 interface ServiceTabsProps {
-    services: any[] | [],
+    services: chosenServiceProps[] | [],
     isBookingPage: boolean | false,
     sendDataToBookingPage?: (any) => void   // only in booking page
 }
 
 const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }: ServiceTabsProps) => {
-    //For services displayed
+    //For displaying featured servicess
     let featuredServices: any[] = []
     services.map(skill => {
         skill.items.map(item => {
@@ -18,7 +19,7 @@ const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }: Service
     })
 
     // For get chosen service from card and send to parent
-    const [chosenService, setChosenService] = useState<string>(undefined)
+    const [chosenService, setChosenService] = useState<chosenServiceProps>(undefined)
     const getChosenServiceFromCard = (service) => {
         setChosenService(service)
     }

@@ -7,8 +7,11 @@ import { partnerDataWithId } from "../lib/utils";
 import StarRating from "../components/ui/StarRating"
 import DateTimeBooking from "../components/DateTimeBooking"
 import InformationFormBooking from "../components/InformationForm"
+import { chosenServiceProps } from "../components/ui/Interfaces"
+
+
 interface chosenOptionProps {
-    services: string[];
+    services: chosenServiceProps[];
     date: Date | null;
     startTime: string | "";
     endTime: string | "";
@@ -48,8 +51,8 @@ const MainContent = ({ id }) => {
     }
 
     // Save chosen service
-    const [chosenServices, setChosenServices] = useState<string[]>([])
-    const handleChosenServicesFromTabs = (service: string | undefined) => {
+    const [chosenServices, setChosenServices] = useState<chosenServiceProps[]>([])
+    const handleChosenServicesFromTabs = (service: chosenServiceProps | undefined) => {
         if (service === undefined) return; // optional guard
         setChosenServices(prev => Array.from(new Set([...prev, service])));
     }
@@ -138,8 +141,8 @@ const MainContent = ({ id }) => {
                                         chosenServices.map((service) => {
                                             return (
                                                 <Row key={service}>
-                                                    <Col className="text-start">{service}</Col>
-                                                    <Col className="text-end">Price</Col>
+                                                    <Col className="text-start">{service.name}</Col>
+                                                    <Col className="text-end">{ service.cost} VND</Col>
                                                 </Row>
                                             )
                                         })
