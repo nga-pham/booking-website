@@ -1,4 +1,4 @@
-import { ArrowLeft, X, ChevronRight, Calendar } from "lucide-react";
+import { ArrowLeft, X, ChevronRight, Calendar, User, Mail, Phone, MapPinHouse, MapPin, Building2 } from "lucide-react";
 import { useEffect, useState } from 'react';
 import { Col, Container, Navbar, Row, Card, Button, Image } from "react-bootstrap";
 import { useNavigate, useParams } from 'react-router-dom';
@@ -62,11 +62,10 @@ const MainContent = ({ id }) => {
     }
 
     // Save chosen information
-    const [choosenInfo, setChoosenInfo] = useState<any | null>(null);
-    const handleChosenInfo = (info: any | null) => {
+    const [chosenInfo, setChosenInfo] = useState<any | undefined>(undefined);
+    const handleChosenInfo = (info: any | undefined) => {
         if (!info) return
-        setChoosenInfo(info)
-        console.log(info)
+        setChosenInfo(info)
     }
 
     useEffect(() => {
@@ -105,7 +104,30 @@ const MainContent = ({ id }) => {
                                         <p style={{ color: 'rgba(0,0,0,0.5)' }}>{currentPartner.address}</p>
                                     </Col>
                                 </Row>
-                                <Row className="text-start">
+                                {chosenInfo ? 
+                                    <Row >
+                                        <Card className="text-start" style={{ color: 'rgba(0,0,0,0.5)' }}>
+                                                <Card.Title><User size={20} style={{ marginRight: '0.5rem' }} />{ chosenInfo.name}</Card.Title>
+                                                <Card.Text>
+                                                    <Mail size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.email}
+                                                </Card.Text>
+                                                <Card.Text>
+                                                    <Phone size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.phoneNumber}
+                                                </Card.Text>
+                                                <Card.Text>
+                                                    <MapPinHouse size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.address}
+                                                </Card.Text>
+                                                <Card.Text>
+                                                    <Building2 size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.district}
+                                                </Card.Text>
+                                                <Card.Text>
+                                                    <MapPin size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.state}
+                                                </Card.Text>
+                                        </Card>
+                                    </Row>
+                                    : null
+                                }
+                                <Row className="text-start mt-2">
                                     {chosenDateTime ?
                                         <p style={{ color: 'rgba(0,0,0,0.5)' }} ><Calendar size={18} style={{marginRight: '0.5rem'} } />{chosenDateTime.toString()}</p>
                                         : <p style={{ color: 'rgba(0,0,0,0.5)' }}>No date selected</p>
