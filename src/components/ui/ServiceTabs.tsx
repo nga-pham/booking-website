@@ -2,8 +2,13 @@
 import ServiceCard from "./ServiceCard";
 import { useState, useEffect } from 'react'
 
+interface ServiceTabsProps {
+    services: any[] | [],
+    isBookingPage: boolean | false,
+    sendDataToBookingPage?: (any) => void   // only in booking page
+}
 
-const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }) => {
+const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }: ServiceTabsProps) => {
     //For services displayed
     let featuredServices: any[] = []
     services.map(skill => {
@@ -18,9 +23,11 @@ const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }) => {
         setChosenService(service)
     }
 
-    useEffect(() => {
-        sendDataToBookingPage(chosenService)
-    }, [chosenService])
+    if (sendDataToBookingPage) {
+        useEffect(() => {
+            sendDataToBookingPage(chosenService)
+        }, [chosenService])
+    }
 
     return (
         <div className="text-start mt-5">

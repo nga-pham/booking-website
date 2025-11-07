@@ -1,6 +1,7 @@
 ﻿import { Star } from 'lucide-react';
 import { Button, Card } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
+import StarRating from "../ui/StarRating"
 
 // properties for each partners from partners.json
 interface PartnerCardProps {
@@ -34,7 +35,7 @@ const PartnerCard = ({
                 <Card.Title><p style={{ color: '#000'}}>{name}</p></Card.Title>
                 <Card.Text style={{ color: '#000', fontSize: '1rem', fontWeight: 'bold' }}>
                     {rating}
-                    <Star fill="orange" strokeWidth={0} size={12} style={{ marginBottom: '0.25rem' }} />
+                    <StarRating />
                     ({numberOfRating})
                 </Card.Text>
                 <Card.Text style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{`${address ? address : district}`}</Card.Text>

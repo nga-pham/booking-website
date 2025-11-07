@@ -1,10 +1,11 @@
 ﻿import { Breadcrumb } from "react-bootstrap";
 interface MyBreadCrumbProps {
-    isList?: boolean;
+    isList?: boolean;   // ? mean 'optional'
     name?: string;
+    isBooking?: boolean;
 }
 
-const MyBreadCrumb = ({ isList, name }: MyBreadCrumbProps) => {
+const MyBreadCrumb = ({ isList, name, isBooking }: MyBreadCrumbProps) => {
     return (
         <>
             <Breadcrumb>

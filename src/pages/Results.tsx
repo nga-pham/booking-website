@@ -130,32 +130,6 @@ const Results = () => {
 
                         {/*results from filter and search*/}
                         <Col lg={8}>
-                            {/*<CardGroup>
-                                {nannies.map((nanny, _idx) => (
-                                    <Card key={_idx} className="m-2" style={{ minWidth: '18rem' }}>
-                                        <Card.Img variant="top" src={nanny.photos} />
-                                        <Card.Body style={{textAlign: 'left'}}>
-                                            <Card.Title>
-                                                <p style={{ color: '#000'}}>{nanny.name}</p>
-                                            </Card.Title>
-                                            <Card.Text style={{ color: '#000', fontSize: '1rem', fontWeight: 'bold' }}>
-                                                {nanny.rating}
-                                                    <Star fill="orange" strokeWidth={0} size={12} style={{ marginBottom: '0.25rem' }} />
-                                                    ({nanny.numberOfRating})
-                                            </Card.Text> 
-                                            <Card.Text style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{`${nanny.address ? nanny.address : ""}${nanny.district ? `, ${nanny.district}` : ""}`}</Card.Text>
-                                            <Card.Text>{nanny.experience} years experience</Card.Text>
-                                            <Card.Text>
-                                                {nanny.services.map(skill => (
-                                                    <span key={skill} style={{ marginRight: '0.5rem', padding: '0.25rem 0.5rem', border: '1px solid #ccc', borderRadius: '0.25rem', fontSize: '0.875rem' }}>{skill}</span>
-                                                ))}
-                                            </Card.Text>
-                                            <Button variant="info" onClick={() => goToDetail(_idx)}>View detail</Button>
-                                            <div className="ml-2 mt-2"><Button variant="light">Book now</Button></div>
-                                        </Card.Body>
-                                    </Card>
-                                ))}
-                            </CardGroup>*/}
                             <ResultList filteredData={partnerData} />
                         </Col>
                     </Row>

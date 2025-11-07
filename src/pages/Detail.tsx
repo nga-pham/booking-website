@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import MyBreadCrumb from "../components/ui/MyBreadCrumb";
 import ServiceTabs from "../components/ui/ServiceTabs";
 import { partnerDataWithId } from "../lib/utils";
+import StarRating from "../components/ui/StarRating"
 
 const Detail = () => {
 
@@ -72,7 +73,7 @@ const Detail = () => {
                         <h1 style={{ fontWeight: 'bold' }}>{currentPartner.name}</h1>
                         <p>
                             <span style={{ fontWeight: 'bold' }}>{currentPartner.rating}</span>
-                            <Star fill="orange" strokeWidth={0} size={12} style={{ marginLeft: '0.25rem', marginBottom: '0.25rem' }} />
+                            <StarRating />
                             ({currentPartner.numberOfRating}) . {openOrCloseText} 
                             . <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{currentPartner.address + ', ' + currentPartner.district}</span>
                         </p>
@@ -95,7 +96,7 @@ const Detail = () => {
                         {/*services and other information here*/}
                         <Col lg={8}>
                             {/*nothing to send*/}
-                            <ServiceTabs services={currentPartner.services} isBookingPage={false} sendDataToBookingPage={() => { }} />
+                            <ServiceTabs services={currentPartner.services} isBookingPage={false} />
                         </Col>
 
                         {/*booking place here*/}
@@ -106,9 +107,9 @@ const Detail = () => {
                                         <h2>{currentPartner.name}</h2>
                                     </Card.Title>
                                     <Card.Text style={{ fontSize: '1.25rem' }}>
-                                            <strong>{currentPartner.rating}</strong>
-                                            <Star fill="orange" strokeWidth={0} size={12} style={{ marginLeft: '0.25rem', marginBottom: '0.25rem' }} />
-                                            ({currentPartner.numberOfRating})
+                                        <strong>{currentPartner.rating}</strong>
+                                        <StarRating />
+                                        ({currentPartner.numberOfRating})
                                     </Card.Text>
                                     <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
                                         style={{ backgroundColor: 'black', color: "white" }}
