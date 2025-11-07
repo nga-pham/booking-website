@@ -9,7 +9,6 @@ import DateTimeBooking from "../components/DateTimeBooking"
 import InformationFormBooking from "../components/InformationForm"
 import { chosenServiceProps } from "../components/ui/Interfaces"
 
-
 interface chosenOptionProps {
     services: chosenServiceProps[];
     date: Date | null;
@@ -50,6 +49,7 @@ const MainContent = ({ id }) => {
 
     }
 
+    
     // Save chosen service
     const [chosenServices, setChosenServices] = useState<chosenServiceProps[]>([])
     const handleChosenServicesFromTabs = (service: chosenServiceProps | undefined) => {
@@ -71,8 +71,19 @@ const MainContent = ({ id }) => {
         setChosenInfo(info)
     }
 
+    // display totalCost
+    const [totalCost, setTotalCost] = useState<number>(0)
+    const calculateTotalCost = (services) => {
+        let sum = 0
+        services.map(service => {
+            sum += Number(service.cost)
+        })
+        setTotalCost(sum)
+    }
+
     useEffect(() => {
         console.log('chosenServices updated:', chosenServices);
+        calculateTotalCost(chosenServices)
     }, [chosenServices]);
 
     return (
@@ -138,9 +149,9 @@ const MainContent = ({ id }) => {
                                 </Row>
                                 <Row className="text-start">
                                     {chosenServices.length > 0 ? (
-                                        chosenServices.map((service) => {
+                                        chosenServices.map((service, _idx) => {
                                             return (
-                                                <Row key={service}>
+                                                <Row key={_idx}>
                                                     <Col className="text-start">{service.name}</Col>
                                                     <Col className="text-end">{ service.cost} VND</Col>
                                                 </Row>
@@ -154,12 +165,18 @@ const MainContent = ({ id }) => {
                         </Card.Body>
                         <Card.Footer className="justify-content-center">
                             {chosenServices.length > 0 ? 
-                                <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
-                                    style={{ backgroundColor: 'black', color: "white" }}
-                                    onClick={changeToNextSection}
-                                >
-                                    Continue <ChevronRight size={20} />
-                                </Button>
+                                <>
+                                    <Row style={{ fontWeight: 'bold' }}>
+                                        <Col className="text-start">Total</Col>
+                                        <Col className="text-end">{totalCost} VND</Col>
+                                    </Row>
+                                    <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
+                                        style={{ backgroundColor: 'black', color: "white" }}
+                                        onClick={changeToNextSection}
+                                    >
+                                        Continue <ChevronRight size={20} />
+                                    </Button>
+                                </>
                                 :
                                 <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
                                     style={{ backgroundColor: 'black', color: "white" }} disabled

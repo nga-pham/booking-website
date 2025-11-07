@@ -38,7 +38,7 @@ const ServiceCard = ({ id, name, duration, cost, isBookingPage, sendDataToTabs }
                         {/* make the height stretch full height; right-align vertical-center the plus icon */}
                         {isBookingPage && <Col className="d-flex align-items-center justify-content-end h-100">
                             <Button variant="light" className="rounded-circle" style={{ backgroundColor: "#F5F5F5" }}
-                                onClick={() => getChosenService({name, cost})}
+                                onClick={() => getChosenService({name, cost: Number(cost)})}
                             >
                                 <Plus size={20} />
                             </Button>
