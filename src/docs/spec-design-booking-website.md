@@ -1,6 +1,7 @@
 # Requirement
 We need to create a list of shops and connect them with potential users. We already have connections. The idea is similar to booking.com or Agoda page.
 The website is mainly a clone of https://www.fresha.com, with different booking flow.
+![overall use case here](./Use-case-overall.png "overall use case here")
 
 # System analysis for booking website
 The website consists of 6 pages, a header and a footer
@@ -134,7 +135,9 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 - Hero section: ```src/components/HeroSection.tsx``` 
 	- contain custom dropdown item when searching for services: ```src/components/ui/SearchDropdownItem.tsx``` 
 	- and custom toast when error occurs
-- Service section (cover 1.2, 1.3, 1.4): ```src/components/ServiceSection.tsx``` (contain custom card item for each shop: ```src/components/ui/ServiceCard.tsx``` )
+- Service section (cover 1.2, 1.3, 1.4): ```src/components/ServiceSection.tsx``` 
+	- contain custom card item for each shop: ```src/components/ui/PartnerCard.tsx```
+	- each card contain custom star rating: ```src/components/ui/StarRating.tsx```
 - Testimonials section: ```src/components/Testimonials.tsx```
 - Footer: ```src/components/Footer.tsx```
 
@@ -155,7 +158,8 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 	- and custom toast when error occurs
 - Filter: ```src/components/Filter.tsx```
 - Shop list: ```src/components/ResultList.tsx``` 
-	- contain custom card item for each shop: ```src/components/ui/ServiceCard.tsx```
+	- contains custom card item for each shop: ```src/components/ui/PartnerCard.tsx```
+	- each card contains custom star rating: ```src/components/ui/StarRating.tsx```
 
 ## Detail page
 * Component route path for each shop detail, retrieved and rendered by id of the shop (Detail element)
@@ -164,12 +168,15 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 
 * Code hiearchy 
 
-	```src/pages/Details.tsx```
+	```src/pages/Detail.tsx```
 
 * Inside Detail, we have components for each section:
 - Header: ```src/components/Header.tsx```
 - Breadcrumb: same as above: ```src/components/MyBreadcrumb.tsx```
-- ...
+- Basic information: name, star rating, number of ratings, close or open now, address.
+	- contains custom star rating: ```src/components/ui/StarRating.tsx```
+- Service section: ```src/components/ServiceTabs.tsx```
+	- each tab contains custom service card for each item: ```src/components/ServiceCard.tsx```
 
 ## Booking page
 * Component route path for each booking detail, retrieved when clicking "book now" in each shop (Booking element)
