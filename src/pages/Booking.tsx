@@ -26,7 +26,7 @@ const BookingHeader = ({id }) => {
     return (
         <Navbar bg="light" className="shadow-sm" sticky="top">
             <Container>
-                <div className="d-flex justify-content-between w-100">
+                <div className="d-flex justify-content-between container-fluid">
                         <ArrowLeft size={40} style={{ marginTop: '0.5rem', cursor: "pointer", border: "rgba(0,0,0,0.5)" }} onClick={goToDetail} />
                         <X size={40} style={{ marginTop: '0.5rem', cursor: "pointer", border: "rgba(0,0,0,0.5)" }} onClick={goToDetail} />
                     </div>
@@ -51,6 +51,9 @@ const MainContent = ({ id }) => {
     
     // Save chosen service
     const [chosenServices, setChosenServices] = useState<chosenServiceProps[]>([])
+    const removeChosenService = (serviceToRemove: chosenServiceProps) => {
+        setChosenServices(chosenServices.filter(item => item.name !== serviceToRemove.name))
+    }
     const handleChosenServicesFromTabs = (service: chosenServiceProps | undefined) => {
         // handle when remove service
         if (service === undefined) {
@@ -68,14 +71,17 @@ const MainContent = ({ id }) => {
         if (!date) return // optional guard
 
         setChosenDateTime(date)
-        const chosenHour = date.getHours()
-        const chosenMinutes = date.getMinutes()
-        setChosenTimeString(`${chosenHour}:${chosenMinutes}`)
+        const formatterTimeGB = new Intl.DateTimeFormat("en-US", {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true, // This ensures 12-hour format with AM/PM
+        });
+        setChosenTimeString(formatterTimeGB.format(date))
         // Example: Format as "DD/MM/YYYY" for British English
         const formatterGB = new Intl.DateTimeFormat('en-GB', {
             day: '2-digit',
             month: '2-digit',
-            year: 'numeric'
+            year: 'numeric',
         });
         setChosenDateString(formatterGB.format(date))
     }
@@ -98,7 +104,7 @@ const MainContent = ({ id }) => {
     }
 
     useEffect(() => {
-        console.log(chosenServices);
+        //console.log(chosenServices);
         calculateTotalCost(chosenServices)
     }, [chosenServices]);
 
@@ -176,7 +182,13 @@ const MainContent = ({ id }) => {
                                             return (
                                                 <Row key={_idx}>
                                                     <Col className="text-start">{service.name}</Col>
-                                                    <Col className="text-end">{ service.cost} VND</Col>
+                                                    <Col className="text-end">{service.cost} VND</Col>
+                                                    {/*<Col className="text-end">
+                                                        <Button variant="light" size="sm" className="rounded-circle" style={{ backgroundColor: "#F5F5F5" }}
+                                                            onClick={() => removeChosenService(service)}
+                                                        ><X size={12} />
+                                                        </Button>
+                                                    </Col>*/}
                                                 </Row>
                                             )
                                         })
