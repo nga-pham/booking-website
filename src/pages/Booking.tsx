@@ -1,6 +1,6 @@
-import { ArrowLeft, X, ChevronRight, Calendar, User, Mail, Phone, MapPinHouse, MapPin, Building2 } from "lucide-react";
+import { ArrowLeft, X, ChevronRight, Calendar, Clock, User, Mail, Phone, MapPinHouse, MapPin, Building2 } from "lucide-react";
 import { useEffect, useState } from 'react';
-import { Col, Container, Navbar, Row, Card, Button, Image } from "react-bootstrap";
+import { Col, Container, Navbar, Nav, Row, Card, Button, Image } from "react-bootstrap";
 import { useNavigate, useParams } from 'react-router-dom';
 import ServiceTabs from "../components/ServiceTabs";
 import { partnerDataWithId } from "../lib/utils";
@@ -46,22 +46,38 @@ const MainContent = ({ id }) => {
         // change to chosing date time page
         if (!serviceChosenCompleted) setServiceChosenCompleted(true)
         if (serviceChosenCompleted && !dateTimeChosenCompleted) setDateTimeChosenCompleted(true)
-
     }
 
     
     // Save chosen service
     const [chosenServices, setChosenServices] = useState<chosenServiceProps[]>([])
     const handleChosenServicesFromTabs = (service: chosenServiceProps | undefined) => {
-        if (service === undefined) return; // optional guard
-        setChosenServices(prev => Array.from(new Set([...prev, service])));
+        // handle when remove service
+        if (service === undefined) {
+            return
+        }; 
+        setChosenServices((prev: chosenServiceProps[]) => Array.from(new Set([...prev, service])));
     }
 
     // Save chosen date time
     const [chosenDateTime, setChosenDateTime] = useState<Date | null>(null);
+    const [chosenDateString, setChosenDateString] = useState<string>("")
+    const [chosenTimeString, setChosenTimeString] = useState<string>("")
+
     const handleChosenDateTime = (date: Date | null) => {
-        if (!date) return
+        if (!date) return // optional guard
+
         setChosenDateTime(date)
+        const chosenHour = date.getHours()
+        const chosenMinutes = date.getMinutes()
+        setChosenTimeString(`${chosenHour}:${chosenMinutes}`)
+        // Example: Format as "DD/MM/YYYY" for British English
+        const formatterGB = new Intl.DateTimeFormat('en-GB', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+        setChosenDateString(formatterGB.format(date))
     }
 
     // Save chosen information
@@ -73,7 +89,7 @@ const MainContent = ({ id }) => {
 
     // display totalCost
     const [totalCost, setTotalCost] = useState<number>(0)
-    const calculateTotalCost = (services) => {
+    const calculateTotalCost = (services: chosenServiceProps[]) => {
         let sum = 0
         services.map(service => {
             sum += Number(service.cost)
@@ -82,7 +98,7 @@ const MainContent = ({ id }) => {
     }
 
     useEffect(() => {
-        console.log('chosenServices updated:', chosenServices);
+        console.log(chosenServices);
         calculateTotalCost(chosenServices)
     }, [chosenServices]);
 
@@ -143,7 +159,14 @@ const MainContent = ({ id }) => {
                                 }
                                 <Row className="text-start mt-2">
                                     {chosenDateTime ?
-                                        <p style={{ color: 'rgba(0,0,0,0.5)' }} ><Calendar size={18} style={{marginRight: '0.5rem'} } />{chosenDateTime.toString()}</p>
+                                        <>
+                                            <p style={{ color: 'rgba(0,0,0,0.5)' }} >
+                                                <Calendar size={18} style={{ marginRight: '0.5rem' }} />{chosenDateString}
+                                            </p>
+                                            <p style={{ color: 'rgba(0,0,0,0.5)' }}>
+                                                <Clock size={18} style={{ marginRight: '0.5rem' }} />{chosenTimeString}
+                                            </p>
+                                        </>
                                         : <p style={{ color: 'rgba(0,0,0,0.5)' }}>No date selected</p>
                                     }
                                 </Row>

@@ -1,5 +1,5 @@
 ﻿import { Card, Container, Row, Col, Button } from "react-bootstrap";
-import { Plus, Check } from 'lucide-react';
+import { Plus, Check, X } from 'lucide-react';
 import { useState, useEffect } from 'react'
 import { chosenServiceProps } from "./Interfaces"
 
@@ -25,9 +25,13 @@ const ServiceCard = ({ id, name, duration, cost, isBookingPage, sendDataToTabs }
         setIsChosen(true)
     }
 
+    const removeChosenService = () => {
+        setSavedService(undefined)
+        setIsChosen(false)
+    }
 
     useEffect(() => {
-        console.log(isChosen)
+        console.log(savedService)
         sendDataToTabs(savedService)
     }, [savedService])
 
@@ -39,7 +43,7 @@ const ServiceCard = ({ id, name, duration, cost, isBookingPage, sendDataToTabs }
                 <Container>
                     <Row>
                         <Col>
-                            <Card.Title><p style={{ fontSize: '1.1rem' }}>{name}</p></Card.Title>
+                            <Card.Title style={{ fontSize: '1.1rem' }}>{name}</Card.Title>
                             <Card.Text style={{ color: 'rgba(0,0,0,0.5)', fontSize: '1rem' }}>{duration}</Card.Text>
                             <Card.Text style={{ fontSize: '1rem' }}>{cost.toString()} VND</Card.Text>
                         </Col>
@@ -63,14 +67,24 @@ const ServiceCard = ({ id, name, duration, cost, isBookingPage, sendDataToTabs }
                 <Container>
                     <Row>
                         <Col>
-                            <Card.Title><p style={{ fontSize: '1.1rem' }}>{name}</p></Card.Title>
+                            <Card.Title style={{ fontSize: '1.1rem' }}>{name}</Card.Title>
                             <Card.Text style={{ color: 'rgba(0,0,0,0.5)', fontSize: '1rem' }}>{duration}</Card.Text>
                             <Card.Text style={{ fontSize: '1rem' }}>{cost.toString()} VND</Card.Text>
                         </Col>
-                        {/* make the height stretch full height; right-align vertical-center the plus icon */}
-                        {isBookingPage && <Col className="d-flex align-items-center justify-content-end h-100">
-                            <div style={{ width: '40px', height: '32px', backgroundColor: "#F5F5F5", borderRadius: '50%', paddingLeft: '0.5rem' }}><Check size={20} /></div>
-                        </Col>
+                        {/* make the height stretch full height; right-align vertical-center the icon */}
+                        {isBookingPage &&
+                            <Col className="d-flext text-end">
+                                <Button variant="light" className="rounded-circle" style={{ backgroundColor: "#8bca84" }}
+                                    disabled
+                            >
+                                    <Check size={20} />
+                                </Button>
+                            {/*<Button variant="light" className="rounded-circle" style={{ backgroundColor: "#F5F5F5" }}*/}
+                            {/*    onClick={() => removeChosenService()}*/}
+                            {/*>*/}
+                            {/*    <X size={20} />*/}
+                            {/*</Button>*/}
+                            </Col>
                         }
                     </Row>
                 </Container>
