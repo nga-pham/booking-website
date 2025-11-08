@@ -182,13 +182,7 @@ const MainContent = ({ id }) => {
                                             return (
                                                 <Row key={_idx}>
                                                     <Col className="text-start">{service.name}</Col>
-                                                    <Col className="text-end">{service.cost} VND</Col>
-                                                    {/*<Col className="text-end">
-                                                        <Button variant="light" size="sm" className="rounded-circle" style={{ backgroundColor: "#F5F5F5" }}
-                                                            onClick={() => removeChosenService(service)}
-                                                        ><X size={12} />
-                                                        </Button>
-                                                    </Col>*/}
+                                                    <Col className="text-end">{service.cost.toLocaleString('en-US')} VND</Col>
                                                 </Row>
                                             )
                                         })
@@ -203,7 +197,7 @@ const MainContent = ({ id }) => {
                                 <>
                                     <Row style={{ fontWeight: 'bold' }}>
                                         <Col className="text-start">Total</Col>
-                                        <Col className="text-end">{totalCost} VND</Col>
+                                        <Col className="text-end">{totalCost.toLocaleString('en-US')} VND</Col>
                                     </Row>
                                     <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
                                         style={{ backgroundColor: 'black', color: "white" }}

@@ -84,7 +84,7 @@ const ServiceCard = ({ id, name, duration, cost, isBookingPage, sendDataToTabs }
                                 </Col>
                             }
                         </Row>
-                        <div style={{ position: 'absolute', top: 0, right: 0 }}><Check size={20} color="#8bca84" /></div>
+                        {isChosenOnClick ? <div style={{ position: 'absolute', top: 0, right: 0 }}><Check size={20} color="#8bca84" /></div> : null}
                     </Container>
                 </Card.Body>
             </Card>
