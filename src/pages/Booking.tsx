@@ -24,9 +24,9 @@ const BookingHeader = ({id }) => {
     }
 
     return (
-            <Navbar bg="light" className="shadow-sm" sticky="top">
-                <Container>
-                    <div className="d-flex justify-content-end">
+        <Navbar bg="light" className="shadow-sm" sticky="top">
+            <Container>
+                <div className="d-flex justify-content-between w-100">
                         <ArrowLeft size={40} style={{ marginTop: '0.5rem', cursor: "pointer", border: "rgba(0,0,0,0.5)" }} onClick={goToDetail} />
                         <X size={40} style={{ marginTop: '0.5rem', cursor: "pointer", border: "rgba(0,0,0,0.5)" }} onClick={goToDetail} />
                     </div>
