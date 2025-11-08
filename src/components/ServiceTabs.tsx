@@ -6,7 +6,7 @@ import { chosenServiceProps } from "./ui/Interfaces"
 interface ServiceTabsProps {
     services: chosenServiceProps[] | [],
     isBookingPage: boolean | false,
-    sendDataToBookingPage?: (any) => void   // only in booking page
+    sendDataToBookingPage?: (savedService: chosenServiceProps, removedService: chosenServiceProps) => void   // only in booking page
 }
 
 const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }: ServiceTabsProps) => {
@@ -20,15 +20,17 @@ const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }: Service
 
     // For get chosen service from card and send to parent
     const [chosenService, setChosenService] = useState<chosenServiceProps>(undefined)
-    const getChosenServiceFromCard = (service) => {
-        setChosenService(service)
+    const [removedService, setRemovedService] = useState<chosenServiceProps>(undefined)
+    const getChosenServiceFromCard = (chosenService: chosenServiceProps, removedService: chosenServiceProps) => {
+        setChosenService(chosenService)
+        setRemovedService(removedService)
     }
 
     if (sendDataToBookingPage) {
         useEffect(
             () => {
-            sendDataToBookingPage(chosenService)
-        }, [chosenService]
+            sendDataToBookingPage(chosenService, removedService)
+            }, [chosenService, removedService]
         )
     }
 

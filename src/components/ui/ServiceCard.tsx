@@ -10,7 +10,7 @@ interface ServiceCardProps {
     duration: string | "";
     cost: number | 0;
     isBookingPage: boolean | false,
-    sendDataToTabs: (any) => void
+    sendDataToTabs: (savedService: chosenServiceProps, removedService: chosenServiceProps) => void
     isChosen?: boolean | false
 }
 
@@ -35,8 +35,7 @@ const ServiceCard = ({ id, name, duration, cost, isBookingPage, sendDataToTabs }
     }
 
     useEffect(() => {
-        console.log(removedService)
-        sendDataToTabs(savedService)
+        sendDataToTabs(savedService, removedService)
     }, [savedService, removedService])
 
     if (!isBookingPage) {
@@ -56,7 +55,7 @@ const ServiceCard = ({ id, name, duration, cost, isBookingPage, sendDataToTabs }
         )
     } else {
         return (
-            <Card style={{ width: "50rem", borderRadius: '1rem' }} className={cardClasses} key={id}>
+            <Card style={{ width: "50rem", borderRadius: '1rem' }} className={ cardClasses} key={id}>
                 <Card.Body>
                     <Container style={{ position: 'relative' }}>
                         <Row>

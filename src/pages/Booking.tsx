@@ -51,15 +51,13 @@ const MainContent = ({ id }) => {
     
     // Save chosen service
     const [chosenServices, setChosenServices] = useState<chosenServiceProps[]>([])
-    const removeChosenService = (serviceToRemove: chosenServiceProps) => {
-        setChosenServices(chosenServices.filter(item => item.name !== serviceToRemove.name))
-    }
-    const handleChosenServicesFromTabs = (service: chosenServiceProps | undefined) => {
-        // handle when remove service
-        if (service === undefined) {
-            return
-        }; 
-        setChosenServices((prev: chosenServiceProps[]) => Array.from(new Set([...prev, service])));
+
+    const handleChosenServicesFromTabs = (savedService: chosenServiceProps, removedService: chosenServiceProps) => {
+        if (savedService !== undefined)
+            setChosenServices((prev: chosenServiceProps[]) => Array.from(new Set([...prev, savedService])));
+        if (removedService !== undefined)
+            setChosenServices(chosenServices.filter(item => item.name !== removedService.name))
+        console.log(removedService)
     }
 
     // Save chosen date time
@@ -104,7 +102,7 @@ const MainContent = ({ id }) => {
     }
 
     useEffect(() => {
-        //console.log(chosenServices);
+        console.log(chosenServices);
         calculateTotalCost(chosenServices)
     }, [chosenServices]);
 
