@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { chosenServiceProps } from "./ui/Interfaces"
 
 interface ServiceTabsProps {
-    services: chosenServiceProps[] | [],
+    services: any[] | [],
     isBookingPage: boolean | false,
     sendDataToBookingPage?: (savedService: chosenServiceProps, removedService: chosenServiceProps) => void   // only in booking page
 }

@@ -21,19 +21,19 @@
         "items": [
           {
             "name": "Nail extension + Shellac polish",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 608400,
             "featured": false
           },
           {
             "name": "Gel Color",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 421200,
             "featured": false
           },
           {
             "name": "Pedicure or Manicure",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 163800,
             "featured": false
           }
@@ -44,19 +44,19 @@
         "items": [
           {
             "name": "Quick Shampoo",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 178200,
             "featured": false
           },
           {
             "name": "Hair Shampoo & Head Massage 60 minutes",
-            "duration": "1 hr",
+            "duration": 0.5,
             "cost": 397800,
             "featured": true
           },
           {
             "name": "Hair Shampoo and Head Massage and Hair Treatment 90 minutes",
-            "duration": "1 hr 30 mins",
+            "duration": 1.5,
             "cost": 561600,
             "featured": true
           }
@@ -67,67 +67,67 @@
         "items": [
           {
             "name": "Herbal bath + Massage Body",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 795600,
             "featured": false
           },
           {
             "name": "Herbal bath / ngâm tắm lá dao đỏ",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 369000,
             "featured": false
           },
           {
             "name": "Shower / Tắm vòi sen",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 187200,
             "featured": true
           },
           {
             "name": "Facial treatment",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 327600,
             "featured": false
           },
           {
             "name": "Nourishing shampoo + Facial treatment / Gội đầu dưỡng sinh + chăm sóc da mặt",
-            "duration": "1 hr 30 mins",
+            "duration": 1.5,
             "cost": 655200,
             "featured": false
           },
           {
             "name": "Massage & Hair Shampoo 120 minutes",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 842400,
             "featured": false
           },
           {
             "name": "Intensive Nourishing shampoo + Foot massage 30'",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 702000,
             "featured": false
           },
           {
             "name": "Nourishing shampoo + Massage Body 90'",
-            "duration": "2 hrs 30 mins",
+            "duration": 2.5,
             "cost": 1078200,
             "featured": false
           },
           {
             "name": "Nourishing shampoo + Facial treatment + Massage Body 60'",
-            "duration": "2 hrs 30 mins",
+            "duration": 2.5,
             "cost": 1170000,
             "featured": true
           },
           {
             "name": "Foot scrub",
-            "duration": "1 hrs",
+            "duration": 1,
             "cost": 304200,
             "featured": false
           },
           {
             "name": "Body scrub",
-            "duration": "1 hrs",
+            "duration": 1,
             "cost": 514800,
             "featured": false
           }
@@ -138,61 +138,61 @@
         "items": [
           {
             "name": "Foot Massage / Massage chân",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 201600,
             "featured": false
           },
           {
             "name": "Aroma Massage 60 minutes",
-            "duration": "1h 30 mins",
+            "duration": 1.5,
             "cost": 538200,
             "featured": false
           },
           {
             "name": "Deep Tissue Massage",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 585000,
             "featured": true
           },
           {
             "name": "Thai Massage with oil 60 minutes",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 655200,
             "featured": false
           },
           {
             "name": "Vietnamese Massage",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 608400,
             "featured": false
           },
           {
             "name": "Hot Stone Massage",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 631800,
             "featured": false
           },
           {
             "name": "Massage 4 Hands",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 1076400,
             "featured": false
           },
           {
             "name": "Use coin rubbing (or Gua Sha) to relieve colds and muscle pain / Cạo gió",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 327600,
             "featured": false
           },
           {
             "name": "Cupping therapy/ Giác hơi",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 327600,
             "featured": false
           },
           {
             "name": "Earwax removal treatment / Lấy ráy tai",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 234000,
             "featured": false
           }
@@ -318,13 +318,13 @@
         "items": [
           {
             "name": "The Balance option 1",
-            "duration": "1 hr 50mins",
+            "duration": 1.75,
             "cost": 740000,
             "featured": false
           },
           {
             "name": "The Balance option 2",
-            "duration": "2 hrs 20mins",
+            "duration": 2.25,
             "cost": 880000,
             "featured": false
           }
@@ -335,13 +335,13 @@
         "items": [
           {
             "name": "Signature Day Spa option 1",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 980000,
             "featured": true
           },
           {
             "name": "Signature Day Spa option 2",
-            "duration": "3 hrs 5mins",
+            "duration": 3.1,
             "cost": 1080000,
             "featured": false
           }
@@ -352,13 +352,13 @@
         "items": [
           {
             "name": "The Soothing option 1",
-            "duration": "1 hr 50mins",
+            "duration": 1.75,
             "cost": 700000,
             "featured": false
           },
           {
             "name": "The Soothing option 2",
-            "duration": "2 hrs 20mins",
+            "duration": 2.25,
             "cost": 850000,
             "featured": false
           }
@@ -369,13 +369,13 @@
         "items": [
           {
             "name": "Herbal Lover option 1",
-            "duration": "1 hr 20mins",
+            "duration": 1.25,
             "cost": 480000,
             "featured": false
           },
           {
             "name": "Herbal Lover option 2",
-            "duration": "1 hr 50mins",
+            "duration": 1.75,
             "cost": 600000,
             "featured": false
           }
@@ -387,25 +387,25 @@
         "items": [
           {
             "name": "Basic 1 (Herbal bath and The Dao massage 60 mins)",
-            "duration": "1 hr 20mins",
+            "duration": 1.25,
             "cost": 470000,
             "featured": false
           },
           {
             "name": "Basic 2 (Herbal bath and The Dao masage 90 mins)",
-            "duration": "1h 50mins",
+            "duration": 1.75,
             "cost": 570000,
             "featured": false
           },
           {
             "name": "Basic 1 (Herbal bath and Swedish massage 60 mins)",
-            "duration": "1 hr 20mins",
+            "duration": 1.25,
             "cost": 450000,
             "featured": false
           },
           {
             "name": "Basic 2 (Herbal bath and Swedish massage 90 mins)",
-            "duration": "1 hr 50mins",
+            "duration": 1.75,
             "cost": 550000,
             "featured": false
           }
@@ -416,7 +416,7 @@
         "items": [
           {
             "name": "Red Dao herbal bath - Tắm lá Dao Đỏ",
-            "duration": "20 mins",
+            "duration": 0.25,
             "cost": 165000,
             "featured": false
           }
@@ -427,43 +427,43 @@
         "items": [
           {
             "name": "The Zen massage",
-            "duration": "1h 15mins",
+            "duration": 1.25,
             "cost": 520000,
             "featured": false
           },
           {
             "name": "Hot stone massage/ Massage đá nóng",
-            "duration": "1h 15mins",
+            "duration": 1.25,
             "cost": 480000,
             "featured": false
           },
           {
             "name": "Herbal masssage - Mátxa thảo dược Dao Đỏ",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 35000,
             "featured": true
           },
           {
             "name": "The Dao massage Non-Oil",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 350000,
             "featured": false
           },
           {
             "name": "The Dao Massage",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 330000,
             "featured": true
           },
           {
             "name": "Swedish massage/ Massage Thụy Điển",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 310000,
             "featured": true
           },
           {
             "name": "Prenatal massage - Massage bầu",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 320000,
             "featured": false
           }
@@ -475,20 +475,20 @@
         "items": [
           {
             "name": "Foot massage/ Massage chân",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 310000,
             "featured": false
 
           },
           {
             "name": "Foot Therapy",
-            "duration": "1h 30 mins",
+            "duration": 1.5,
             "cost": 480000,
             "featured": false
           },
           {
             "name": "Foot and Back massage",
-            "duration": "1h 30 mins",
+            "duration": 1.5,
             "cost": 480000,
             "featured": false
           }
@@ -499,13 +499,13 @@
         "items": [
           {
             "name": "Foot scrub",
-            "duration": "1 hrs",
+            "duration": 1,
             "cost": 304200,
             "featured": false
           },
           {
             "name": "Body scrub",
-            "duration": "1 hrs",
+            "duration": 1,
             "cost": 514800,
             "featured": false
           }
@@ -715,19 +715,19 @@
         "items": [
           {
             "name": "Gel Pedicure",
-            "duration": "1h",
+            "duration": 1,
             "cost": "200000",
             "featured": false
           },
           {
             "name": "Pedicure Care (No Gel)",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": "150000",
             "featured": false
           },
           {
             "name": "Footcare",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": "150000",
             "featured": false
           }
@@ -738,19 +738,19 @@
         "items": [
           {
             "name": "Brow Styling",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": "300000",
             "featured": false
           },
           {
             "name": "Brow Stying and Tint",
-            "duration": "45mins",
+            "duration": 0.75,
             "cost": "400000",
             "featured": true
           },
           {
             "name": "Brow Lamination",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": "600000",
             "featured": true
           }
@@ -761,19 +761,19 @@
         "items": [
           {
             "name": "Bottom Lash Lift and Tint",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": "250000",
             "featured": false
           },
           {
             "name": "Korean Lash Lift & Tint (Standard)",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": "400000",
             "featured": false
           },
           {
             "name": "Italian Lash Lift & Tint (Premium)",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": "500000",
             "featured": true
           }
@@ -784,25 +784,25 @@
         "items": [
           {
             "name": "Classic Lash",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": "300000",
             "featured": false
           },
           {
             "name": "Hybrid Lash",
-            "duration": "1 hr 30 mins",
+            "duration": 1.5,
             "cost": "450000",
             "featured": false
           },
           {
             "name": "Light Volumne Lash (3-4D)",
-            "duration": "2 hrs 15mins",
+            "duration": 2.25,
             "cost": "450000",
             "featured": false
           },
           {
             "name": "Basic 2 (Herbal bath and Swedish massage 90 mins)",
-            "duration": "1 hr 50mins",
+            "duration": 1.75,
             "cost": "550000",
             "featured": false
           }
@@ -813,73 +813,73 @@
         "items": [
           {
             "name": "Full Face",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": "350000",
             "featured": false
           },
           {
             "name": "Cheeks",
-            "duration": "20mins",
+            "duration": 0.25,
             "cost": "350000",
             "featured": false
           },
           {
             "name": "Upper Lip/Chin/Hairline/Neck",
-            "duration": "15mins",
+            "duration": 0.25,
             "cost": "100000",
             "featured": false
           },
           {
             "name": "Forehead",
-            "duration": "15mins",
+            "duration": 0.25,
             "cost": "100000",
             "featured": false
           },
           {
             "name": "Half Arms",
-            "duration": "15mins",
+            "duration": 0.25,
             "cost": "160000",
             "featured": false
           },
           {
             "name": "Full Arms",
-            "duration": "20mins",
+            "duration": 0.25,
             "cost": "200000",
             "featured": false
           },
           {
             "name": "Half Legs",
-            "duration": "20mins",
+            "duration": 0.25,
             "cost": "250000",
             "featured": false
           },
           {
             "name": "Full Legs",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": "350000",
             "featured": false
           },
           {
             "name": "Underarms",
-            "duration": "15mins",
+            "duration": 0.25,
             "cost": "100000",
             "featured": false
           },
           {
             "name": "Abdomen",
-            "duration": "20mins",
+            "duration": 0.25,
             "cost": "180000",
             "featured": false
           },
           {
             "name": "Full Back",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": "250000",
             "featured": false
           },
           {
             "name": "Chest",
-            "duration": "20mins",
+            "duration": 0.25,
             "cost": "100000",
             "featured": false
           }
@@ -890,55 +890,55 @@
         "items": [
           {
             "name": "Hair Styling",
-            "duration": "45mins",
+            "duration": 0.75,
             "cost": "400000",
             "featured": false
           },
           {
             "name": "Yearbook Photoshoot",
-            "duration": "1h 30 mins",
+            "duration": 1.5,
             "cost": "400000",
             "featured": false
           },
           {
             "name": "Prom/Graduation Ceremony",
-            "duration": "1 hr 30 mins",
+            "duration": 1.5,
             "cost": "600000",
             "featured": false
           },
           {
             "name": "Party/Event",
-            "duration": "3 hrs",
+            "duration": 3,
             "cost": "800000",
             "featured": false
           },
           {
             "name": "Concept",
-            "duration": "2 hrs 30 mins",
+            "duration": 2.5,
             "cost": "1000000",
             "featured": false
           },
           {
             "name": "Bridal - Engagement Party",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": "2000000",
             "featured": true
           },
           {
             "name": "Bridal - Wedding",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": "2500000",
             "featured": false
           },
           {
             "name": "Bridal Mother/Mother-in-law",
-            "duration": "1 hr 30 mins",
+            "duration": 1.5,
             "cost": "1000000",
             "featured": false
           },
           {
             "name": "Bridal Relatives",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": "500000",
             "featured": false
           }
@@ -1062,7 +1062,7 @@
         "items": [
           {
             "name": "Body Slimfit - Giảm mỡ cơ thể",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 4000000,
             "featured": false
           }
@@ -1073,7 +1073,7 @@
         "items": [
           {
             "name": "Meso Hair - Mesotherapy giảm rụng tóc, tăng mọc tóc và giúp tóc chắc khoẻ",
-            "duration": "2 hrs 30 mins",
+            "duration": 2.5,
             "cost": 5900000,
             "featured": false
           }
@@ -1084,74 +1084,74 @@
         "items": [
           {
             "name": "Density Eye - Xoá nhăn mắt 600 shot",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 35000000,
             "featured": false
           },
           {
             "name": "Density - Xoá nhăn kép 1000 shot",
-            "duration": "1 hr",
-            "cost": "59000000",
+            "duration": 1,
+            "cost": 59000000,
             "featured": false
           },
           {
             "name": "Density - Xoá nhăn kép 500 shot",
-            "duration": "1 hr",
-            "cost": "35000000",
+            "duration": 1,
+            "cost": 35000000,
             "featured": false
           },
           {
             "name": "Liftera 2 - Nâng cơ trẻ hoá toàn mặt",
-            "duration": "1 hr",
-            "cost": "20000000",
+            "duration": 1,
+            "cost": 20000000,
             "featured": false
           },
           {
             "name": "Nâng cơ trẻ hoá LinearZ 1000 Shot",
-            "duration": "1 hr",
-            "cost": "35000000",
+            "duration": 1,
+            "cost": 35000000,
             "featured": false
           },
           {
             "name": "Nâng cơ trẻ hoá LinearZ 500 Shot",
-            "duration": "1 hr",
-            "cost": "25000000",
+            "duration": 1,
+            "cost": 25000000,
             "featured": false
           },
           {
             "name": "Pro Lifiting - Thon gọn khuôn mặt, thu nhỏ lỗ chân lông",
-            "duration": "1 hr",
-            "cost": "13990000",
+            "duration": 1,
+            "cost": 13990000,
             "featured": false
           },
           {
             "name": "Laser Deep Fractional Pico",
-            "duration": "1 hr",
-            "cost": "3590000",
+            "duration": 1,
+            "cost": 3590000,
             "featured": false
           },
           {
             "name": "Young Eye - Mesotheray giảm thâm mắt",
-            "duration": "1 hr 30 mins",
-            "cost": "2990000",
+            "duration": 1.5,
+            "cost": 2990000,
             "featured": false
           },
           {
             "name": "Combo 40 buổi liệu trình Laser toning body, mặt - Không dùng chung thẻ",
-            "duration": "1 hr",
-            "cost": "10000000",
+            "duration": 1,
+            "cost": 10000000,
             "featured": false
           },
           {
             "name": "Combo 20 buổi liệu trình Laser toning body, mặt - Không dùng chung thẻ",
-            "duration": "1 hr",
-            "cost": "5000000",
+            "duration": 1,
+            "cost": 5000000,
             "featured": false
           },
           {
             "name": "Tiêm sẹo lồi Lisanalona",
-            "duration": "1 hr",
-            "cost": "1000000",
+            "duration": 1,
+            "cost": 1000000,
             "featured": false
           }
         ]
@@ -1161,13 +1161,13 @@
         "items": [
           {
             "name": "RF Lifting & DMA - Săn chắc định hình khuôn mặt",
-            "duration": "1 hr 30 mins",
+            "duration": 1.5,
             "cost": "2990000",
             "featured": false
           },
           {
             "name": "Liệu Trình Làm Sáng Vùng Nách",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": "150000",
             "featured": false
           }
@@ -1178,73 +1178,73 @@
         "items": [
           {
             "name": "Bap Lifting - Profhilo nâng cơ",
-            "duration": "2 hrs",
-            "cost": "26990000",
+            "duration": 2,
+            "cost": 26990000,
             "featured": false
           },
           {
             "name": "Meso Youth - Mesotherapy giảm nhăn thu nhỏ lỗ chân lông",
-            "duration": "2 hrs 30 mins",
+            "duration": 2.5,
             "cost": "6990000",
             "featured": false
           },
           {
             "name": "Tiêm trẻ hoá, đầy sẹo Gouri",
-            "duration": "2 hrs",
-            "cost": "6990000",
+            "duration": 2,
+            "cost": 6990000,
             "featured": false
           },
           {
             "name": "Skin booster Pluryal",
-            "duration": "2 hrs",
-            "cost": "12000000",
+            "duration": 2,
+            "cost": 12000000,
             "featured": false
           },
           {
             "name": "Skin booster Restylane",
-            "duration": "2 hrs",
-            "cost": "15900000",
+            "duration": 2,
+            "cost": 15900000,
             "featured": false
           },
           {
             "name": "Skin booster Teoxane",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 12000000,
             "featured": false
           },
           {
             "name": "Skin Booster Bolotero",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 16900000,
             "featured": false
           },
           {
             "name": "Mesotherapy B.A.P - Nâng cơ, cải thiện cấu trúc da lão hoá",
-            "duration": "1 hr 30 mins",
+            "duration": 1.5,
             "cost": 11990000,
             "featured": false
           },
           {
             "name": "Meso PDRN White - Mesotherapy phục hồi cấu trúc & làm sáng",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 6590000,
             "featured": false
           },
           {
             "name": "Meso PDRN - Mesotherapy phục hồi cấu trúc đa tầng",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 4990000,
             "featured": false
           },
           {
             "name": "Mesotherapy Mắt Teoxane",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 8990000,
             "featured": false
           },
           {
             "name": "Mesotherapy Filler Teoxane",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 11990000,
             "featured": false
           }
@@ -1255,13 +1255,13 @@
         "items": [
           {
             "name": "DMK Enzyme 2 - Tiêu sừng thanh lọc da tối màu, da mụn",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 1590000,
             "featured": false
           },
           {
             "name": "DMK Enzyme 1 - Khôi phục làn da mẫn cảm",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 1290000,
             "featured": false
           }
@@ -1272,7 +1272,7 @@
         "items": [
           {
             "name": "Soi Da Bằng Máy FOCUSKIN và Phác Đồ Điều Trị",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 0,
             "featured": false
           }
@@ -1283,115 +1283,115 @@
         "items": [
           {
             "name": "Nano Stemcell - Giảm thâm làm sáng",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 2590000,
             "featured": false
           },
           {
             "name": "Aqua Plus - Công nghệ Aqua giúp sạch sâu",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 1490000,
             "featured": false
           },
           {
             "name": "Meso Nano - Căng bóng da không kim",
-            "duration": "1h 55mins",
+            "duration": 1.9,
             "cost": 3590000,
             "featured": false
           },
           {
             "name": "Glow Shine - Căng bóng, trẻ hoá da",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 2690000,
             "featured": false
           },
           {
             "name": "Meso Glow - Jalupro Classic",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 6990000,
             "featured": false
           },
           {
             "name": "Whitening Extra - Làm sáng da với công nghệ Oxygen",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 1890000,
             "featured": false
           },
           {
             "name": "Detox Skin - Làm sạch sâu với CO2 Therapy",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 1090000,
             "featured": false
           },
           {
             "name": "Empower Skin - Trị liệu cho da mẫn cảm & trẻ hoá da",
-            "duration": "1 hr 30 mins",
+            "duration": 1.5,
             "cost": 4590000,
             "featured": false
           },
           {
             "name": "Biosensitive Skin - Dưỡng ẩm tái tạo da",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 2390000,
             "featured": false
           },
           {
             "name": "Basic Cleansing - Làm sạch cơ bản",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 350000,
             "featured": false
           },
           {
             "name": "Skin Balance 3 - Cân bằng lại hàng rào bảo vệ & tái thiết làn da mẫn cảm ",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 1590000,
             "featured": false
           },
           {
             "name": "Skin Balance - Cân bằng lại hàng rào bảo vệ & làm dịu da mẫn cảm",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 1290000,
             "featured": false
           },
           {
             "name": "Acne Treatment Level 2",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 1290000,
             "featured": false
           },
           {
             "name": "Acne Treatment Level 1",
-            "duration": "1 hr",
-            "cost": "400000",
+            "duration": 1,
+            "cost": 400000,
             "featured": false
           },
           {
             "name": "OXY Treatment 2 - Khôi phục những da nhiềm Corticoid, siêu mẫn cảm, tăng cường oxy nội tế bào",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 1900000,
             "featured": false
           },
           {
             "name": "Làm sạch sâu, detox sợi bã nhờn vùng mũi",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 100000,
             "featured": false
           },
           {
             "name": "Aquapeel - Làm Sạch Công Nghệ Sóng Nước",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 1290000,
             "featured": false
           },
           {
             "name": "Deep Cleansing - Làm Sạch Chuyên Sâu",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 550000,
             "featured": true
           },
           {
             "name": "OXY Treatment 1 - Khôi phục da mẫn cảm, thúc đẩy tăng oxy nội tế bào",
-            "duration": "45 mins",
+            "duration": 0.75,
             "cost": 1590000,
             "featured": false
           }
@@ -1402,7 +1402,7 @@
         "items": [
           {
             "name": "Ion Therapy - Điện di công nghệ Cryo Derm",
-            "duration": "1 hr 30 mins",
+            "duration": 1.5,
             "cost": 1290000,
             "featured": false
           }
@@ -1413,19 +1413,19 @@
         "items": [
           {
             "name": "Shiny Glow - Thu nhỏ lỗ chân lông, trẻ hoá và căng bóng da",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 3590000,
             "featured": false
           },
           {
             "name": "Glow Skin - Căng Bóng Da",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 1590000,
             "featured": false
           },
           {
             "name": "Glass Skin - Căng Bóng Da Như Gương",
-            "duration": "3 hrs",
+            "duration": 3,
             "cost": 1990000,
             "featured": false
           }
@@ -1436,19 +1436,19 @@
         "items": [
           {
             "name": "Chemical Peel Body",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 3990000,
             "featured": false
           },
           {
             "name": "Chemical Peel - Level 2 Mụn viêm nhẹ & thâm đỏ",
-            "duration": "1 hr 10 mins",
+            "duration": 1.25,
             "cost": 1590000,
             "featured": false
           },
           {
             "name": "Chemical Peel - Level 3 Mụn viêm nặng & Giảm sẹo mới",
-            "duration": "1 hr 30 mins",
+            "duration": 1.5,
             "cost": 1990000,
             "featured": false
           }
@@ -1459,91 +1459,91 @@
         "items": [
           {
             "name": "Tiêm đầy sẹo Rejuran S",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 8690000,
             "featured": false
           },
           {
             "name": "Meso Collagen Glow - Mesotherapy căng bóng, trẻ hoá da",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 9900000,
             "featured": false
           },
           {
             "name": "Mesotherapy Melas - Mesotherapy nám điểm Hori",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 1590000,
             "featured": false
           },
           {
             "name": "Lấy máu meso PRP",
-            "duration": "15 mins",
+            "duration": 0.25,
             "cost": 5990000,
             "featured": false
           },
           {
             "name": "Mesotherapy Exocollagen - Mesotherapy exosome tăng cường collagen",
-            "duration": "1 hr 30 mins",
+            "duration": 1.5,
             "cost": 9990000,
             "featured": false
           },
           {
             "name": "Mesoexo White - Mesotherapy tế bào gốc & sáng da",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 4990000,
             "featured": false
           },
           {
             "name": "Meso MSC - Mesotherapy tế bào gốc trung mô",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 15000000,
             "featured": false
           },
           {
             "name": "Mesotherapy Exosome - Mesoexsome tăng cường tế bào gốc",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 8690000,
             "featured": false
           },
           {
             "name": "Mesotherapy Acnes - Mesotherapy điều trị cho da mụn",
-            "duration": "1 hr",
+            "duration": 2,
             "cost": 3990000,
             "featured": false
           },
           {
             "name": "Mesotherapy giảm rụng tóc",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 5990000,
             "featured": false
           },
           {
             "name": "Meso Glow - Mesotherapy cấp nước căng bóng, tăng cường cấu trúc da",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 5990000,
             "featured": false
           },
           {
             "name": "Meso Brightening - Mesotherapy làm sáng và điều trị nám",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 3990000,
             "featured": false
           },
           {
             "name": "Meso Micro - Mesotherapy vi điểm kháng khuẩn, kháng viêm cho mụn sưng u mụn cục ( dưới 10 nốt)",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 890000,
             "featured": false
           },
           {
             "name": "Meso Recovery - Mesotherapy phục hồi và nuôi dưỡng làn da mẫn cảm",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 3990000,
             "featured": false
           },
           {
             "name": "Meso PRP",
-            "duration": "3 hrs",
+            "duration": 3,
             "cost": 5990000,
             "featured": false
           }
@@ -1554,86 +1554,56 @@
         "items": [
           {
             "name": "Nano Glow - Thu nhỏ lỗ chân lông, giảm sạm nám, trẻ hóa da",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 13989986,
             "featured": false
           },
           {
             "name": "Contoura Slim - Hủy tế bào mỡ vĩnh viễn",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 4000000,
             "featured": false
           },
           {
             "name": "Lift Face - Săn chắc định hình khuôn mặt",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 3589999,
             "featured": false
           },
           {
             "name": "MFU - Hoá lỏng mỡ với công nghệ MFU",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 9000000,
             "featured": false
           },
           {
             "name": "Glowshine - Trẻ hoá da 6D",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 19990000,
             "featured": false
           },
           {
             "name": "Glowshine - Trẻ hoá da 6D",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 19990000,
             "featured": false
           },
           {
             "name": "Black Pearl - Công nghệ độc quyền, nâng cơ, giảm nhăn",
-            "duration": "1 hr 30 mins",
+            "duration": 1.5,
             "cost": 79000000,
             "featured": false
           },
           {
             "name": "Ultherapy Prime - Nâng cơ, trẻ hóa toàn diện",
-            "duration": "1 hr 30 mins",
+            "duration": 1.5,
             "cost": 79000000,
             "featured": false
           },
           {
             "name": "Sofwave Superb - Trẻ hoá nâng cơ toàn mặt",
-            "duration": "2 hrs",
+            "duration": 2,
             "cost": 60000000,
-            "featured": false
-          },
-          {
-            "name": "Fotona’s HaiRestart - Laser kích thích mọc tóc",
-            "duration": "Skin Recovery By Fotona Dynamis - Trẻ hoá & Phục hồi da mẫn cảm",
-            "cost": 4000000,
-            "featured": false
-          },
-          {
-            "name": "Adora Glow - Trẻ hoá đa tầng toàn diện",
-            "duration": "1 hr 30 mins",
-            "cost": 0,
-            "featured": false
-          },
-          {
-            "name": "Laser Acnes Premium - Laser điều trị mụn/ Giãn mao mạch",
-            "duration": "1 hr 30 mins",
-            "cost": 3000000,
-            "featured": false
-          },
-          {
-            "name": "Laser Melasma Signature - Điều trị nám chân sâu",
-            "duration": "2 hrs",
-            "cost": 3990000,
-            "featured": false
-          },
-          {
-            "name": "Botox Mỹ",
-            "duration": "1 hr",
-            "cost": 2000000,
             "featured": false
           }
         ]
@@ -1643,73 +1613,73 @@
         "items": [
           {
             "name": "Dịch vụ triệt lông toàn thân",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 29000000,
             "featured": false
           },
           {
             "name": "Triệt lông vùng lưng",
-            "duration": "25 mins",
+            "duration": 0.5,
             "cost": 99000,
             "featured": false
           },
           {
             "name": "Triệt lông vùng bụng",
-            "duration": "25 mins",
+            "duration": 0.5,
             "cost": 99000,
             "featured": false
           },
           {
             "name": "Triệt lông vùng bikini",
-            "duration": "45 mins",
+            "duration": 0.75,
             "cost": 99000,
             "featured": true
           },
           {
             "name": "Triệt lông vùng chân",
-            "duration": "45 mins",
+            "duration": 0.75,
             "cost": 99000,
             "featured": false
           },
           {
             "name": "Triệt lông vùng 1/2 chân",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 99000,
             "featured": false
           },
           {
             "name": "Triệt lông vùng tay",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 99000,
             "featured": false
           },
           {
             "name": "Triệt lông vùng 1/2 cánh tay",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 99000,
             "featured": false
           },
           {
             "name": "Triệt lông vùng gáy",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 99000,
             "featured": false
           },
           {
             "name": "Triệt lông vùng mặt",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 99000,
             "featured": false
           },
           {
             "name": "Triệt lông vùng nách",
-            "duration": "25 mins",
+            "duration": 0.5,
             "cost": 99000,
             "featured": true
           },
           {
             "name": "Triệt lông vùng mép",
-            "duration": "25 mins",
+            "duration": 0.5,
             "cost": 99000,
             "featured": false
           }

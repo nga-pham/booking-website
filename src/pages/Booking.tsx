@@ -1,4 +1,4 @@
-import { ArrowLeft, X, ChevronRight, Calendar, Clock, User, Mail, Phone, MapPinHouse, MapPin, Building2 } from "lucide-react";
+import { ArrowLeft, X, ChevronRight, Calendar, Clock, User, Mail, Phone, MapPinHouse, MapPin, Building2, Hourglass } from "lucide-react";
 import { useEffect, useState } from 'react';
 import { Col, Container, Navbar, Nav, Row, Card, Button, Image, Modal } from "react-bootstrap";
 import { useNavigate, useParams } from 'react-router-dom';
@@ -13,7 +13,7 @@ interface chosenOptionProps {
     services: chosenServiceProps[];
     date: Date | null;
     startTime: string | "";
-    endTime: string | "";
+    duration: number | 0
 }
 
 const Booking = () => {
@@ -36,7 +36,6 @@ const Booking = () => {
         if (serviceChosenCompleted && !dateTimeChosenCompleted) setDateTimeChosenCompleted(true)
     }
 
-    const [confirmGoBack, setConfirmGoBack] = useState<boolean>(false)
     const [confirmPopupOpen, setConfirmPopupOpen] = useState<boolean>(false)
     
     const backToPreviousSection = () => {
@@ -59,6 +58,16 @@ const Booking = () => {
         if (removedService !== undefined)
             setChosenServices(chosenServices.filter(item => item.name !== removedService.name))
         console.log(removedService)
+    }
+
+    // Calculate total duration to display
+    const [totalDuration, setTotalDuration] = useState<number>(0)
+    const calculateTotalDuration = (services) => {
+        let sum = 0
+        services.map(service => {
+            sum += Number(service.duration)
+        })
+        setTotalDuration(sum)
     }
 
     // Save chosen date time
@@ -103,8 +112,8 @@ const Booking = () => {
     }
 
     useEffect(() => {
-        console.log(chosenServices);
         calculateTotalCost(chosenServices)
+        calculateTotalDuration(chosenServices)
     }, [chosenServices]);
 
 
@@ -129,15 +138,15 @@ const Booking = () => {
                 <Modal.Footer className="d-flex justify-content-center w-100">
                     <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
                         style={{ backgroundColor: 'white', color: "black"}} 
-                        onClick={() => { closeConfirmPopup(); goToDetail() }}
+                        onClick={closeConfirmPopup}
                     >
                         Cancel
                     </Button>
                     <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
                         style={{ backgroundColor: 'black', color: "white" }}
-                        onClick={closeConfirmPopup}
+                        onClick={() => { closeConfirmPopup(); goToDetail() }}
                     >
-                        Continue booking
+                        Yes, exit
                     </Button>
                 </Modal.Footer>
             </Modal>
@@ -211,14 +220,22 @@ const Booking = () => {
                                     </Row>
                                     <Row className="text-start">
                                         {chosenServices.length > 0 ? (
-                                            chosenServices.map((service, _idx) => {
-                                                return (
-                                                    <Row key={_idx}>
-                                                        <Col className="text-start">{service.name}</Col>
-                                                        <Col className="text-end">{service.cost.toLocaleString('en-US')} VND</Col>
-                                                    </Row>
-                                                )
-                                            })
+                                            <>
+                                                <p style={{ color: 'rgba(0,0,0,0.5)' }}>
+                                                    <Hourglass size={18} style={{ marginRight: '0.5rem' }} />{totalDuration} hours
+                                                </p>
+                                                {chosenServices.map((service, _idx) => {
+                                                    return (
+                                                        <>
+
+                                                            <Row key={_idx}>
+                                                                <Col className="text-start">{service.name}</Col>
+                                                                <Col className="text-end">{service.cost.toLocaleString('en-US')} VND</Col>
+                                                            </Row>
+                                                        </>
+                                                    )
+                                                }) }
+                                            </>
                                         ) : <p style={{ color: 'rgba(0,0,0,0.5)' }}>No service selected</p>
                                         }
                                     </Row>

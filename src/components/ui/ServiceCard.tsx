@@ -7,7 +7,7 @@ import { chosenServiceProps } from "./Interfaces"
 interface ServiceCardProps {
     id: number | 0;
     name: string | "";
-    duration: string | "";
+    duration: number | 0;
     cost: number | 0;
     isBookingPage: boolean | false,
     sendDataToTabs: (savedService: chosenServiceProps, removedService: chosenServiceProps) => void
@@ -15,6 +15,13 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ id, name, duration, cost, isBookingPage, sendDataToTabs }: ServiceCardProps) => {
+    // display duration in string like 2 h 30 minss
+    const hour = Math.floor(duration); // "9"
+    const minutes = (duration - hour) * 60;
+    let hourString = `${hour} h ${minutes} mins`;
+    if (hour === 0) hourString = `${minutes} mins`
+    else if (minutes === 0) hourString = `${hour} h`
+
     // Save service to book and send to tabs
     const [savedService, setSavedService] = useState<chosenServiceProps>(undefined)
     const [removedService, setRemovedService] = useState<chosenServiceProps>(undefined)
@@ -45,7 +52,7 @@ const ServiceCard = ({ id, name, duration, cost, isBookingPage, sendDataToTabs }
                     <Container>
                         <Row>
                             <Card.Title style={{ fontSize: '1.1rem' }}>{name}</Card.Title>
-                            <Card.Text style={{ color: 'rgba(0,0,0,0.5)', fontSize: '1rem' }}>{duration}</Card.Text>
+                            <Card.Text style={{ color: 'rgba(0,0,0,0.5)', fontSize: '1rem' }}>{hourString}</Card.Text>
                             <Card.Text style={{ fontSize: '1rem' }}>{cost.toString()} VND</Card.Text>
 
                         </Row>
@@ -61,14 +68,14 @@ const ServiceCard = ({ id, name, duration, cost, isBookingPage, sendDataToTabs }
                         <Row>
                             <Col>
                                 <Card.Title style={{ fontSize: '1.1rem' }}>{name}</Card.Title>
-                                <Card.Text style={{ color: 'rgba(0,0,0,0.5)', fontSize: '1rem' }}>{duration}</Card.Text>
+                                <Card.Text style={{ color: 'rgba(0,0,0,0.5)', fontSize: '1rem' }}>{hourString}</Card.Text>
                                 <Card.Text style={{ fontSize: '1rem' }}>{cost.toString()} VND</Card.Text>
                             </Col>
                             {/* make the height stretch full height; right-align vertical-center the plus icon */}
                             {!isChosenOnClick ?
                                 <Col className="d-flex align-items-center justify-content-end w-100">
                                     <Button variant="light" className="rounded-circle" style={{ backgroundColor: "#F5F5F5" }}
-                                        onClick={() => getChosenService({ name, cost: Number(cost) })}
+                                        onClick={() => getChosenService({ name, duration, cost: Number(cost) })}
                                     >
                                         <Plus size={20} />
                                     </Button>
@@ -76,14 +83,13 @@ const ServiceCard = ({ id, name, duration, cost, isBookingPage, sendDataToTabs }
                                 : <Col className="d-flex align-items-center justify-content-end w-100" >
 
                                     <Button variant="light" className="rounded-circle" style={{ backgroundColor: "#8bca84" }}
-                                        onClick={() => removeChosenService({ name, cost: Number(cost) })}
+                                        onClick={() => removeChosenService({ name, duration, cost: Number(cost) })}
                                     >
                                         <Check size={20} />
                                     </Button>
                                 </Col>
                             }
                         </Row>
-                        {/*{isChosenOnClick ? <div style={{ position: 'absolute', top: 0, right: 0 }}><Check size={20} color="#8bca84" /></div> : null}*/}
                     </Container>
                 </Card.Body>
             </Card>
