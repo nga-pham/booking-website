@@ -78,12 +78,12 @@ const ServiceCard = ({ id, name, duration, cost, isBookingPage, sendDataToTabs }
                                     <Button variant="light" className="rounded-circle" style={{ backgroundColor: "#8bca84" }}
                                         onClick={() => removeChosenService({ name, cost: Number(cost) })}
                                     >
-                                        <X size={20} />
+                                        <Check size={20} />
                                     </Button>
                                 </Col>
                             }
                         </Row>
-                        {isChosenOnClick ? <div style={{ position: 'absolute', top: 0, right: 0 }}><Check size={20} color="#8bca84" /></div> : null}
+                        {/*{isChosenOnClick ? <div style={{ position: 'absolute', top: 0, right: 0 }}><Check size={20} color="#8bca84" /></div> : null}*/}
                     </Container>
                 </Card.Body>
             </Card>
