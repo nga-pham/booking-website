@@ -222,17 +222,14 @@ const Booking = () => {
                                         {chosenServices.length > 0 ? (
                                             <>
                                                 <p style={{ color: 'rgba(0,0,0,0.5)' }}>
-                                                    <Hourglass size={18} style={{ marginRight: '0.5rem' }} />{totalDuration} hours
+                                                    <Hourglass size={18} style={{ marginRight: '0.5rem' }} />{totalDuration} hours total
                                                 </p>
                                                 {chosenServices.map((service, _idx) => {
                                                     return (
-                                                        <>
-
                                                             <Row key={_idx}>
                                                                 <Col className="text-start">{service.name}</Col>
                                                                 <Col className="text-end">{service.cost.toLocaleString('en-US')} VND</Col>
                                                             </Row>
-                                                        </>
                                                     )
                                                 }) }
                                             </>

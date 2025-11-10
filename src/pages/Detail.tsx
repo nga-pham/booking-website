@@ -1,15 +1,31 @@
-﻿import { Star } from 'lucide-react';
-import { Button, Card, Carousel, Col, Container, Row } from "react-bootstrap";
+﻿import { Button, Card, Carousel, Col, Container, Row } from "react-bootstrap";
 import { useNavigate, useParams } from 'react-router-dom';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import MyBreadCrumb from "../components/ui/MyBreadCrumb";
+import ReviewList from "../components/ReviewList";
 import ServiceTabs from "../components/ServiceTabs";
+import MyBreadCrumb from "../components/ui/MyBreadCrumb";
+import StarRating from "../components/ui/StarRating";
 import { partnerDataWithId } from "../lib/utils";
-import StarRating from "../components/ui/StarRating"
+
+const About = ({ currentPartner }) => {
+
+    // gg maps link 
+    const ggMapsLink = "https://www.google.com/maps/dir/?api=1&destination="
+
+    // format address to gg maps link
+    const addressToGGMaps = currentPartner.address.split(" ").join("+")
+
+    return (
+        <div className="text-start mt-5">
+            <h3 style={{ fontWeight: 'bold' }}>About</h3>
+            <p>{currentPartner.about}</p>
+            <p>{currentPartner.address}. <span><a href={ggMapsLink + addressToGGMaps} target="_blank">Get Directions</a></span></p>
+        </div>
+    )
+}
 
 const Detail = () => {
-
     // get current partner data to display
     const { id } = useParams(); // 'id' matches the parameter partner in the Route path: /result/{id}
     const currentPartner = partnerDataWithId.find(partner => partner.id === Number(id))
@@ -56,7 +72,6 @@ const Detail = () => {
     const goToBooking = () => {
         navigate(`/results/${id}/booking`)
     }
-    
 
     return (
         <div className="min-h-screen">
@@ -95,13 +110,17 @@ const Detail = () => {
                     <Row className="g-5">
                         {/*services and other information here*/}
                         <Col lg={8}>
-                            {/*nothing to send*/}
+                            {/* each card does not contain plus button, because this is not booking place */}
                             <ServiceTabs services={currentPartner.services} isBookingPage={false} />
+                            <ReviewList currentPartner={currentPartner} />
+                            <About currentPartner={currentPartner} />
+
                         </Col>
 
                         {/*booking place here*/}
                         <Col lg={4}>
-                            <Card className="shadow border-0 sticky-top mt-5 text-start">
+                            <div className="mt-5 sticky-top">
+                            <Card className="shadow border-0  text-start">
                                 <Card.Body>
                                     <Card.Title>
                                         <h2>{currentPartner.name}</h2>
@@ -120,9 +139,10 @@ const Detail = () => {
                                 </Card.Body>
                                 <Card.Footer style={{ backgroundColor: "white" }}>
                                     <p>{openOrCloseText} </p>
-                                    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{currentPartner.address + ', ' + currentPartner.district}</span>
+                                    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{currentPartner.address}</span>
                                 </Card.Footer>
-                            </Card>
+                                </Card>
+                            </div>
                         </Col>
                     </Row>
                 </Container>
