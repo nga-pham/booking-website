@@ -45,15 +45,17 @@ const ServicesSection = () => {
                         Recommended
                     </h2>
                     <Carousel data-bs-theme="dark">
-                        {recommendedBlocks.map(block => (
-                            <Carousel.Item>
+                        {recommendedBlocks.map((block, _idx) => (
+                            <Carousel.Item key={_idx }>
                                 <Stack
+                                    key={_idx}
                                     direction="horizontal"
                                     className="h-100 justify-content-center align-items-center"
                                     gap={3}
             >
-                                    {block.map(partner => (
+                                    {block.map((partner, _idx) => (
                                         <PartnerCard
+                                            key={_idx}
                                             id={partner.id}
                                             photo={partner.photos[0]}
                                             name={partner.name}
@@ -76,15 +78,17 @@ const ServicesSection = () => {
                         New Nannies
                     </h2>
                     <Carousel data-bs-theme="dark">
-                        {newBlocks.map(block => (
-                            <Carousel.Item>
+                        {newBlocks.map((block, _idx) => (
+                            <Carousel.Item key={_idx}>
                                 <Stack
+                                    key={_idx}
                                     direction="horizontal"
                                     className="h-100 justify-content-center align-items-center"
                                     gap={3}
                                 >
-                                    {block.map(partner => (
+                                    {block.map((partner, _idx) => (
                                         <PartnerCard
+                                            key={_idx }
                                             id={partner.id}
                                             photo={partner.photos}
                                             name={partner.name}
@@ -108,13 +112,14 @@ const ServicesSection = () => {
                         Browse by Districts
                     </h2>
                     <Tabs defaultActiveKey="home" fill>
-                        {districts.map(district => (
-                            <Tab eventKey={district} title={district}>
-                                <Carousel data-bs-theme="dark">
-                                    {partners.map((partner) => {
+                        {districts.map((district, _idx) => (
+                            <Tab key={_idx} eventKey={district} title={district}>
+                                <Carousel key={_idx} data-bs-theme="dark">
+                                    {partners.map((partner, _idx) => {
                                     if (partner.district === district) {
                                         return (
-                                            <Carousel.Item><PartnerCard
+                                            <Carousel.Item key={_idx}><PartnerCard 
+                                                key={_idx}
                                                 id={partner.id}
                                                 photo={partner.photos[0]}
                                                 name={partner.name}

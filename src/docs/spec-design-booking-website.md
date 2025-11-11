@@ -198,5 +198,34 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 
 ```src/pages/NotFound.tsx```
 
+## Custom component UI (in ./src/components/ui)
+### SearchDropdownItem
+Used for selecting category in search form, in landing page and result page.
+
+Interface of each dropdown item with icon from lucide-react, and category from partners.json:
+```
+interface DropdownItemProps {
+    icon: LucideIcon;
+    category: string;
+    onClick?: () => void;
+}
+```
+Map categories to lucide-react icons:
+```
+const categoryIconMap: Record<string, LucideIcon> = {
+    "Body": PersonStanding,
+    "Eyebrows and eyelashes": Eye,
+    "Facials and Skincare": SmilePlus,
+    "Hair and Styling": Sparkles, 
+    "Injectables and fillers": Syringe, 
+    "Makeup": Palette,
+    "Massage": HandHeart,
+    "Medical and dental": BriefcaseMedical,
+    "Nails": Hand,
+};
+```
+### MyBreadCrumb
+Breadcrumb for 
+
 # Tech stack
 * Frontend: ReactJS, Boostrap 5, react-boostrap, lucide-icons, react-router-dom, react-datepicker, react-boostrap-time-picker

@@ -23,7 +23,7 @@ export const categoryIconMap: Record<string, LucideIcon> = {
 
 const DropdownItem = ({ icon: Icon, category, onClick }: DropdownItemProps) => {
     return (
-        <Dropdown.Item onClick={onClick}>
+        <Dropdown.Item onClick={onClick} className="d-flex align-items-center gap-3 p-2 rounded">
             <Icon className="me-2" />{category}
         </Dropdown.Item>
     )
