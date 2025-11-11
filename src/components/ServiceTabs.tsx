@@ -1,6 +1,6 @@
 ﻿
 import { useEffect, useState } from 'react';
-import { TabPane, Tabs } from "react-bootstrap";
+import { Tab, Tabs } from "react-bootstrap";
 import { chosenServiceProps } from "./ui/Interfaces";
 import ServiceCard from "./ui/ServiceCard";
 
@@ -33,9 +33,9 @@ const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }: Service
     return (
         <div className="text-start mt-5">
             <h3 style={{ fontWeight: 'bold'}}>Services</h3>
-            <Tabs defaultActiveKey="home" fill>
+            <Tabs defaultActiveKey="featured" fill>
                 {/*featured tab here*/}
-                <TabPane eventKey="featured" title="Featured">
+                <Tab eventKey="featured" title="Featured" key="tab-featured">
                     {featuredServices.map((item, _idx) => (
                         <ServiceCard
                             id={_idx}
@@ -46,9 +46,9 @@ const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }: Service
                             sendDataToTabs={getChosenServiceFromCard}
                         />
                     ))}
-                </TabPane>
+                </Tab>
                 {services.map(skill => (
-                    <TabPane eventKey={skill.type} title={skill.type}>
+                    <Tab eventKey={skill.type} title={skill.type} key={skill.type}>
                         {skill.items.map((item, _idx) => (
                             <ServiceCard
                                 id={_idx}
@@ -60,7 +60,7 @@ const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }: Service
 
                             />
                         ))}
-                    </TabPane>
+                    </Tab>
                 ))}
             </Tabs>
 
