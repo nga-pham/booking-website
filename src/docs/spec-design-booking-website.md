@@ -225,7 +225,7 @@ const categoryIconMap: Record<string, LucideIcon> = {
 };
 ```
 ### MyBreadCrumb
-Breadcrumb for 
+Breadcrumb that can be re-used for landing page, detail page, and (with different implementation) in booking page.
 
 # Tech stack
 * Frontend: ReactJS, Boostrap 5, react-boostrap, lucide-icons, react-router-dom, react-datepicker, react-boostrap-time-picker

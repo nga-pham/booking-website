@@ -632,79 +632,79 @@
         "items": [
           {
             "name": "Strengthening Gel Manicure",
-            "duration": "1 hr 30 mins",
+            "duration": 1.5,
             "cost": 300000,
             "featured": true
           },
           {
             "name": "Gel Extensions",
-            "duration": "2 hrs 30 mins",
+            "duration": 2.5,
             "cost": 550000,
             "featured": false
           },
           {
             "name": "Manicure Care (No Gel)",
-            "duration": "1 hr",
+            "duration": 1,
             "cost": 150000,
             "featured": false
           },
           {
             "name": "Gel Extensions",
-            "duration": "2 hrs 30 mins",
+            "duration": 2.5,
             "cost": 550000,
             "featured": false
           },
           {
             "name": "French",
-            "duration": "15mins",
+            "duration": 0.25,
             "cost": 100000,
             "featured": false
           },
           {
             "name": "Flash",
-            "duration": "15mins",
+            "duration": 0.25,
             "cost": 50000,
             "featured": false
           },
           {
             "name": "Cateye",
-            "duration": "15mins",
+            "duration": 0.25,
             "cost": 100000,
             "featured": false
           },
           {
             "name": "Chrome",
-            "duration": "15mins",
+            "duration": 0.25,
             "cost": 100000,
             "featured": false
           },
           {
             "name": "Ombre",
-            "duration": "15mins",
+            "duration": 0.25,
             "cost": 150000,
             "featured": false
           },
           {
             "name": "Charm / Stones",
-            "duration": "15mins",
+            "duration": 0.25,
             "cost": 10000,
             "featured": false
           },
           {
             "name": "Other Designs",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 10000,
             "featured": false
           },
           {
             "name": "Dip-powder/Fake Tips Removal",
-            "duration": "15mins",
+            "duration": 0.25,
             "cost": 50000,
             "featured": false
           },
           {
             "name": "Nail Sculpture",
-            "duration": "30 mins",
+            "duration": 0.5,
             "cost": 30000,
             "featured": false
           }
