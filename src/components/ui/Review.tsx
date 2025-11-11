@@ -19,7 +19,8 @@ const StarsRating = ({ rating }) => {
 
 // display letter avatar if no avatar presented
 const LetterAvatar = ({ name }) => {
-    const firstLetter = name.split()[0][0]
+    let firstLetter = ""
+    if (name) firstLetter = name.split()[0][0]
     const avatarStyle = {
         backgroundColor: '#F0F0FF',
         color: 'rgba(0,0,0,0.5)',

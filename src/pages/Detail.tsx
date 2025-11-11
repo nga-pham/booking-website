@@ -7,6 +7,8 @@ import ServiceTabs from "../components/ServiceTabs";
 import MyBreadCrumb from "../components/ui/MyBreadCrumb";
 import StarRating from "../components/ui/StarRating";
 import { partnerDataWithId } from "../lib/utils";
+import { Circle, Check } from 'lucide-react';
+
 
 const About = ({ currentPartner }) => {
 
@@ -22,6 +24,41 @@ const About = ({ currentPartner }) => {
             <p>{currentPartner.about}</p>
             <p>{currentPartner.address}. <span><a href={ggMapsLink + addressToGGMaps} target="_blank">Get Directions</a></span></p>
         </div>
+    )
+}
+
+const OpeningTimes = ({ currentPartner }) => {
+    const { openingTimes, additionalInfo } = currentPartner
+
+    return (
+        <Row className="text-start mt-5">
+            <Col lg={6}>
+                <h4 style={{ fontWeight: 'bold' }}>Opening Times</h4>
+                {/*review list here*/}
+                {openingTimes.map(review => {
+                    const { date, startTime, endTime } = review
+                    return (
+                        <Row className="mt-1 d-flex justify-content-between">
+                            <Col><Circle size={12} fill="#78D240" color="#78D240" style={{marginRight: '1rem'}} />{date}</Col>
+                            <Col>{startTime} - {endTime}</Col>
+                        </Row>
+                    )
+                })
+                }
+            </Col>
+            <Col lg={6}>
+                <h3 style={{ fontWeight: 'bold' }}>Additional Info</h3>
+                {/*information list here*/}
+                {additionalInfo.map((info, _idx) => {
+                    return (
+                        <div key={_idx}>
+                            <Check size={12} style={{ marginRight: '1rem' }} />{info}
+                        </div>
+                    )
+                    
+                })}
+            </Col>
+        </Row>
     )
 }
 
@@ -114,13 +151,13 @@ const Detail = () => {
                             <ServiceTabs services={currentPartner.services} isBookingPage={false} />
                             <ReviewList currentPartner={currentPartner} />
                             <About currentPartner={currentPartner} />
-
+                            <OpeningTimes currentPartner={currentPartner} />
                         </Col>
 
                         {/*booking place here*/}
                         <Col lg={4}>
                             <div className="mt-5 sticky-top">
-                            <Card className="shadow border-0  text-start">
+                            <Card className="shadow border-0 text-start">
                                 <Card.Body>
                                     <Card.Title>
                                         <h2>{currentPartner.name}</h2>

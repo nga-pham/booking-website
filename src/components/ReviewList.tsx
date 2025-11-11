@@ -1,6 +1,6 @@
-﻿import { Button, Card, Carousel, Col, Container, Row } from "react-bootstrap";
-import StarRating from "../components/ui/StarRating"
-import Review from "../components/ui/Review"
+﻿import { Row } from "react-bootstrap";
+import Review from "../components/ui/Review";
+import StarRating from "../components/ui/StarRating";
 
 const ReviewList = ({ currentPartner }) => {
     const { rating, numberOfRating, reviews } = currentPartner
@@ -12,10 +12,11 @@ const ReviewList = ({ currentPartner }) => {
 
             {/*review list here*/}
             <Row className="mt-3">
-                {reviews.map(review => {
+                {reviews.map((review, _idx) => {
                     const { reviewer, date, time, comment, rating } = review
                     return (
-                        <Review reviewer={reviewer} date={date} time={time} comment={comment} rating={rating } />
+                        <Review key={_idx}
+                            reviewer={reviewer} date={date} time={time} comment={comment} rating={rating} />
                     )
                 }) 
                 }
