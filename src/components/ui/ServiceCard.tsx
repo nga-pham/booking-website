@@ -10,21 +10,23 @@ interface ServiceCardProps {
     duration: number | 0;
     cost: number | 0;
     isBookingPage: boolean | false,
-    sendDataToTabs: (savedService: chosenServiceProps, removedService: chosenServiceProps) => void
-    isChosen?: boolean | false
+    sendSavedServiceToTabs?: (savedService: chosenServiceProps) => void     // for booking page only
+    isRemoved?: boolean | true
 }
 
-const ServiceCard = ({ id, name, duration, cost, isBookingPage, sendDataToTabs }: ServiceCardProps) => {
+const ServiceCard = ({ id, name, duration, cost, isBookingPage, 
+    sendSavedServiceToTabs,
+    isRemoved
+    }: ServiceCardProps) => {
     // display duration in string like 2 h 30 minss
     const hour = Math.floor(duration); // "9"
     const minutes = (duration - hour) * 60;
     let hourString = `${hour} h ${minutes} mins`;
     if (hour === 0) hourString = `${minutes} mins`
-    else if (minutes === 0) hourString = `${hour} h`
 
     // Save service to book and send to tabs
     const [savedService, setSavedService] = useState<chosenServiceProps>(undefined)
-    const [removedService, setRemovedService] = useState<chosenServiceProps>(undefined)
+    //const [removedService, setRemovedService] = useState<chosenServiceProps>(undefined)
 
     // change style when chosen
     const [isChosenOnClick, setIsChosenOnClick] = useState<boolean>(false)
@@ -34,16 +36,15 @@ const ServiceCard = ({ id, name, duration, cost, isBookingPage, sendDataToTabs }
         setSavedService(service)
         setIsChosenOnClick(true)
     }
+    
+    // When you already choose and now remove it
+    if (isChosenOnClick && isRemoved) setIsChosenOnClick(false)
 
-    const removeChosenService = (service: chosenServiceProps) => {
-        setRemovedService(service)
-        setIsChosenOnClick(false)
-
+    if (isBookingPage) {
+        useEffect(() => {
+        sendSavedServiceToTabs(savedService)
+    }, [savedService])
     }
-
-    useEffect(() => {
-        sendDataToTabs(savedService, removedService)
-    }, [savedService, removedService])
 
     if (!isBookingPage) {
         return (
@@ -72,20 +73,19 @@ const ServiceCard = ({ id, name, duration, cost, isBookingPage, sendDataToTabs }
                                 <Card.Text style={{ fontSize: '1rem' }}>{cost.toString()} VND</Card.Text>
                             </Col>
                             {/* make the height stretch full height; right-align vertical-center the plus icon */}
-                            {!isChosenOnClick ?
-                                <Col className="d-flex align-items-center justify-content-end w-100">
+                            {isChosenOnClick && !isRemoved ?
+                                <Col className="d-flex align-items-center justify-content-end w-100" >
+
+                                    <Button variant="light" className="rounded-circle" style={{ backgroundColor: "#8bca84" }}
+                                    >
+                                        <Check size={20} />
+                                    </Button>
+                                </Col>
+                                : <Col className="d-flex align-items-center justify-content-end w-100">
                                     <Button variant="light" className="rounded-circle" style={{ backgroundColor: "#F5F5F5" }}
                                         onClick={() => getChosenService({ name, duration, cost: Number(cost) })}
                                     >
                                         <Plus size={20} />
-                                    </Button>
-                                </Col>
-                                : <Col className="d-flex align-items-center justify-content-end w-100" >
-
-                                    <Button variant="light" className="rounded-circle" style={{ backgroundColor: "#8bca84" }}
-                                        onClick={() => removeChosenService({ name, duration, cost: Number(cost) })}
-                                    >
-                                        <Check size={20} />
                                     </Button>
                                 </Col>
                             }

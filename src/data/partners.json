@@ -716,19 +716,19 @@
           {
             "name": "Gel Pedicure",
             "duration": 1,
-            "cost": "200000",
+            "cost": 200000,
             "featured": false
           },
           {
             "name": "Pedicure Care (No Gel)",
             "duration": 1,
-            "cost": "150000",
+            "cost": 150000,
             "featured": false
           },
           {
             "name": "Footcare",
             "duration": 0.5,
-            "cost": "150000",
+            "cost": 150000,
             "featured": false
           }
         ]
@@ -739,19 +739,19 @@
           {
             "name": "Brow Styling",
             "duration": 0.5,
-            "cost": "300000",
+            "cost": 300000,
             "featured": false
           },
           {
             "name": "Brow Stying and Tint",
             "duration": 0.75,
-            "cost": "400000",
+            "cost": 400000,
             "featured": true
           },
           {
             "name": "Brow Lamination",
             "duration": 1,
-            "cost": "600000",
+            "cost": 600000,
             "featured": true
           }
         ]
@@ -762,19 +762,19 @@
           {
             "name": "Bottom Lash Lift and Tint",
             "duration": 0.5,
-            "cost": "250000",
+            "cost": 250000,
             "featured": false
           },
           {
             "name": "Korean Lash Lift & Tint (Standard)",
             "duration": 1,
-            "cost": "400000",
+            "cost": 400000,
             "featured": false
           },
           {
             "name": "Italian Lash Lift & Tint (Premium)",
             "duration": 1,
-            "cost": "500000",
+            "cost": 500000,
             "featured": true
           }
         ]
@@ -785,25 +785,25 @@
           {
             "name": "Classic Lash",
             "duration": 2,
-            "cost": "300000",
+            "cost": 300000,
             "featured": false
           },
           {
             "name": "Hybrid Lash",
             "duration": 1.5,
-            "cost": "450000",
+            "cost": 450000,
             "featured": false
           },
           {
             "name": "Light Volumne Lash (3-4D)",
             "duration": 2.25,
-            "cost": "450000",
+            "cost": 450000,
             "featured": false
           },
           {
             "name": "Basic 2 (Herbal bath and Swedish massage 90 mins)",
             "duration": 1.75,
-            "cost": "550000",
+            "cost": 550000,
             "featured": false
           }
         ]
@@ -814,73 +814,73 @@
           {
             "name": "Full Face",
             "duration": 0.5,
-            "cost": "350000",
+            "cost": 350000,
             "featured": false
           },
           {
             "name": "Cheeks",
             "duration": 0.25,
-            "cost": "350000",
+            "cost": 350000,
             "featured": false
           },
           {
             "name": "Upper Lip/Chin/Hairline/Neck",
             "duration": 0.25,
-            "cost": "100000",
+            "cost": 100000,
             "featured": false
           },
           {
             "name": "Forehead",
             "duration": 0.25,
-            "cost": "100000",
+            "cost": 100000,
             "featured": false
           },
           {
             "name": "Half Arms",
             "duration": 0.25,
-            "cost": "160000",
+            "cost": 160000,
             "featured": false
           },
           {
             "name": "Full Arms",
             "duration": 0.25,
-            "cost": "200000",
+            "cost": 200000,
             "featured": false
           },
           {
             "name": "Half Legs",
             "duration": 0.25,
-            "cost": "250000",
+            "cost": 250000,
             "featured": false
           },
           {
             "name": "Full Legs",
             "duration": 0.5,
-            "cost": "350000",
+            "cost": 350000,
             "featured": false
           },
           {
             "name": "Underarms",
             "duration": 0.25,
-            "cost": "100000",
+            "cost": 100000,
             "featured": false
           },
           {
             "name": "Abdomen",
             "duration": 0.25,
-            "cost": "180000",
+            "cost": 180000,
             "featured": false
           },
           {
             "name": "Full Back",
             "duration": 0.5,
-            "cost": "250000",
+            "cost": 250000,
             "featured": false
           },
           {
             "name": "Chest",
             "duration": 0.25,
-            "cost": "100000",
+            "cost": 100000,
             "featured": false
           }
         ]

@@ -1,6 +1,6 @@
 import { ArrowLeft, X, ChevronRight, Calendar, Clock, User, Mail, Phone, MapPinHouse, MapPin, Building2, Hourglass } from "lucide-react";
 import { useEffect, useState } from 'react';
-import { Col, Container, Navbar, Nav, Row, Card, Button, Image, Modal } from "react-bootstrap";
+import { Col, Container, Navbar, Nav, Row, Card, Button, Image, Modal, Tabs, Tab } from "react-bootstrap";
 import { useNavigate, useParams } from 'react-router-dom';
 import ServiceTabs from "../components/ServiceTabs";
 import { partnerDataWithId } from "../lib/utils";
@@ -8,6 +8,8 @@ import StarRating from "../components/ui/StarRating"
 import DateTimeBooking from "../components/DateTimeBooking"
 import InformationFormBooking from "../components/InformationForm"
 import { chosenServiceProps } from "../components/ui/Interfaces"
+import ServiceCard from "../components/ui/ServiceCard";
+
 
 interface chosenOptionProps {
     services: chosenServiceProps[];
@@ -20,13 +22,14 @@ const Booking = () => {
     const params = useParams() //parameter in the Route path: {id}
     const id = params.id
     const currentPartner = partnerDataWithId.find(partner => partner.id === Number(id))
+    const {services} = currentPartner
 
     // Go back
     const navigate = useNavigate()
     const goToDetail = () => {
         navigate(`/results/${id}`)
     }
-    // To display
+    // Flag to display
     const [serviceChosenCompleted, setServiceChosenCompleted] = useState<boolean>(false)
     const [dateTimeChosenCompleted, setDateTimeChosenCompleted] = useState<boolean>(false)
 
@@ -49,15 +52,27 @@ const Booking = () => {
     const closeConfirmPopup = () => {
         setConfirmPopupOpen(false)
     }
+    //For displaying featured servicess
+    let featuredServices: any[] = services.flatMap(serviceType => serviceType.items.filter(item => item.featured));
 
-    // Save chosen service
+    // Save chosen service, from "sendDataToTabs" function in ServiceCard
     const [chosenServices, setChosenServices] = useState<chosenServiceProps[]>([])
-    const handleChosenServicesFromTabs = (savedService: chosenServiceProps, removedService: chosenServiceProps) => {
-        if (savedService !== undefined)
+
+    const handleChosenServicesFromTabs = (savedService: chosenServiceProps) => {
+        if (savedService !== undefined) {
             setChosenServices((prev: chosenServiceProps[]) => Array.from(new Set([...prev, savedService])));
-        if (removedService !== undefined)
-            setChosenServices(chosenServices.filter(item => item.name !== removedService.name))
-        console.log(removedService)
+        }
+    }
+
+    const [deletedService, setDeletedService] = useState<chosenServiceProps>()
+    const handleRemoveService = (index: number) => {
+        setChosenServices(chosenServices.filter((_, i) => i !== index));
+        setDeletedService(chosenServices.find((item, i) => i === index))
+  };
+  // send removed service to services section
+    const isRemovedService = (serviceName) => {
+        if (deletedService !== undefined && serviceName === deletedService.name) return true
+        else return false
     }
 
     // Calculate total duration to display
@@ -111,9 +126,13 @@ const Booking = () => {
         setTotalCost(sum)
     }
 
+    
+
     useEffect(() => {
         calculateTotalCost(chosenServices)
         calculateTotalDuration(chosenServices)
+        //console.log(chosenServices)
+        
     }, [chosenServices]);
 
 
@@ -155,10 +174,48 @@ const Booking = () => {
                 <Row>
                     {/*choose options*/}
                     <Col lg={8}>
-                        {!serviceChosenCompleted ?
-                            <ServiceTabs services={currentPartner.services} isBookingPage={true}
+                    {/*<ServiceTabs services={currentPartner.services} isBookingPage={true}
                                 sendDataToBookingPage={handleChosenServicesFromTabs}
-                            />
+                            />*/}
+                        {!serviceChosenCompleted ?
+                            <div className="text-start mt-5">
+                                <h3 style={{ fontWeight: 'bold'}}>Services</h3>
+                                <Tabs defaultActiveKey="featured" fill>
+                                    {/*featured tab here*/}
+                                    <Tab eventKey="featured" title="Featured" key="tab-featured">
+                                        {featuredServices.map((item, _idx) => (
+                                            <ServiceCard
+                                                id={_idx}
+                                                name={item.name}
+                                                duration={item.duration}
+                                                cost={item.cost}
+                                                isBookingPage={true}
+                                                sendSavedServiceToTabs={handleChosenServicesFromTabs}
+                                                isRemoved={isRemovedService(item.name)}
+                                                //sendRemovedServiceToTabs={handleRemovedServicesFromTabs}
+                                                //sendDataToTabs={getChosenServiceFromCard}
+                                            />
+                                        ))}
+                                    </Tab>
+                                    {services.map(skill => (
+                                        <Tab eventKey={skill.type} title={skill.type} key={skill.type}>
+                                            {skill.items.map((item, _idx) => (
+                                                <ServiceCard
+                                                    id={_idx}
+                                                    name={item.name}
+                                                    duration={item.duration}
+                                                    cost={item.cost}
+                                                    isBookingPage={true}
+                                                    sendSavedServiceToTabs={handleChosenServicesFromTabs}
+                                                    isRemoved={isRemovedService(item.name)}
+                                                    //sendRemovedServiceToTabs={handleRemovedServicesFromTabs}
+                                                    //sendDataToTabs={getChosenServiceFromCard}
+                                                />
+                                            ))}
+                                        </Tab>
+                                    ))}
+                                </Tabs>
+                            </div>
                             : (
                                 !dateTimeChosenCompleted ? <DateTimeBooking sendDataToBookingPage={handleChosenDateTime} />
                                     : <InformationFormBooking sendDataToBookingPage={handleChosenInfo} />
@@ -229,6 +286,14 @@ const Booking = () => {
                                                             <Row key={_idx}>
                                                                 <Col className="text-start">{service.name}</Col>
                                                                 <Col className="text-end">{service.cost.toLocaleString('en-US')} VND</Col>
+                                                                <Col className="text-end">
+                                                                    <button
+                                                                        onClick={() => handleRemoveService(_idx)}
+                                                                        className="w-6 h-6 rounded-full hover:bg-destructive/10 transition-all flex items-center justify-center text-destructive"
+                                                                      >
+                                                                        <X size={14} />
+                                                                    </button>
+                                                                </Col>
                                                             </Row>
                                                     )
                                                 }) }

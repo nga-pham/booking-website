@@ -4,16 +4,19 @@ import { Tab, Tabs } from "react-bootstrap";
 import { chosenServiceProps } from "./ui/Interfaces";
 import ServiceCard from "./ui/ServiceCard";
 
+
 interface ServiceTabsProps {
     services: any[] | [],
     isBookingPage: boolean | false,
     sendDataToBookingPage?: (savedService: chosenServiceProps, removedService: chosenServiceProps) => void   // only in booking page
+    chosenServices?: any[] | []
 }
 
-const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }: ServiceTabsProps) => {
+const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage, chosenServices }: ServiceTabsProps) => {
     //For displaying featured servicess
     let featuredServices: any[] = services.flatMap(serviceType => serviceType.items.filter(item => item.featured));
 
+    
     // For get chosen service from card and send to parent
     const [chosenService, setChosenService] = useState<chosenServiceProps>(undefined)
     const [removedService, setRemovedService] = useState<chosenServiceProps>(undefined)
@@ -43,7 +46,6 @@ const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }: Service
                             duration={item.duration}
                             cost={item.cost}
                             isBookingPage={isBookingPage}
-                            sendDataToTabs={getChosenServiceFromCard}
                         />
                     ))}
                 </Tab>
@@ -56,8 +58,6 @@ const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }: Service
                                 duration={item.duration}
                                 cost={item.cost}
                                 isBookingPage={isBookingPage}
-                                sendDataToTabs={getChosenServiceFromCard}
-
                             />
                         ))}
                     </Tab>
