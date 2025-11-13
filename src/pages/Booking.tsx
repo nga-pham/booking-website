@@ -308,14 +308,14 @@ const Booking = () => {
                                  <Col className="text-end">{totalCost.toLocaleString('en-US')} VND</Col>
                             </Row>
                                 {chosenServices.length > 0 ?
-                                        <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
+                                        <Button variant="primary" size="lg" className="rounded-pill"
                                             style={{ backgroundColor: 'black', color: "white" }}
                                             onClick={changeToNextSection}
                                         >
                                             Continue <ChevronRight size={20} />
                                         </Button>
                                     :
-                                        <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
+                                        <Button variant="primary" size="lg" className="rounded-pill"
                                             style={{ backgroundColor: 'black', color: "white" }} disabled
                                         >
                                             Continue <ChevronRight size={20} />

@@ -4,6 +4,8 @@
     "categories": [ "Body", "Massage" ],
     "rating": 5.0,
     "numberOfRating": 26,
+    "startTime": "09:00",
+    "endTime": "23:00",
     "address": "16 Lý Quốc Sư, Hoàn Kiếm, Hà Nội",
     "district": "Hoàn Kiếm",
     "photos": [
@@ -245,8 +247,7 @@
       }
     ],
     "about": "Lá Spa Ha Noi offers a tranquil escape where expert therapists provide a range of rejuvenating massages tailored to your needs. From the soothing touch of Aroma Massage to the invigorating experience of Deep Tissue Massage, each service promises to melt away stress and restore balance. With convenient amenities including showers and lockers, your relaxation journey begins the moment you step through the door.",
-    "startTime": "09:00",
-    "endTime": "23:00",
+
     "openingTimes": [
       {
         "date": "Monday",
