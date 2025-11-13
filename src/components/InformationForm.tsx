@@ -34,6 +34,7 @@ const InformationFormBooking = ({ sendDataToBookingPage }) => {
             <h3 style={{ fontWeight: 'bold' }}>Your Info</h3>
             <p style={{ color: 'rgba(0,0,0,0.5)' }}>We're almost here! Please provide your contact details and information about you.</p>
 
+            {/** booked information here*/}
             <Form onSubmit={handleFillInfo}>
                 <Row>
                     <Col>

@@ -66,7 +66,6 @@ const Booking = () => {
                 newArray.find(obj => obj.name === name)
             );
             setChosenServices(uniqueObjectsByName)
-            //setChosenServices((prev: chosenServiceProps[]) => Array.from(new Set([...prev, savedService])));
         }
     }
 
@@ -231,8 +230,8 @@ const Booking = () => {
                             <Card.Body>
                                 <Container>
                                     <Row className="text-start">
-                                        <Col lg="3" className=""><Image rounded width="80px" height="80px" src={currentPartner.photos[0]} /></Col>
-                                        <Col lg="9">
+                                        <Col lg="3" style={{marginRight: '0.25rem' }}><Image rounded width="80px" height="80px" src={currentPartner.photos[0]} /></Col>
+                                        <Col lg="7">
                                             <p style={{ fontSize: '1.1rem' }}><strong>{currentPartner.name}</strong></p>
                                             <p style={{ fontSize: '1.1rem' }}>
                                                 <strong>{currentPartner.rating}</strong>
@@ -242,26 +241,24 @@ const Booking = () => {
                                         </Col>
                                     </Row>
                                     {chosenInfo ?
-                                        <Row >
-                                            <Card className="text-start" style={{ color: 'rgba(0,0,0,0.5)' }}>
-                                                <Card.Title><User size={20} style={{ marginRight: '0.5rem' }} />{chosenInfo.name}</Card.Title>
-                                                <Card.Text>
-                                                    <Mail size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.email}
-                                                </Card.Text>
-                                                <Card.Text>
-                                                    <Phone size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.phoneNumber}
-                                                </Card.Text>
-                                                <Card.Text>
-                                                    <MapPinHouse size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.address}
-                                                </Card.Text>
-                                                <Card.Text>
-                                                    <Building2 size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.district}
-                                                </Card.Text>
-                                                <Card.Text>
-                                                    <MapPin size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.state}
-                                                </Card.Text>
-                                            </Card>
-                                        </Row>
+                                        <Row className="text-start mt-2">
+                                            <p style={{ color: 'rgba(0,0,0,0.5)' }} >
+                                                <User size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.name}
+                                            </p>
+                                            <p style={{ color: 'rgba(0,0,0,0.5)' }} >
+                                                <Mail size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.email}
+                                            </p>
+                                            <p style={{ color: 'rgba(0,0,0,0.5)' }} >
+                                                <Phone size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.phoneNumber}
+                                            </p>
+                                            <p style={{ color: 'rgba(0,0,0,0.5)' }} >
+                                                <MapPin size={18} style={{ marginRight: '0.5rem' }} />
+                                                {chosenInfo.address}
+                                                  <br />
+                                                  {chosenInfo.district}, {chosenInfo.state}
+                                            </p>
+                                          </Row>
+                                        
                                         : null
                                     }
                                     <Row className="text-start mt-2">
