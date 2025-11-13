@@ -28,6 +28,7 @@ const Results = () => {
         }
     }
 
+    // filter data based on search
     let filteredData : any[] = []
     partnerData.map(partner => {
         const {categories} = partner
