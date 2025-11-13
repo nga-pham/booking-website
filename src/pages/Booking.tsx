@@ -60,7 +60,13 @@ const Booking = () => {
 
     const handleChosenServicesFromTabs = (savedService: chosenServiceProps) => {
         if (savedService !== undefined) {
-            setChosenServices((prev: chosenServiceProps[]) => Array.from(new Set([...prev, savedService])));
+            const newArray = [...chosenServices, savedService]
+            const newSet = new Set(newArray.map(obj => obj.name))
+            const uniqueObjectsByName = Array.from(newSet).map(name => 
+                newArray.find(obj => obj.name === name)
+            );
+            setChosenServices(uniqueObjectsByName)
+            //setChosenServices((prev: chosenServiceProps[]) => Array.from(new Set([...prev, savedService])));
         }
     }
 
@@ -131,7 +137,7 @@ const Booking = () => {
     useEffect(() => {
         calculateTotalCost(chosenServices)
         calculateTotalDuration(chosenServices)
-        //console.log(chosenServices)
+        console.log(chosenServices)
         
     }, [chosenServices]);
 
@@ -192,8 +198,6 @@ const Booking = () => {
                                                 isBookingPage={true}
                                                 sendSavedServiceToTabs={handleChosenServicesFromTabs}
                                                 isRemoved={isRemovedService(item.name)}
-                                                //sendRemovedServiceToTabs={handleRemovedServicesFromTabs}
-                                                //sendDataToTabs={getChosenServiceFromCard}
                                             />
                                         ))}
                                     </Tab>
@@ -208,8 +212,6 @@ const Booking = () => {
                                                     isBookingPage={true}
                                                     sendSavedServiceToTabs={handleChosenServicesFromTabs}
                                                     isRemoved={isRemovedService(item.name)}
-                                                    //sendRemovedServiceToTabs={handleRemovedServicesFromTabs}
-                                                    //sendDataToTabs={getChosenServiceFromCard}
                                                 />
                                             ))}
                                         </Tab>
@@ -287,12 +289,11 @@ const Booking = () => {
                                                                 <Col className="text-start">{service.name}</Col>
                                                                 <Col className="text-end">{service.cost.toLocaleString('en-US')} VND</Col>
                                                                 <Col className="text-end">
-                                                                    <button
+                                                                    <Button variant="light" className="rounded-circle" style={{ backgroundColor: "#F5F5F5" }}
                                                                         onClick={() => handleRemoveService(_idx)}
-                                                                        className="w-6 h-6 rounded-full hover:bg-destructive/10 transition-all flex items-center justify-center text-destructive"
                                                                       >
                                                                         <X size={14} />
-                                                                    </button>
+                                                                    </Button>
                                                                 </Col>
                                                             </Row>
                                                     )
@@ -305,31 +306,23 @@ const Booking = () => {
 
                             </Card.Body>
                             <Card.Footer className="justify-content-center">
+                            <Row style={{ fontWeight: 'bold', marginBottom: '2rem' }}>
+                                 <Col className="text-start">Total</Col>
+                                 <Col className="text-end">{totalCost.toLocaleString('en-US')} VND</Col>
+                            </Row>
                                 {chosenServices.length > 0 ?
-                                    <>
-                                        <Row style={{ fontWeight: 'bold', marginBottom: '2rem' }}>
-                                            <Col className="text-start">Total</Col>
-                                            <Col className="text-end">{totalCost.toLocaleString('en-US')} VND</Col>
-                                        </Row>
                                         <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
                                             style={{ backgroundColor: 'black', color: "white" }}
                                             onClick={changeToNextSection}
                                         >
                                             Continue <ChevronRight size={20} />
                                         </Button>
-                                    </>
                                     :
-                                    <>
-                                        <Row style={{ fontWeight: 'bold', marginBottom: '2rem' }}>
-                                            <Col className="text-start">Total</Col>
-                                            <Col className="text-end">{totalCost.toLocaleString('en-US')} VND</Col>
-                                        </Row>
                                         <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
                                             style={{ backgroundColor: 'black', color: "white" }} disabled
                                         >
                                             Continue <ChevronRight size={20} />
                                         </Button>
-                                    </>
                                 }
                             </Card.Footer>
                         </Card>

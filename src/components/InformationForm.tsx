@@ -24,7 +24,6 @@ const InformationFormBooking = ({ sendDataToBookingPage }) => {
 
     const handleFillInfo = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log(email, name, phoneNumber, address, district, state)
         if (sendDataToBookingPage) {
             sendDataToBookingPage({ email, name, phoneNumber, address, district, state })
         }
