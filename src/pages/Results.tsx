@@ -41,9 +41,12 @@ const Results = () => {
     filteredData = Array.from(new Set(filteredData)).filter(item => {
         const startTimeInDate = new Date(new Date(`1970-01-01T${item.startTime}Z`))
         const startTimeInSeconds = startTimeInDate.getUTCHours() * 3600 + startTimeInDate.getUTCMinutes() * 60
-        console.log(startTimeInSeconds)
-        if (state.startTime <= startTimeInSeconds) return item
+        const endTimeInDate = new Date(new Date(`1970-01-01T${item.endTime}Z`))
+        const endTimeInSeconds = endTimeInDate.getUTCHours() * 3600 + endTimeInDate.getUTCMinutes() * 60
+        if (state.startTime <= startTimeInSeconds && state.endTime >= endTimeInSeconds) return item
     })
+
+    console.log(filteredData)
 
     // add label and handle change for choosing name
     const [nameValue, setNameValue] = useState<string>(""); // Initial value for the name
