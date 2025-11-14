@@ -1,5 +1,6 @@
 ﻿import { Col, Row } from "react-bootstrap";
 import PartnerCard from "./ui/PartnerCard";
+import React from 'react';
 
 const ResultList = ({ filteredData }) => {
     return <Row md={1} lg={2} className="g-4">
@@ -21,4 +22,5 @@ const ResultList = ({ filteredData }) => {
     </Row>
 }
 
+// export default React.memo(ResultList)
 export default ResultList

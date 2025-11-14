@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import { useLocation } from 'react-router-dom';
@@ -11,42 +11,55 @@ import partnerData from "../data/partners.json";
 import { districts } from "../lib/utils";
 
 const Results = () => {
+    /* Use case 1: Get search criteria from Landing page */
     // get selected service, date and time from landing page
     const location = useLocation();
     let { state } = location as any; // Destructure the state object from location : {category : string[], date, startTime, endTime }
     // Extract all unique categories from the services data
-        const allCategories = partnerData.flatMap(venue => venue.categories);
-        const uniqueCategories = [...new Set(allCategories)].sort();
-    
-        // if no search => reset to initial searching criteria
-        if (!state) {
+    const allCategories = partnerData.flatMap(venue => venue.categories);
+    const uniqueCategories = [...new Set(allCategories)].sort();
+    const [filteredData, setFilteredData] = useState<any[]>(partnerData)
+
+    // if no search in landing page => reset to initial searching criteria
+    // and the data is not filtered
+    if (!state) {
         state = {
             category: uniqueCategories,
             date: new Date(),
             startTime: 0,
             endTime: 86400
         }
+        setFilteredData(partnerData)
     }
 
-    // filter data based on search
-    let filteredData : any[] = []
-    partnerData.map(partner => {
-        const {categories} = partner
-        state.category.map(cat => {
-            categories.map(item => {
-                if (item === cat) filteredData.push(partner)
+    // filter data based on search from landing page
+    const handleInitialSearch = () => {
+        let tempData: any[] = []
+        partnerData.map(partner => {
+            const { categories } = partner
+            state.category.map(cat => {
+                categories.map(item => {
+                    if (item === cat) tempData.push(partner)
+                })
             })
         })
-    })
-    filteredData = Array.from(new Set(filteredData)).filter(item => {
-        const startTimeInDate = new Date(new Date(`1970-01-01T${item.startTime}Z`))
-        const startTimeInSeconds = startTimeInDate.getUTCHours() * 3600 + startTimeInDate.getUTCMinutes() * 60
-        const endTimeInDate = new Date(new Date(`1970-01-01T${item.endTime}Z`))
-        const endTimeInSeconds = endTimeInDate.getUTCHours() * 3600 + endTimeInDate.getUTCMinutes() * 60
-        if (state.startTime <= startTimeInSeconds && state.endTime >= endTimeInSeconds) return item
-    })
 
-    console.log(filteredData)
+        tempData = Array.from(new Set(tempData)).filter(item => {
+            const startTimeInDate = new Date(new Date(`1970-01-01T${item.startTime}Z`))
+            const startTimeInSeconds = startTimeInDate.getUTCHours() * 3600 + startTimeInDate.getUTCMinutes() * 60
+            const endTimeInDate = new Date(new Date(`1970-01-01T${item.endTime}Z`))
+            const endTimeInSeconds = endTimeInDate.getUTCHours() * 3600 + endTimeInDate.getUTCMinutes() * 60
+            if (state.startTime <= startTimeInSeconds && state.endTime >= endTimeInSeconds) return item
+        })
+        setFilteredData(tempData)
+    }
+
+    /* Use case 2: Get search criteria from Result page */
+    
+
+    useEffect(() => {
+        handleInitialSearch()
+    }, [partnerData])
 
     // add label and handle change for choosing name
     const [nameValue, setNameValue] = useState<string>(""); // Initial value for the name
@@ -89,12 +102,12 @@ const Results = () => {
                     <Row className="align-items-center g-5 mt-2">
                         <MyBreadCrumb isList={true} />
                     </Row>
-                    
+
                     {/* previous search criteria */}
                     <Row className="mt-2">
-                        <SearchForm category={state.category} date={state.date} startTime={state.startTime} endTime={state.endTime } /> 
+                        <SearchForm category={state.category} date={state.date} startTime={state.startTime} endTime={state.endTime} />
                     </Row>
-                    
+
                     <Row className="g-5 mt-2">
 
                         {/*filter*/}
