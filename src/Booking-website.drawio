@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Mobile Safari/537.36" version="28.2.9" pages="6">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Mobile Safari/537.36" version="29.0.2" pages="7">
   <diagram name="Use-case-search" id="r_2vwxyVSkdCSk-oC8Ql">
     <mxGraphModel dx="411" dy="708" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -462,6 +462,97 @@
         </mxCell>
         <mxCell id="hqCI_6m96vD7CGoDct9G-10" value="Stay in &quot;Not found&quot; page" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="Rwo15aVxf0ikabOIagZV-1">
           <mxGeometry x="183" y="671" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="lQVTL40cPzDuqSbMGuSL" name="Use-case-book-services">
+    <mxGraphModel dx="836" dy="1153" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1O5jS4NlYzbelTsM4GVf-2" value="" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" parent="1" source="1O5jS4NlYzbelTsM4GVf-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="122" y="1" as="sourcePoint" />
+            <mxPoint x="118" y="109" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1O5jS4NlYzbelTsM4GVf-4" value="Service appears in right section&lt;div&gt;Update total cost&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="55" y="272" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1O5jS4NlYzbelTsM4GVf-5" value="" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="1O5jS4NlYzbelTsM4GVf-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="122" y="1" as="sourcePoint" />
+            <mxPoint x="121" y="69" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1O5jS4NlYzbelTsM4GVf-1" value="View services" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="58" y="-10" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1O5jS4NlYzbelTsM4GVf-8" value="" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="1O5jS4NlYzbelTsM4GVf-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="226" y="138" as="sourcePoint" />
+            <mxPoint x="120" y="272" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1O5jS4NlYzbelTsM4GVf-9" value="Yes" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="1O5jS4NlYzbelTsM4GVf-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1O5jS4NlYzbelTsM4GVf-10" value="" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="1O5jS4NlYzbelTsM4GVf-6" target="1O5jS4NlYzbelTsM4GVf-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="214" y="140" as="sourcePoint" />
+            <mxPoint x="238" y="270" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="249" y="176" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1O5jS4NlYzbelTsM4GVf-11" value="No" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="1O5jS4NlYzbelTsM4GVf-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-8" y="-29" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1O5jS4NlYzbelTsM4GVf-6" value="Add services?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="44.5" y="110" width="147" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="1O5jS4NlYzbelTsM4GVf-13" value="" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="332" as="sourcePoint" />
+            <mxPoint x="120" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1O5jS4NlYzbelTsM4GVf-16" value="Remove service ?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="47" y="408" width="147" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="1O5jS4NlYzbelTsM4GVf-17" value="" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="1O5jS4NlYzbelTsM4GVf-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="194" y="383" as="sourcePoint" />
+            <mxPoint x="121" y="586" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1O5jS4NlYzbelTsM4GVf-18" value="Yes" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="1O5jS4NlYzbelTsM4GVf-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1O5jS4NlYzbelTsM4GVf-19" value="Services removed in right section&lt;div&gt;Update total cost&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60.5" y="587" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1O5jS4NlYzbelTsM4GVf-20" value="" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1O5jS4NlYzbelTsM4GVf-16" target="1O5jS4NlYzbelTsM4GVf-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="143" y="300" as="sourcePoint" />
+            <mxPoint x="236" y="297" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-42" y="233" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1O5jS4NlYzbelTsM4GVf-21" value="No" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="1O5jS4NlYzbelTsM4GVf-20">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="21" y="31" as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
