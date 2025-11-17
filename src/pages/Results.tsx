@@ -111,7 +111,7 @@ const Results = () => {
                     <Row className="g-5 mt-2">
 
                         {/*filter*/}
-                        <Col lg={4} >
+                        {/* <Col lg={4} >
                             <Container style={{ backgroundColor: "#F8F9FA" }}>
                                 <Row className="align-items-start text-start justify-content-start p-3">
                                     <h4 className="mb-3 mt-1">Name</h4>
@@ -161,7 +161,7 @@ const Results = () => {
                                     <Button variant="danger" className="ms-2">Reset</Button>
                                 </Form.Group>
                             </Container>
-                        </Col>
+                        </Col> */}
 
                         {/*results from filter and search*/}
                         <Col lg={8}>
