@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Mobile Safari/537.36" version="29.0.3" pages="7">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Mobile Safari/537.36" version="29.0.3" pages="8">
   <diagram name="Use-case-search" id="r_2vwxyVSkdCSk-oC8Ql">
     <mxGraphModel dx="411" dy="708" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -552,6 +552,89 @@
         <mxCell id="1O5jS4NlYzbelTsM4GVf-21" value="No" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" parent="1O5jS4NlYzbelTsM4GVf-20" connectable="0" vertex="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="21" y="31" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="yLA-7FQRBS2HrNADXaOk" name="Use-case-choose-datetime">
+    <mxGraphModel dx="157" dy="1002" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Go8-MYelk6AMyNIuC2pB-1" value="View date and time&lt;div&gt;Default: current date, current time&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="-12" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Go8-MYelk6AMyNIuC2pB-2" value="Book date ?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="171" y="141" width="158" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Go8-MYelk6AMyNIuC2pB-3" value="" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="Go8-MYelk6AMyNIuC2pB-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="250" y="48" as="sourcePoint" />
+            <mxPoint x="300" y="-2" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Go8-MYelk6AMyNIuC2pB-4" value="Update date" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="307" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Go8-MYelk6AMyNIuC2pB-7" value="" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Go8-MYelk6AMyNIuC2pB-2" target="Go8-MYelk6AMyNIuC2pB-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="209" y="223" as="sourcePoint" />
+            <mxPoint x="309" y="223" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Go8-MYelk6AMyNIuC2pB-8" value="Yes" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="Go8-MYelk6AMyNIuC2pB-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Go8-MYelk6AMyNIuC2pB-11" value="" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Go8-MYelk6AMyNIuC2pB-2" target="Go8-MYelk6AMyNIuC2pB-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="302" y="233" as="sourcePoint" />
+            <mxPoint x="402" y="233" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="371" y="67" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Go8-MYelk6AMyNIuC2pB-12" value="No" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="Go8-MYelk6AMyNIuC2pB-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-22" y="5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Go8-MYelk6AMyNIuC2pB-13" value="Book time ?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="184.5" y="443" width="131" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Go8-MYelk6AMyNIuC2pB-15" value="" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Go8-MYelk6AMyNIuC2pB-4" target="Go8-MYelk6AMyNIuC2pB-13">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="251" y="335" as="sourcePoint" />
+            <mxPoint x="351" y="335" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Go8-MYelk6AMyNIuC2pB-16" value="Yes" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="Go8-MYelk6AMyNIuC2pB-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="3" y="145" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Go8-MYelk6AMyNIuC2pB-17" value="Update time" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="584" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Go8-MYelk6AMyNIuC2pB-18" value="" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Go8-MYelk6AMyNIuC2pB-13" target="Go8-MYelk6AMyNIuC2pB-17">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="244.5" y="534" as="sourcePoint" />
+            <mxPoint x="292.5" y="415" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Go8-MYelk6AMyNIuC2pB-19" value="" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="Go8-MYelk6AMyNIuC2pB-13" target="Go8-MYelk6AMyNIuC2pB-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="223" y="429" as="sourcePoint" />
+            <mxPoint x="323" y="429" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="367" y="409" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Go8-MYelk6AMyNIuC2pB-20" value="No" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="Go8-MYelk6AMyNIuC2pB-19">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="50" as="offset" />
           </mxGeometry>
         </mxCell>
       </root>
