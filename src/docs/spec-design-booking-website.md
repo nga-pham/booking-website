@@ -86,17 +86,21 @@ The page gets id of the shop passed from "Result page". "id" is the index of sho
 If the shop is not found, show a simple message: Shop not found. And button / link to come back.
 Else: The page consists of: header, footer and main section.
 
+![Use case for finding detail shop](./Use-case-find-detail-shop.png "Use case for finding detail shop")
+
 In main section:
 * First, user can see a breadcrumbs: current page location within a navigational hierarchy (Home -> Vendors -> [name of vendor])
 * Then a section which contains basic information of current shop: name (in one row), rating, number of ratings, open or not at this moment, address (in another row below), and all photos.
 
 * The final section contains 2 parts and has similar look with this one
+
 ![design for detail page here](./design-detail-page.png "design for detail here")
   - Detail information: on the left, contains:
 	- All services in tab view (data: get from props "services" in partners.json). Each tab contains: type of service, all items in this service. Each item has name, duration and cost. There's an additional tab: Featured. If an item has props "featured" = true, they will also be displayed here.
 	- Below is "reviews" section (get data from props "reviews" in partners.json), with header "Reviews", overall rating, number of ratings. Then each review card is displayed as below, with information: avatar, name of reviewer, day and time of review, his/her comment and rating.
+
 ![design for review here](./design-detail-page-reviews.png "design for review here")
-	- Below is "about" section (get data from props "about" in partners.json), with header "About" and content.
+	- Below is "about" section (get data from props "about" in partners.json), with header "About" and content. Then the address with link to it on Google map.
 	- Below is "opening times" and "additional information" (get data from props "openingTimes" and "additionalInfo" in partners.json), as shown in below.
 ![design for opening times here](./design-detail-page-opening-times.png "design for opening times here")
 
@@ -106,10 +110,24 @@ In main section:
 When user click in "Book now", they will be redirected to booking and payment pages.
 
 ### 6. Booking and payment pages
-(booking process)
-After completing it, user will click button "Continue". Their information will be saved in the system and they will be redirected to payment page.
-A payment form will appear, showing that they should fill in a detail form (first name, last name, email address, id number, etc...), and button "send request". 
-Their information will be saved in the system and they will be redirected to payment page.
+In booking page, user will go through a booking process when they will book services => book date and time => fill in information form => confirm their booking.
+The booking page therefore contains 2 sections:
+* The left section: contains booking process.
+	* First, user will book services of the shop. 
+		* The services is shown in tab view like in detail page, but each item has button "+". When user click on it, the service will be added and appear in the right section with price and button "x", and total cost will be updated. When user click on "x", the service will be removed. Total cost is also updated as well.
+
+		![use case book services here](./Use-case-book-services.png "use case book services here")
+
+		* After choosing services and click "continue", they will be redirected to date and time  section where they can choose time to use services. If no date selected, default is current date. If no time selected, default is current time.
+
+		![use case book date and time here](./Use-case-book-datetime.png "use case book date and time here")
+
+		* Information section requires user to fill in: email, name, phone, address, district, city.
+
+	* The right button: booking information here. Displaying: booked services, date and time, total duration, their information, and total cost. If user don't book services, the text "no service selected" will display, and button "Continue" will be blurred, meaning user cannot continue without booking any service. Total cost will be set to "0 VND". If there's at least one service selected, total cost = sum of services' costs. If user don't set date and time, the text "no date selected" will display. 
+	Each piece of information will display in one line, with icons on the left.
+
+After completing it, user will click button "Confirm booking". Their information will be saved in the system and they will be redirected to payment page.
 
 # System design
 The system will be designed in Component-Based Architecture.
