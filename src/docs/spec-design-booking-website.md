@@ -69,13 +69,7 @@ In main section:
 
 ![Use case for refined searching here](./Use-case-refine-search.png "Use case for refined searching here")
 
-* Then, a filter on the left. The filter includes:
-  - Name: text box to fill in the name of shops
-  - Available time: Time picker to choose the available time
-  - Star rating: range to choose minimum star rating
-  - District: checkbox to choose available districts
-
-* The options are on the right, which are a list of shops, filtered by "search" and "filter", each with basic information, the same as in hero section.
+* Below is the options, which are a list of shops, filtered by "search", each with basic information, the same as in hero section.
 
 User then can look at each shop, see if shop is a match, choose it to see details (redirect to detail page). Or a button "Book now" to book directly.
 

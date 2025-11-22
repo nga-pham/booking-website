@@ -51,16 +51,16 @@ const HeroSection = () => {
     let tempCategoryArray = [selectedCat]
     if (selectedCat === "All treatments and venues") {
         tempCategoryArray = Array.from(uniqueCategories);
-        }
-    
-    
+    }
+
+
     const gotoResults = () => {
         // if end time is before start time, show error toast
         if (isEndTimeBeforeStartTime(startTime, endTime)) {
             toast.error("Invalid time range", {
                 description: "End time must be after start time"
             });
-        // else go to result page
+            // else go to result page
         } else {
             const resultsState: resultsStateProps = {
                 // all categories or just the selected one
@@ -85,40 +85,40 @@ const HeroSection = () => {
                         <Row className="g-0">
                             {/*list services*/}
                             <Col md={4} className="border-end border-2 border-light">
-                                    <Dropdown>
+                                <Dropdown>
                                     <Dropdown.Toggle variant="light" id="dropdown-basic">
                                         <Search size={20} className="text-muted" style={{ marginRight: '0.5rem' }} />
-                                            {selectedCat}
-                                        </Dropdown.Toggle>
-                                        <Dropdown.Menu
-                                            className="p-2 shadow-lg border"
-                                            style={{
-                                                zIndex: 9999,
-                                                minWidth: "320px",
-                                                backgroundColor: "white"
-                                            }}
-                                        >
+                                        {selectedCat}
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu
+                                        className="p-2 shadow-lg border"
+                                        style={{
+                                            zIndex: 9999,
+                                            minWidth: "320px",
+                                            backgroundColor: "white"
+                                        }}
+                                    >
                                         <DropdownItem icon={Search} category="All treatments and venues"
                                             onClick={() => changeSelectedCategory("All treatments and venues")}
                                         />
-                                            <hr className="my-2 border-border" />
-                                            {uniqueCategories.map((category, index) => {
-                                                const Icon = categoryIconMap[category] || Sparkles;
-                                                return (
-                                                    <DropdownItem key={index} icon={Icon} category={category}
-                                                        onClick={() => changeSelectedCategory(category)}
-                                                    />
-                                                )
-                                            }
-                                            )}
-                                        </Dropdown.Menu>
-                                    </Dropdown>
+                                        <hr className="my-2 border-border" />
+                                        {uniqueCategories.map((category, index) => {
+                                            const Icon = categoryIconMap[category] || Sparkles;
+                                            return (
+                                                <DropdownItem key={index} icon={Icon} category={category}
+                                                    onClick={() => changeSelectedCategory(category)}
+                                                />
+                                            )
+                                        }
+                                        )}
+                                    </Dropdown.Menu>
+                                </Dropdown>
                             </Col>
 
                             {/*date picker*/}
                             <Col md={3} className="border-end border-2 border-light">
                                 <div className="d-flex align-items-center ps-4">
-                                    <Calendar size={20} className="text-muted" />
+                                    <Calendar size={20} className="text-muted ms-2" />
                                     <DatePicker
                                         selected={date}
                                         onChange={changeDate}
@@ -137,7 +137,7 @@ const HeroSection = () => {
                                         className="d-flex align-items-center gap-2 border-0 bg-white w-100 ps-4 py-2"
                                         style={{ cursor: "pointer", fontSize: "1rem" }}
                                     >
-                                        <Timer size={20} className="text-muted" />
+                                        <Timer size={20} className="text-muted ms-2" />
                                         <span className="text-dark">Any time</span>
                                     </Dropdown.Toggle>
 
@@ -167,8 +167,8 @@ const HeroSection = () => {
                             {/*button to the right*/}
                             <Col md={2}>
                                 <Button variant="primary" size="lg"
-                                    className="d-flex align-items-center ml-2 justify-content-center gap-2 py-2 rounded-pill"
-                                    style={{ backgroundColor: 'black', color: "white" }}
+                                    className="d-flex align-items-center justify-content-center gap-2 py-2 rounded-pill"
+                                    style={{ backgroundColor: 'black', color: "white", marginLeft: '2rem' }}
                                     onClick={gotoResults}>
                                     Search <ChevronRight size={20} />
                                 </Button>
