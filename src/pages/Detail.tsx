@@ -7,60 +7,9 @@ import ServiceTabs from "../components/ServiceTabs";
 import MyBreadCrumb from "../components/ui/MyBreadCrumb";
 import StarRating from "../components/ui/StarRating";
 import { partnerDataWithId } from "../lib/utils";
-import { Circle, Check } from 'lucide-react';
+import About from "../components/About";
+import OpeningTimes from "../components/OpeningTimes";
 
-
-const About = ({ currentPartner }) => {
-
-    // gg maps link 
-    const ggMapsLink = "https://www.google.com/maps/dir/?api=1&destination="
-
-    // format address to gg maps link
-    const addressToGGMaps = currentPartner.address.split(" ").join("+")
-
-    return (
-        <div className="text-start mt-5">
-            <h3 style={{ fontWeight: 'bold' }}>About</h3>
-            <p>{currentPartner.about}</p>
-            <p>{currentPartner.address}. <span><a href={ggMapsLink + addressToGGMaps} target="_blank">Get Directions</a></span></p>
-        </div>
-    )
-}
-
-const OpeningTimes = ({ currentPartner }) => {
-    const { openingTimes, additionalInfo } = currentPartner
-
-    return (
-        <Row className="text-start mt-5">
-            <Col lg={6}>
-                <h4 style={{ fontWeight: 'bold' }}>Opening Times</h4>
-                {/*review list here*/}
-                {openingTimes.map(review => {
-                    const { date, startTime, endTime } = review
-                    return (
-                        <Row className="mt-1 d-flex justify-content-between">
-                            <Col><Circle size={12} fill="#78D240" color="#78D240" style={{marginRight: '1rem'}} />{date}</Col>
-                            <Col>{startTime} - {endTime}</Col>
-                        </Row>
-                    )
-                })
-                }
-            </Col>
-            <Col lg={6}>
-                <h3 style={{ fontWeight: 'bold' }}>Additional Info</h3>
-                {/*information list here*/}
-                {additionalInfo.map((info, _idx) => {
-                    return (
-                        <div key={_idx}>
-                            <Check size={12} style={{ marginRight: '1rem' }} />{info}
-                        </div>
-                    )
-                    
-                })}
-            </Col>
-        </Row>
-    )
-}
 
 const Detail = () => {
     // get current partner data to display
@@ -126,7 +75,7 @@ const Detail = () => {
                         <p>
                             <span style={{ fontWeight: 'bold' }}>{currentPartner.rating}</span>
                             <StarRating />
-                            ({currentPartner.numberOfRating}) . {openOrCloseText} 
+                            ({currentPartner.numberOfRating}) . {openOrCloseText}
                             . <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{currentPartner.address + ', ' + currentPartner.district}</span>
                         </p>
                     </Row>
@@ -157,27 +106,27 @@ const Detail = () => {
                         {/*booking place here*/}
                         <Col lg={4}>
                             <div className="mt-5 sticky-top">
-                            <Card className="shadow border-0 text-start">
-                                <Card.Body>
-                                    <Card.Title>
-                                        <h2>{currentPartner.name}</h2>
-                                    </Card.Title>
-                                    <Card.Text style={{ fontSize: '1.25rem' }}>
-                                        <strong>{currentPartner.rating}</strong>
-                                        <StarRating />
-                                        ({currentPartner.numberOfRating})
-                                    </Card.Text>
-                                    <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
-                                        style={{ backgroundColor: 'black', color: "white" }}
-                                        onClick={goToBooking}
-                                    >
-                                        Book now
-                                    </Button>
-                                </Card.Body>
-                                <Card.Footer style={{ backgroundColor: "white" }}>
-                                    <p>{openOrCloseText} </p>
-                                    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{currentPartner.address}</span>
-                                </Card.Footer>
+                                <Card className="shadow border-0 text-start">
+                                    <Card.Body>
+                                        <Card.Title>
+                                            <h2>{currentPartner.name}</h2>
+                                        </Card.Title>
+                                        <Card.Text style={{ fontSize: '1.25rem' }}>
+                                            <strong>{currentPartner.rating}</strong>
+                                            <StarRating />
+                                            ({currentPartner.numberOfRating})
+                                        </Card.Text>
+                                        <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
+                                            style={{ backgroundColor: 'black', color: "white" }}
+                                            onClick={goToBooking}
+                                        >
+                                            Book now
+                                        </Button>
+                                    </Card.Body>
+                                    <Card.Footer style={{ backgroundColor: "white" }}>
+                                        <p>{openOrCloseText} </p>
+                                        <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{currentPartner.address}</span>
+                                    </Card.Footer>
                                 </Card>
                             </div>
                         </Col>

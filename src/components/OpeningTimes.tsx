@@ -1,4 +1,6 @@
 ﻿import { Row, Col } from "react-bootstrap";
+import { Circle, Check } from 'lucide-react';
+
 
 const OpeningTimes = ({ currentPartner }) => {
     const { openingTimes, additionalInfo } = currentPartner
@@ -12,7 +14,7 @@ const OpeningTimes = ({ currentPartner }) => {
                     const { date, startTime, endTime } = review
                     return (
                         <Row key={_idx} className="d-flex justify-content-between">
-                            <Col>{ date}</Col>
+                            <Col><Circle size={12} fill="#78D240" color="#78D240" style={{marginRight: '1rem'}} />{date}</Col>
                             <Col>{startTime} - { endTime}</Col>
                         </Row>
                     )
@@ -24,7 +26,11 @@ const OpeningTimes = ({ currentPartner }) => {
                 <h3 style={{ fontWeight: 'bold' }}>Additional Info</h3>
                 {/*information list here*/}
                 {additionalInfo.map((info, _idx) => {
-                    return <Row key={_idx}>{ info}</Row>
+                    return (
+                        <div key={_idx}>
+                            <Check size={12} style={{ marginRight: '1rem' }} />{info}
+                        </div>
+                    )
                 })}
             </Col>
 
