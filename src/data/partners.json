@@ -1763,5 +1763,122 @@
     ],
     "recommended": true,
     "dayToJoin": "2021-03-12"
+  },
+  {
+    "name": "Yana Studio Nails Art",
+    "categories": ["Nails", "Beauty"],
+    "rating": 5.0,
+    "numberOfRating": 0,
+    "startTime": "10:00",
+    "endTime": "19:00",
+    "address": "67B Phố Quán Thánh, Hà Nội",
+    "district": "Ba Đình",
+    "photos": [
+      "https://images.fresha.com/locations/location-profile-images/2649854/5074094/df0f9551-5886-473b-b685-a57da5617481-YanaStudioNailsArt-VN-HNi-HNi-Fresha.jpg?class=gallery-modal-large&dpr=2&watermark=true",
+      "https://images.fresha.com/locations/location-profile-images/2649854/5074095/14e6830b-4875-4b7b-bad0-ab49236d20f4-YanaStudioNailsArt-VN-HNi-HNi-Fresha.jpg?class=gallery-modal-large&dpr=2&watermark=true",
+      "https://images.fresha.com/locations/location-profile-images/2649854/5074096/06b4a19b-0c52-4222-b088-508efbdd809f-YanaStudioNailsArt-VN-HNi-HNi-Fresha.jpg?class=gallery-modal-large&dpr=2&watermark=true"
+    ],
+    "services": [
+      {
+        "type": "Nail Services",
+        "items": [
+          {
+            "name": "Gel Extension with plain color",
+            "duration": "2hr 30min",
+            "cost": "600000",
+            "featured": true
+          },
+          {
+            "name": "Gel Manicure with Strengthening",
+            "duration": "2hr",
+            "cost": "400000",
+            "featured": true
+          },
+          {
+            "name": "Gel Pedicure",
+            "duration": "1hr 10min",
+            "cost": "350000",
+            "featured": true
+          },
+          {
+            "name": "Hygienic Pedicure with removal",
+            "duration": "50min",
+            "cost": "300000",
+            "featured": false
+          },
+          {
+            "name": "Hygienic Manicure with removal",
+            "duration": "50min",
+            "cost": "300000",
+            "featured": false
+          },
+          {
+            "name": "Hygienic Pedicure",
+            "duration": "40min",
+            "cost": "280000",
+            "featured": false
+          },
+          {
+            "name": "Hygienic Manicure",
+            "duration": "40min",
+            "cost": "280000",
+            "featured": false
+          },
+          {
+            "name": "Foot care",
+            "duration": "20min",
+            "cost": "150000",
+            "featured": false
+          }
+        ]
+      }
+    ],
+    "reviews": [],
+    "about": "Yana Studio Nails Art offers you a unique beauty experience with high-quality gel extensions and gel manicure services. Here, customers not only receive nail care but also enjoy professional foot care treatments, from pedicure to foot care, all performed in a friendly and clean space. With a focus on customer satisfaction, Yana Studio is an ideal choice for families and pet lovers.",
+    "openingTimes": [
+      {
+        "date": "Monday",
+        "startTime": "10:00",
+        "endTime": "19:00"
+      },
+      {
+        "date": "Tuesday",
+        "startTime": "10:00",
+        "endTime": "19:00"
+      },
+      {
+        "date": "Wednesday",
+        "startTime": "10:00",
+        "endTime": "19:00"
+      },
+      {
+        "date": "Thursday",
+        "startTime": "10:00",
+        "endTime": "19:00"
+      },
+      {
+        "date": "Friday",
+        "startTime": "10:00",
+        "endTime": "19:00"
+      },
+      {
+        "date": "Saturday",
+        "startTime": "10:00",
+        "endTime": "19:00"
+      },
+      {
+        "date": "Sunday",
+        "startTime": "10:00",
+        "endTime": "17:00"
+      }
+    ],
+    "additionalInfo": [
+      "Instant Confirmation",
+      "Pet-friendly",
+      "Kid-friendly",
+      "Near public transport"
+    ],
+    "recommended": true,
+    "dayToJoin": "2025-01-22"
   }
 ]

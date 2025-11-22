@@ -35,14 +35,8 @@ Each card contains basic information: first photo of shops, name, star rating, n
 
 ### 1.3. List of recommended partners
 Same as above, but show the list of recommended shops, in slideshow of 3 cards.
-
-### 1.4. Browse by districts
-Show the list of districts, in tab form. Each tab contains: name of district.
-
-When user clicks on each tab, the system will show the list of shops in that district, in slideshow of 3 cards.
-Each cards contains the same information as above.
  
-### 1.5. Testimonials
+### 1.4. Testimonials
 A place to show the reviews from customers (mostly positive reviews). Should be shown as a slideshow of cards. Each card contains: image and name of customer, his review, his star rating.
 
 ## 2. Header
