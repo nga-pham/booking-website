@@ -80,32 +80,32 @@ const Results = () => {
     }, [partnerData])
 
     // add label and handle change for choosing name
-    const [nameValue, setNameValue] = useState<string>(""); // Initial value for the name
-    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setNameValue(event.target.value)
-    };
+    // const [nameValue, setNameValue] = useState<string>(""); // Initial value for the name
+    // const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //     setNameValue(event.target.value)
+    // };
 
-    // add label for chosing range of experiences
-    const [rangeExpValue, setRangeExpValue] = useState<number>(1); // Initial value for the range
-    const handleRangeExpChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setRangeExpValue(Number(event.target.value))
-    };
+    // // add label for chosing range of experiences
+    // const [rangeExpValue, setRangeExpValue] = useState<number>(1); // Initial value for the range
+    // const handleRangeExpChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //     setRangeExpValue(Number(event.target.value))
+    // };
 
-    // add label and hanlde change for choosing available time
-    const [rangeStartTimeValue, setRangeStartTimeValue] = useState<string>('07:00'); // Initial value for the start time
-    const handleRangeStartTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setRangeStartTimeValue(event.target.value)
-    }
-    const [rangeEndTimeValue, setRangeEndTimeValue] = useState<string>('22:00'); // Initial value for the end time
-    const handleRangeEndTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setRangeEndTimeValue(event.target.value)
-    }
+    // // add label and hanlde change for choosing available time
+    // const [rangeStartTimeValue, setRangeStartTimeValue] = useState<string>('07:00'); // Initial value for the start time
+    // const handleRangeStartTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //     setRangeStartTimeValue(event.target.value)
+    // }
+    // const [rangeEndTimeValue, setRangeEndTimeValue] = useState<string>('22:00'); // Initial value for the end time
+    // const handleRangeEndTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //     setRangeEndTimeValue(event.target.value)
+    // }
 
-    // add label and handle change for choosing range of ratings
-    const [rangeRatingValue, setRangeRatingValue] = useState<number>(1); // Initial value for the range
-    const handleRangeRatingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setRangeRatingValue(Number(event.target.value))
-    };
+    // // add label and handle change for choosing range of ratings
+    // const [rangeRatingValue, setRangeRatingValue] = useState<number>(1); // Initial value for the range
+    // const handleRangeRatingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //     setRangeRatingValue(Number(event.target.value))
+    // };
 
     // add label and handle change for choosing districts
 
