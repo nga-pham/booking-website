@@ -56,28 +56,8 @@ const Results = () => {
 
     useEffect(() => {
         const { category, startTime, endTime } = state
-        // handleInitialSearch(category, startTime, endTime)
-        let tempData: any[] = []
-        partnerData.map(partner => {
-            const { categories } = partner
-            category.map(cat => {
-                categories.map(item => {
-                    if (item === cat) tempData.push(partner)
-                })
-            })
-        })
-
-        tempData = Array.from(new Set(tempData)).filter(item => {
-            const startTimeInDate = new Date(new Date(`1970-01-01T${startTime}Z`))
-            const startTimeInSeconds = startTimeInDate.getUTCHours() * 3600 + startTimeInDate.getUTCMinutes() * 60
-            const endTimeInDate = new Date(new Date(`1970-01-01T${endTime}Z`))
-            const endTimeInSeconds = endTimeInDate.getUTCHours() * 3600 + endTimeInDate.getUTCMinutes() * 60
-            if (startTime <= startTimeInSeconds && endTime >= endTimeInSeconds) return item
-        })
-        setFilteredData(tempData)
-        console.log(filteredData)
-
-    }, [partnerData])
+        handleInitialSearch(category, startTime, endTime)
+    }, [])
 
     // add label and handle change for choosing name
     // const [nameValue, setNameValue] = useState<string>(""); // Initial value for the name
@@ -183,9 +163,7 @@ const Results = () => {
 
                         {/*results from filter and search*/}
                         <Col lg={8}>
-                            {filteredData.length > 0 ? filteredData.map(partner => (
-                                <div>{JSON.stringify(partner)}</div>
-                            ))
+                            {filteredData.length > 0 ? <ResultList filteredData={filteredData} />
                                 :
                                 <div className="bg-white rounded-3 shadow-sm p-5 text-center">
                                     <p className="text-muted mb-0">No venues found matching your criteria.</p>

@@ -6,19 +6,12 @@ import StarRating from "../ui/StarRating"
 // properties for each partners from partners.json
 interface PartnerCardProps {
     id: number | 0;
-    photo: string | undefined;
-    name: string | "";
-    rating: number | 0;
-    numberOfRating: number | 0;
-    address: string | "";
-    categories: string[] | [];
-    district: string | "";
-    canViewDetail: boolean | false;
+    partner: any | undefined
     onClick?: () => void;
 }
 
 // id is index of each partner in partners.json
-const PartnerCard = ({ partner, id }) => {
+const PartnerCard = ({ partner, id } : PartnerCardProps) => {
     const { photos, name, rating, numberOfRating, address, categories } = partner
     return (
         <div key={id} className="col-md-4">
