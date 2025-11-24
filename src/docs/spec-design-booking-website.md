@@ -106,7 +106,7 @@ The booking page therefore contains 2 sections:
 	* First, user will book services of the shop. 
 		* The services is shown in tab view like in detail page, but each item has button "+". When user click on it, the service will be added and appear in the right section with price and button "x", and total cost will be updated. When user click on "x", the service will be removed. Total cost is also updated as well.
 
-		![Flow chart book services here](./Flow-chart-book-services.png "Flow chart book services here")
+		![Flow chart choose categories here](./Flow-chart-choose-categories.png "Flow chart choose categories here")
 
 		* After choosing services and click "continue", they will be redirected to date and time  section where they can choose time to use services. If no date selected, default is current date. If no time selected, default is current time.
 
@@ -114,10 +114,17 @@ The booking page therefore contains 2 sections:
 
 		* Information section requires user to fill in: email, name, phone, address, district, city.
 
-	* The right button: booking information here. Displaying: booked services, date and time, total duration, their information, and total cost. If user don't book services, the text "no service selected" will display, and button "Continue" will be blurred, meaning user cannot continue without booking any service. Total cost will be set to "0 VND". If there's at least one service selected, total cost = sum of services' costs. If user don't set date and time, the text "no date selected" will display. 
+	* The right button: booking information here. Displaying: booked services, date and time, total duration, their information, and total cost. If user doesn't book any service, the text "no service selected" will display, and button "Continue" will be blurred, meaning user cannot continue without booking any service. Total cost will be set to "0 VND". If there's at least one service selected, total cost = sum of services' costs. 
+	
+	![Flow chart display services here](./Flow-chart-display-services.png "Flow chart display services here")
+
+	If user don't set date and time, the text "no date selected" will display. 
+
+	![Flow chart display datetime here](./Flow-chart-display-datetime.png "Flow chart display datetime here")
+
 	Each piece of information will display in one line, with icons on the left.
 
-After completing it, user will click button "Confirm booking". Their information will be saved in the system and they will be redirected to payment page.
+After completing it, user will click button "Continue". Their information will be saved in the system and they will be redirected to payment page.
 
 # System design
 The system will be designed in Component-Based Architecture.
