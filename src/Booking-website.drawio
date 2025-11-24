@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Mobile Safari/537.36" version="29.1.1" pages="10">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Mobile Safari/537.36" version="29.1.1" pages="11">
   <diagram name="Flow-chart-search" id="r_2vwxyVSkdCSk-oC8Ql">
     <mxGraphModel dx="349" dy="602" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -726,6 +726,54 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="-18" y="50" as="offset" />
           </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="KrmTwgeoJNA0Gyt3E3fG" name="Flow-chart-display-datetime">
+    <mxGraphModel dx="157" dy="1002" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Qw4sjHsbmGp1v7-YY2x7-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Display date and time" vertex="1">
+          <mxGeometry height="60" width="120" x="97" y="-58" as="geometry" />
+        </mxCell>
+        <mxCell id="Qw4sjHsbmGp1v7-YY2x7-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Display date and/or time" vertex="1">
+          <mxGeometry height="60" width="119" x="97" y="202" as="geometry" />
+        </mxCell>
+        <mxCell id="3AzriaU4UwbNGmp3QF-x-1" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="Any date or time&lt;div&gt;&amp;nbsp;booked?&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="140" x="87" y="53" as="geometry" />
+        </mxCell>
+        <mxCell id="3AzriaU4UwbNGmp3QF-x-2" edge="1" parent="1" source="Qw4sjHsbmGp1v7-YY2x7-1" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="3AzriaU4UwbNGmp3QF-x-1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="97" y="-27" as="sourcePoint" />
+            <mxPoint x="217" y="81" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3AzriaU4UwbNGmp3QF-x-6" edge="1" parent="1" source="3AzriaU4UwbNGmp3QF-x-1" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="281" y="198" as="sourcePoint" />
+            <mxPoint x="153" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3AzriaU4UwbNGmp3QF-x-7" connectable="0" parent="3AzriaU4UwbNGmp3QF-x-6" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" value="Yes" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3AzriaU4UwbNGmp3QF-x-8" edge="1" parent="1" source="3AzriaU4UwbNGmp3QF-x-1" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="175" y="228" as="sourcePoint" />
+            <mxPoint x="270" y="199" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3AzriaU4UwbNGmp3QF-x-9" connectable="0" parent="3AzriaU4UwbNGmp3QF-x-8" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" value="No" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-2" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-c4CMPiBpuZ8iJxjjNra-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Display text &quot;No date selected&quot;" vertex="1">
+          <mxGeometry height="60" width="120" x="235" y="199" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
