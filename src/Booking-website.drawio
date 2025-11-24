@@ -558,12 +558,12 @@
     </mxGraphModel>
   </diagram>
   <diagram id="yLA-7FQRBS2HrNADXaOk" name="Flow-chart-choose-datetime">
-    <mxGraphModel dx="349" dy="1002" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="349" dy="602" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="Go8-MYelk6AMyNIuC2pB-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="View date and time&lt;div&gt;Default: current date, current time&lt;/div&gt;" vertex="1">
-          <mxGeometry height="60" width="120" x="190" y="-12" as="geometry" />
+        <mxCell id="Go8-MYelk6AMyNIuC2pB-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="View date and time&lt;div&gt;Default: current date, current time&lt;/div&gt;&lt;div&gt;Display &quot;No date selected&quot;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="146" x="177" y="36" as="geometry" />
         </mxCell>
         <mxCell id="Go8-MYelk6AMyNIuC2pB-2" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="Book date ?" vertex="1">
           <mxGeometry height="80" width="158" x="171" y="141" as="geometry" />
