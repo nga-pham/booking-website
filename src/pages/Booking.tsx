@@ -8,14 +8,9 @@ import DateTimeBooking from "../components/DateTimeBooking"
 import InformationFormBooking from "../components/InformationForm"
 import { chosenServiceProps } from "../components/ui/Interfaces"
 import ServiceCard from "../components/ui/ServiceCard";
+import { chosenInfoProps } from "../components/ui/Interfaces";
 
 
-interface chosenOptionProps {
-    services: chosenServiceProps[];
-    date: Date | null;
-    startTime: string | "";
-    duration: number | 0
-}
 
 const Booking = () => {
     const params = useParams() //parameter in the Route path: {id}
@@ -23,11 +18,7 @@ const Booking = () => {
     const currentPartner = partnerDataWithId.find(partner => partner.id === Number(id))
     const {services} = currentPartner
 
-    // Go back
-    const navigate = useNavigate()
-    const goToDetail = () => {
-        navigate(`/results/${id}`)
-    }
+    
     // Flag to display
     const [serviceChosenCompleted, setServiceChosenCompleted] = useState<boolean>(false)
     const [dateTimeChosenCompleted, setDateTimeChosenCompleted] = useState<boolean>(false)
@@ -38,8 +29,8 @@ const Booking = () => {
         if (serviceChosenCompleted && !dateTimeChosenCompleted) setDateTimeChosenCompleted(true)
     }
 
+    // handle back to detail page or stay
     const [confirmPopupOpen, setConfirmPopupOpen] = useState<boolean>(false)
-    
     const backToPreviousSection = () => {
         if (dateTimeChosenCompleted) setDateTimeChosenCompleted(false)
         else if (serviceChosenCompleted) setServiceChosenCompleted(false)
@@ -51,6 +42,7 @@ const Booking = () => {
     const closeConfirmPopup = () => {
         setConfirmPopupOpen(false)
     }
+
     //For displaying featured servicess
     let featuredServices: any[] = services.flatMap(serviceType => serviceType.items.filter(item => item.featured));
 
@@ -114,8 +106,8 @@ const Booking = () => {
     }
 
     // Save chosen information
-    const [chosenInfo, setChosenInfo] = useState<any | undefined>(undefined);
-    const handleChosenInfo = (info: any | undefined) => {
+    const [chosenInfo, setChosenInfo] = useState<chosenInfoProps | undefined>(undefined);
+    const handleChosenInfo = (info: chosenInfoProps | undefined) => {
         if (!info) return
         setChosenInfo(info)
     }
@@ -130,14 +122,21 @@ const Booking = () => {
         setTotalCost(sum)
     }
 
-    
+    // Go back and erase all data
+    const navigate = useNavigate()
+    const goToDetail = () => {
+        setChosenServices([])
+        setChosenDateTime(undefined)
+        setChosenInfo(undefined)
+        navigate(`/results/${id}`)
+    }
 
     useEffect(() => {
         calculateTotalCost(chosenServices)
         calculateTotalDuration(chosenServices)
-        console.log(chosenServices)
-        
-    }, [chosenServices]);
+        // TODO: send data to BookingResult
+        console.log(chosenServices, chosenDateTime, chosenInfo)
+    }, [chosenServices, chosenDateTime, chosenInfo]);
 
 
     return (
@@ -173,14 +172,12 @@ const Booking = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
+            
             {/*main content*/}
             <Container>
                 <Row>
                     {/*choose options*/}
                     <Col lg={8}>
-                    {/*<ServiceTabs services={currentPartner.services} isBookingPage={true}
-                                sendDataToBookingPage={handleChosenServicesFromTabs}
-                            />*/}
                         {!serviceChosenCompleted ?
                             <div className="text-start mt-5">
                                 <h3 style={{ fontWeight: 'bold'}}>Services</h3>
