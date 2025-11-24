@@ -2,7 +2,6 @@ import { ArrowLeft, X, ChevronRight, Calendar, Clock, User, Mail, Phone, MapPinH
 import { useEffect, useState } from 'react';
 import { Col, Container, Navbar, Nav, Row, Card, Button, Image, Modal, Tabs, Tab } from "react-bootstrap";
 import { useNavigate, useParams } from 'react-router-dom';
-import ServiceTabs from "../components/ServiceTabs";
 import { partnerDataWithId } from "../lib/utils";
 import StarRating from "../components/ui/StarRating"
 import DateTimeBooking from "../components/DateTimeBooking"

@@ -1,3 +1,5 @@
+import GetDirectionLink from "./ui/GetDirectionLink"
+
 const About = ({ currentPartner }) => {
     const {about, address} = currentPartner
 
@@ -11,7 +13,7 @@ const About = ({ currentPartner }) => {
         <div className="text-start mt-5">
             <h3 style={{ fontWeight: 'bold' }}>About</h3>
             <p>{about}</p>
-            <p>{address}. <span><a href={ggMapsLink + addressToGGMaps} target="_blank">Get Directions</a></span></p>
+            <p>{address}. <GetDirectionLink address={address} /></p>
         </div>
     )
 }

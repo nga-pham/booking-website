@@ -2,9 +2,9 @@
 We need to create a list of shops and connect them with potential users. We already have connections. The idea is similar to booking.com or Agoda page.
 The website is mainly a clone of https://www.fresha.com, with different booking flow.
 
-Main use case:
+Main Flow chart:
 
-![overall use case here](./Use-case-overall.png "overall use case here")
+![overall Flow chart here](./Flow-chart-overall.png "overall Flow chart here")
 
 # System analysis for booking website
 The website consists of 6 pages, a header and a footer
@@ -19,7 +19,7 @@ Include a place to advertise, and a booking form for customers to book services.
 
 User can choose services from dropdown list. Default is "All treatments and venues". If user choose it, they will choose all services.
 
-![Use case for choosing services here](./Use-case-choose-services.png "Use case for choosing services here")
+![Flow chart for choosing services here](./Flow-chart-choose-services.png "Flow chart for choosing services here")
 
 User can choose date from date picker. Default is today’s date. All previous day is disabled.
 
@@ -27,7 +27,7 @@ User can choose time from time picker. Default start time is "00:00" and end tim
 
 When user clicks button "Search", the system will check if start time is before end time. If this is a case, throw an error. If not, redirect to result page.
 
-![Use case for searching here](./Use-case-search.png "Use case for searching here")
+![Flow chart for searching here](./Flow-chart-search.png "Flow chart for searching here")
 
 ### 1.2. List of new partners
 Show the list of new shops, in slideshow of 3 cards.
@@ -61,7 +61,7 @@ In main section:
 * First, user can see a breadcrumbs: current page location within a navigational hierarchy.
 * Then, user can see a search form, with search criteria passed from landing page. To refine the search, user can fill in or choose keywords (same as in landing page) and click button "search".
 
-![Use case for refined searching here](./Use-case-refine-search.png "Use case for refined searching here")
+![Flow chart for refined searching here](./Flow-chart-refine-search.png "Flow chart for refined searching here")
 
 * Below is the options, which are a list of shops, filtered by "search", each with basic information, the same as in hero section.
 
@@ -74,10 +74,10 @@ The page gets id of the shop passed from "Result page". "id" is the index of sho
 If the shop is not found, show a simple message: Shop not found. And button / link to come back.
 Else: The page consists of: header, footer and main section.
 
-![Use case for finding detail shop](./Use-case-find-detail-shop.png "Use case for finding detail shop")
+![Flow chart for finding detail shop](./Flow-chart-find-detail-shop.png "Flow chart for finding detail shop")
 
 In main section:
-* First, user can see a breadcrumbs: current page location within a navigational hierarchy (Home -> Vendors -> [name of vendor])
+* First, user can see a breadcrumbs: current page location within a navigational hierarchy (Home -> Shops -> [name of shop]). If user click on "Shops", the website will redirect to Result page.
 * Then a section which contains basic information of current shop: name (in one row), rating, number of ratings, open or not at this moment, address (in another row below), and all photos.
 
 * The final section contains 2 parts and has similar look with this one
@@ -88,11 +88,13 @@ In main section:
 	- Below is "reviews" section (get data from props "reviews" in partners.json), with header "Reviews", overall rating, number of ratings. Then each review card is displayed as below, with information: avatar, name of reviewer, day and time of review, his/her comment and rating.
 
 ![design for review here](./design-detail-page-reviews.png "design for review here")
+
 	- Below is "about" section (get data from props "about" in partners.json), with header "About" and content. Then the address with link to it on Google map.
 	- Below is "opening times" and "additional information" (get data from props "openingTimes" and "additionalInfo" in partners.json), as shown in below.
 ![design for opening times here](./design-detail-page-opening-times.png "design for opening times here")
 
   - Booking place: contains basic information again (as shown in image below). When user click in "open at...", a place will appear, showing opening times in detail.
+
 ![design for detail page here](./design-detail-page.png "design for detail here")
 
 When user click in "Book now", they will be redirected to booking and payment pages.
@@ -104,11 +106,11 @@ The booking page therefore contains 2 sections:
 	* First, user will book services of the shop. 
 		* The services is shown in tab view like in detail page, but each item has button "+". When user click on it, the service will be added and appear in the right section with price and button "x", and total cost will be updated. When user click on "x", the service will be removed. Total cost is also updated as well.
 
-		![use case book services here](./Use-case-book-services.png "use case book services here")
+		![Flow chart book services here](./Flow-chart-book-services.png "Flow chart book services here")
 
 		* After choosing services and click "continue", they will be redirected to date and time  section where they can choose time to use services. If no date selected, default is current date. If no time selected, default is current time.
 
-		![use case book date and time here](./Use-case-book-datetime.png "use case book date and time here")
+		![Flow chart book date and time here](./Flow-chart-book-datetime.png "Flow chart book date and time here")
 
 		* Information section requires user to fill in: email, name, phone, address, district, city.
 
@@ -234,4 +236,4 @@ const categoryIconMap: Record<string, LucideIcon> = {
 Breadcrumb that can be re-used for landing page, detail page, and (with different implementation) in booking page.
 
 # Tech stack
-* Frontend: ReactJS, Boostrap 5, react-boostrap, lucide-icons, react-router-dom, react-datepicker, react-boostrap-time-picker
+* Frontend: ReactJS, Boostrap 5, react-boostrap, lucide-icons, react-router-dom, react-datepicker, react-boostrap-time-picker, sonner

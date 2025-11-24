@@ -1,4 +1,4 @@
-﻿import { Button, Card, Carousel, Col, Container, Row } from "react-bootstrap";
+﻿import { Button, Card, Carousel, Col, Container, Dropdown, Row } from "react-bootstrap";
 import { useNavigate, useParams } from 'react-router-dom';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -9,23 +9,28 @@ import StarRating from "../components/ui/StarRating";
 import { partnerDataWithId } from "../lib/utils";
 import About from "../components/About";
 import OpeningTimes from "../components/OpeningTimes";
+import GetDirectionLink from "../components/ui/GetDirectionLink";
+import { ChevronDown, Circle, Clock } from "lucide-react";
 
 /* child components */
 const NoPartner = () => {
     return (
-            <div className="min-h-screen">
-                <Header />
-                <section className="py-5">
-                    <Container>
-                        <Row className="text-start g-5 mt-2">
-                            <h1 style={{ fontWeight: 'bold' }}>Shop not found</h1>
-                            <p>The requested Shop does not exist.</p>
-                        </Row>
-                    </Container>
-                </section>
-                <Footer />
-            </div>
-        );
+        <div className="min-h-screen">
+            <Header />
+            <section className="py-5">
+                <Container>
+                    <Row className="text-start g-5 mt-2">
+                        <h1 style={{ fontWeight: 'bold' }}>Shop not found</h1>
+                        <p>The requested Shop does not exist.</p>
+                        <a href="/" className="text-blue-500 underline hover:text-blue-700">
+                            Return to Home
+                        </a>
+                    </Row>
+                </Container>
+            </section>
+            <Footer />
+        </div>
+    );
 }
 
 /* Main component */
@@ -40,7 +45,7 @@ const Detail = () => {
     }
 
     /*For basic information*/
-    const { name, rating, numberOfRating, address, photos, services, startTime, endTime } = currentPartner
+    const { name, rating, numberOfRating, address, photos, services, startTime, endTime, openingTimes } = currentPartner
     // get current time
     const now = new Date();
     const currentHour = now.getHours() + now.getMinutes() / 60;
@@ -51,7 +56,30 @@ const Detail = () => {
     const endHour = parseInt(timeParts[0], 10) + parseFloat(timeParts[1]) / 60;
     // Check if currently open or closed. Then display different text accordingly
     const openOrCloseText = (startHour <= currentHour && currentHour <= endHour)
-        ? <span style={{ color: "#008000" }}>Open until {endTime}</span>
+        ?
+        <Dropdown className="mb-3">
+            <Dropdown.Toggle
+                variant="link"
+                className="d-flex align-items-center gap-2 w-100 text-decoration-none p-0 border-0 bg-transparent shadow-none"
+                style={{ color: 'inherit' }}
+            >
+                <Clock size={18} className="text-foreground" />
+                <span className="text-green-600 font-medium text-sm">Open until {endTime}</span>
+                <ChevronDown size={16} className="ms-auto text-foreground" />
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu className="w-100" style={{ minWidth: '100%' }}>
+                {openingTimes.map((time, idx) => (
+                    <Dropdown.Item key={idx} as="div" className="d-flex align-items-center justify-content-between">
+                        <div className="d-flex align-items-center">
+                            <Circle size={12} fill="#78D240" color="#78D240" style={{marginRight: '1rem'}} />
+                            <span className="fw-medium">{time.date}</span>
+                        </div>
+                        <div>{time.startTime} - {time.endTime}</div>
+                    </Dropdown.Item>
+                ))}
+            </Dropdown.Menu>
+        </Dropdown>
         : (
             // Use a fragment for the else branch so both spans are returned together
             <>
@@ -67,6 +95,7 @@ const Detail = () => {
 
     return (
         <div className="min-h-screen">
+
             <Header />
 
             <section className="py-5">
@@ -131,7 +160,7 @@ const Detail = () => {
                                     </Card.Body>
                                     <Card.Footer style={{ backgroundColor: "white" }}>
                                         <p>{openOrCloseText} </p>
-                                        <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{address}</span>
+                                        <p><span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{address} . </span><GetDirectionLink address={address} /></p>
                                     </Card.Footer>
                                 </Card>
                             </div>

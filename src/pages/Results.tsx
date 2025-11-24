@@ -14,17 +14,21 @@ const Results = () => {
     // get selected service, date and time from landing page
     const location = useLocation();
     let { state } = location as any; // Destructure the state object from location : {category : string[], date, startTime, endTime }
-    // Use case 1.1: handle error: when there is no state
-    if (!state) {
-        const navigate = useNavigate();
-        navigate("*");
-        return null;
-    }
-
     // Extract all unique categories from the services data
     const allCategories = partnerData.flatMap(venue => venue.categories);
     const uniqueCategories = [...new Set(allCategories)].sort();
+    
+    // Use case 1.1: handle error: when there is no state
+    if (!state || state === null) {
+        state = {
+            category: uniqueCategories,
+            date: new Date(),
+            startTime: 0,
+            endTime: 86400
+        }
+    }
 
+    
     // If no search in landing page => reset to initial searching criteria
     // and the data is not filtered
     const [filteredData, setFilteredData] = useState<any[]>(partnerData)
