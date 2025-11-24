@@ -641,7 +641,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="7UpkUHAKSKv71yMJbahM" name="Flow-chart-display-services">
-    <mxGraphModel dx="349" dy="1002" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="242" dy="1326" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -657,29 +657,29 @@
             <mxPoint x="148" y="47" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="n5zed7KZCe7k-2urLBmE-4" edge="1" parent="1" source="n5zed7KZCe7k-2urLBmE-2" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n5zed7KZCe7k-2urLBmE-6" value="">
+        <mxCell id="n5zed7KZCe7k-2urLBmE-4" edge="1" parent="1" source="n5zed7KZCe7k-2urLBmE-2" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="176" y="125" as="sourcePoint" />
-            <mxPoint x="155" y="192" as="targetPoint" />
+            <mxPoint x="156" y="241" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="n5zed7KZCe7k-2urLBmE-5" connectable="0" parent="n5zed7KZCe7k-2urLBmE-4" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" value="Yes" vertex="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="n5zed7KZCe7k-2urLBmE-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Display text &quot;No service selected&quot;&lt;div&gt;Cannot continue&lt;/div&gt;&lt;div&gt;Total cost = 0&lt;/div&gt;" vertex="1">
-          <mxGeometry height="60" width="120" x="98" y="204" as="geometry" />
+          <mxGeometry height="60" width="120" x="235" y="240" as="geometry" />
         </mxCell>
-        <mxCell id="n5zed7KZCe7k-2urLBmE-7" edge="1" parent="1" source="n5zed7KZCe7k-2urLBmE-2" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" value="">
+        <mxCell id="n5zed7KZCe7k-2urLBmE-7" edge="1" parent="1" source="n5zed7KZCe7k-2urLBmE-2" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n5zed7KZCe7k-2urLBmE-6" value="">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="245" y="94" as="sourcePoint" />
-            <mxPoint x="286" y="197" as="targetPoint" />
+            <mxPoint x="280" y="190" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="n5zed7KZCe7k-2urLBmE-8" connectable="0" parent="n5zed7KZCe7k-2urLBmE-7" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" value="No" vertex="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="n5zed7KZCe7k-2urLBmE-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Display services&lt;div&gt;Can continue&lt;/div&gt;&lt;div&gt;Total cost = sum of services&#39; costs&lt;/div&gt;" vertex="1">
-          <mxGeometry height="60" width="120" x="238" y="200" as="geometry" />
+          <mxGeometry height="60" width="120" x="98" y="242" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
