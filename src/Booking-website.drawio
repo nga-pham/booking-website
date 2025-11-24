@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Mobile Safari/537.36" version="29.1.1" pages="9">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Mobile Safari/537.36" version="29.1.1" pages="10">
   <diagram name="Flow-chart-search" id="r_2vwxyVSkdCSk-oC8Ql">
     <mxGraphModel dx="349" dy="602" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -641,7 +641,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="7UpkUHAKSKv71yMJbahM" name="Flow-chart-display-services">
-    <mxGraphModel dx="184" dy="1002" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="349" dy="1002" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -680,6 +680,52 @@
         </mxCell>
         <mxCell id="n5zed7KZCe7k-2urLBmE-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Display services&lt;div&gt;Can continue&lt;/div&gt;&lt;div&gt;Total cost = sum of services&#39; costs&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="120" x="238" y="200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="1YzY8wxkBBPRFFJPqRL_" name="Flow-chart-complete-booking">
+    <mxGraphModel dx="196" dy="1002" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="YA7PpEVB7MfjT-ipkJzc-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Booking page" vertex="1">
+          <mxGeometry height="60" width="120" x="205" y="-47" as="geometry" />
+        </mxCell>
+        <mxCell id="YA7PpEVB7MfjT-ipkJzc-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Go to payment page" vertex="1">
+          <mxGeometry height="60" width="120" x="214" y="274" as="geometry" />
+        </mxCell>
+        <mxCell id="CbnmjimgHn_CHmxrIuoI-1" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="Complete booking?" vertex="1">
+          <mxGeometry height="80" width="140" x="200" y="68" as="geometry" />
+        </mxCell>
+        <mxCell id="CbnmjimgHn_CHmxrIuoI-2" edge="1" parent="1" source="YA7PpEVB7MfjT-ipkJzc-1" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="249" y="247" as="sourcePoint" />
+            <mxPoint x="269" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CbnmjimgHn_CHmxrIuoI-3" edge="1" parent="1" source="CbnmjimgHn_CHmxrIuoI-1" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="YA7PpEVB7MfjT-ipkJzc-2" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="224" y="222" as="sourcePoint" />
+            <mxPoint x="324" y="222" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CbnmjimgHn_CHmxrIuoI-4" connectable="0" parent="CbnmjimgHn_CHmxrIuoI-3" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" value="Yes" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CbnmjimgHn_CHmxrIuoI-5" edge="1" parent="1" source="CbnmjimgHn_CHmxrIuoI-1" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" target="YA7PpEVB7MfjT-ipkJzc-1" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="391" y="11" />
+            </Array>
+            <mxPoint x="356" y="114" as="sourcePoint" />
+            <mxPoint x="347" y="195" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CbnmjimgHn_CHmxrIuoI-6" connectable="0" parent="CbnmjimgHn_CHmxrIuoI-5" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" value="No" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-18" y="50" as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
