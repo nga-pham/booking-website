@@ -16,9 +16,9 @@ const Booking = () => {
     const params = useParams() //parameter in the Route path: {id}
     const id = params.id
     const currentPartner = partnerDataWithId.find(partner => partner.id === Number(id))
-    const {services} = currentPartner
+    const { services } = currentPartner
 
-    
+
     // Flag to display
     const [serviceChosenCompleted, setServiceChosenCompleted] = useState<boolean>(false)
     const [dateTimeChosenCompleted, setDateTimeChosenCompleted] = useState<boolean>(false)
@@ -53,7 +53,7 @@ const Booking = () => {
         if (savedService !== undefined) {
             const newArray = [...chosenServices, savedService]
             const newSet = new Set(newArray.map(obj => obj.name))
-            const uniqueObjectsByName = Array.from(newSet).map(name => 
+            const uniqueObjectsByName = Array.from(newSet).map(name =>
                 newArray.find(obj => obj.name === name)
             );
             setChosenServices(uniqueObjectsByName)
@@ -64,8 +64,8 @@ const Booking = () => {
     const handleRemoveService = (index: number) => {
         setChosenServices(chosenServices.filter((_, i) => i !== index));
         setDeletedService(chosenServices.find((item, i) => i === index))
-  };
-  // send removed service to services section
+    };
+    // send removed service to services section
     const isRemovedService = (serviceName) => {
         if (deletedService !== undefined && serviceName === deletedService.name) return true
         else return false
@@ -141,7 +141,7 @@ const Booking = () => {
 
     return (
         <div className="min-h-screen">
-        {/*header*/}
+            {/*header*/}
             <Navbar bg="light" className="shadow-sm" sticky="top">
                 <Container>
                     <div className="d-flex justify-content-between container-fluid">
@@ -159,7 +159,7 @@ const Booking = () => {
                 <Modal.Body>All selections will be lost</Modal.Body>
                 <Modal.Footer className="d-flex justify-content-center w-100">
                     <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
-                        style={{ backgroundColor: 'white', color: "black"}} 
+                        style={{ backgroundColor: 'white', color: "black" }}
                         onClick={closeConfirmPopup}
                     >
                         Cancel
@@ -172,7 +172,7 @@ const Booking = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-            
+
             {/*main content*/}
             <Container>
                 <Row>
@@ -180,7 +180,7 @@ const Booking = () => {
                     <Col lg={8}>
                         {!serviceChosenCompleted ?
                             <div className="text-start mt-5">
-                                <h3 style={{ fontWeight: 'bold'}}>Services</h3>
+                                <h3 style={{ fontWeight: 'bold' }}>Services</h3>
                                 <Tabs defaultActiveKey="featured" fill>
                                     {/*featured tab here*/}
                                     <Tab eventKey="featured" title="Featured" key="tab-featured">
@@ -222,11 +222,14 @@ const Booking = () => {
 
                     {/*booking information*/}
                     <Col lg={4}>
-                        <Card className="mt-5 px-0 py-2">
-                            <Card.Body>
+                        <Card className="mt-5 px-0 py-2 shadow-sm border-0 flex-shrink-0 sticky top-6"
+                            style={{ width: "380px", height: "fit-content" }}
+                        >
+                            <Card.Body className="p-6">
                                 <Container>
+                                    {/* Shop Info */}
                                     <Row className="text-start">
-                                        <Col lg="3" style={{marginRight: '0.25rem' }}><Image rounded width="80px" height="80px" src={currentPartner.photos[0]} /></Col>
+                                        <Col lg="3" style={{ marginRight: '0.25rem' }}><Image rounded width="80px" height="80px" src={currentPartner.photos[0]} /></Col>
                                         <Col lg="7">
                                             <p style={{ fontSize: '1.1rem' }}><strong>{currentPartner.name}</strong></p>
                                             <p style={{ fontSize: '1.1rem' }}>
@@ -236,41 +239,48 @@ const Booking = () => {
                                             <p style={{ color: 'rgba(0,0,0,0.5)' }}>{currentPartner.address}</p>
                                         </Col>
                                     </Row>
+                                    {/* User Info Display */}
                                     {chosenInfo ?
                                         <Row className="text-start mt-2">
-                                            <p style={{ color: 'rgba(0,0,0,0.5)' }} >
-                                                <User size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.name}
-                                            </p>
-                                            <p style={{ color: 'rgba(0,0,0,0.5)' }} >
-                                                <Mail size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.email}
-                                            </p>
-                                            <p style={{ color: 'rgba(0,0,0,0.5)' }} >
-                                                <Phone size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.phoneNumber}
-                                            </p>
-                                            <p style={{ color: 'rgba(0,0,0,0.5)' }} >
-                                                <MapPin size={18} style={{ marginRight: '0.5rem' }} />
-                                                {chosenInfo.address}
-                                                  <br />
-                                                  {chosenInfo.district}, {chosenInfo.state}
-                                            </p>
-                                          </Row>
-                                        
+                                            <div className="mb-4 border-b border-border">
+                                                <p style={{ color: 'rgba(0,0,0,0.5)' }} >
+                                                    <User size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.name}
+                                                </p>
+                                                <p style={{ color: 'rgba(0,0,0,0.5)' }} >
+                                                    <Mail size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.email}
+                                                </p>
+                                                <p style={{ color: 'rgba(0,0,0,0.5)' }} >
+                                                    <Phone size={18} style={{ marginRight: '0.5rem' }} />{chosenInfo.phoneNumber}
+                                                </p>
+                                                <p style={{ color: 'rgba(0,0,0,0.5)' }} >
+                                                    <MapPin size={18} style={{ marginRight: '0.5rem' }} />
+                                                    {chosenInfo.address}
+                                                    <br />
+                                                    {chosenInfo.district}, {chosenInfo.city}
+                                                </p>
+                                            </div>
+                                        </Row>
                                         : null
                                     }
+                                    {/* Selected Date & Time */}
                                     <Row className="text-start mt-2">
-                                        {chosenDateTime ?
-                                            <>
-                                                <p style={{ color: 'rgba(0,0,0,0.5)' }} >
-                                                    <Calendar size={18} style={{ marginRight: '0.5rem' }} />{chosenDateString}
-                                                </p>
-                                                <p style={{ color: 'rgba(0,0,0,0.5)' }}>
-                                                    <Clock size={18} style={{ marginRight: '0.5rem' }} />{chosenTimeString}
-                                                </p>
-                                            </>
-                                            : <p style={{ color: 'rgba(0,0,0,0.5)' }}>No date selected</p>
-                                        }
+                                        <div className="mb-4 border-b border-border">
+                                            {chosenDateTime ?
+                                                <>
+                                                    <p style={{ color: 'rgba(0,0,0,0.5)' }} >
+                                                        <Calendar size={18} style={{ marginRight: '0.5rem' }} />{chosenDateString}
+                                                    </p>
+                                                    <p style={{ color: 'rgba(0,0,0,0.5)' }}>
+                                                        <Clock size={18} style={{ marginRight: '0.5rem' }} />{chosenTimeString}
+                                                    </p>
+                                                </>
+                                                : <p style={{ color: 'rgba(0,0,0,0.5)' }}>No date selected</p>
+                                            }
+                                        </div>
                                     </Row>
                                     <Row className="text-start">
+                                        <div className="mb-4 border-b border-border">
+
                                         {chosenServices.length > 0 ? (
                                             <>
                                                 <p style={{ color: 'rgba(0,0,0,0.5)' }}>
@@ -278,44 +288,48 @@ const Booking = () => {
                                                 </p>
                                                 {chosenServices.map((service, _idx) => {
                                                     return (
-                                                            <Row key={_idx}>
-                                                                <Col className="text-start">{service.name}</Col>
-                                                                <Col className="text-end">{service.cost.toLocaleString('en-US')} VND</Col>
-                                                                <Col className="text-end">
-                                                                    <Button variant="light" className="rounded-circle" style={{ backgroundColor: "#F5F5F5" }}
-                                                                        onClick={() => handleRemoveService(_idx)}
-                                                                      >
-                                                                        <X size={14} />
-                                                                    </Button>
-                                                                </Col>
-                                                            </Row>
+                                                        <Row key={_idx}>
+                                                            <Col className="text-start" lg={6}>{service.name}</Col>
+                                                            <Col className="text-end" lg={4}>{service.cost.toLocaleString('vi-VN')} VND</Col>
+                                                            <Col className="text-end" lg={2}>
+                                                                <Button variant="light" className="rounded-circle" 
+                                                                style={{ backgroundColor: "#F5F5F5" }}
+                                                                    onClick={() => handleRemoveService(_idx)}
+                                                                >
+                                                                    <X size={14} />
+                                                                </Button>
+                                                            </Col>
+                                                        </Row>
                                                     )
-                                                }) }
+                                                })}
                                             </>
                                         ) : <p style={{ color: 'rgba(0,0,0,0.5)' }}>No service selected</p>
                                         }
+                                        </div>
                                     </Row>
                                 </Container>
-
                             </Card.Body>
+                            {/* separator */}
+                            <div className="border-t border-border my-4"></div>
+
                             <Card.Footer className="justify-content-center">
-                            <Row style={{ fontWeight: 'bold', marginBottom: '2rem' }}>
-                                 <Col className="text-start">Total</Col>
-                                 <Col className="text-end">{totalCost.toLocaleString('en-US')} VND</Col>
-                            </Row>
+                                <Row style={{ fontWeight: 'bold', marginBottom: '2rem' }}>
+                                    <Col className="text-start">Total</Col>
+                                    <Col className="text-end">{totalCost.toLocaleString('vi-VN')} VND</Col>
+                                </Row>
                                 {chosenServices.length > 0 ?
-                                        <Button variant="primary" size="lg" className="rounded-pill"
-                                            style={{ backgroundColor: 'black', color: "white" }}
-                                            onClick={changeToNextSection}
-                                        >
-                                            Continue <ChevronRight size={20} />
-                                        </Button>
+                                    <Button variant="primary" size="lg" className="rounded-pill"
+                                        style={{ backgroundColor: 'black', color: "white" }}
+                                        onClick={changeToNextSection}
+                                    >
+                                        Complete booking <ChevronRight size={20} />
+                                    </Button>
                                     :
-                                        <Button variant="primary" size="lg" className="rounded-pill"
-                                            style={{ backgroundColor: 'black', color: "white" }} disabled
-                                        >
-                                            Continue <ChevronRight size={20} />
-                                        </Button>
+                                    <Button variant="primary" size="lg" className="rounded-pill"
+                                        style={{ backgroundColor: 'black', color: "white" }} disabled
+                                    >
+                                        Complete booking <ChevronRight size={20} />
+                                    </Button>
                                 }
                             </Card.Footer>
                         </Card>
