@@ -1,42 +1,44 @@
-﻿import { TabPane, Tabs } from "react-bootstrap";
+﻿
+import { useEffect, useState } from 'react';
+import { Tab, Tabs } from "react-bootstrap";
+import { chosenServiceProps } from "./ui/Interfaces";
 import ServiceCard from "./ui/ServiceCard";
-import { useState, useEffect } from 'react'
+
 
 interface ServiceTabsProps {
     services: any[] | [],
     isBookingPage: boolean | false,
-    sendDataToBookingPage?: (any) => void   // only in booking page
+    sendDataToBookingPage?: (savedService: chosenServiceProps, removedService: chosenServiceProps) => void   // only in booking page
+    chosenServices?: any[] | []
 }
 
-const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }: ServiceTabsProps) => {
-    //For services displayed
-    let featuredServices: any[] = []
-    services.map(skill => {
-        skill.items.map(item => {
-            if (item.featured) featuredServices.push(item)
-        })
-    })
+const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage, chosenServices }: ServiceTabsProps) => {
+    //For displaying featured servicess
+    let featuredServices: any[] = services.flatMap(serviceType => serviceType.items.filter(item => item.featured));
 
+    
     // For get chosen service from card and send to parent
-    const [chosenService, setChosenService] = useState<string>(undefined)
-    const getChosenServiceFromCard = (service) => {
-        setChosenService(service)
+    const [chosenService, setChosenService] = useState<chosenServiceProps>(undefined)
+    const [removedService, setRemovedService] = useState<chosenServiceProps>(undefined)
+    const getChosenServiceFromCard = (chosenService: chosenServiceProps, removedService: chosenServiceProps) => {
+        setChosenService(chosenService)
+        setRemovedService(removedService)
     }
 
     if (sendDataToBookingPage) {
         useEffect(
             () => {
-            sendDataToBookingPage(chosenService)
-        }, [chosenService]
+            sendDataToBookingPage(chosenService, removedService)
+            }, [chosenService, removedService]
         )
     }
 
     return (
         <div className="text-start mt-5">
             <h3 style={{ fontWeight: 'bold'}}>Services</h3>
-            <Tabs defaultActiveKey="home" fill>
+            <Tabs defaultActiveKey="featured" fill>
                 {/*featured tab here*/}
-                <TabPane eventKey="featured" title="Featured">
+                <Tab eventKey="featured" title="Featured" key="tab-featured">
                     {featuredServices.map((item, _idx) => (
                         <ServiceCard
                             id={_idx}
@@ -44,12 +46,11 @@ const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }: Service
                             duration={item.duration}
                             cost={item.cost}
                             isBookingPage={isBookingPage}
-                            sendDataToTabs={getChosenServiceFromCard}
                         />
                     ))}
-                </TabPane>
+                </Tab>
                 {services.map(skill => (
-                    <TabPane eventKey={skill.type} title={skill.type}>
+                    <Tab eventKey={skill.type} title={skill.type} key={skill.type}>
                         {skill.items.map((item, _idx) => (
                             <ServiceCard
                                 id={_idx}
@@ -57,11 +58,9 @@ const ServiceTabs = ({ services, isBookingPage, sendDataToBookingPage }: Service
                                 duration={item.duration}
                                 cost={item.cost}
                                 isBookingPage={isBookingPage}
-                                sendDataToTabs={getChosenServiceFromCard}
-
                             />
                         ))}
-                    </TabPane>
+                    </Tab>
                 ))}
             </Tabs>
 

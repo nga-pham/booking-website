@@ -1,0 +1,31 @@
+[
+    {
+        "city": "Hà Nội",
+        "districts": [
+            "Cầu Giấy",
+            "Đống Đa",
+            "Thanh Xuân",
+            "Ba Đình",
+            "Hoàn Kiếm"
+        ]
+    },
+    {
+        "city": "Đà Nẵng",
+        "districts": [
+            "Hải Châu",
+            "Liên Chiểu",
+            "Sơn Trà",
+            "Ngũ Hành Sơn"
+        ]
+    },
+    {
+        "city": "TP. Hồ Chí Minh",
+        "districts": [
+            "Quận 1",
+            "Quận 2",
+            "Quận 3",
+            "Quận Phú Nhuận",
+            "Quận Bình Thạnh"
+        ]
+    }
+]

@@ -3,6 +3,21 @@ import { Button, Container, Nav, Navbar } from "react-bootstrap";
 
 const Header = () => {
 
+    const links = [
+        {
+            name: "Services",
+            href: "/services"
+        },
+        {
+            name: "FAQ",
+            href: "/faq"
+        },
+        {
+            name: "About us",
+            href: "/about"
+        }
+    ]
+
     return (
         // collapse below lg (show in one row at lg+). In production, consider change to md
         <Navbar bg="light" className="shadow-sm" expand="lg" sticky="top">
@@ -15,9 +30,10 @@ const Header = () => {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto align-items-center"> 
-            <Nav.Link href="/services">Services</Nav.Link>
-            <Nav.Link href="/faq">FAQ</Nav.Link>
-            <Nav.Link href="/about">About us</Nav.Link>
+               {links.map((link, _idx) => (
+                   <Nav.Link key={_idx} href={link.href}>{link.name}</Nav.Link>
+               )
+               )}
             </Nav>
           <Button variant="success" className="d-flex align-items-center gap-2">
             <Heart size={16} />
