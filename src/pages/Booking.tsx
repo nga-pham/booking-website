@@ -10,7 +10,36 @@ import { chosenServiceProps } from "../components/ui/Interfaces"
 import ServiceCard from "../components/ui/ServiceCard";
 import { chosenInfoProps } from "../components/ui/Interfaces";
 
+const ContinueButton = ({ chosenServices, serviceChosenCompleted, dateTimeChosenCompleted, chosenInfo, changeToNextSection }) => {
+    const DisabledButton = () => (
+        <Button variant="primary" size="lg" className="rounded-pill"
+        style={{ backgroundColor: 'black', color: "white" }} disabled
+    >
+        Continue <ChevronRight size={20} />
+    </Button>
+    )
 
+    const EnabledButton = () => (
+        <Button variant="primary" size="lg" className="rounded-pill"
+            style={{ backgroundColor: 'black', color: "white" }}
+            onClick={changeToNextSection}
+        >
+            Continue <ChevronRight size={20} />
+        </Button>
+    )
+
+    // at service section
+    if (!serviceChosenCompleted) {
+        if (chosenServices.length > 0) return <EnabledButton /> 
+        else return <DisabledButton />
+    // at datetime section
+    } else if (!dateTimeChosenCompleted) {
+        return <EnabledButton />
+    // at info section
+    } else if (!chosenInfo) {
+        return <DisabledButton />
+    } else return <EnabledButton />
+}
 
 const Booking = () => {
     const params = useParams() //parameter in the Route path: {id}
@@ -27,6 +56,7 @@ const Booking = () => {
         // change to chosing date time page
         if (!serviceChosenCompleted) setServiceChosenCompleted(true)
         if (serviceChosenCompleted && !dateTimeChosenCompleted) setDateTimeChosenCompleted(true)
+        // TODO: send booking data
     }
 
     // handle back to detail page or stay
@@ -281,30 +311,30 @@ const Booking = () => {
                                     <Row className="text-start">
                                         <div className="mb-4 border-b border-border">
 
-                                        {chosenServices.length > 0 ? (
-                                            <>
-                                                <p style={{ color: 'rgba(0,0,0,0.5)' }}>
-                                                    <Hourglass size={18} style={{ marginRight: '0.5rem' }} />{totalDuration} hours total
-                                                </p>
-                                                {chosenServices.map((service, _idx) => {
-                                                    return (
-                                                        <Row key={_idx}>
-                                                            <Col className="text-start" lg={6}>{service.name}</Col>
-                                                            <Col className="text-end" lg={4}>{service.cost.toLocaleString('vi-VN')} VND</Col>
-                                                            <Col className="text-end" lg={2}>
-                                                                <Button variant="light" className="rounded-circle" 
-                                                                style={{ backgroundColor: "#F5F5F5" }}
-                                                                    onClick={() => handleRemoveService(_idx)}
-                                                                >
-                                                                    <X size={14} />
-                                                                </Button>
-                                                            </Col>
-                                                        </Row>
-                                                    )
-                                                })}
-                                            </>
-                                        ) : <p style={{ color: 'rgba(0,0,0,0.5)' }}>No service selected</p>
-                                        }
+                                            {chosenServices.length > 0 ? (
+                                                <>
+                                                    <p style={{ color: 'rgba(0,0,0,0.5)' }}>
+                                                        <Hourglass size={18} style={{ marginRight: '0.5rem' }} />{totalDuration} hours total
+                                                    </p>
+                                                    {chosenServices.map((service, _idx) => {
+                                                        return (
+                                                            <Row key={_idx}>
+                                                                <Col className="text-start" lg={6}>{service.name}</Col>
+                                                                <Col className="text-end" lg={4}>{service.cost.toLocaleString('vi-VN')} VND</Col>
+                                                                <Col className="text-end" lg={2}>
+                                                                    <Button variant="light" className="rounded-circle"
+                                                                        style={{ backgroundColor: "#F5F5F5" }}
+                                                                        onClick={() => handleRemoveService(_idx)}
+                                                                    >
+                                                                        <X size={14} />
+                                                                    </Button>
+                                                                </Col>
+                                                            </Row>
+                                                        )
+                                                    })}
+                                                </>
+                                            ) : <p style={{ color: 'rgba(0,0,0,0.5)' }}>No service selected</p>
+                                            }
                                         </div>
                                     </Row>
                                 </Container>
@@ -313,24 +343,18 @@ const Booking = () => {
                             <div className="border-t border-border my-4"></div>
 
                             <Card.Footer className="justify-content-center">
+                                {/* total cost */}
                                 <Row style={{ fontWeight: 'bold', marginBottom: '2rem' }}>
                                     <Col className="text-start">Total</Col>
                                     <Col className="text-end">{totalCost.toLocaleString('vi-VN')} VND</Col>
                                 </Row>
-                                {chosenServices.length > 0 ?
-                                    <Button variant="primary" size="lg" className="rounded-pill"
-                                        style={{ backgroundColor: 'black', color: "white" }}
-                                        onClick={changeToNextSection}
-                                    >
-                                        Complete booking <ChevronRight size={20} />
-                                    </Button>
-                                    :
-                                    <Button variant="primary" size="lg" className="rounded-pill"
-                                        style={{ backgroundColor: 'black', color: "white" }} disabled
-                                    >
-                                        Complete booking <ChevronRight size={20} />
-                                    </Button>
-                                }
+                                <ContinueButton 
+                                chosenServices={chosenServices} 
+                                serviceChosenCompleted={serviceChosenCompleted}
+                                dateTimeChosenCompleted={dateTimeChosenCompleted}
+                                chosenInfo={chosenInfo}
+                                changeToNextSection={changeToNextSection}
+                                />
                             </Card.Footer>
                         </Card>
 
