@@ -10,13 +10,20 @@ import { chosenServiceProps } from "../components/ui/Interfaces"
 import ServiceCard from "../components/ui/ServiceCard";
 import { chosenInfoProps } from "../components/ui/Interfaces";
 
-const ContinueButton = ({ chosenServices, serviceChosenCompleted, dateTimeChosenCompleted, chosenInfo, changeToNextSection }) => {
+const ContinueButton = ({
+    chosenServices,
+    serviceChosenCompleted,
+    dateTimeChosenCompleted,
+    chosenInfo,
+    changeToNextSection,
+    handleCompleteBooking
+}) => {
     const DisabledButton = () => (
         <Button variant="primary" size="lg" className="rounded-pill"
-        style={{ backgroundColor: 'black', color: "white" }} disabled
-    >
-        Continue <ChevronRight size={20} />
-    </Button>
+            style={{ backgroundColor: 'black', color: "white" }} disabled
+        >
+            Continue <ChevronRight size={20} />
+        </Button>
     )
 
     const EnabledButton = () => (
@@ -28,17 +35,26 @@ const ContinueButton = ({ chosenServices, serviceChosenCompleted, dateTimeChosen
         </Button>
     )
 
+    const CompleteBookingButton = () => (
+        <Button variant="primary" size="lg" className="rounded-pill"
+            style={{ backgroundColor: 'black', color: "white" }}
+            onClick={handleCompleteBooking}
+        >
+            Complete Booking
+        </Button>
+    )
+
     // at service section
     if (!serviceChosenCompleted) {
-        if (chosenServices.length > 0) return <EnabledButton /> 
+        if (chosenServices.length > 0) return <EnabledButton />
         else return <DisabledButton />
-    // at datetime section
+        // at datetime section: always enable button
     } else if (!dateTimeChosenCompleted) {
         return <EnabledButton />
-    // at info section
+        // at info section
     } else if (!chosenInfo) {
         return <DisabledButton />
-    } else return <EnabledButton />
+    } else return <CompleteBookingButton />
 }
 
 const Booking = () => {
@@ -354,6 +370,7 @@ const Booking = () => {
                                 dateTimeChosenCompleted={dateTimeChosenCompleted}
                                 chosenInfo={chosenInfo}
                                 changeToNextSection={changeToNextSection}
+                                handleCompleteBooking={changeToNextSection}
                                 />
                             </Card.Footer>
                         </Card>
