@@ -216,7 +216,6 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 ## Custom component UI (in ./src/components/ui)
 ### SearchDropdownItem
 Used for selecting category in search form, in landing page and result page.
-
 Interface of each dropdown item with icon from lucide-react, and category from partners.json:
 ```
 interface DropdownItemProps {
