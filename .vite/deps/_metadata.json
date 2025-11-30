@@ -1,8 +1,97 @@
 {
-  "hash": "2fc7990b",
+  "hash": "cc2c1c02",
   "configHash": "0a54074c",
-  "lockfileHash": "e3b0c442",
-  "browserHash": "43d706ed",
-  "optimized": {},
-  "chunks": {}
+  "lockfileHash": "1583cbdb",
+  "browserHash": "902b8fec",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "c9a22474",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "1e33eebe",
+      "needsInterop": true
+    },
+    "sonner": {
+      "src": "../../node_modules/sonner/dist/index.mjs",
+      "file": "sonner.js",
+      "fileHash": "39246e90",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "49ed6397",
+      "needsInterop": false
+    },
+    "@radix-ui/react-tooltip": {
+      "src": "../../node_modules/@radix-ui/react-tooltip/dist/index.mjs",
+      "file": "@radix-ui_react-tooltip.js",
+      "fileHash": "1ae0bd3d",
+      "needsInterop": false
+    },
+    "react-bootstrap": {
+      "src": "../../node_modules/react-bootstrap/esm/index.js",
+      "file": "react-bootstrap.js",
+      "fileHash": "f6321d49",
+      "needsInterop": false
+    },
+    "lucide-react": {
+      "src": "../../node_modules/lucide-react/dist/esm/lucide-react.js",
+      "file": "lucide-react.js",
+      "fileHash": "1c0d7ad8",
+      "needsInterop": false
+    },
+    "react-datepicker": {
+      "src": "../../node_modules/react-datepicker/dist/index.es.js",
+      "file": "react-datepicker.js",
+      "fileHash": "a6864e34",
+      "needsInterop": false
+    },
+    "react-bootstrap-time-picker": {
+      "src": "../../node_modules/react-bootstrap-time-picker/dist/bundle.js",
+      "file": "react-bootstrap-time-picker.js",
+      "fileHash": "ab476291",
+      "needsInterop": true
+    },
+    "clsx": {
+      "src": "../../node_modules/clsx/dist/clsx.mjs",
+      "file": "clsx.js",
+      "fileHash": "014a55d8",
+      "needsInterop": false
+    },
+    "tailwind-merge": {
+      "src": "../../node_modules/tailwind-merge/dist/bundle-mjs.mjs",
+      "file": "tailwind-merge.js",
+      "fileHash": "62104317",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-L66AHSIG": {
+      "file": "chunk-L66AHSIG.js"
+    },
+    "chunk-KDVGFZWC": {
+      "file": "chunk-KDVGFZWC.js"
+    },
+    "chunk-AY3LO3CB": {
+      "file": "chunk-AY3LO3CB.js"
+    },
+    "chunk-6UGS3JE2": {
+      "file": "chunk-6UGS3JE2.js"
+    },
+    "chunk-3V3MBVXO": {
+      "file": "chunk-3V3MBVXO.js"
+    },
+    "chunk-N7PDAELF": {
+      "file": "chunk-N7PDAELF.js"
+    },
+    "chunk-EWTE5DHJ": {
+      "file": "chunk-EWTE5DHJ.js"
+    }
+  }
 }
