@@ -75,7 +75,7 @@ const HeroSection = () => {
     }
 
     return (
-        <section className="py-5 hero">
+        <section className="py-5 hero" id="search-form">
             <Container>
                 <Row className="mt-5 align-items-center">
                     <h1 className="display-3 fw-bold mb-3">Book local beauty and wellness services</h1>
