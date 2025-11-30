@@ -7,7 +7,18 @@ const Footer = () => {
             <Container className="text-center pt-4" >
                 <Row>
                     <Col lg={4}>
-                        <span className="fs-4 fw-bold m-0">Fresha</span>
+                        <h3
+                            className="fs-4 fw-bold mb-3"
+                            style={{ cursor: "pointer" }}
+                            onClick={() => {
+                                const searchForm = document.getElementById("search-form");
+                                if (searchForm) {
+                                    searchForm.scrollIntoView({ behavior: "smooth", block: "center" });
+                                }
+                            }}
+                        >
+                            Fresha
+                        </h3>
                         <p><Phone size={10} /> <a href="tel:+1234567890" className="text-decoration-none text-dark">+1 (234) 567-890</a></p>
                         <p><AtSign size={10} className="ms-3" /> <a href="mailto:nannycare@gmail.com " className="text-decoration-none text-dark">fresha@gmail.com</a></p>
                     </Col>

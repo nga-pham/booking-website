@@ -16,7 +16,6 @@ const ContinueButton = ({
     dateTimeChosenCompleted,
     chosenInfo,
     changeToNextSection,
-    handleCompleteBooking
 }) => {
     const DisabledButton = () => (
         <Button variant="primary" size="lg" className="rounded-pill"
@@ -38,7 +37,7 @@ const ContinueButton = ({
     const CompleteBookingButton = () => (
         <Button variant="primary" size="lg" className="rounded-pill"
             style={{ backgroundColor: 'black', color: "white" }}
-            onClick={handleCompleteBooking}
+            onClick={changeToNextSection}
         >
             Complete Booking
         </Button>
@@ -370,7 +369,6 @@ const Booking = () => {
                                 dateTimeChosenCompleted={dateTimeChosenCompleted}
                                 chosenInfo={chosenInfo}
                                 changeToNextSection={changeToNextSection}
-                                handleCompleteBooking={changeToNextSection}
                                 />
                             </Card.Footer>
                         </Card>
