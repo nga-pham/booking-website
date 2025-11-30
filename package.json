@@ -12,7 +12,8 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "postdeploy": "git checkout dev || true"
+    "postdeploy": "git checkout dev || true",
+    "deploy:manual": "node [publish-gh-pages.cjs](http://_vscodecontentref_/3)"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
