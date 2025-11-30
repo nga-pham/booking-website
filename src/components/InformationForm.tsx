@@ -35,6 +35,16 @@ const InformationFormBooking = ({ sendDataToBookingPage }) => {
         setDistrict(event.target.value);
     };
 
+    const isUserInfoValid = () => {
+        return (
+            email.trim() !== "" &&
+            name.trim() !== "" &&
+            phoneNumber.trim() !== "" &&
+            address.trim() !== "" &&
+            city.trim() !== ""
+        )
+    }
+
     const handleFillInfo = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (sendDataToBookingPage) {
@@ -42,6 +52,11 @@ const InformationFormBooking = ({ sendDataToBookingPage }) => {
             sendDataToBookingPage(info)
         }
     }
+    
+        useEffect(() => {
+        // TODO: send data to BookingResult
+        isUserInfoValid()
+    }, []);
 
     return (
         <div className="text-start mt-5">
@@ -89,7 +104,6 @@ const InformationFormBooking = ({ sendDataToBookingPage }) => {
                             />
                         </InputGroup>
                     </Col>
-
                 </Row>
                 <Row>
                     <Col>
@@ -138,6 +152,7 @@ const InformationFormBooking = ({ sendDataToBookingPage }) => {
                     <Button variant="primary" className="mt-5 rounded-pill"
                         style={{ backgroundColor: 'black', color: "white" }}
                         type="submit"
+                        disabled={!isUserInfoValid()}
                     >
                         Confirm
                     </Button>
