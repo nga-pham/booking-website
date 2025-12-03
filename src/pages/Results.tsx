@@ -40,7 +40,6 @@ const Results = () => {
 
     // Use case 1: filter data based on search from landing page
     const handleInitialSearch = (categoriesToMatch, startTime, endTime) => {
-        console.log('handleInitialSearch called with:', { categoriesToMatch, startTime, endTime })
         // normalize category list
         const wantedCategories = Array.isArray(categoriesToMatch) ? categoriesToMatch : [categoriesToMatch]
         // If the UI uses a human label for "all" (e.g. "All treatments and venues"),
@@ -52,7 +51,6 @@ const Results = () => {
                 normalizedWanted = uniqueCategories
             }
         }
-        console.log('Normalized wantedCategories count:', normalizedWanted.length)
 
         // helper to parse time inputs (either number in seconds or 'HH:MM' string)
         const parseToSeconds = (t: any) => {
@@ -71,7 +69,6 @@ const Results = () => {
 
         const reqStart = parseToSeconds(startTime)
         const reqEnd = parseToSeconds(endTime)
-        console.log('Parsed requested start/end (seconds):', { reqStart, reqEnd })
 
         const matched: any[] = []
         partnerData.forEach(partner => {
@@ -79,7 +76,6 @@ const Results = () => {
             const intersect = partnerCats.some((c: any) => normalizedWanted.includes(c))
             if (intersect) matched.push(partner)
         })
-        console.log('Matched by category (count):', matched.length)
 
         // remove duplicates and then filter by time availability
         const unique = Array.from(new Set(matched))
@@ -104,7 +100,6 @@ const Results = () => {
             // Normal case: partner must cover the whole requested slot
             return pStart <= reqStart && pEnd >= reqEnd
         })
-        console.log('After time filter counts:', { unique: unique.length, filteredByTime: filteredByTime.length, reqStart, reqEnd })
 
         setFilteredData(filteredByTime)
     }
@@ -234,7 +229,6 @@ const Results = () => {
                                     <p className="text-muted mb-0">No venues found matching your criteria.</p>
                                 </div>
                             }
-                            {/* <ResultList filteredData={filteredData} /> */}
                         </Col>
                     </Row>
                 </Container>

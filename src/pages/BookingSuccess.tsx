@@ -1,9 +1,8 @@
 import { useLocation, Link } from "react-router-dom";
-import { Container, Card } from "react-bootstrap";
+import { Container, Card, Button } from "react-bootstrap";
 import { CheckCircle, Mail, ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
 
 const BookingSuccess = () => {
   const location = useLocation();

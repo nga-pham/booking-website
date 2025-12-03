@@ -1,7 +1,5 @@
 ﻿import { Star } from 'lucide-react';
 import { Badge, Button, Card } from "react-bootstrap";
-import { useNavigate } from 'react-router-dom';
-import StarRating from "../ui/StarRating"
 
 // properties for each partners from partners.json
 interface PartnerCardProps {
@@ -11,7 +9,7 @@ interface PartnerCardProps {
 }
 
 // id is index of each partner in partners.json
-const PartnerCard = ({ partner, id } : PartnerCardProps) => {
+const PartnerCard = ({ partner, id, onClick } : PartnerCardProps) => {
     const { photos, name, rating, numberOfRating, address, categories } = partner || {}
     const imageSrc = (photos && photos.length > 0) ? photos[0] : '/vite.svg'
     const displayRating = typeof rating === 'number' ? rating.toFixed(1) : (rating ? String(rating) : '0.0')
@@ -21,6 +19,7 @@ const PartnerCard = ({ partner, id } : PartnerCardProps) => {
             <Card
                 className="h-100 border-0 shadow-sm cursor-pointer transition-all hover:shadow-lg"
                 style={{ cursor: "pointer" }}
+                onClick={onClick}
             >
                 {/* Partner Image */}
                 <div style={{ height: "200px", overflow: "hidden" }}>
@@ -83,35 +82,5 @@ const PartnerCard = ({ partner, id } : PartnerCardProps) => {
         </div>
     )
 }
-
-/* const PartnerCard = ({
-    id, photo, name, rating, numberOfRating, address, categories, district, canViewDetail
-}: PartnerCardProps) => {
-
-    // go to detail page to book
-    const navigate = useNavigate();
-    const goToDetail = (partnerIdx: number) => {
-        navigate(`/results/${partnerIdx}`)
-    }
-
-    return (
-        <Card bg="light" style={{ width: "25rem", textAlign: 'left' }} key={id }>
-            <Card.Img variant="top" src={photo} />
-            <Card.Body>
-                <Card.Title><p style={{ color: '#000'}}>{name}</p></Card.Title>
-                <Card.Text style={{ color: '#000', fontSize: '1rem', fontWeight: 'bold' }}>
-                    {rating}
-                    <StarRating />
-                    ({numberOfRating})
-                </Card.Text>
-                <Card.Text style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{`${address ? address : district}`}</Card.Text>
-                <Card.Text style={{ color: '#000' }}>{categories.map(category => (
-                    <span key={category} style={{ marginRight: '0.5rem', padding: '0.25rem 0.5rem', border: '1px solid #ccc', borderRadius: '0.25rem', fontSize: '0.875rem' }}>{category}</span>
-                ))}</Card.Text>
-                {canViewDetail ? <Button variant="info" onClick={() => goToDetail(id)}>View detail</Button> : null}
-            </Card.Body>
-        </Card>
-    )
-} */
 
 export default PartnerCard;
