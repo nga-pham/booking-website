@@ -1,4 +1,4 @@
-﻿import { useEffect, useState, } from 'react';
+﻿import { useEffect, useState, useRef } from 'react';
 import { Col, Container, Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -8,24 +8,29 @@ import SearchForm from '../components/SearchForm';
 import MyBreadCrumb from '../components/ui/MyBreadCrumb';
 import ResultList from "../components/ResultList";
 import partnerData from "../data/partners.json";
+import { uniqueCategories } from '../lib/utils';
 
 const Results = () => {
     /* Get search criteria from Landing page */
     // get selected service, date and time from landing page
     const location = useLocation();
-    let { state } = location as any; // Destructure the state object from location : {category : string[], date, startTime, endTime }
-    // Extract all unique categories from the services data
-    const allCategories = partnerData.flatMap(venue => venue.categories);
-    const uniqueCategories = [...new Set(allCategories)].sort();
+    const locationState = (location as any).state; // router-provided state: {category : string[], date, startTime, endTime }
     
     // Use case 1.1: handle error: when there is no state
-    if (!state || state === null) {
-        state = {
-            category: uniqueCategories,
-            date: new Date(),
-            startTime: 0,
-            endTime: 86400
-        }
+    // Also allow reading search params as a fallback so the route can be opened directly
+    const params = new URLSearchParams(location.search);
+    const paramCategory = params.get('category'); // comma separated
+    const paramStart = params.get('start');
+    const paramEnd = params.get('end');
+
+    // capture the location state at mount so later changes (or clearing) won't overwrite
+    const initialLocationStateRef = useRef(locationState);
+
+    const initialSearchState = (initialLocationStateRef.current ?? locationState) ?? {
+        category: paramCategory ? paramCategory.split(',') : uniqueCategories,
+        date: new Date(),
+        startTime: paramStart ?? 0,
+        endTime: paramEnd ?? 86400
     }
 
     
@@ -34,34 +39,90 @@ const Results = () => {
     const [filteredData, setFilteredData] = useState<any[]>(partnerData)
 
     // Use case 1: filter data based on search from landing page
-    const handleInitialSearch = (category, startTime, endTime) => {
-        let tempData: any[] = []
-        partnerData.map(partner => {
-            const { categories } = partner
-            category.map(cat => {
-                categories.map(item => {
-                    if (item === cat) tempData.push(partner)
-                })
-            })
-        })
+    const handleInitialSearch = (categoriesToMatch, startTime, endTime) => {
+        console.log('handleInitialSearch called with:', { categoriesToMatch, startTime, endTime })
+        // normalize category list
+        const wantedCategories = Array.isArray(categoriesToMatch) ? categoriesToMatch : [categoriesToMatch]
+        // If the UI uses a human label for "all" (e.g. "All treatments and venues"),
+        // expand it to the real list of categories so matching works.
+        let normalizedWanted = wantedCategories
+        if (normalizedWanted.length === 1 && typeof normalizedWanted[0] === 'string') {
+            const label = normalizedWanted[0].toLowerCase()
+            if (label.includes('all') || label.includes('treatments') || label.includes('venues')) {
+                normalizedWanted = uniqueCategories
+            }
+        }
+        console.log('Normalized wantedCategories count:', normalizedWanted.length)
 
-        tempData = Array.from(new Set(tempData)).filter(item => {
-            const startTimeInDate = new Date(new Date(`1970-01-01T${startTime}Z`))
-            const startTimeInSeconds = startTimeInDate.getUTCHours() * 3600 + startTimeInDate.getUTCMinutes() * 60
-            const endTimeInDate = new Date(new Date(`1970-01-01T${endTime}Z`))
-            const endTimeInSeconds = endTimeInDate.getUTCHours() * 3600 + endTimeInDate.getUTCMinutes() * 60
-            if (startTime <= startTimeInSeconds && endTime >= endTimeInSeconds) return item
+        // helper to parse time inputs (either number in seconds or 'HH:MM' string)
+        const parseToSeconds = (t: any) => {
+            if (typeof t === 'number' && !isNaN(t)) return t
+            if (typeof t === 'string') {
+                // accept 'HH:MM' or 'HH:MM:SS'
+                const parts = t.split(':').map(p => Number(p))
+                if (parts.length >= 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+                    return (parts[0] * 3600) + (parts[1] * 60) + (parts[2] ? parts[2] : 0)
+                }
+                const n = Number(t)
+                return isNaN(n) ? 0 : n
+            }
+            return 0
+        }
+
+        const reqStart = parseToSeconds(startTime)
+        const reqEnd = parseToSeconds(endTime)
+        console.log('Parsed requested start/end (seconds):', { reqStart, reqEnd })
+
+        const matched: any[] = []
+        partnerData.forEach(partner => {
+            const partnerCats = Array.isArray(partner.categories) ? partner.categories : []
+            const intersect = partnerCats.some((c: any) => normalizedWanted.includes(c))
+            if (intersect) matched.push(partner)
         })
-        setFilteredData(tempData)
+        console.log('Matched by category (count):', matched.length)
+
+        // remove duplicates and then filter by time availability
+        const unique = Array.from(new Set(matched))
+        const filteredByTime = unique.filter(item => {
+            const pStart = parseToSeconds(item.startTime)
+            const pEnd = parseToSeconds(item.endTime)
+
+            // If the user didn't set any time (full day), don't filter by time
+            if (reqStart === 0 && reqEnd >= 86400) {
+                return true
+            }
+
+            // If the user provided a start but left end as the default 'end of day',
+            // treat this as "available at that start time" rather than requiring
+            // the partner to stay open until midnight.
+            if (reqEnd >= 86400) {
+                // Treat requested end as "any time after start" — accept any partner
+                // that has availability after the requested start time.
+                return pEnd > reqStart
+            }
+
+            // Normal case: partner must cover the whole requested slot
+            return pStart <= reqStart && pEnd >= reqEnd
+        })
+        console.log('After time filter counts:', { unique: unique.length, filteredByTime: filteredByTime.length, reqStart, reqEnd })
+
+        setFilteredData(filteredByTime)
     }
 
     /* Use case 2: Get search criteria from Result page */
 
 
     useEffect(() => {
-        const { category, startTime, endTime } = state
+        // If we navigated here with state, prefer the captured initial state.
+        // If not, fall back to URL params.
+        const { category, startTime, endTime } = initialSearchState
         handleInitialSearch(category, startTime, endTime)
-    }, [])
+    }, [location.search, locationState])
+
+    // Log filteredData length when it changes to help debugging
+    useEffect(() => {
+        console.log('Results: filteredData length =', filteredData.length, 'locationState =', locationState)
+    }, [filteredData.length, locationState])
 
     // add label and handle change for choosing name
     // const [nameValue, setNameValue] = useState<string>(""); // Initial value for the name
@@ -107,7 +168,7 @@ const Results = () => {
 
                     {/* previous search criteria */}
                     <Row className="mt-2">
-                        <SearchForm category={state.category} date={state.date} startTime={state.startTime} endTime={state.endTime} />
+                        <SearchForm category={initialSearchState.category} date={initialSearchState.date} startTime={initialSearchState.startTime} endTime={initialSearchState.endTime} />
                     </Row>
 
                     <Row className="g-5 mt-2">

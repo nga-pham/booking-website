@@ -9,6 +9,7 @@ import { toast } from 'sonner';
 import DropdownItem, { categoryIconMap } from '../components/ui/SearchDropdownItem';
 import partnersData from "../data/partners.json";
 import { isEndTimeBeforeStartTime } from "../lib/utils"
+import { uniqueCategories } from "../lib/utils";
 
 // interface of data to pass to result page
 interface resultsStateProps {
@@ -20,10 +21,7 @@ interface resultsStateProps {
 
 const HeroSection = () => {
 
-    // Choose categories from dropdown
-    // Extract all unique categories from the services data
-    const allCategories = partnersData.flatMap(venue => venue.categories);
-    const uniqueCategories = [...new Set(allCategories)].sort();
+    /* Choose categories from dropdown */
     // set selected category
     const [selectedCat, setSelectedCat] = useState<string>("All treatments and venues");
     const changeSelectedCategory = (category: string) => {

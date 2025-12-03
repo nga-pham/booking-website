@@ -7,13 +7,11 @@ import { toast } from 'sonner';
 import DropdownItem, { categoryIconMap } from '../components/ui/SearchDropdownItem';
 import partnerData from "../data/partners.json";
 import { isEndTimeBeforeStartTime } from "../lib/utils";
+import { uniqueCategories } from '../lib/utils';
 
 // props is state from landing page
 const SearchForm = (props) => {
     // Choose categories from dropdown
-    // Extract all unique categories from the services data
-    const allCategories = partnerData.flatMap(venue => venue.categories);
-    const uniqueCategories = [...new Set(allCategories)].sort();
     // set selected categories
     // selectedCat is text from dropdown, while selectedCategories is different; it's all the categories chosen
     const [selectedCat, setSelectedCat] = useState<string>(() =>

@@ -14,4 +14,8 @@ export const isEndTimeBeforeStartTime = (start: number, end: number): boolean =>
     return (end - start) <= 0;
 }
 
-export const partnerDataWithId : any[] =  partnerData.map((partner:any, _idx) => ({ ...partner, id: _idx }))
+export const partnerDataWithId: any[] = partnerData.map((partner: any, _idx) => ({ ...partner, id: _idx }))
+
+// Extract all unique categories from the services data
+const allCategories = partnerData.flatMap(venue => venue.categories);
+export const uniqueCategories = [...new Set(allCategories)].sort();

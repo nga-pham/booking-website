@@ -12,7 +12,10 @@ interface PartnerCardProps {
 
 // id is index of each partner in partners.json
 const PartnerCard = ({ partner, id } : PartnerCardProps) => {
-    const { photos, name, rating, numberOfRating, address, categories } = partner
+    const { photos, name, rating, numberOfRating, address, categories } = partner || {}
+    const imageSrc = (photos && photos.length > 0) ? photos[0] : '/vite.svg'
+    const displayRating = typeof rating === 'number' ? rating.toFixed(1) : (rating ? String(rating) : '0.0')
+    const displayCategories = Array.isArray(categories) ? categories : []
     return (
         <div key={id} className="col-md-4">
             <Card
@@ -23,8 +26,8 @@ const PartnerCard = ({ partner, id } : PartnerCardProps) => {
                 <div style={{ height: "200px", overflow: "hidden" }}>
                     <Card.Img
                         variant="top"
-                        src={photos[0]}
-                        alt={name}
+                        src={imageSrc}
+                        alt={name || 'partner image'}
                         style={{
                             height: "100%",
                             objectFit: "cover",
@@ -41,25 +44,25 @@ const PartnerCard = ({ partner, id } : PartnerCardProps) => {
 
                 <Card.Body className="p-4">
                     {/* Partner Name */}
-                    <h5 className="font-bold mb-2" style={{ fontSize: "1.1rem" }}>
-                        {name}
+                        <h5 className="font-bold mb-2" style={{ fontSize: "1.1rem" }}>
+                        {name || 'No name'}
                     </h5>
 
                     {/* Rating */}
                     <div className="d-flex align-items-center gap-2 mb-3">
-                        <span className="font-semibold">{rating.toFixed(1)}</span>
+                        <span className="font-semibold">{displayRating}</span>
                         <Star size={16} fill="#FFC107" color="#FFC107" />
                         <span className="text-muted">({numberOfRating})</span>
                     </div>
 
                     {/* Address */}
                     <p className="text-muted mb-3" style={{ fontSize: "0.9rem" }}>
-                        {address}
+                        {address || ''}
                     </p>
 
                     {/* Categories */}
                     <div className="d-flex gap-2 flex-wrap">
-                        {categories.slice(0, 2).map((category, idx) => (
+                        {displayCategories.slice(0, 2).map((category, idx) => (
                             <Badge
                                 key={idx}
                                 bg="light"
