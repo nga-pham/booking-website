@@ -58,8 +58,6 @@ const Detail = () => {
     // Check if currently open or closed. Then display different text accordingly
     const [hoursOpen, setHoursOpen] = useState(false);
     const isOpen = startHour <= currentHour && currentHour <= endHour;
-    // debug info
-    console.log('Detail: isOpen, startHour, endHour, currentHour', { isOpen, startHour, endHour, currentHour })
 
     const openOrCloseText = isOpen ?
         (
