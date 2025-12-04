@@ -10,7 +10,8 @@ import { partnerDataWithId } from "../lib/utils";
 import About from "../components/About";
 import OpeningTimes from "../components/OpeningTimes";
 import GetDirectionLink from "../components/ui/GetDirectionLink";
-import { ChevronDown, Circle, Clock } from "lucide-react";
+import { ChevronDown, ChevronUp, Circle, Clock, MapPin } from "lucide-react";
+import { useState } from "react";
 
 /* child components */
 const NoPartner = () => {
@@ -45,7 +46,7 @@ const Detail = () => {
     }
 
     /*For basic information*/
-    const { name, rating, numberOfRating, address, photos, services, startTime, endTime, openingTimes } = currentPartner
+    const { name, rating, numberOfRating, address, photos, services, startTime, endTime } = currentPartner
     // get current time
     const now = new Date();
     const currentHour = now.getHours() + now.getMinutes() / 60;
@@ -55,39 +56,53 @@ const Detail = () => {
     timeParts = endTime.split(':');
     const endHour = parseInt(timeParts[0], 10) + parseFloat(timeParts[1]) / 60;
     // Check if currently open or closed. Then display different text accordingly
-    const openOrCloseText = (startHour <= currentHour && currentHour <= endHour)
-        ?
-        <Dropdown className="mb-3">
-            <Dropdown.Toggle
-                variant="link"
-                className="d-flex align-items-center gap-2 w-100 text-decoration-none p-0 border-0 bg-transparent shadow-none"
-                style={{ color: 'inherit' }}
-            >
-                <Clock size={18} className="text-foreground" />
-                <span className="text-green-600 font-medium text-sm">Open until {endTime}</span>
-                <ChevronDown size={16} className="ms-auto text-foreground" />
-            </Dropdown.Toggle>
+    const [hoursOpen, setHoursOpen] = useState(false);
+    const isOpen = startHour <= currentHour && currentHour <= endHour;
+    // debug info
+    console.log('Detail: isOpen, startHour, endHour, currentHour', { isOpen, startHour, endHour, currentHour })
 
-            <Dropdown.Menu className="w-100" style={{ minWidth: '100%' }}>
-                {openingTimes.map((time, idx) => (
-                    <Dropdown.Item key={idx} as="div" className="d-flex align-items-center justify-content-between">
-                        <div className="d-flex align-items-center">
-                            <Circle size={12} fill="#78D240" color="#78D240" style={{marginRight: '1rem'}} />
-                            <span className="fw-medium">{time.date}</span>
-                        </div>
-                        <div>{time.startTime} - {time.endTime}</div>
-                    </Dropdown.Item>
-                ))}
-            </Dropdown.Menu>
-        </Dropdown>
-        : (
-            // Use a fragment for the else branch so both spans are returned together
-            <>
+    const openOrCloseText = isOpen ?
+        (
+            <span className="mb-3">
+                <div
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => setHoursOpen(!hoursOpen)}
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setHoursOpen(!hoursOpen) }}
+                    style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem', width: '100%', padding: 0 }}
+                >
+                    <Clock size={18} className="text-foreground" />
+                    <span style={{ color: '#16a34a', fontWeight: 500 }}>Open until {currentPartner.endTime}</span>
+                    <ChevronUp
+                        size={16}
+                        style={{ marginLeft: 'auto', transform: hoursOpen ? 'rotate(0deg)' : 'rotate(180deg)', transition: 'transform 0.2s' }}
+                    />
+                </div>
+
+                {hoursOpen && (
+                    <div className="mt-3 ps-1">
+                        {currentPartner.openingTimes.map((time, idx) => (
+                            <div key={idx} className="d-flex align-items-center justify-content-between py-2">
+                                <div className="d-flex align-items-center gap-2">
+                                    <div className="rounded-circle bg-success" style={{ width: "8px", height: "8px" }} />
+                                    <span className="fw-medium">{time.date}</span>
+                                </div>
+                                <span>
+                                    {time.startTime} - {time.endTime}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </span>
+        ) : (
+            <div>
                 <span style={{ color: "#FF0000" }}>Closed</span>
                 <span>. Open tomorrow from {startTime}</span>
-            </>
+            </div>
         );
 
+    // handle navigation to booking page
     const navigate = useNavigate();
     const goToBooking = () => {
         navigate(`/results/${id}/booking`)
@@ -105,26 +120,34 @@ const Detail = () => {
                     </Row>
 
                     {/*basic information here*/}
-                    <Row className="text-start g-5 mt-2">
+                    <Row className="text-start g-5 mt-2 mb-4">
                         <h1 style={{ fontWeight: 'bold' }}>{name}</h1>
-                        <p>
+                        <div>
                             <span style={{ fontWeight: 'bold' }}>{rating}</span>
                             <StarRating />
-                            ({numberOfRating}) . {openOrCloseText}
+                            ({numberOfRating}) . <span style={{ color: '#16a34a', fontWeight: 500 }}>Open until {currentPartner.endTime}</span>
                             . <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{address}</span>
-                        </p>
+                        </div>
                     </Row>
 
                     {/*photos here*/}
                     <Row>
                         <Carousel>
-                            {Array.from({ length: 3 }, (_, _index) => {
-                                return (
-                                    <Carousel.Item key={_index}>
-                                        <img src={photos} alt={`Photo ${_index + 1}`} className="d-block w-100" />
-                                    </Carousel.Item>
+                            {Array.isArray(photos) ?
+                                photos.map((photo, photoIndex) => {
+                                    return (
+                                        <Carousel.Item key={photoIndex}>
+                                            <img
+                                                src={photo}
+                                                alt={`Photo ${photoIndex + 1}`}
+                                                className="d-block w-100"
+                                            />
+                                        </Carousel.Item>
+                                    )
+                                }
                                 )
-                            })}
+                                : <img src={photos} alt='Photo' className="d-block w-100" />
+                            }
                         </Carousel>
                     </Row>
 
@@ -159,8 +182,11 @@ const Detail = () => {
                                         </Button>
                                     </Card.Body>
                                     <Card.Footer style={{ backgroundColor: "white" }}>
-                                        <p>{openOrCloseText} </p>
-                                        <p><span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{address} . </span><GetDirectionLink address={address} /></p>
+                                        <div>{openOrCloseText}</div>
+                                        <div>
+                                            <MapPin size={18} className="text-foreground" />
+                                            <span style={{ color: 'rgba(0, 0, 0, 0.5)', marginLeft: '0.5rem' }}>{address} . </span><GetDirectionLink address={address} />
+                                        </div>
                                     </Card.Footer>
                                 </Card>
                             </div>

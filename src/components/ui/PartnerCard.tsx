@@ -1,6 +1,7 @@
 ﻿import { Star } from 'lucide-react';
 import { Badge, Button, Card } from "react-bootstrap";
 
+
 // properties for each partners from partners.json
 interface PartnerCardProps {
     id: number | 0;
@@ -11,7 +12,7 @@ interface PartnerCardProps {
 // id is index of each partner in partners.json
 const PartnerCard = ({ partner, id, onClick } : PartnerCardProps) => {
     const { photos, name, rating, numberOfRating, address, categories } = partner || {}
-    const imageSrc = (photos && photos.length > 0) ? photos[0] : '/vite.svg'
+    const imageSrc = (photos && photos.length > 0) ? photos[0] : "https://www.pikpng.com/pngl/m/154-1540525_male-user-filled-icon-my-profile-icon-png.png"
     const displayRating = typeof rating === 'number' ? rating.toFixed(1) : (rating ? String(rating) : '0.0')
     const displayCategories = Array.isArray(categories) ? categories : []
     return (
