@@ -22,8 +22,8 @@ const InformationFormBooking = ({ sendDataToBookingPage }) => {
         setCity(selectedCity);
         // Reset district when city changes
         setDistrict('');
-        // Find the selected city's districts in the data
-        const cityData = cities.find(data => data.city === city);
+        // Find the selected city's districts in the data (use selectedCity, not stale state)
+        const cityData = cities.find(data => data.city === selectedCity);
         if (cityData) {
             setAvailableDistricts(cityData.districts);
         } else {
@@ -124,7 +124,7 @@ const InformationFormBooking = ({ sendDataToBookingPage }) => {
                     <Form.Group as={Col} controlId="formGridCity">
                         <Form.Label>City<span className="text-danger">*</span></Form.Label>
                         <Form.Select onChange={handleCityChange}>
-                            <option disabled value="">Choose...</option>
+                            <option value="">Choose...</option>
                             {cities.map((data) => (
                                 <option key={data.city} value={data.city}>{data.city}</option>
                             ))}
