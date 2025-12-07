@@ -1,34 +1,36 @@
-﻿import { Calendar, ChevronRight, Rows4, Search, Sparkles, Timer } from 'lucide-react';
+﻿import { Calendar, ChevronRight, Search, Sparkles, Timer } from 'lucide-react';
 import { useState } from 'react';
-import { Button, Col, Dropdown, Form, InputGroup, Row } from "react-bootstrap";
+import { Button, Col, Dropdown, Row } from "react-bootstrap";
 import TimePicker from 'react-bootstrap-time-picker';
 import DatePicker from "react-datepicker";
 import { toast } from 'sonner';
 import DropdownItem, { categoryIconMap } from '../components/ui/SearchDropdownItem';
-import partnerData from "../data/partners.json";
-import { isEndTimeBeforeStartTime } from "../lib/utils";
-import { uniqueCategories } from '../lib/utils';
+import { isEndTimeBeforeStartTime, uniqueCategories } from "../lib/utils";
 
 // props is state from landing page
 const SearchForm = (props) => {
+    const { category, date, startTime, endTime } = props;
+
     // Choose categories from dropdown
     // set selected categories
     // selectedCat is text from dropdown, while selectedCategories is different; it's all the categories chosen
     const [selectedCat, setSelectedCat] = useState<string>(() =>
-        props.category && props.category.length === 1 ? props.category[0] : "All treatments and venues"
+        category && category.length === 1 ? category[0] : "All treatments and venues"
     );
     const [selectedCategories, setSelectedCategories] = useState<string[]>(() =>
-        props.category && props.category.length === 1 ? props.category : Array.from(uniqueCategories)
+        category && category.length === 1 ? category : Array.from(uniqueCategories)
     )
-    const changeSelectedCategories = (category) => {
-        setSelectedCat(category)
-        if (selectedCat === "All treatments and venues") {
+    const changeSelectedCategories = (categoryParam) => {
+        setSelectedCat(categoryParam)
+        if (categoryParam === "All treatments and venues") {
             setSelectedCategories(Array.from(uniqueCategories))
-        } else setSelectedCategories([selectedCat])
+        } else {
+            setSelectedCategories([categoryParam])
+        }
     };
 
     // Get selected date from landing page and change when user selects a new date
-    const [selectedDate, setSelectedDate] = useState<Date | null>(props.date ? new Date(props.date) : new Date());
+    const [selectedDate, setSelectedDate] = useState<Date | null>(date ? new Date(date) : new Date());
     const changeDate = (value: Date | null) => setSelectedDate(value);
 
     // Get selected time range from landing page and change when user selects a new time range
@@ -44,9 +46,23 @@ const SearchForm = (props) => {
             toast.error("Invalid time range", {
                 description: "End time must be after start time"
             });
-            // else update
-        } else {
+            return;
         }
+
+        const payload = {
+            category: selectedCategories,
+            date: selectedDate,
+            startTime: selectedStartTime,
+            endTime: selectedEndTime
+        }
+
+        // If an onSearch handler was provided (Results page), call it to update results in-place.
+        if (typeof props.onSearch === 'function') {
+            props.onSearch(payload)
+            return
+        }
+
+        // Fallback behaviour: do nothing here (SearchForm is currently only used inside Results)
     }
 
     return (
@@ -144,101 +160,6 @@ const SearchForm = (props) => {
                 </Col>
             </Row>
         </div>
-        // <Form className="w-100">
-        //     <div className="d-flex w-100 align-items-center rounded-pill bg-white shadow-sm p-2">
-        //         {/*input group to the left*/}
-        //         <InputGroup className=" flex-grow-1">
-        //             {/*list services*/}
-        //             <InputGroup.Text className="border-0 bg-transparent">
-        //                 <Search />
-        //             </InputGroup.Text>
-        //             <Dropdown>
-        //                 <Dropdown.Toggle variant="light" id="dropdown-basic">
-        //                     {selectedCat}
-        //                 </Dropdown.Toggle>
-        //                 <Dropdown.Menu
-        //                     className="p-2 shadow-lg border"
-        //                     style={{
-        //                         zIndex: 9999,
-        //                         minWidth: "320px",
-        //                         backgroundColor: "white"
-        //                     }}
-        //                 >
-        //                     <DropdownItem icon={Rows4} category="All treatments and venues"
-        //                         onClick={() => changeSelectedCategories("All treatments and venues")}
-        //                     />
-        //                     <hr />
-        //                     {uniqueCategories.map((category, index) => {
-        //                         const Icon = categoryIconMap[category] || Sparkles;
-        //                         return (
-        //                             <DropdownItem key={index} icon={Icon} category={category}
-        //                                 onClick={() => changeSelectedCategories(category)}
-        //                             />
-        //                         )
-        //                     }
-        //                     )}
-        //                 </Dropdown.Menu>
-        //             </Dropdown>
-
-        //             {/*date picker*/}
-        //             <div className="vr"></div> {/* This creates the vertical line */}
-        //             <InputGroup.Text className="border-0 bg-transparent">
-        //                 <Calendar />
-        //             </InputGroup.Text>
-        //             <div className="mt-1">
-        //                 <DatePicker
-        //                     selected={selectedDate}
-        //                     onChange={changeDate}
-        //                     className="form-control border-0 bg-white"
-        //                     dateFormat="dd-MM-yyyy"
-        //                 />
-        //             </div>
-
-        //             {/*time picker*/}
-        //             <div className="vr"></div> {/* This creates the vertical line */}
-        //             <InputGroup.Text className="border-0 bg-transparent">
-        //                 <Timer />
-        //             </InputGroup.Text>
-        //             <Dropdown>
-        //                 <Dropdown.Toggle variant="link" id="dropdown-basic" className="no-outline-dropdown" style={{ width: '200px' }}>
-        //                     Any time
-        //                 </Dropdown.Toggle>
-
-        //                 <Dropdown.Menu style={{ width: '400px' }} >
-        //                     <div className="p-3 d-flex flex-row">
-        //                         <span className="mt-1">From</span>&nbsp;&nbsp;
-        //                         <TimePicker
-        //                             start="00:00"
-        //                             end="23:00"
-        //                             step={60}
-        //                             value={selectedStartTime}
-        //                             onChange={changeStartTime}
-        //                         />
-        //                         &nbsp;&nbsp;<span className="mt-1">To</span>&nbsp;&nbsp;
-        //                         <TimePicker
-        //                             start="01:00"
-        //                             end="24:00"
-        //                             step={60}
-        //                             value={selectedEndTime}
-        //                             onChange={changeEndTime}
-        //                         />
-        //                     </div>
-        //                 </Dropdown.Menu>
-        //             </Dropdown>
-
-        //         </InputGroup>
-
-        //         {/*button to the right*/}
-        //         <div className="vr"></div>
-        //         &nbsp;&nbsp;
-        //         <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"
-        //             style={{ backgroundColor: 'black', color: "white" }}
-        //             onClick={updateList}
-        //         >
-        //             Search <ChevronRight size={20} />
-        //         </Button>
-        //     </div>
-        // </Form>
     )
 }
 

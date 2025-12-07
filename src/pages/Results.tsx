@@ -1,12 +1,12 @@
-﻿import { useEffect, useState, useRef } from 'react';
+﻿import { useEffect, useRef, useState } from 'react';
 import { Col, Container, Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import ResultList from "../components/ResultList";
 import SearchForm from '../components/SearchForm';
 import MyBreadCrumb from '../components/ui/MyBreadCrumb';
-import ResultList from "../components/ResultList";
 import partnerData from "../data/partners.json";
 import { uniqueCategories } from '../lib/utils';
 
@@ -39,7 +39,7 @@ const Results = () => {
     const [filteredData, setFilteredData] = useState<any[]>(partnerData)
 
     // Use case 1: filter data based on search from landing page
-    const handleInitialSearch = (categoriesToMatch, startTime, endTime) => {
+    const handleSearch = (categoriesToMatch, startTime, endTime) => {
         // normalize category list
         const wantedCategories = Array.isArray(categoriesToMatch) ? categoriesToMatch : [categoriesToMatch]
         // If the UI uses a human label for "all" (e.g. "All treatments and venues"),
@@ -111,7 +111,7 @@ const Results = () => {
         // If we navigated here with state, prefer the captured initial state.
         // If not, fall back to URL params.
         const { category, startTime, endTime } = initialSearchState
-        handleInitialSearch(category, startTime, endTime)
+        handleSearch(category, startTime, endTime)
     }, [location.search, locationState])
 
     // Log filteredData length when it changes to help debugging
@@ -163,11 +163,21 @@ const Results = () => {
 
                     {/* previous search criteria */}
                     <Row className="mt-2">
-                        <SearchForm category={initialSearchState.category} date={initialSearchState.date} startTime={initialSearchState.startTime} endTime={initialSearchState.endTime} />
+                        <SearchForm
+                            category={initialSearchState.category}
+                            date={initialSearchState.date}
+                            startTime={initialSearchState.startTime}
+                            endTime={initialSearchState.endTime}
+                            onSearch={(payload) => {
+                                // update the captured initial state so subsequent effects don't overwrite
+                                initialLocationStateRef.current = payload
+                                const { category, startTime, endTime } = payload
+                                handleSearch(category, startTime, endTime)
+                            }}
+                        />
                     </Row>
 
                     <Row className="g-5 mt-2">
-
                         {/*filter*/}
                         {/* <Col lg={4} >
                             <Container style={{ backgroundColor: "#F8F9FA" }}>
@@ -222,14 +232,18 @@ const Results = () => {
                         </Col> */}
 
                         {/*results from filter and search*/}
-                        <Col lg={8}>
-                            {filteredData.length > 0 ? <ResultList filteredData={filteredData} />
+                        {/* <Col lg={8}> */}
+                            {filteredData.length > 0 ? 
+                            <>
+                            {filteredData.length === 1 ? <h2 style={{textAlign: 'left'}}>{filteredData.length} shop found</h2> : <h2 style={{textAlign: 'left'}}>{filteredData.length} shops found</h2>}
+                            <ResultList filteredData={filteredData} />
+                            </>
                                 :
                                 <div className="bg-white rounded-3 shadow-sm p-5 text-center">
                                     <p className="text-muted mb-0">No venues found matching your criteria.</p>
                                 </div>
                             }
-                        </Col>
+                        {/* </Col> */}
                     </Row>
                 </Container>
             </section>

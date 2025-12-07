@@ -1,17 +1,17 @@
-﻿import { Button, Card, Carousel, Col, Container, Dropdown, Row } from "react-bootstrap";
+﻿import { ChevronUp, Clock, MapPin } from "lucide-react";
+import { useState } from "react";
+import { Button, Card, Carousel, Col, Container, Row } from "react-bootstrap";
 import { useNavigate, useParams } from 'react-router-dom';
+import About from "../components/About";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import OpeningTimes from "../components/OpeningTimes";
 import ReviewList from "../components/ReviewList";
 import ServiceTabs from "../components/ServiceTabs";
+import GetDirectionLink from "../components/ui/GetDirectionLink";
 import MyBreadCrumb from "../components/ui/MyBreadCrumb";
 import StarRating from "../components/ui/StarRating";
 import { partnerDataWithId } from "../lib/utils";
-import About from "../components/About";
-import OpeningTimes from "../components/OpeningTimes";
-import GetDirectionLink from "../components/ui/GetDirectionLink";
-import { ChevronDown, ChevronUp, Circle, Clock, MapPin } from "lucide-react";
-import { useState } from "react";
 
 /* child components */
 const NoPartner = () => {

@@ -10,7 +10,7 @@ const ResultList = ({ filteredData }) => {
             navigate(`/results/${index}`);
         };
 
-    return <Row md={1} lg={2} className="g-4">
+    return <Row md={1} lg={3} className="g-4">
         {filteredData.map((partner, _idx) => {
             return (
                 <PartnerCard

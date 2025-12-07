@@ -25,7 +25,7 @@ User can choose date from date picker. Default is today’s date. All previous d
 
 User can choose time from time picker. Default start time is "00:00" and end time is "24:00".
 
-When user clicks button "Search", the system will check if start time is before end time. If this is a case, throw an error. If not, redirect to result page.
+When user clicks button "Search", the system will check if start time is before end time. If this is a case, throw an error. If not, redirect to result page with search criteria.
 
 ![Flow chart for searching here](./Flow-chart-search.png "Flow chart for searching here")
 
@@ -59,7 +59,7 @@ After searching, the system will redirect to result page to choose the options. 
 
 In main section:
 * First, user can see a breadcrumbs: current page location within a navigational hierarchy.
-* Then, user can see a search form, with search criteria passed from landing page. To refine the search, user can fill in or choose keywords (same as in landing page) and click button "search".
+* Then, user can see a search form, with search criteria passed from landing page. To refine the search, user can fill in or choose keywords (same as in landing page) and click button "search". The list will be updated based on new search.
 
 ![Flow chart for refined searching here](./Flow-chart-refine-search.png "Flow chart for refined searching here")
 
