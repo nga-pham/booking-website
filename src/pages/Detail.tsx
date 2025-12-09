@@ -10,7 +10,7 @@ import ReviewList from "../components/ReviewList";
 import ServiceTabs from "../components/ServiceTabs";
 import GetDirectionLink from "../components/ui/GetDirectionLink";
 import MyBreadCrumb from "../components/ui/MyBreadCrumb";
-import StarRating from "../components/ui/StarRating";
+import {StarFilled} from "../components/ui/StarsRating";
 import { partnerDataWithId } from "../lib/utils";
 
 /* child components */
@@ -122,7 +122,7 @@ const Detail = () => {
                         <h1 style={{ fontWeight: 'bold' }}>{name}</h1>
                         <div>
                             <span style={{ fontWeight: 'bold' }}>{rating}</span>
-                            <StarRating />
+                            <StarFilled />
                             ({numberOfRating}) . <span style={{ color: '#16a34a', fontWeight: 500 }}>Open until {currentPartner.endTime}</span>
                             . <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{address}</span>
                         </div>
@@ -169,7 +169,7 @@ const Detail = () => {
                                         </Card.Title>
                                         <Card.Text style={{ fontSize: '1.25rem' }}>
                                             <strong>{rating}</strong>
-                                            <StarRating />
+                                            <StarFilled />
                                             ({numberOfRating})
                                         </Card.Text>
                                         <Button variant="primary" size="lg" className="d-flex align-items-center ml-2 rounded-pill"

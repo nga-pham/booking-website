@@ -1,21 +1,6 @@
-﻿import { Star } from 'lucide-react';
-import { Col } from "react-bootstrap";
+﻿import { Col } from "react-bootstrap";
 
-const StarNoFill = () => <Star color="orange" strokeWidth={1} size={12} style={{ marginBottom: '0.25rem' }} />
-const MyStar = () => <Star fill="orange" strokeWidth={0} size={12} style={{ marginBottom: '0.25rem' }} />
-
-// display filled stars based on rating
-const StarsRating = ({ rating }) => {
-    const numberOfStars = 5
-    let starArray = []
-    for (let i = 0; i < rating; i++) {
-        starArray.push(<MyStar />)
-    }
-    for (let i = rating; i < numberOfStars; i++) {
-        starArray.push(<StarNoFill />)
-    }
-    return starArray
-}
+import StarsRating from './StarsRating';
 
 // display letter avatar if no avatar presented
 const LetterAvatar = ({ name }) => {
@@ -56,14 +41,14 @@ const Review: React.FC<ReviewProps> = ({
     return (
         <Col lg={6} className="mt-3">
             <div className="d-flex flex-row w-100">
-                <div>{avatar && avatar.length > 0 ? <img src={avatar} width="80px" height="80px" /> : <LetterAvatar name={reviewer} /> }</div>
+                <div>{avatar && avatar.length > 0 ? <img src={avatar} width="80px" height="80px" /> : <LetterAvatar name={reviewer} />}</div>
                 <div className="d-flex flex-column h-100">
                     <h5>{reviewer}</h5>
                     <p style={{ color: 'rgba(0, 0, 0, 0.5)' }}>{date} at {time}</p>
                 </div>
             </div>
-            <StarsRating rating={rating } />
-                <p>{comment}</p>
+            <StarsRating rating={rating} />
+            <p>{comment}</p>
         </Col>
     )
 }

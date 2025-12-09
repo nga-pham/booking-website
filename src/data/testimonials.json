@@ -1,0 +1,66 @@
+[
+  {
+    "rating": 5,
+    "title": "The best booking system",
+    "description": "Great experience, easy to book. Paying for treatments is so convenient — no cash or cards needed!",
+    "name": "Lucy",
+    "location": "London, UK",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    "rating": 4.9,
+    "title": "Easy to use & explore",
+    "description": "Fresha's reminders make life so much easier. I also found a few good barbershops that I didn't know existed.",
+    "name": "Dan",
+    "location": "New York, USA",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    "rating": 4.8,
+    "title": "Great for finding barbers",
+    "description": "I've been using Fresha for two years and it's by far the best booking platform I've used. Highly recommend it!",
+    "name": "Dale",
+    "location": "Sydney, Australia",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    "rating": 5,
+    "title": "My go-to for self-care",
+    "description": "Fresha is my go-to app for massages and facials. I can easily find and book places near me — I love it!",
+    "name": "Cameron",
+    "location": "Edinburgh, UK",
+    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    "rating": 4.7,
+    "title": "Great way to discover new salons",
+    "description": "Recently moved to a new city and didn't know any salons. Fresha gave me a whole new list to choose from!",
+    "name": "Ciara",
+    "location": "Los Angeles, USA",
+    "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    "rating": 4.9,
+    "title": "Sleek app",
+    "description": "Such a sleek and powerful app. I highly recommend booking your appointments on Fresha.",
+    "name": "Jonny",
+    "location": "Melbourne, Australia",
+    "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    "rating": 4.5,
+    "title": "All my clients love it",
+    "description": "My clients love booking appointments online with Fresha. The consultation forms and free SMS reminders are so convenient.",
+    "name": "Anton",
+    "location": "Los Angeles, USA",
+    "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    "rating": 4.8,
+    "title": "So many great booking features",
+    "description": "Love this beauty booking app. There are so many great features to explore. The consultation forms and client reminder texts are great — best of all, it's free.",
+    "name": "Susan",
+    "location": "Brisbane, Australia",
+    "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face"
+  }
+]

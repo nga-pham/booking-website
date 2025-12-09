@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Col, Container, Navbar, Nav, Row, Card, Button, Image, Modal, Tabs, Tab } from "react-bootstrap";
 import { useNavigate, useParams } from 'react-router-dom';
 import { partnerDataWithId } from "../lib/utils";
-import StarRating from "../components/ui/StarRating"
+import {StarFilled} from "../components/ui/StarsRating"
 import DateTimeBooking from "../components/DateTimeBooking"
 import InformationFormBooking from "../components/InformationForm"
 import { chosenServiceProps } from "../components/ui/Interfaces"
@@ -279,7 +279,7 @@ const Booking = () => {
                                             <p style={{ fontSize: '1.1rem' }}><strong>{currentPartner.name}</strong></p>
                                             <p style={{ fontSize: '1.1rem' }}>
                                                 <strong>{currentPartner.rating}</strong>
-                                                <StarRating />({currentPartner.numberOfRating})
+                                                <StarFilled />({currentPartner.numberOfRating})
                                             </p>
                                             <p style={{ color: 'rgba(0,0,0,0.5)' }}>{currentPartner.address}</p>
                                         </Col>

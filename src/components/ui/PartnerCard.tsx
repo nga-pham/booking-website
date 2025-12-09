@@ -18,7 +18,7 @@ const PartnerCard = ({ partner, id, onClick } : PartnerCardProps) => {
     return (
         <div key={id} className="col-md-4">
             <Card
-                className="h-100 border-0 shadow-sm cursor-pointer transition-all hover:shadow-lg"
+                className="h-100 border-0 shadow-sm transition-all hover:shadow-lg"
                 style={{ cursor: "pointer" }}
                 onClick={onClick}
             >

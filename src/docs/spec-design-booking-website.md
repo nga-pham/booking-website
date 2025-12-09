@@ -155,7 +155,7 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 	- and custom toast when error occurs
 - Service section (cover 1.2, 1.3, 1.4): ```src/components/ServiceSection.tsx``` 
 	- contain custom card item for each shop: ```src/components/ui/PartnerCard.tsx```
-	- each card contain custom star rating: ```src/components/ui/StarRating.tsx```
+	- each card contain custom star rating: ```src/components/ui/StarFilled.tsx```
 - Testimonials section: ```src/components/Testimonials.tsx```
 - Footer: ```src/components/Footer.tsx```
 
@@ -177,7 +177,7 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 - Filter: ```src/components/Filter.tsx```
 - Shop list: ```src/components/ResultList.tsx``` 
 	- contains custom card item for each shop: ```src/components/ui/PartnerCard.tsx```
-	- each card contains custom star rating: ```src/components/ui/StarRating.tsx```
+	- each card contains custom star rating: ```src/components/ui/StarFilled.tsx```
 
 ## Detail page
 * Component route path for each shop detail, retrieved and rendered by id of the shop (Detail element)
@@ -192,7 +192,7 @@ The data of shops will be stored in JSON format, in single file ```src/data/part
 - Header: ```src/components/Header.tsx```
 - Breadcrumb: same as above: ```src/components/MyBreadcrumb.tsx```
 - Basic information: name, star rating, number of ratings, close or open now, address.
-	- contains custom star rating: ```src/components/ui/StarRating.tsx```
+	- contains custom star rating: ```src/components/ui/StarFilled.tsx```
 - Service section: ```src/components/ServiceTabs.tsx```
 	- each tab contains custom service card for each item: ```src/components/ServiceCard.tsx```
 

@@ -1,6 +1,6 @@
 ﻿import { Row } from "react-bootstrap";
 import Review from "../components/ui/Review";
-import StarRating from "../components/ui/StarRating";
+import {StarFilled} from "../components/ui/StarsRating";
 
 const ReviewList = ({ currentPartner }) => {
     const { rating, numberOfRating, reviews } = currentPartner
@@ -8,7 +8,7 @@ const ReviewList = ({ currentPartner }) => {
     return (
         <div className="text-start mt-5">
             <h3 style={{ fontWeight: 'bold' }}>Reviews</h3>
-            <div style={{ fontSize: '1.25rem' }}><strong>{rating}</strong><StarRating />({numberOfRating})</div>
+            <div style={{ fontSize: '1.25rem' }}><strong>{rating}</strong><StarFilled />({numberOfRating})</div>
 
             {/*review list here*/}
             <Row className="mt-3">
