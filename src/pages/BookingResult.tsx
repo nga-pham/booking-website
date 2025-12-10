@@ -1,14 +1,14 @@
 import { useLocation, Link } from "react-router-dom";
 import { Container, Card, Button } from "react-bootstrap";
 import { CheckCircle, Mail, ArrowLeft } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
-const BookingSuccess = () => {
+const BookingResult = () => {
   const location = useLocation();
-  const { email, date, time, vendorName, paidAmount } = location.state || {};
+  const {partnerName, chosenServices, chosenDateTime, chosenInfo, totalCost} = location.state || {};
 
-  if (paidAmount === 0)
+  if (totalCost === 0)
     return (
       <div className="min-vh-100 d-flex flex-column">
         <Header />
@@ -38,25 +38,21 @@ const BookingSuccess = () => {
                     An error occurred during payment processing.
                   </p>
 
-                  {vendorName && (
+                  {partnerName && (
                     <div className="mb-4 p-4 rounded" style={{ backgroundColor: "#f8f9fa" }}>
                       <h3 className="fw-semibold mb-3">Booking Details</h3>
                       <p className="mb-2">
-                        <strong>Vendor:</strong> {vendorName}
+                        <strong>Shop:</strong> {partnerName}
                       </p>
-                      {date && (
+                      {chosenDateTime && (
                         <p className="mb-2">
-                          <strong>Date:</strong> {date}
+                          <strong>Date:</strong> {chosenDateTime.toLocaleString()}
                         </p>
                       )}
-                      {time && (
-                        <p className="mb-2">
-                          <strong>Time:</strong> {time}
-                        </p>
-                      )}
-                      {email && (
+                      
+                      {chosenInfo.email && (
                         <p className="mb-0">
-                          <strong>Confirmation sent to:</strong> {email}
+                          <strong>Confirmation sent to:</strong> {chosenInfo.email}
                         </p>
                       )}
                     </div>
@@ -112,25 +108,20 @@ const BookingSuccess = () => {
                   Your appointment has been successfully scheduled.
                 </p>
 
-                {vendorName && (
+                {partnerName && (
                   <div className="mb-4 p-4 rounded" style={{ backgroundColor: "#f8f9fa" }}>
                     <h3 className="fw-semibold mb-3">Booking Details</h3>
                     <p className="mb-2">
-                      <strong>Vendor:</strong> {vendorName}
+                      <strong>Shop:</strong> {partnerName}
                     </p>
-                    {date && (
+                    {chosenDateTime && (
                       <p className="mb-2">
-                        <strong>Date:</strong> {date}
+                        <strong>Date:</strong> {chosenDateTime.toLocaleString()}
                       </p>
                     )}
-                    {time && (
-                      <p className="mb-2">
-                        <strong>Time:</strong> {time}
-                      </p>
-                    )}
-                    {email && (
+                    {chosenInfo.email && (
                       <p className="mb-0">
-                        <strong>Confirmation sent to:</strong> {email}
+                        <strong>Confirmation sent to:</strong> {chosenInfo.email}
                       </p>
                     )}
                   </div>
@@ -178,4 +169,4 @@ const BookingSuccess = () => {
   );
 };
 
-export default BookingSuccess;
+export default BookingResult;

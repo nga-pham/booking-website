@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Col, Container, Navbar, Nav, Row, Card, Button, Image, Modal, Tabs, Tab } from "react-bootstrap";
 import { useNavigate, useParams } from 'react-router-dom';
 import { partnerDataWithId } from "../lib/utils";
-import {StarFilled} from "../components/ui/StarsRating"
+import { StarFilled } from "../components/ui/StarsRating"
 import DateTimeBooking from "../components/DateTimeBooking"
 import InformationFormBooking from "../components/InformationForm"
 import { chosenServiceProps } from "../components/ui/Interfaces"
@@ -179,10 +179,16 @@ const Booking = () => {
     useEffect(() => {
         calculateTotalCost(chosenServices)
         calculateTotalDuration(chosenServices)
-        // TODO: send data to BookingResult
-        console.log(chosenServices, chosenDateTime, chosenInfo)
-    }, [chosenServices, chosenDateTime, chosenInfo]);
+    }, [chosenServices]);
 
+        // TODO: send data to BookingResult
+
+    useEffect(() => {
+        console.log(chosenServices, chosenDateTime, chosenInfo, totalCost)
+        if (chosenServices.length > 0 && chosenDateTime && chosenInfo) {
+            navigate('/booking-result', { state: { partnerName: currentPartner.name, chosenServices, chosenDateTime, chosenInfo, totalCost } })
+        }
+    }, [chosenServices, chosenDateTime, chosenInfo]);
 
     return (
         <div className="min-h-screen">
@@ -363,12 +369,12 @@ const Booking = () => {
                                     <Col className="text-start">Total</Col>
                                     <Col className="text-end">{totalCost.toLocaleString('vi-VN')} VND</Col>
                                 </Row>
-                                <ContinueButton 
-                                chosenServices={chosenServices} 
-                                serviceChosenCompleted={serviceChosenCompleted}
-                                dateTimeChosenCompleted={dateTimeChosenCompleted}
-                                chosenInfo={chosenInfo}
-                                changeToNextSection={changeToNextSection}
+                                <ContinueButton
+                                    chosenServices={chosenServices}
+                                    serviceChosenCompleted={serviceChosenCompleted}
+                                    dateTimeChosenCompleted={dateTimeChosenCompleted}
+                                    chosenInfo={chosenInfo}
+                                    changeToNextSection={changeToNextSection}
                                 />
                             </Card.Footer>
                         </Card>
