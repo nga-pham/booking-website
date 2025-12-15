@@ -9,6 +9,7 @@ import InformationFormBooking from "../components/InformationForm"
 import { chosenServiceProps } from "../components/ui/Interfaces"
 import ServiceCard from "../components/ui/ServiceCard";
 import { chosenInfoProps } from "../components/ui/Interfaces";
+import { supabase } from "../integrations/client";
 
 const ContinueButton = ({
     chosenServices,
@@ -72,6 +73,7 @@ const Booking = () => {
         if (!serviceChosenCompleted) setServiceChosenCompleted(true)
         if (serviceChosenCompleted && !dateTimeChosenCompleted) setDateTimeChosenCompleted(true)
         // TODO: send booking data
+        if (serviceChosenCompleted && dateTimeChosenCompleted) handleCompleteBooking()
     }
 
     // handle back to detail page or stay
@@ -181,13 +183,48 @@ const Booking = () => {
         calculateTotalDuration(chosenServices)
     }, [chosenServices]);
 
-        // TODO: send data to BookingResult
+    // TODO: send data to BookingResult
+    const handleCompleteBooking = async () => {
+        console.log(chosenServices, chosenDateTime, chosenInfo, totalDuration, totalCost)
+
+        if (chosenServices.length > 0 && chosenDateTime && chosenInfo) {
+            try {
+                const { data, error } = await supabase.functions.invoke('send-booking-confirmation', {
+                    body: {
+                        partnerName: currentPartner.name,
+                        chosenServices,
+                        chosenDateTime,
+                        chosenInfo,
+                        totalDuration,
+                        totalCost,
+                        appUrl: window.location.origin,
+                    }
+                });
+
+                if (error) {
+                    console.error("Error sending confirmation email:", error);
+                }
+
+                navigate('/booking-result', { state: { 
+                    partnerName: currentPartner.name, chosenServices, chosenDateTime, chosenInfo, totalDuration, totalCost 
+                } })
+
+            } catch (error) {
+                console.error("Error completing booking:", error);
+                // Still navigate to success page even if email fails
+                /* navigate('/booking-result', { state: { 
+                    partnerName: currentPartner.name, chosenServices, chosenDateTime, chosenInfo, totalDuration, totalCost
+                 } }) */
+            }
+        }
+
+    }
 
     useEffect(() => {
-        console.log(chosenServices, chosenDateTime, chosenInfo, totalCost)
-        if (chosenServices.length > 0 && chosenDateTime && chosenInfo) {
-            navigate('/booking-result', { state: { partnerName: currentPartner.name, chosenServices, chosenDateTime, chosenInfo, totalCost } })
-        }
+        // console.log(chosenServices, chosenDateTime, chosenInfo, totalCost)
+        // if (chosenServices.length > 0 && chosenDateTime && chosenInfo) {
+        //     navigate('/booking-result', { state: { partnerName: currentPartner.name, chosenServices, chosenDateTime, chosenInfo, totalCost } })
+        // }
     }, [chosenServices, chosenDateTime, chosenInfo]);
 
     return (
