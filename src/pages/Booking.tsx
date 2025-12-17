@@ -183,7 +183,7 @@ const Booking = () => {
         calculateTotalDuration(chosenServices)
     }, [chosenServices]);
 
-    // TODO: send data to BookingResult
+    // send data to BookingResult
     const handleCompleteBooking = async () => {
         console.log(chosenServices, chosenDateTime, chosenInfo, totalDuration, totalCost)
 

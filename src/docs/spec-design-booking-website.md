@@ -99,7 +99,7 @@ In main section:
 
 When user click in "Book now", they will be redirected to booking and payment pages.
 
-### 6. Booking and payment pages
+### 6. Booking pages
 In booking page, user will go through a booking process when they will book services => book date and time => fill in information form => confirm their booking.
 The booking page therefore contains 2 sections:
 * The left section: contains booking process.
@@ -124,7 +124,16 @@ The booking page therefore contains 2 sections:
 
 	Each piece of information will display in one line, with icons on the left.
 
-After completing it, user will click button "Continue". Their information will be saved in the system and they will be redirected to payment page.
+After completing it, user will click button "Continue". Their information will be saved in the system.
+
+### 7. Confirmation page
+After pressing button "Continue", user's booking information will be checked if it's valid. 
+If system cannot send email, display an error sending email.
+Else navigate to BookingResult page.
+If totalCost = 0, display an error during payment processing.
+Else if all data is valid, the detail information will be sent to user's email (in booking confirmation) and user will be redirected to confirmation page, showing that their appointment has been successfully scheduled, basic information and 2 button: "Check email confirmation" and "Return to home". If user want to check email, their email will be opened. In confirmation email, they will see detail booking confirmation, and a button to go to Payment page, where they continue to pay. If user want to return to home, they will be redirected to home page.
+
+![Flow chart for confirmation page](./Flow-chart-confirmation-page.png "Flow chart for confirmation page here")
 
 # System design
 The system will be designed in Component-Based Architecture.

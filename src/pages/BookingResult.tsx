@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 
 const BookingResult = () => {
   const location = useLocation();
-  const {partnerName, chosenServices, chosenDateTime, chosenInfo, totalCost} = location.state || {};
+  const {partnerName, chosenServices, chosenDateTime, chosenInfo, totalDuration, totalCost} = location.state || {};
 
   if (totalCost === 0)
     return (
